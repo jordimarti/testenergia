@@ -1,0 +1,79 @@
+<div class="main-content">
+	<div class="container">
+		<div class="row">
+			<h2 class="page-title">AutoTest Energia</h2>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<%= render(:partial => "menu", :locals => {:active_dades_generals => 'active-section'}) %>
+			</div>
+			<div class="col-md-7 col-md-offset-1">
+				<h3>Dades generals</h3>
+				<form role="form">
+					<p>Cada comarca té unes condicions climàtiques diferents, que determinen l'aïllament tèrmic que ha de tenir la casa i quines són les eines necessàries per crear un bon confort interior sense tenir un excés de consum energètic.</p>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Comarca</label>
+						<select name="clima" id="clima"  class="form-control">
+							<option value="C2">Alt Camp</option>
+							<option value="C2">Alt Empordà</option>
+							<option value="C1">Alt Penedès</option>
+							<option value="E1">Alt Urgell</option>
+							<option value="E1">Alta Ribagorça</option>
+							<option value="D1">Anoia</option>
+							<option value="C1">Bages</option>
+							<option value="C2">Baix Camp</option>
+							<option value="B3">Baix Ebre</option>
+							<option value="C2">Baix Empordà</option>
+							<option value="C2">Baix Llobregat</option>
+							<option value="B3">Baix Penedès</option>
+							<option value="C2" selected="selected">Barcelonès</option>
+							<option value="E1">Berguedà</option>
+							<option value="E1">Cerdanya</option>
+							<option value="D1">Conca de Barberà</option>
+							<option value="C2">Garraf</option>	
+							<option value="E1">Garrigues</option>
+							<option value="D1">Garrotxa</option>
+							<option value="C2">Gironès</option>
+							<option value="C2">Maresme</option>
+							<option value="B3">Montsià</option>
+							<option value="D2">Noguera</option>
+							<option value="D1">Osona</option>
+							<option value="E1">Pallars Jussà</option>
+							<option value="E1">Pallars Sobirà</option>
+							<option value="D2">Pla d'Urgell</option>
+							<option value="C2">Pla de l'Estany</option>
+							<option value="C2">Priorat</option>
+							<option value="B3">Ribera d'Ebre</option>
+							<option value="E1">Ripollès</option>
+							<option value="E1">Segarra</option>
+							<option value="D2">Segrià</option>
+							<option value="C2">Selva</option>
+							<option value="E1">Solsonès</option>
+							<option value="B3">Tarragonès</option>
+							<option value="C2">Terra Alta</option>
+							<option value="E1">Urgell</option>
+							<option value="E1">Val d'Aran</option>
+							<option value="C2">Vallès Occidental</option>
+							<option value="C2">Vallès Oriental</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1">Password</label>
+						<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputFile">File input</label>
+						<input type="file" id="exampleInputFile">
+						<p class="help-block">Example block-level help text here.</p>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox"> Check me out
+						</label>
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

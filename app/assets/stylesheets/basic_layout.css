@@ -1,0 +1,41 @@
+body {
+    /*font-family: 'Whitney SSm 4r','Whitney SSm A','Whitney SSm B','Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	line-height: 28px;
+	font-weight: 400;   */ 
+}
+
+.navbar {
+    margin-bottom: 4px;   
+}
+
+.navbar-default {
+    background-color: white;
+    border-color: white;
+}
+
+.navbar-toggle {
+    margin-top: 35px;   
+}
+
+.navbar-brand {
+    padding-left: 0px;   
+}
+
+.navbar-buttons-container {
+    float: right;
+    margin-top: 35px;
+}
+
+.navbar-nav > li > a {
+    padding: 5px 10px 5px 10px;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    background-color: #e2f2ee;
+    border-radius: 5px;
+}
+
+.navbar-collapse {
+    margin-top: 36px;   
+}
