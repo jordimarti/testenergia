@@ -5,6 +5,25 @@ body {
 	font-weight: 400;   */ 
 }
 
+.sessionbar {
+    background-color: #0E91A1;
+    height: 30px;
+}
+
+.sessionbar-text {
+    color: white;
+    margin: 0px 15px 0px 0px;
+    font-size: 13px;
+}
+
+.sessionbar-link {
+    color: white;
+}
+
+.sessionbar-link:hover {
+    color: white;
+}
+
 .navbar {
     margin-bottom: 4px;   
 }

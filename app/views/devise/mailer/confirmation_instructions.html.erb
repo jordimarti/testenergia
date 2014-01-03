@@ -1,0 +1,5 @@
+<p>Benvingut/da <%= @email %>!</p>
+
+<p>Podeu confirmar el correu electrònic del vostre compte clicant el següent enllaç:</p>
+
+<p><%= link_to 'Confirmar el meu compte', confirmation_url(@resource, :confirmation_token => @token) %></p>

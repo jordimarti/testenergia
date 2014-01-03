@@ -1,0 +1,7 @@
+<p>Hola <%= @resource.email %>!</p>
+
+<p>El seu compte ha estat bloquejat per haver intentat iniciar sessió incorrectament massa vegades.</p>
+
+<p>Cliqueu a l'enllaç inferior per desbloquejar el vostre compte.</p>
+
+<p><%= link_to 'Desbloquejar el meu compte', unlock_url(@resource, :unlock_token => @token) %></p>

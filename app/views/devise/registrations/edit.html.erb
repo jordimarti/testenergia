@@ -1,0 +1,29 @@
+<h2>Editar <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :email, "Correu electrònic" %><br />
+  <%= f.email_field :email, :autofocus => true %></div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div><%= f.label :password, "Contrasenya" %> <i>(deixar en blanc si no la voleu canviar)</i><br />
+  <%= f.password_field :password, :autocomplete => "off" %></div>
+
+  <div><%= f.label :password_confirmation, "Confirmació de contrasenya" %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <div><%= f.label :current_password, "Contrasenya actual" %> <i>(necessitem la vostra contrasenya actual per efectuar els canvis)</i><br />
+  <%= f.password_field :current_password %></div>
+
+  <div><%= f.submit "Actualitzar" %></div>
+<% end %>
+
+<h3>Cancel·lar el meu compte</h3>
+
+<p>Esteu descontents? <%= button_to "Cancel·lar el meu compte", registration_path(resource_name), :data => { :confirm => "N'esteu segurs?" }, :method => :delete %></p>
+
+<%= link_to "Enrere", :back %>
