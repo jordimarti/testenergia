@@ -1,0 +1,12 @@
+<h1>Buildings#index</h1>
+<h3>ID de l'usuari: <%= current_user.id %></h3>
+<% @buildings.each do |building| %>
+<p>
+	<%= building.name %>
+	<%= link_to("Show", {:action => 'show', :id => building.id}, :class => 'action show') %>
+  <%= link_to("Edit", {:action => 'edit', :id => building.id}, :class => 'action edit') %>
+  <%= link_to("Delete", {:action => 'delete', :id => building.id}, :class => 'action delete') %>
+</p>
+<% end %>
+
+<%= link_to("Afegir un nou edifici", {:action => 'new'}, :class => 'action new') %>

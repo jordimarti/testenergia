@@ -36,6 +36,9 @@ gem 'devise-i18n', '~> 0.10.2'
 # Figaro for environment variables
 gem 'figaro', '~> 0.7.0'
 
+# Error messages
+gem "dynamic_form"
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

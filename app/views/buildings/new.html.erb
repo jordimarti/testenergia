@@ -1,0 +1,31 @@
+<h1>Buildings#new</h1>
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="subjects new">
+  <h2>Crear un nou edifici</h2>
+
+  <%= form_for(:building, :url => {:action => 'create'}) do |f| %>
+
+    <table summary="Subject form fields">
+      <tr>
+        <th>Nom de l'edifici</th>
+        <td><%= f.text_field(:name) %></td>
+      </tr>
+      <tr>
+        <th>Àrea de l'edifici</th>
+        <td><%= f.text_field(:area) %></td>
+      </tr>
+      <tr>
+        <th>ID usuari</th>
+        <td><%= f.text_field(:user_id) %></td>
+      </tr>
+      
+    </table>
+
+    <div class="form-buttons">
+      <%= submit_tag("Crear nou edifici") %>
+    </div>
+
+  <% end %>
+</div>
+

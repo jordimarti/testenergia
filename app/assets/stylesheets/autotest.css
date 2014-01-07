@@ -1,19 +1,4 @@
-h2.page-title {
-    margin: 15px 0px 30px 0px;   
-    padding: 15px 0px 30px 0px;
-    font-family: 'Whitney SSm 4r','Whitney SSm A','Whitney SSm B','Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 600;
-    font-size: 40px;
-    text-align: center;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-bottom-color: #999;
-}
 
-.main-content {
-    background-color: #e2f2ee;
-    padding-bottom: 40px;
-}
 
 .main-content-inici {
     background-color: #e2f2ee;

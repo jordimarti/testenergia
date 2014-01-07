@@ -209,12 +209,16 @@ ca:
       update: 'Actualizar %{model}'
       submit: 'Guardar %{model}'
 
+    text_field:
+      building: 
+        name: 'Nom edifici'
+
 
   errors:
     format: "%{attribute} %{message}"
 
     messages: &errors_messages
-      inclusion: "no està incluós a la llista"
+      inclusion: "no està inclòs a la llista"
       exclusion: "està reservat"
       invalid: "no és vàlid"
       confirmation: "no coincideix"
@@ -237,6 +241,8 @@ ca:
       even: "ha de ser parell"
 
   activerecord:
+    models:
+      building: "Edifici"
     errors:
       template:
         header:
