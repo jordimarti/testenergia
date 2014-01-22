@@ -1,7 +1,19 @@
 Testenergia::Application.routes.draw do
   
+  get "xprojects/create_from_project"
+  get "xprojects/show"
+  get "xprojects/new"
+  get "xprojects/edit"
+  get "xprojects/delete"
+  get "projects/index"
+  get "projects/show"
+  get "projects/new"
+  get "projects/edit"
+  get "projects/delete"
+  devise_for :admins
+  devise_for :experts
   devise_for :users
-  get "autotest/index"
+  #get "autotest/index"
   #get "home/index"
 
   root "home#index"

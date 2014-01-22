@@ -1,0 +1,196 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to :action => 'index' do %>
+      <div class="btn button-page-menu"><span class="glyphicon glyphicon-arrow-left"> </span> Tornar a la llista de projectes</div>
+    <% end %>
+    <h2 class="page-title">Editar projecte</h2>
+  </div>
+</div>
+<%= form_for(:project, :url => {:action => 'update', :id => @project.id}) do |f| %>
+<div class="row">
+  <div class="col-md-4 side-content">
+    
+    <h3>Dades generals</h3>
+
+    <p>Cada comarca té unes condicions climàtiques diferents, que determinen l'aïllament tèrmic que ha de tenir la casa i quines són les eines necessàries per crear un bon confort interior sense tenir un excés de consum energètic.</p>
+    <p>Els edificis construïts abans de 1979, no tenen un aïllament tèrmic adequat, per això, tenen deficiències i solen consumir molta energia per climatitzar. Després de l’aplicació de la Norma Bàsica de l’Edificació del 1979, els edificis es van construir amb certes condicions tèrmiques, però encara insuficients. A partir de 2007 i, amb l’entrada en vigor del CTE, els requisits mínims ja s'adeqüen a les condicions tèrmiques necessàries per un consum energètic menor.</p>
+  </div>
+  <div class="col-md-8 principal-content">
+    
+    
+
+      <%= f.error_messages %>
+      
+      <%= f.hidden_field :user_id, { :value => current_user.id } %>
+
+      <div class="form-group"><%= f.label :name, "Nom del projecte" %><br />
+      <span class="text-tips">Per exemple "Casa a Sant Celoni" o "Pis de Balmes, n.220"</span><br />
+      <%= f.text_field :name, :autofocus => true, :class => 'form-control' %></div>
+
+      <div class="form-group"><%= f.label :project_type, "Tipus de projecte" %><br />
+      <%= f.select(:project_type, [['', 0],['Habitatge dins d\'un edifici', 1], ['Habitatge unifamiliar', 2], ['Edifici d\'habitatges', 3]], {}, {:class => 'form-control'}) %>
+      </div>
+      <div class="hidden-content hidden-project-type" id="project_type_unifamiliar">
+        <%= image_tag("casa.png", class: "hidden-image", width: "180", height: "134") %>
+        <p>El tipus d'habitatge o edifici condiciona el consum d'energia final. Un habitatge unifamiliar aïllat té molta més pell en contacte amb l'exterior, per tant té molta superfície que guanya calor a l'estiu i perd calor a l'hivern. Si l'habitatge està adossat a altres habitatges consumirà menys energia per a la seva climatització.</p>
+      </div>
+      <div class="hidden-content hidden-project-type" id="project_type_pis">
+        <%= image_tag("pis.png", class: "hidden-image", width: "180", height: "134") %>
+        <p>L'avantatge dels habitatges situats dins d'un edifici és que tenen poca pell en contacte amb l'exterior. Tot i així hi ha molta variabilitat, depenent de la situació de l'habitatge dins l'edifici i també de la forma de l'edifici. Per a l'AutoTest no es té en compte aquesta característica, però en cas de contractar un Test Energia serà un dels factors importants que comprovarà l'expert a l'hora de fer l'informe.</p>
+      </div>
+      <div class="hidden-content hidden-project-type" id="project_type_edifici">
+        <%= image_tag("edifici2.png", class: "hidden-image", width: "180", height: "134") %>
+        <p>Resulta més útil fer un estudi energètic d'un edifici sencer que d'un sol habitatge dins l'edifici, perquè les propostes de millora poden ser més ambicioses. Per exemple no es pot recomanar aïllar per l'exterior un sol pis, però sí que es pot fer si s'estudia l'edifici en conjunt. Cal tenir en compte que l'AutoTest tan sols fa referència a la part residencial d'un edifici, no inclou els locals comercials.</p>
+      </div>
+
+      <div class="form-group"><%= f.label :region, "Comarca" %><br />
+      <%= f.select(:region, [['Alt Camp'], ['Alt Empordà'], ['Barcelona']], {}, {:class => 'form-control'}) %>
+      </div>
+
+      <div class="form-group"><%= f.label :address, "Adreça completa" %><br />
+      <%= f.text_field :address, :class => 'form-control' %></div>
+
+      <div class="form-group"><%= f.label :cadastre, "Referència cadastral" %><br />
+      <%= f.text_field :cadastre, :class => 'form-control' %></div>
+
+      <div class="form-group"><%= f.label :construction_period, "Període de construcció de l'edifici" %><br />
+        <span class="text-tips">Si hi ha hagut una gran rehabilitació posar el període de la rehabilitació</span><br />
+      <%= f.select(:construction_period, [['', 0], ['Abans de 1981', 1], ['Entre 1981 i 1987', 2], ['Entre 1988 i 2006', 3], ['Després del 2006', 4]], {}, {:class => 'form-control'}) %>
+      </div>
+      <div class="hidden-content hidden-construction-period" id="anterior1981">
+        <%= image_tag("anterior1981.png", class: "hidden-image", width: "180", height: "134") %>
+        <p>Els edificis construïts abans del 1981 no havien d'estar aïllats per normativa, i en la majoria dels casos no ho estaven. Això provoca grans pèrdues de calor i per tant incrementa molt el consum d'energia per climatitzar l'edifici.</p>
+      </div>
+      <div class="hidden-content hidden-construction-period" id="1981-2006">
+        <%= image_tag("1981-2006.png", class: "hidden-image", width: "180", height: "134") %>
+        <p>Els edificis construïts entre el 1981 i el 2006 tenen aïllament tèrmic. Tot i així, s'exigia un nivell d'aïllament molt baix i hi ha un gran marge de millora per a aquests edificis.</p>
+      </div>
+      <div class="hidden-content hidden-construction-period" id="posterior2006">
+        <%= image_tag("posterior2006.png", class: "hidden-image", width: "180", height: "134") %>
+        <p>Els edificis construïts després del 2006 han de complir amb les exigències del Codi Tècnic de l'Edificiació. Aquests edificis estan més ben aïllats i per tant permeten un estalvi energètic important respecte els edificis construïts anteriorment. Tot i així si l'edifici s'ha construït complint els mínims exigits per normativa encara hi ha molt marge de millora per incrementar la seva eficiència.</p>
+      </div>
+
+      <div class="form-group"><%= f.label :area, "Superfície útil" %><br />
+      <span class="text-tips">Posar valor en metres quadrats</span><br />
+      <%= f.text_field :area, :class => 'form-control' %></div>
+
+      
+
+      
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4 side-content">
+    <h3>Façanes i cobertes</h3>
+    <p>Les façanes, les cobertes i els terres formen l'envoltant dels edificis. Millorar les prestacions tèrmiques d'aquests elements comporta una inversió, però suposa un gran augment de confort interior, així com una gran reducció de la despesa energètica de la llar. </p>
+  </div>
+  <div class="col-md-8 principal-content">
+    
+    <div class="form-group"><%= f.label :facade_improvements, "Heu fet alguna millora a les façanes de l'edifici?" %><br />
+    <%= f.select(:facade_improvements, [['Sí, i s\'han millorat les seves característiques d\'aïllament tèrmic'], ['Sí, però únicament s\'ha reparat el que estava malmès'], ['No, però es volen millorar properament'], ['No']], {}, {:class => 'form-control'}) %>
+    </div>
+
+    <div class="form-group"><%= f.label :roof_improvements, "Heu fet alguna rehabilitació a la coberta?" %><br />
+    <%= f.select(:roof_improvements, [['Sí, i s\'han millorat les seves característiques d\'aïllament tèrmic'], ['Sí, però únicament s\'ha reparat el que estava malmès'], ['No, però es vol millorar properament'], ['No']], {}, {:class => 'form-control'}) %>
+    </div>
+
+    <div class="form-group"><%= f.label :window_type, "Quin tipus de finestres teniu instal·lades?" %><br />
+    <span class="text-tips">Si en teniu de diversos tipus seleccioneu l'opció més majoritària</span><br />
+    <%= f.select(:roof_improvements, [['Finestra de fusta amb vidre senzill'], ['Finestra de fusta amb vidre doble i cambra d\'aire'], ['Finestra metàl·lica de vidre senzill'], ['Finestra metàl·lica amb vidre doble i cambra d\'aire']], {}, {:class => 'form-control'}) %>
+    </div>
+
+    <div class="form-group"><%= f.label :window_improvements, "Heu renovat les finestres?" %><br />
+    <%= f.select(:window_improvements, [['Sí, per millorar les seves prestacions tèrmiques'], ['No, però es volen canviar'], ['No']], {}, {:class => 'form-control'}) %>
+    </div>
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4 side-content">
+    <h3>Sistemes de confort de l'habitatge</h3>
+    <p>Cal conèixer bé les nostres necessitats i les nostres possibilitats per poder decidir quina és l’opció més adient. Segons l'estudi realitzat per l'IDAE, el 2011, el 61% de la població a Espanya té una caldera convencional i la mitjana de vida d'aquestes és de 7 anys, el que comporta una obsolescència tecnològia que es deriva a un major consum d'energia i una major despesa econòmica. </p>
+  </div>
+  <div class="col-md-8 principal-content">
+    <div class="form-group"><%= f.label :hot_water_type, "Quin sistema teniu per escalfar l'aigua?" %><br />
+    <%= f.select(:hot_water_type, [['Aigua calenta amb gas natural'], ['Aigua calenta i calefacció amb gas natural'], ['Aigua calenta amb gasoil'], ['Aigua calenta i calefacció amb gasoil'], ['Aigua calenta amb gas natural i captadors solars'], ['Aigua calenta amb gasoil i captadors solars'], ['Aigua calenta amb electricitat'], ['Aigua calenta i calefacció amb electricitat'], ['Aigua calenta amb biomassa']], {}, {:class => 'form-control'}) %>
+    </div>
+
+    <div class="form-group"><%= f.label :hot_water_improvements, "Heu realitzat alguna millora en el sistema de producció d'aigua calenta?" %><br />
+    <%= f.select(:hot_water_improvements, [['Sí, he renovat l\'aparell/s recentment per un d\'alt rendiment'], ['No, però ho vull fer'], ['No']], {}, {:class => 'form-control'}) %>
+    </div>
+
+    <div class="form-group"><%= f.label :heating_type, "Quin tipus de calefacció teniu instal·lada?" %><br />
+    <%= f.select(:heating_type, [['Radiadors d\'aigua'], ['Radiadors elèctrics'], ['Terra radiant'], ['Climatitzador'], ['No hi ha calefacció']], {}, {:class => 'form-control'}) %>
+    </div>
+
+    <div class="form-group"><%= f.label :heating_improvements, "Heu realitzat alguna millora en el sistema de calefacció?" %><br />
+    <%= f.select(:heating_improvements, [['Sí, he renovat l\'aparell/s recentment per un d\'alt rendiment'], ['No, però ho vull fer'], ['No']], {}, {:class => 'form-control'}) %>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div><%= f.submit "Guardar les dades", :class => "btn button-default" %></div>
+
+    <% end %>
+
+<script>
+  $(document).ready(function() { 
+    $(".hidden-content").hide();
+
+    $("#project_project_type").change(function() {
+      var selected_value = $("#project_project_type").val();
+      switch(selected_value) {
+        case '0':
+          $(".hidden-project-type").hide();
+          break;
+        case '1':
+          $(".hidden-project-type").hide();
+          $("#project_type_pis").show();
+          break;
+        case '2':
+          $(".hidden-project-type").hide();
+          $("#project_type_unifamiliar").show();
+          break;
+        case '3':
+          $(".hidden-project-type").hide();
+          $("#project_type_edifici").show();
+          break;
+      }
+    });
+
+    $("#project_construction_period").change(function() {
+      var selected_value = $("#project_construction_period").val();
+      switch(selected_value) {
+        case '0':
+          $(".hidden-construction-period").hide();
+          break;
+        case '1':
+          $(".hidden-construction-period").hide();
+          $("#anterior1981").show();
+          break;
+        case '2':
+          $(".hidden-construction-period").hide();
+          $("#1981-2006").show();
+          break;
+        case '3':
+          $(".hidden-construction-period").hide();
+          $("#potserior2006").show();
+          break;
+      }
+    });
+
+  });
+</script>

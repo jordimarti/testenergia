@@ -1,0 +1,32 @@
+
+<div class="row">
+  <div class="col-md-12">
+		<h2 class="page-title">Dades del projecte</h2>
+	</div>
+</div>
+<div class="row">
+  <div class="col-md-4 side-content">
+    <%= link_to :action => 'index' do %>
+			<div class="btn button-page-menu"><span class="glyphicon glyphicon-arrow-left"> </span> Tornar a la llista de projectes</div>
+		<% end %>
+    <hr />
+    <p class="side-description">Recordeu que si voleu un informe més detallat i complet, juntament amb una certificació energètica vàlida a efectes legals, podeu contractar un Test Energia.</p>
+    <%= link_to :action => 'create_from_project', :id => @project.id do %>
+			<div class="btn button-page-menu"><span class="glyphicon glyphicon-shopping-cart"> </span> Contractar Test Energia</div> 
+		<% end %>
+    </div>
+  <div class="col-md-8 principal-content">
+		<h3><%= @project.name %></h3>
+		<h4>Adreça:</h4>
+		<p><%= @project.address %></p>
+		<h4>Període de construcció:</h4>
+		<p><%= @project.construction_period %></p>
+		<h4>Tipus de projecte:</h4>
+		<p><%= @project.project_type %></p>
+		<h4>Superfície útil:</h4>
+		<p><%= @project.area %></p>
+		<h4>Millores en façana:</h4>
+		<p><%= @project.facade_improvements %></p>
+	</div>
+</div>
+

@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-12">
+			<h2 class="page-title">Llistat de projectes</h2>
+		</div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 side-content">
+    	<p class="side-description">Des d'aquest apartat podeu gestionar els vostres projectes. Els projectes poden ser còpies d'un projecte creat per un client mitjantçant l'AutoTest. Si modifiqueu o afegiu dades el client no ho veurà, això és la vostra còpia de treball. De la mateixa manera si el client modifica un projecte que ja ha estat assignat vosaltres no veureu els canvis.</p>
+    </div>
+    <div class="col-md-8 principal-content">
+			<% @xprojects.each do |xproject| %>
+			<div class="project-container">
+				<h3><%= xproject.name %></h3>
+				<div class="buttons-container">
+					<%= link_to :action => 'show', :id => xproject.id do %>
+						<div class="btn button-default"><span class="glyphicon glyphicon-file"> </span> Veure informe</div> 
+					<% end %>
+
+					<%= link_to :action => 'edit', :id => xproject.id do %>
+						<div class="btn button-default"><span class="glyphicon glyphicon-pencil"> </span> Editar dades</div>
+					<% end %>
+
+					<%= link_to :action => 'delete', :id => xproject.id do %>
+						<div class="btn button-default"><span class="glyphicon glyphicon-trash"> </span> Eliminar</div> 
+					<% end %>
+
+					<%= link_to :action => 'write_file', :id => xproject.id do %>
+						<div class="btn button-default"><span class="glyphicon glyphicon-share-alt"> </span> Crear arxiu CE3X</div> 
+					<% end %>
+
+ 
+				</div>
+			</div>
+			<% end %>
+			
+			<%= link_to :action => 'new' do %>
+				<div class="btn button-new"><span class="glyphicon glyphicon-plus"> </span> Crear un nou projecte</div> 
+			<% end %>
+		
+  		
+    </div>
+  </div>

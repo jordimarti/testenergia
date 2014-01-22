@@ -1,0 +1,18 @@
+<div class="row">
+	<div class="col-md-12">
+		<h2>Quadre de control</h2>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+		<% @users.each do |user| %>
+			<p><%= user.first_name + ' ' + user.surname1 + ' ' + user.surname2 %> - <%= user.email %></p>
+			<ul>
+			<% user.projects.each do |project| %>
+				<li><%= link_to(project.name, {:action => '../xprojects/edit', :id => project.id}, :class => 'action edit') %></li>
+			<% end %>
+			</ul>
+		<% end %>
+	</div>
+</div>

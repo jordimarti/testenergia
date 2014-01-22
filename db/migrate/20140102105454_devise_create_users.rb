@@ -35,6 +35,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :surname1
       t.string :surname2
 
+      ## Expert assigned to user
+      t.integer :expert_id
+
       t.timestamps
     end
 

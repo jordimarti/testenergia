@@ -1,0 +1,131 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to :action => 'index' do %>
+      <div class="btn button-page-menu"><span class="glyphicon glyphicon-arrow-left"> </span> Tornar a la llista de projectes</div>
+    <% end %>
+    <h2 class="page-title">Editar projecte</h2>
+  </div>
+</div>
+<%= form_for(:xproject, :url => {:action => 'update', :id => @xproject.id}) do |f| %>
+
+    
+
+      <%= f.error_messages %>
+      
+      
+
+<div class="row">
+  <div class="col-md-4 side-content">
+    
+    <h3>Dades generals</h3>
+
+    
+  </div>
+  <div class="col-md-8 principal-content">
+    
+    
+
+      
+      
+
+      <div class="form-group"><%= f.label :user_id, "Identificador d'usuari" %><br />
+      <%= f.text_field :user_id, :class => 'form-control' %></div>
+
+      <div class="form-group"><%= f.label :name, "Nom del projecte" %><br />
+      <span class="text-tips">Per exemple "Casa a Sant Celoni" o "Pis de Balmes, n.220"</span><br />
+      <%= f.text_field :name, :autofocus => true, :class => 'form-control' %></div>
+
+      <div class="form-group"><%= f.label :project_type, "Tipus de projecte" %><br />
+      <%= f.select(:project_type, [['Habitatge dins d\'un edifici'], ['Habitatge unifamiliar'], ['Edifici d\'habitatges']], {}, {:class => 'form-control'}) %>
+      </div>
+
+      <div class="form-group"><%= f.label :region, "Comarca" %><br />
+      <%= f.select(:region, [['Alt Camp'], ['Alt Empordà'], ['Barcelona']], {}, {:class => 'form-control'}) %>
+      </div>
+
+      <div class="form-group"><%= f.label :address, "Adreça completa" %><br />
+      <%= f.text_field :address, :class => 'form-control' %></div>
+
+      <div class="form-group"><%= f.label :cadastre, "Referència cadastral" %><br />
+      <%= f.text_field :cadastre, :class => 'form-control' %></div>
+
+      <div class="form-group"><%= f.label :construction_period, "Període de construcció de l'edifici" %><br />
+        <span class="text-tips">Si hi ha hagut una gran rehabilitació posar el període de la rehabilitació</span><br />
+      <%= f.select(:construction_period, [['Abans de 1981', 1], ['Entre 1981 i 1987', 2], ['Entre 1988 i 2006', 3], ['Després del 2006', 4]], {}, {:class => 'form-control'}) %>
+      </div>
+
+      <div class="form-group"><%= f.label :area, "Superfície útil" %><br />
+      <span class="text-tips">Posar valor en metres quadrats</span><br />
+      <%= f.text_field :area, :class => 'form-control' %></div>
+
+      
+
+      
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4 side-content">
+    <h3>Façanes i cobertes</h3>
+    
+  </div>
+  <div class="col-md-8 principal-content">
+    
+    <div class="form-group"><%= f.label :facade_improvements, "Heu fet alguna millora a les façanes de l'edifici?" %><br />
+    <%= f.select(:facade_improvements, [['Sí, i s\'han millorat les seves característiques d\'aïllament tèrmic'], ['Sí, però únicament s\'ha reparat el que estava malmès'], ['No, però es volen millorar properament'], ['No']], {}, {:class => 'form-control'}) %>
+    </div>
+
+    <div class="form-group"><%= f.label :roof_improvements, "Heu fet alguna rehabilitació a la coberta?" %><br />
+    <%= f.select(:roof_improvements, [['Sí, i s\'han millorat les seves característiques d\'aïllament tèrmic'], ['Sí, però únicament s\'ha reparat el que estava malmès'], ['No, però es vol millorar properament'], ['No']], {}, {:class => 'form-control'}) %>
+    </div>
+
+    <div class="form-group"><%= f.label :window_type, "Quin tipus de finestres teniu instal·lades?" %><br />
+    <span class="text-tips">Si en teniu de diversos tipus seleccioneu l'opció més majoritària</span><br />
+    <%= f.select(:roof_improvements, [['Finestra de fusta amb vidre senzill'], ['Finestra de fusta amb vidre doble i cambra d\'aire'], ['Finestra metàl·lica de vidre senzill'], ['Finestra metàl·lica amb vidre doble i cambra d\'aire']], {}, {:class => 'form-control'}) %>
+    </div>
+
+    <div class="form-group"><%= f.label :window_improvements, "Heu renovat les finestres?" %><br />
+    <%= f.select(:window_improvements, [['Sí, per millorar les seves prestacions tèrmiques'], ['No, però es volen canviar'], ['No']], {}, {:class => 'form-control'}) %>
+    </div>
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4 side-content">
+    <h3>Sistemes de confort de l'habitatge</h3>
+    
+  </div>
+  <div class="col-md-8 principal-content">
+    <div class="form-group"><%= f.label :hot_water_type, "Quin sistema teniu per escalfar l'aigua?" %><br />
+    <%= f.select(:hot_water_type, [['Aigua calenta amb gas natural'], ['Aigua calenta i calefacció amb gas natural'], ['Aigua calenta amb gasoil'], ['Aigua calenta i calefacció amb gasoil'], ['Aigua calenta amb gas natural i captadors solars'], ['Aigua calenta amb gasoil i captadors solars'], ['Aigua calenta amb electricitat'], ['Aigua calenta i calefacció amb electricitat'], ['Aigua calenta amb biomassa']], {}, {:class => 'form-control'}) %>
+    </div>
+
+    <div class="form-group"><%= f.label :hot_water_improvements, "Heu realitzat alguna millora en el sistema de producció d'aigua calenta?" %><br />
+    <%= f.select(:hot_water_improvements, [['Sí, he renovat l\'aparell/s recentment per un d\'alt rendiment'], ['No, però ho vull fer'], ['No']], {}, {:class => 'form-control'}) %>
+    </div>
+
+    <div class="form-group"><%= f.label :heating_type, "Quin tipus de calefacció teniu instal·lada?" %><br />
+    <%= f.select(:heating_type, [['Radiadors d\'aigua'], ['Radiadors elèctrics'], ['Terra radiant'], ['Climatitzador'], ['No hi ha calefacció']], {}, {:class => 'form-control'}) %>
+    </div>
+
+    <div class="form-group"><%= f.label :heating_improvements, "Heu realitzat alguna millora en el sistema de calefacció?" %><br />
+    <%= f.select(:heating_improvements, [['Sí, he renovat l\'aparell/s recentment per un d\'alt rendiment'], ['No, però ho vull fer'], ['No']], {}, {:class => 'form-control'}) %>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div><%= f.submit "Guardar les dades", :class => "btn button-default" %></div>
+
+    <% end %>

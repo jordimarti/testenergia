@@ -1,0 +1,36 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <h2 class="page-title">Crear un nou projecte</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4 side-content">
+    <%= link_to :action => 'index' do %>
+      <div class="btn button-page-menu"><span class="glyphicon glyphicon-arrow-left"> </span> Tornar a la llista de projectes</div>
+    <% end %>
+  </div>
+  <div class="col-md-8 principal-content">
+		
+		<%= form_for(:xproject, :url => {:action => 'create'}) do |f| %>
+
+      <%= f.error_messages %>
+      
+      <div class="form-group"><%= f.label :name, "Nom del projecte" %><br />
+      <%= f.text_field :name, :autofocus => true, :class => 'form-control' %></div>
+
+      <div class="form-group"><%= f.label :project_type, "Tipus de projecte" %><br />
+      <%= f.select(:project_type, [['Habitatge dins d\'un edifici'], ['Habitatge unifamiliar'], ['Edifici d\'habitatges']], {}, {:class => 'form-control'}) %>
+    	</div>
+
+      <div class="form-group"><%= f.label :area, "Superfície útil" %><br />
+      <%= f.text_field :area, :class => 'form-control' %></div>
+
+      <div class="form-group"><%= f.label :user_id, "Identificador d'usuari" %><br />
+      <%= f.text_field :user_id, :class => 'form-control' %></div>
+
+      <div><%= f.submit "Guardar les dades", :class => "btn button-default" %></div>
+
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+
+  <div class="row">
+    <div class="col-md-12">
+			<h2 class="page-title">AutoTest</h2>
+		</div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 side-content">
+    	<p class="side-description">Des d'aquest apartat podeu gestionar els vostres projectes. Si voleu fer l'AutoTest del vostre habitatge cliqueu el botó "Crear un nou projecte". En el cas que tingueu més d'un habitatge o edifici podeu crear més projectes clicant el mateix botó.</p>
+    </div>
+    <div class="col-md-8 principal-content">
+			<% @projects.each do |project| %>
+			<div class="project-container">
+				<h3><%= project.name %></h3>
+				<div class="buttons-container">
+					<%= link_to :action => 'show', :id => project.id do %>
+						<div class="btn button-default"><span class="glyphicon glyphicon-file"> </span> Veure informe</div> 
+					<% end %>
+
+					<%= link_to :action => 'edit', :id => project.id do %>
+						<div class="btn button-default"><span class="glyphicon glyphicon-pencil"> </span> Editar dades</div>
+					<% end %>
+
+					<%= link_to :action => 'delete', :id => project.id do %>
+						<div class="btn button-default"><span class="glyphicon glyphicon-trash"> </span> Eliminar</div> 
+					<% end %>
+
+					<%= link_to :action => 'create_from_project', :id => project.id do %>
+						<div class="btn button-default"><span class="glyphicon glyphicon-shopping-cart"> </span> Contractar Test Energia</div> 
+					<% end %>
+
+ 
+				</div>
+			</div>
+			<% end %>
+			
+			<%= link_to :action => 'new' do %>
+				<div class="btn button-new"><span class="glyphicon glyphicon-plus"> </span> Crear un nou projecte</div> 
+			<% end %>
+		
+  		
+    </div>
+  </div>
+  

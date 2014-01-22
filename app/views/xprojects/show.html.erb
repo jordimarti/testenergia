@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-12">
+		<h2 class="page-title">Dades del projecte</h2>
+	</div>
+</div>
+<div class="row">
+  <div class="col-md-4 side-content">
+    <%= link_to :action => 'index' do %>
+			<div class="btn button-page-menu"><span class="glyphicon glyphicon-arrow-left"> </span> Tornar a la llista de projectes</div>
+		<% end %>
+  </div>
+  <div class="col-md-8 principal-content">
+		<p>Nom del projecte: <%= @xproject.name %></p>
+		<p>Tipus de projecte: <%= @xproject.project_type %></p>
+		<p>Superfície útil: <%= @xproject.area %></p>
+	</div>
+</div>
+
