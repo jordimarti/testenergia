@@ -183,3 +183,15 @@ h1.provisional {
     min-height: 134px;
 }
 
+ul.ui-autocomplete {
+    background-color: #4DBCB5;
+    padding: 5px;
+    list-style-type: none;
+    max-width: 340px;
+}
+
+li.ui-menu-item {
+    color: white;
+
+}
+

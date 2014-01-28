@@ -2,9 +2,9 @@
 <div class="row">
   <div class="col-md-12">
 		<%= link_to :action => 'index' do %>
-      <div class="btn button-page-menu"><span class="glyphicon glyphicon-arrow-left"> </span> Tornar a la llista de projectes</div>
+      <div class="btn button-page-menu"><span class="glyphicon glyphicon-arrow-left"> </span> Tornar a la llista d'AutoTests</div>
     <% end %>
-    <h2 class="page-title">Crear un nou projecte</h2>
+    <h2 class="page-title">Crear un nou AutoTest</h2>
 	</div>
 </div>
 <%= form_for(:project, :url => {:action => 'create'}) do |f| %>
@@ -17,35 +17,66 @@
     <p>Els edificis construïts abans de 1979, no tenen un aïllament tèrmic adequat, per això, tenen deficiències i solen consumir molta energia per climatitzar. Després de l’aplicació de la Norma Bàsica de l’Edificació del 1979, els edificis es van construir amb certes condicions tèrmiques, però encara insuficients. A partir de 2007 i, amb l’entrada en vigor del CTE, els requisits mínims ja s'adeqüen a les condicions tèrmiques necessàries per un consum energètic menor.</p>
   </div>
   <div class="col-md-8 principal-content">
-		
-		
+    
+    
 
       <%= f.error_messages %>
       
       <%= f.hidden_field :user_id, { :value => current_user.id } %>
 
-      <div class="form-group"><%= f.label :name, "Nom del projecte" %><br />
+      <div class="form-group"><%= f.label :name, "Nom de l'AutoTest" %><br />
       <span class="text-tips">Per exemple "Casa a Sant Celoni" o "Pis de Balmes, n.220"</span><br />
       <%= f.text_field :name, :autofocus => true, :class => 'form-control' %></div>
 
-      <div class="form-group"><%= f.label :project_type, "Tipus de projecte" %><br />
-      <%= f.select(:project_type, [['Habitatge dins d\'un edifici'], ['Habitatge unifamiliar'], ['Edifici d\'habitatges']], {}, {:class => 'form-control'}) %>
-    	</div>
-
-      <div class="form-group"><%= f.label :region, "Comarca" %><br />
-      <%= f.select(:region, [['Alt Camp'], ['Alt Empordà'], ['Barcelona']], {}, {:class => 'form-control'}) %>
+      <div class="form-group"><%= f.label :project_type, "Tipus d'AutoTest" %><br />
+      <%= f.select(:project_type, [['', 0],['Habitatge dins d\'un edifici', 1], ['Habitatge unifamiliar', 2], ['Edifici d\'habitatges', 3]], {}, {:class => 'form-control'}) %>
       </div>
+      <div class="hidden-content hidden-project-type" id="project_type_unifamiliar">
+        <%= image_tag("casa.png", class: "hidden-image", width: "180", height: "134") %>
+        <p>El tipus d'habitatge o edifici condiciona el consum d'energia final. Un habitatge unifamiliar aïllat té molta més pell en contacte amb l'exterior, per tant té molta superfície que guanya calor a l'estiu i perd calor a l'hivern. Si l'habitatge està adossat a altres habitatges consumirà menys energia per a la seva climatització.</p>
+      </div>
+      <div class="hidden-content hidden-project-type" id="project_type_pis">
+        <%= image_tag("pis.png", class: "hidden-image", width: "180", height: "134") %>
+        <p>L'avantatge dels habitatges situats dins d'un edifici és que tenen poca pell en contacte amb l'exterior. Tot i així hi ha molta variabilitat, depenent de la situació de l'habitatge dins l'edifici i també de la forma de l'edifici. Per a l'AutoTest no es té en compte aquesta característica, però en cas de contractar un Test Energia serà un dels factors importants que comprovarà l'expert a l'hora de fer l'informe.</p>
+      </div>
+      <div class="hidden-content hidden-project-type" id="project_type_edifici">
+        <%= image_tag("edifici2.png", class: "hidden-image", width: "180", height: "134") %>
+        <p>Resulta més útil fer un estudi energètic d'un edifici sencer que d'un sol habitatge dins l'edifici, perquè les propostes de millora poden ser més ambicioses. Per exemple no es pot recomanar aïllar per l'exterior un sol pis, però sí que es pot fer si s'estudia l'edifici en conjunt. Cal tenir en compte que l'AutoTest tan sols fa referència a la part residencial d'un edifici, no inclou els locals comercials.</p>
+      </div>
+
+      <div class="form-group"><%= f.label :town, "Municipi" %><br />
+      <%= f.select(:town, [['Abella de la Conca'], ['Abrera'], ['Àger'], ['Agramunt'], ['Aguilar de Segarra'], ['Agullana'], ['Aiguafreda'], ['Aiguamúrcia'], ['Aiguaviva'], ['Aitona'], ['Alamús, els'], ['Alàs i Cerc'], ['Albagés, l\''], ['Albanyà'], ['Albatàrrec'], ['Albesa'], ['Albi, l\''], ['Albinyana'], ['Albiol, l\''], ['Albons'], ['Alcanar'], ['Alcanó'], ['Alcarràs'], ['Alcoletge'], ['Alcover'], ['Aldea, l\''], ['Aldover'], ['Aleixar, l\''], ['Alella'], ['Alfara de Carles'], ['Alfarràs'], ['Alfés'], ['Alforja'], ['Algerri'], ['Alguaire'], ['Alins'], ['Alió'], ['Almacelles'], ['Almatret'], ['Almenar'], ['Almoster'], ['Alòs de Balaguer'], ['Alp'], ['Alpens'], ['Alpicat'], ['Alt Àneu'], ['Altafulla'], ['Amer'], ['Ametlla de Mar, l\''], ['Ametlla del Vallès, l\''], ['Ampolla, l\''], ['Amposta'], ['Anglès'], ['Anglesola'], ['Arbeca'], ['Arboç, l\''], ['Arbolí'], ['Arbúcies'], ['Arenys de Mar'], ['Arenys de Munt'], ['Argelaguer'], ['Argençola'], ['Argentera, l\''], ['Argentona'], ['Armentera, l\''], ['Arnes'], ['Arres'], ['Arsèguel'], ['Artés'], ['Artesa de Lleida'], ['Artesa de Segre'], ['Ascó'], ['Aspa'], ['Avellanes i Santa Linya, les'], ['Avià'], ['Avinyó'], ['Avinyonet de Puigventós'], ['Avinyonet del Penedès'], ['Badalona'], ['Badia del Vallès'], ['Bagà'], ['Baix Pallars'], ['Balaguer'], ['Balenyà'], ['Balsareny'], ['Banyeres del Penedès'], ['Banyoles'], ['Barbens'], ['Barberà de la Conca'], ['Barberà del Vallès'], ['Barcelona'], ['Baronia de Rialb, la'], ['Bàscara'], ['Bassella'], ['Batea'], ['Bausen'], ['Begues'], ['Begur'], ['Belianes'], ['Bell-lloc d\'Urgell'], ['Bellaguarda'], ['Bellcaire d\'Empordà'], ['Bellcaire d\'Urgell'], ['Bellmunt d\'Urgell'], ['Bellmunt del Priorat'], ['Bellprat'], ['Bellpuig'], ['Bellvei'], ['Bellver de Cerdanya'], ['Bellvís'], ['Benavent de Segrià'], ['Benifallet'], ['Benissanet'], ['Berga'], ['Besalú'], ['Bescanó'], ['Beuda'], ['Bigues i Riells'], ['Biosca'], ['Bisbal d\'Empordà, la'], ['Bisbal de Falset, la'], ['Bisbal del Penedès, la'], ['Biure'], ['Blancafort'], ['Blanes'], ['Boadella i les Escaules'], ['Bolvir'], ['Bonastre'], ['Bòrdes, Es'], ['Bordils'], ['Borges Blanques, les'], ['Borges del Camp, les'], ['Borrassà'], ['Borredà'], ['Bossòst'], ['Bot'], ['Botarell'], ['Bovera'], ['Bràfim'], ['Breda'], ['Bruc, el'], ['Brull, el'], ['Brunyola'], ['Cabacés'], ['Cabanabona'], ['Cabanelles'], ['Cabanes'], ['Cabanyes, les'], ['Cabó'], ['Cabra del Camp'], ['Cabrera d\'Anoia'], ['Cabrera de Mar'], ['Cabrils'], ['Cadaqués'], ['Calaf'], ['Calafell'], ['Calders'], ['Caldes d\'Estrac'], ['Caldes de Malavella'], ['Caldes de Montbui'], ['Calella'], ['Calldetenes'], ['Callús'], ['Calonge'], ['Calonge de Segarra'], ['Camarasa'], ['Camarles'], ['Cambrils'], ['Camós'], ['Campdevànol'], ['Campelles'], ['Campins'], ['Campllong'], ['Camprodon'], ['Canejan'], ['Canet d\'Adri'], ['Canet de Mar'], ['Canonja, la'], ['Canovelles'], ['Cànoves i Samalús'], ['Cantallops'], ['Canyelles'], ['Capafonts'], ['Capçanes'], ['Capellades'], ['Capmany'], ['Capolat'], ['Cardedeu'], ['Cardona'], ['Carme'], ['Caseres'], ['Cassà de la Selva'], ['Casserres'], ['Castell de l\'Areny'], ['Castell de Mur'], ['Castell-Platja d\'Aro'], ['Castellar de la Ribera'], ['Castellar de n\'Hug'], ['Castellar del Riu'], ['Castellar del Vallès'], ['Castellbell i el Vilar'], ['Castellbisbal'], ['Castellcir'], ['Castelldans'], ['Castelldefels'], ['Castellet i la Gornal'], ['Castellfollit de la Roca'], ['Castellfollit de Riubregós'], ['Castellfollit del Boix'], ['Castellgalí'], ['Castellnou de Bages'], ['Castellnou de Seana'], ['Castelló d\'Empúries'], ['Castelló de Farfanya'], ['Castellolí'], ['Castellserà'], ['Castellterçol'], ['Castellvell del Camp'], ['Castellví de la Marca'], ['Castellví de Rosanes'], ['Catllar, el'], ['Cava'], ['Cellera de Ter, la'], ['Celrà'], ['Centelles'], ['Cercs'], ['Cerdanyola del Vallès'], ['Cervelló'], ['Cervera'], ['Cervià de les Garrigues'], ['Cervià de Ter'], ['Cistella'], ['Ciutadilla'], ['Clariana de Cardener'], ['Cogul, el'], ['Colera'], ['Coll de Nargó'], ['Collbató'], ['Colldejou'], ['Collsuspina'], ['Colomers'], ['Coma i la Pedra, la'], ['Conca de Dalt'], ['Conesa'], ['Constantí'], ['Copons'], ['Corbera d\'Ebre'], ['Corbera de Llobregat'], ['Corbins'], ['Corçà'], ['Cornellà de Llobregat'], ['Cornellà del Terri'], ['Cornudella de Montsant'], ['Creixell'], ['Crespià'], ['Cruïlles, Monells i Sant Sadurní de l\'Heura'], ['Cubelles'], ['Cubells'], ['Cunit'], ['Darnius'], ['Das'], ['Deltebre'], ['Dosrius'], ['Duesaigües'], ['Escala, l\''], ['Esparreguera'], ['Espinelves'], ['Espluga Calba, l\''], ['Espluga de Francolí, l\''], ['Esplugues de Llobregat'], ['Espolla'], ['Esponellà'], ['Espot'], ['Espunyola, l\''], ['Estamariu'], ['Estany, l\''], ['Estaràs'], ['Esterri d\'Àneu'], ['Esterri de Cardós'], ['Falset'], ['Far d\'Empordà, el'], ['Farrera'], ['Fatarella, la'], ['Febró, la'], ['Figaró-Montmany'], ['Fígols'], ['Fígols i Alinyà'], ['Figuera, la'], ['Figueres'], ['Figuerola del Camp'], ['Flaçà'], ['Flix'], ['Floresta, la'], ['Fogars de la Selva'], ['Fogars de Montclús'], ['Foixà'], ['Folgueroles'], ['Fondarella'], ['Fonollosa'], ['Font-rubí'], ['Fontanals de Cerdanya'], ['Fontanilles'], ['Fontcoberta'], ['Foradada'], ['Forallac'], ['Forès'], ['Fornells de la Selva'], ['Fortià'], ['Franqueses del Vallès, les'], ['Freginals'], ['Fuliola, la'], ['Fulleda'], ['Gaià'], ['Galera, la'], ['Gallifa'], ['Gandesa'], ['Garcia'], ['Garidells, els'], ['Garriga, la'], ['Garrigàs'], ['Garrigoles'], ['Garriguella'], ['Gavà'], ['Gavet de la Conca'], ['Gelida'], ['Ger'], ['Gimenells i el Pla de la Font'], ['Ginestar'], ['Girona'], ['Gironella'], ['Gisclareny'], ['Godall'], ['Golmés'], ['Gombrèn'], ['Gósol'], ['Granada, la'], ['Granadella, la'], ['Granera'], ['Granja d\'Escarp, la'], ['Granollers'], ['Granyanella'], ['Granyena de les Garrigues'], ['Granyena de Segarra'], ['Gratallops'], ['Gualba'], ['Gualta'], ['Guardiola de Berguedà'], ['Guiamets, els'], ['Guils de Cerdanya'], ['Guimerà'], ['Guingueta d\'Àneu, la'], ['Guissona'], ['Guixers'], ['Gurb'], ['Horta de Sant Joan'], ['Hospitalet de Llobregat, l\''], ['Hostalets de Pierola, els'], ['Hostalric'], ['Igualada'], ['Isona i Conca Dellà'], ['Isòvol'], ['Ivars d\'Urgell'], ['Ivars de Noguera'], ['Ivorra'], ['Jafre'], ['Jonquera, la'], ['Jorba'], ['Josa i Tuixén'], ['Juià'], ['Juncosa'], ['Juneda'], ['Les'], ['Linyola'], ['Llacuna, la'], ['Lladó'], ['Lladorre'], ['Lladurs'], ['Llagosta, la'], ['Llagostera'], ['Llambilles'], ['Llanars'], ['Llançà'], ['Llardecans'], ['Llavorsí'], ['Lleida'], ['Llers'], ['Lles de Cerdanya'], ['Lliçà d\'Amunt'], ['Lliçà de Vall'], ['Llimiana'], ['Llinars del Vallès'], ['Llívia'], ['Lloar, el'], ['Llobera'], ['Llorac'], ['Llorenç del Penedès'], ['Lloret de Mar'], ['Llosses, les'], ['Lluçà'], ['Maçanet de Cabrenys'], ['Maçanet de la Selva'], ['Madremanya'], ['Maià de Montcal'], ['Maials'], ['Maldà'], ['Malgrat de Mar'], ['Malla'], ['Manlleu'], ['Manresa'], ['Marçà'], ['Margalef'], ['Marganell'], ['Martorell'], ['Martorelles'], ['Mas de Barberans'], ['Masarac'], ['Masdenverge'], ['Masies de Roda, les'], ['Masies de Voltregà, les'], ['Masllorenç'], ['Masnou, el'], ['Masó, la'], ['Maspujols'], ['Masquefa'], ['Masroig, el'], ['Massalcoreig'], ['Massanes'], ['Massoteres'], ['Matadepera'], ['Mataró'], ['Mediona'], ['Menàrguens'], ['Meranges'], ['Mieres'], ['Milà, el'], ['Miralcamp'], ['Miravet'], ['Moià'], ['Molar, el'], ['Molins de Rei'], ['Mollerussa'], ['Mollet de Peralada'], ['Mollet del Vallès'], ['Molló'], ['Molsosa, la'], ['Monistrol de Calders'], ['Monistrol de Montserrat'], ['Mont-ral'], ['Mont-ras'], ['Mont-roig del Camp'], ['Montagut i Oix'], ['Montblanc'], ['Montbrió del Camp'], ['Montcada i Reixac'], ['Montclar'], ['Montellà i Martinet'], ['Montesquiu'], ['Montferrer i Castellbò'], ['Montferri'], ['Montgai'], ['Montgat'], ['Montmajor'], ['Montmaneu'], ['Montmell, el'], ['Montmeló'], ['Montoliu de Lleida'], ['Montoliu de Segarra'], ['Montornès de Segarra'], ['Montornès del Vallès'], ['Montseny'], ['Móra d\'Ebre'], ['Móra la Nova'], ['Morell, el'], ['Morera de Montsant, la'], ['Muntanyola'], ['Mura'], ['Nalec'], ['Naut Aran'], ['Navarcles'], ['Navàs'], ['Navata'], ['Navès'], ['Nou de Berguedà, la'], ['Nou de Gaià, la'], ['Nulles'], ['Odèn'], ['Òdena'], ['Ogassa'], ['Olèrdola'], ['Olesa de Bonesvalls'], ['Olesa de Montserrat'], ['Oliana'], ['Oliola'], ['Olius'], ['Olivella'], ['Olost'], ['Olot'], ['Oluges, les'], ['Olvan'], ['Omellons, els'], ['Omells de na Gaia, els'], ['Ordis'], ['Organyà'], ['Orís'], ['Oristà'], ['Orpí'], ['Òrrius'], ['Os de Balaguer'], ['Osor'], ['Ossó de Sió'], ['Pacs del Penedès'], ['Palafolls'], ['Palafrugell'], ['Palamós'], ['Palau d\'Anglesola, el'], ['Palau de Santa Eulàlia'], ['Palau-sator'], ['Palau-saverdera'], ['Palau-solità i Plegamans'], ['Pallaresos, els'], ['Pallejà'], ['Palma d\'Ebre, la'], ['Palma de Cervelló, la'], ['Palol de Revardit'], ['Pals'], ['Papiol, el'], ['Pardines'], ['Parets del Vallès'], ['Parlavà'], ['Passanant i Belltall'], ['Pau'], ['Paüls'], ['Pedret i Marzà'], ['Penelles'], ['Pera, la'], ['Perafita'], ['Perafort'], ['Peralada'], ['Peramola'], ['Perelló, el'], ['Piera'], ['Piles, les'], ['Pineda de Mar'], ['Pinell de Brai, el'], ['Pinell de Solsonès'], ['Pinós'], ['Pira'], ['Pla de Santa Maria, el'], ['Pla del Penedès, el'], ['Planes d\'Hostoles, les'], ['Planoles'], ['Plans de Sió, els'], ['Poal, el'], ['Pobla de Cérvoles, la'], ['Pobla de Claramunt, la'], ['Pobla de Lillet, la'], ['Pobla de Mafumet, la'], ['Pobla de Massaluca, la'], ['Pobla de Montornès, la'], ['Pobla de Segur, la'], ['Poboleda'], ['Polinyà'], ['Pont d\'Armentera, el'], ['Pont de Bar, el'], ['Pont de Molins'], ['Pont de Suert, el'], ['Pont de Vilomara i Rocafort, el'], ['Pontils'], ['Pontons'], ['Pontós'], ['Ponts'], ['Porqueres'], ['Porrera'], ['Port de la Selva, el'], ['Portbou'], ['Portella, la'], ['Pradell de la Teixeta'], ['Prades'], ['Prat de Comte'], ['Prat de Llobregat, el'], ['Pratdip'], ['Prats de Lluçanès'], ['Prats de Rei, els'], ['Prats i Sansor'], ['Preixana'], ['Preixens'], ['Premià de Dalt'], ['Premià de Mar'], ['Preses, les'], ['Prullans'], ['Puig-reig'], ['Puigcerdà'], ['Puigdàlber'], ['Puiggròs'], ['Puigpelat'], ['Puigverd d\'Agramunt'], ['Puigverd de Lleida'], ['Pujalt'], ['Quar, la'], ['Quart'], ['Queralbs'], ['Querol'], ['Rabós'], ['Rajadell'], ['Rasquera'], ['Regencós'], ['Rellinars'], ['Renau'], ['Reus'], ['Rialp'], ['Riba-roja d\'Ebre'], ['Riba, la'], ['Ribera d\'Ondara'], ['Ribera d\'Urgellet'], ['Ribes de Freser'], ['Riells i Viabrea'], ['Riera de Gaià, la'], ['Riner'], ['Ripoll'], ['Ripollet'], ['Riu de Cerdanya'], ['Riudarenes'], ['Riudaura'], ['Riudecanyes'], ['Riudecols'], ['Riudellots de la Selva'], ['Riudoms'], ['Riumors'], ['Roca del Vallès, la'], ['Rocafort de Queralt'], ['Roda de Barà'], ['Roda de Ter'], ['Rodonyà'], ['Roquetes'], ['Roses'], ['Rosselló'], ['Rourell, el'], ['Rubí'], ['Rubió'], ['Rupià'], ['Rupit i Pruit'], ['Sabadell'], ['Sagàs'], ['Salàs de Pallars'], ['Saldes'], ['Sales de Llierca'], ['Sallent'], ['Salomó'], ['Salou'], ['Salt'], ['Sanaüja'], ['Sant Adrià de Besòs'], ['Sant Agustí de Lluçanès'], ['Sant Andreu de la Barca'], ['Sant Andreu de Llavaneres'], ['Sant Andreu Salou'], ['Sant Aniol de Finestres'], ['Sant Antoni de Vilamajor'], ['Sant Bartomeu del Grau'], ['Sant Boi de Llobregat'], ['Sant Boi de Lluçanès'], ['Sant Carles de la Ràpita'], ['Sant Cebrià de Vallalta'], ['Sant Celoni'], ['Sant Climent de Llobregat'], ['Sant Climent Sescebes'], ['Sant Cugat del Vallès'], ['Sant Cugat Sesgarrigues'], ['Sant Esteve de la Sarga'], ['Sant Esteve de Palautordera'], ['Sant Esteve Sesrovires'], ['Sant Feliu de Buixalleu'], ['Sant Feliu de Codines'], ['Sant Feliu de Guíxols'], ['Sant Feliu de Llobregat'], ['Sant Feliu de Pallerols'], ['Sant Feliu Sasserra'], ['Sant Ferriol'], ['Sant Fost de Campsentelles'], ['Sant Fruitós de Bages'], ['Sant Gregori'], ['Sant Guim de Freixenet'], ['Sant Guim de la Plana'], ['Sant Hilari Sacalm'], ['Sant Hipòlit de Voltregà'], ['Sant Iscle de Vallalta'], ['Sant Jaume d\'Enveja'], ['Sant Jaume de Frontanyà'], ['Sant Jaume de Llierca'], ['Sant Jaume dels Domenys'], ['Sant Joan de les Abadesses'], ['Sant Joan de Mollet'], ['Sant Joan de Vilatorrada'], ['Sant Joan Despí'], ['Sant Joan les Fonts'], ['Sant Jordi Desvalls'], ['Sant Julià de Cerdanyola'], ['Sant Julià de Ramis'], ['Sant Julià de Vilatorta'], ['Sant Julià del Llor i Bonmatí'], ['Sant Just Desvern'], ['Sant Llorenç d\'Hortons'], ['Sant Llorenç de la Muga'], ['Sant Llorenç de Morunys'], ['Sant Llorenç Savall'], ['Sant Martí d\'Albars'], ['Sant Martí de Centelles'], ['Sant Martí de Llémena'], ['Sant Martí de Riucorb'], ['Sant Martí de Tous'], ['Sant Martí Sarroca'], ['Sant Martí Sesgueioles'], ['Sant Martí Vell'], ['Sant Mateu de Bages'], ['Sant Miquel de Campmajor'], ['Sant Miquel de Fluvià'], ['Sant Mori'], ['Sant Pau de Segúries'], ['Sant Pere de Ribes'], ['Sant Pere de Riudebitlles'], ['Sant Pere de Torelló'], ['Sant Pere de Vilamajor'], ['Sant Pere Pescador'], ['Sant Pere Sallavinera'], ['Sant Pol de Mar'], ['Sant Quintí de Mediona'], ['Sant Quirze de Besora'], ['Sant Quirze del Vallès'], ['Sant Quirze Safaja'], ['Sant Ramon'], ['Sant Sadurní d\'Anoia'], ['Sant Sadurní d\'Osormort'], ['Sant Salvador de Guardiola'], ['Sant Vicenç de Castellet'], ['Sant Vicenç de Montalt'], ['Sant Vicenç de Torelló'], ['Sant Vicenç dels Horts'], ['Santa Bàrbara'], ['Santa Cecília de Voltregà'], ['Santa Coloma de Cervelló'], ['Santa Coloma de Farners'], ['Santa Coloma de Gramenet'], ['Santa Coloma de Queralt'], ['Santa Cristina d\'Aro'], ['Santa Eugènia de Berga'], ['Santa Eulàlia de Riuprimer'], ['Santa Eulàlia de Ronçana'], ['Santa Fe del Penedès'], ['Santa Llogaia d\'Àlguema'], ['Santa Margarida de Montbui'], ['Santa Margarida i els Monjos'], ['Santa Maria d\'Oló'], ['Santa Maria de Besora'], ['Santa Maria de Corcó'], ['Santa Maria de Martorelles'], ['Santa Maria de Merlès'], ['Santa Maria de Miralles'], ['Santa Maria de Palautordera'], ['Santa Oliva'], ['Santa Pau'], ['Santa Perpètua de Mogoda'], ['Santa Susanna'], ['Santpedor'], ['Sarral'], ['Sarrià de Ter'], ['Sarroca de Bellera'], ['Sarroca de Lleida'], ['Saus, Camallera i Llampaies'], ['Savallà del Comtat'], ['Secuita, la'], ['Selva de Mar, la'], ['Selva del Camp, la'], ['Senan'], ['Sénia, la'], ['Senterada'], ['Sentiu de Sió, la'], ['Sentmenat'], ['Serinyà'], ['Seròs'], ['Serra de Daró'], ['Setcases'], ['Seu d\'Urgell, la'], ['Seva'], ['Sidamon'], ['Sils'], ['Sitges'], ['Siurana'], ['Sobremunt'], ['Soleràs, el'], ['Solivella'], ['Solsona'], ['Sora'], ['Soriguera'], ['Sort'], ['Soses'], ['Subirats'], ['Sudanell'], ['Sunyer'], ['Súria'], ['Susqueda'], ['Tagamanent'], ['Talamanca'], ['Talarn'], ['Talavera'], ['Tallada d\'Empordà, la'], ['Taradell'], ['Tarragona'], ['Tàrrega'], ['Tarrés'], ['Tarroja de Segarra'], ['Tavèrnoles'], ['Tavertet'], ['Teià'], ['Térmens'], ['Terrades'], ['Terrassa'], ['Tiana'], ['Tírvia'], ['Tiurana'], ['Tivenys'], ['Tivissa'], ['Tona'], ['Torà'], ['Tordera'], ['Torelló'], ['Torms, els'], ['Tornabous'], ['Torre de Cabdella, la'], ['Torre de Claramunt, la'], ['Torre de Fontaubella, la'], ['Torre de l\'Espanyol, la'], ['Torre-serona'], ['Torrebesses'], ['Torredembarra'], ['Torrefarrera'], ['Torrefeta i Florejacs'], ['Torregrossa'], ['Torrelameu'], ['Torrelavit'], ['Torrelles de Foix'], ['Torrelles de Llobregat'], ['Torrent'], ['Torres de Segre'], ['Torroella de Fluvià'], ['Torroella de Montgrí'], ['Torroja del Priorat'], ['Tortellà'], ['Tortosa'], ['Toses'], ['Tossa de Mar'], ['Tremp'], ['Ullà'], ['Ullastrell'], ['Ullastret'], ['Ulldecona'], ['Ulldemolins'], ['Ultramort'], ['Urús'], ['Vacarisses'], ['Vajol, la'], ['Vall d\'en Bas, la'], ['Vall de Bianya, la'], ['Vall de Boí, la'], ['Vall de Cardós'], ['Vall-llobrega'], ['Vallbona d\'Anoia'], ['Vallbona de les Monges'], ['Vallcebre'], ['Vallclara'], ['Vallfogona de Balaguer'], ['Vallfogona de Ripollès'], ['Vallfogona de Riucorb'], ['Vallgorguina'], ['Vallirana'], ['Vallmoll'], ['Vallromanes'], ['Valls'], ['Valls d\'Aguilar, les'], ['Valls de Valira, les'], ['Vandellòs i l\'Hospitalet de l\'Infant'], ['Vansa i Fórnols, la'], ['Veciana'], ['Vendrell, el'], ['Ventalló'], ['Verdú'], ['Verges'], ['Vespella de Gaià'], ['Vic'], ['Vidrà'], ['Vidreres'], ['Vielha e Mijaran'], ['Vila-rodona'], ['Vila-sacra'], ['Vila-sana'], ['Vila-seca'], ['Vilabella'], ['Vilabertran'], ['Vilablareix'], ['Vilada'], ['Viladamat'], ['Viladasens'], ['Viladecans'], ['Viladecavalls'], ['Vilademuls'], ['Viladrau'], ['Vilafant'], ['Vilafranca del Penedès'], ['Vilagrassa'], ['Vilajuïga'], ['Vilalba dels Arcs'], ['Vilalba Sasserra'], ['Vilaller'], ['Vilallonga de Ter'], ['Vilallonga del Camp'], ['Vilamacolum'], ['Vilamalla'], ['Vilamaniscle'], ['Vilamòs'], ['Vilanant'], ['Vilanova d\'Escornalbou'], ['Vilanova de Bellpuig'], ['Vilanova de l\'Aguda'], ['Vilanova de la Barca'], ['Vilanova de Meià'], ['Vilanova de Prades'], ['Vilanova de Sau'], ['Vilanova de Segrià'], ['Vilanova del Camí'], ['Vilanova del Vallès'], ['Vilanova i la Geltrú'], ['Vilaplana'], ['Vilassar de Dalt'], ['Vilassar de Mar'], ['Vilaür'], ['Vilaverd'], ['Vilella Alta, la'], ['Vilella Baixa, la'], ['Vilobí d\'Onyar'], ['Vilobí del Penedès'], ['Vilopriu'], ['Vilosell, el'], ['Vimbodí i Poblet'], ['Vinaixa'], ['Vinebre'], ['Vinyols i els Arcs'], ['Viver i Serrateix'], ['Xerta']], {:selected => 'Barcelona'}, {:class => 'form-control'}) %></div>
 
       <div class="form-group"><%= f.label :address, "Adreça completa" %><br />
       <%= f.text_field :address, :class => 'form-control' %></div>
 
-      <div class="form-group"><%= f.label :cadastre, "Referència cadastral" %><br />
-      <%= f.text_field :cadastre, :class => 'form-control' %></div>
+      <div class="form-group"><%= f.label :zip_code, "Codi postal" %><br />
+      <%= f.text_field :zip_code, :class => 'form-control' %></div>
 
       <div class="form-group"><%= f.label :construction_period, "Període de construcció de l'edifici" %><br />
         <span class="text-tips">Si hi ha hagut una gran rehabilitació posar el període de la rehabilitació</span><br />
-      <%= f.select(:construction_period, [['Abans de 1981', 1], ['Entre 1981 i 1987', 2], ['Entre 1988 i 2006', 3], ['Després del 2006', 4]], {}, {:class => 'form-control'}) %>
+      <%= f.select(:construction_period, [['', 0], ['Abans de 1981', 1], ['Entre 1981 i 1987', 2], ['Entre 1988 i 2006', 3], ['Després del 2006', 4]], {}, {:class => 'form-control'}) %></div>
+
+      <div class="hidden-content hidden-construction-period" id="anterior1981">
+        <%= image_tag("anterior1981.png", class: "hidden-image", width: "180", height: "134") %>
+        <p>Els edificis construïts abans del 1981 no havien d'estar aïllats per normativa, i en la majoria dels casos no ho estaven. Això provoca grans pèrdues de calor i per tant incrementa molt el consum d'energia per climatitzar l'edifici.</p>
       </div>
+      <div class="hidden-content hidden-construction-period" id="1981-1987">
+        <%= image_tag("1981-1987.png", class: "hidden-image", width: "180", height: "134") %>
+        <p>Els edificis construïts entre el 1981 i el 1987 tenen aïllament tèrmic. Tot i així, s'exigia un nivell d'aïllament molt baix i hi ha un gran marge de millora per a aquests edificis.</p>
+      </div>
+      <div class="hidden-content hidden-construction-period" id="1988-2006">
+        <%= image_tag("1988-2006.png", class: "hidden-image", width: "180", height: "134") %>
+        <p>Els edificis construïts entre el 1988 i el 2006 a Catalunya tenen un aïllament tèrmic millor que els anteriors, però està molt lluny de l'aïllament que hauria de tenir un edifici. És recomanable comprovar la millor manera d'incrementar el seu nivell d'aïllament.</p>
+      </div>
+      <div class="hidden-content hidden-construction-period" id="posterior2006">
+        <%= image_tag("posterior2006.png", class: "hidden-image", width: "180", height: "134") %>
+        <p>Els edificis construïts després del 2006 han de complir amb les exigències del Codi Tècnic de l'Edificiació. Aquests edificis estan més ben aïllats i per tant permeten un estalvi energètic important respecte els edificis construïts anteriorment. Tot i així si l'edifici s'ha construït complint els mínims exigits per normativa encara hi ha molt marge de millora per incrementar la seva eficiència.</p>
+      </div>
+
+      <div class="form-group"><%= f.label :construction_year, "Any de construcció" %><br />
+      <span class="text-tips">Si coneixeu l'any de construcció o rehabilitació de l'edifici indiqueu-lo a continuació</span><br />
+      <%= f.text_field :construction_year, :class => 'form-control' %></div>
 
       <div class="form-group"><%= f.label :area, "Superfície útil" %><br />
       <span class="text-tips">Posar valor en metres quadrats</span><br />
@@ -64,60 +95,608 @@
   <div class="col-md-8 principal-content">
     
     <div class="form-group"><%= f.label :facade_improvements, "Heu fet alguna millora a les façanes de l'edifici?" %><br />
-    <%= f.select(:facade_improvements, [['Sí, i s\'han millorat les seves característiques d\'aïllament tèrmic'], ['Sí, però únicament s\'ha reparat el que estava malmès'], ['No, però es volen millorar properament'], ['No']], {}, {:class => 'form-control'}) %>
+    <%= f.select(:facade_improvements, [['', 0], ['Sí, i s\'han millorat les seves característiques d\'aïllament tèrmic', 1], ['Sí, però únicament s\'ha reparat el que estava malmès', 2], ['No, però es volen millorar properament', 3], ['No', 4]], {}, {:class => 'form-control'}) %>
+    </div>
+
+    <div class="hidden-content hidden-facade-improvements" id="facanes-millorades-termic">
+      <p>Un bon nivell d'aïllament a les façanes és una de les accions clau per a millorar el confort de l'habitatge, estalviar diners i preservar el medi ambient. Si la millora és recent aviat en notareu els avantatges.</p>
+    </div>
+
+    <div class="hidden-content hidden-facade-improvements" id="facanes-millorades-notermic">
+      <p>És important millorar les façanes a nivell estètic i de seguretat, però quan es fa una rehabilitació de façana és un bon moment per millorar-la tèrmicament sense que suposi una despesa extra important. Això permet millorar el confort, estalviar diners a llarg plaç i preservar el medi ambient.</p>
+    </div>
+
+    <div class="hidden-content hidden-facade-improvements" id="facanes-millorades-properament">
+      <p>Un bon nivell d'aïllament a les façanes és una de les accions clau per a millorar el confort de l'habitatge, estalviar diners i preservar el medi ambient. Si properament voleu fer una rehabilitació de la façana assegureu-vos que el projecte inclou una millora a nivell tèrmic.</p>
+    </div>
+
+    <div class="hidden-content hidden-facade-improvements" id="facanes-millorades-no">
+      <p>La composició de les façanes condiciona molt la despesa energètica i el confort de l'habitatge. Hi ha moltes maneres diferents d'afegir aïllament tèrmic a una façana, és recomanable informar-se sobre les possibilitats de cada cas.</p>
     </div>
 
     <div class="form-group"><%= f.label :roof_improvements, "Heu fet alguna rehabilitació a la coberta?" %><br />
-    <%= f.select(:roof_improvements, [['Sí, i s\'han millorat les seves característiques d\'aïllament tèrmic'], ['Sí, però únicament s\'ha reparat el que estava malmès'], ['No, però es vol millorar properament'], ['No']], {}, {:class => 'form-control'}) %>
+    <%= f.select(:roof_improvements, [['', 0], ['Sí, i s\'han millorat les seves característiques d\'aïllament tèrmic', 1], ['Sí, però únicament s\'ha reparat el que estava malmès', 2], ['No, però es vol millorar properament', 3], ['No', 4]], {}, {:class => 'form-control'}) %>
+    </div>
+
+    <div class="hidden-content hidden-roof-improvements" id="coberta-millorada-termic">
+      <p>Si teniu una coberta en bones condicions podreu estalviar molts diners a llarg plaç i gaudir d'un bon confort a l'habitatge.</p>
+    </div>
+
+    <div class="hidden-content hidden-roof-improvements" id="coberta-millorada-notermic">
+      <p>Quan es fa una rehabilitació de coberta per qüestions de seguretat, estanquitat a l'aigua o estètica és recomanable aprofitar l'ocasió per millorar el seu nivell d'aïllament tèrmic, perquè per un petit increment de cost podem estalviar diners a llarg plaç, millorar el confort de l'habitatge i ajudar a preservar el medi ambient.</p>
+    </div>
+
+    <div class="hidden-content hidden-roof-improvements" id="coberta-millorada-properament">
+      <p>Si teniu previst fer una rehabilitació de la coberta és el moment ideal per assegurar-vos que el projecte inclou una millora a nivell tèrmic. Amb un petit increment de cost en el projecte podreu estalviar diners a llarg plaç, millorar el confort de l'habitatge i ajudar a preservar el medi ambient.</p>
+    </div>
+
+    <div class="hidden-content hidden-roof-improvements" id="coberta-millorada-no">
+      <p>Una coberta ben aïllada permet estalviar diners i millorar el confort de l'habitatge. Hi ha moltes maneres diferents d'afegir aïllament tèrmic a una coberta, és recomanable informar-se sobre les possibilitats de cada cas.</p>
     </div>
 
     <div class="form-group"><%= f.label :window_type, "Quin tipus de finestres teniu instal·lades?" %><br />
     <span class="text-tips">Si en teniu de diversos tipus seleccioneu l'opció més majoritària</span><br />
-    <%= f.select(:roof_improvements, [['Finestra de fusta amb vidre senzill'], ['Finestra de fusta amb vidre doble i cambra d\'aire'], ['Finestra metàl·lica de vidre senzill'], ['Finestra metàl·lica amb vidre doble i cambra d\'aire']], {}, {:class => 'form-control'}) %>
+    <%= f.select(:window_type, [['', 0], ['Finestres de fusta amb vidre senzill', 1], ['Finestres de fusta amb vidre doble i cambra d\'aire', 2], ['Finestres metàl·liques de vidre senzill', 3], ['Finestres metàl·liques amb vidre doble i cambra d\'aire', 4], ['Un altre tipus de finestres', 5]], {}, {:class => 'form-control'}) %>
     </div>
 
-    <div class="form-group"><%= f.label :window_improvements, "Heu renovat les finestres?" %><br />
-    <%= f.select(:window_improvements, [['Sí, per millorar les seves prestacions tèrmiques'], ['No, però es volen canviar'], ['No']], {}, {:class => 'form-control'}) %>
+    <div class="form-group"><%= f.label :window_tightness, "Com valoreu l'estanquitat a l'aire de les finestres?" %><br />
+    <span class="text-tips">Valoreu si la majoria tanquen bé o deixen passar aire tot i estar tancades</span><br />
+    <%= f.select(:window_tightness, [['', 0], ['La majoria són molt estanques, tanquen molt bé', 1], ['Algunes tanquen bé i altres deixen passar aire', 2], ['La majoria deixen passar aire tot i estar ben tancades', 3]], {}, {:class => 'form-control'}) %>
     </div>
+
+    <div class="hidden-content hidden-window-tightness" id="finestres-falta-info">
+      <p>Seleccioneu el tipus de finestres que hi ha al vostre habitatge i el seu grau d'estanquitat a l'aire.</p>
+    </div>
+
+    <div class="hidden-content hidden-window-tightness" id="finestres-bones-estanques">
+      <p>Sembla que teniu unes finestres força bones. Les finestres de qualitat i que tanquen correctament permeten reduir les necessitats de calefacció i aire condicionat fins a un 20%.</p>
+    </div>
+
+    <div class="hidden-content hidden-window-tightness" id="finestres-bones-noestanques">
+      <p>Si hi ha infiltracions d'aire importants s'incrementa molt la despesa energètica en calefacció i aire condicionat. Millorar l'estanquitat a l'aire de les finestres permetria estalviar fins un 20% d'energia.</p>
+    </div>   
+
+    <div class="hidden-content hidden-window-tightness" id="finestres-regulars">
+      <p>Si milloreu les finestres actuals per unes finestres de més qualitat i que tanquin correctament podreu estalviar fins un 20% d'energia.</p>
+    </div>  
+
 
   </div>
 </div>
 <div class="row">
   <div class="col-md-4 side-content">
-    <h3>Sistemes de confort de l'habitatge</h3>
+    <h3>Climatització i aigua calenta</h3>
     <p>Cal conèixer bé les nostres necessitats i les nostres possibilitats per poder decidir quina és l’opció més adient. Segons l'estudi realitzat per l'IDAE, el 2011, el 61% de la població a Espanya té una caldera convencional i la mitjana de vida d'aquestes és de 7 anys, el que comporta una obsolescència tecnològia que es deriva a un major consum d'energia i una major despesa econòmica. </p>
   </div>
   <div class="col-md-8 principal-content">
-    <div class="form-group"><%= f.label :hot_water_type, "Quin sistema teniu per escalfar l'aigua?" %><br />
-    <%= f.select(:hot_water_type, [['Aigua calenta amb gas natural'], ['Aigua calenta i calefacció amb gas natural'], ['Aigua calenta amb gasoil'], ['Aigua calenta i calefacció amb gasoil'], ['Aigua calenta amb gas natural i captadors solars'], ['Aigua calenta amb gasoil i captadors solars'], ['Aigua calenta amb electricitat'], ['Aigua calenta i calefacció amb electricitat'], ['Aigua calenta amb biomassa']], {}, {:class => 'form-control'}) %>
+    <div class="form-group"><%= f.label :hot_water_type, "Quin sistema teniu per escalfar l'aigua i per la calefacció?" %><br />
+    <%= f.select(:hot_water_type, [['', 0], ['Caldera mixta per aigua calenta i calefacció, amb gas natural', 1], ['Caldera mixta per aigua calenta i calefacció, amb gasoil', 2], ['Caldera mixta per aigua calenta i calefacció, amb biomassa', 3], ['Termoacumulador elèctric per aigua calenta i caldera de gas natural per calefacció', 4], ['Termoacumulador elèctric per aigua calenta i caldera de gasoil per calefacció', 5], ['Termoacumulador elèctric per aigua calenta i bomba de calor per calefacció', 6], ['Altre sistema tot elèctric', 7], ['Cap combinació de les anteriors', 8]], {}, {:class => 'form-control'}) %>
     </div>
 
-    <div class="form-group"><%= f.label :hot_water_improvements, "Heu realitzat alguna millora en el sistema de producció d'aigua calenta?" %><br />
-    <%= f.select(:hot_water_improvements, [['Sí, he renovat l\'aparell/s recentment per un d\'alt rendiment'], ['No, però ho vull fer'], ['No']], {}, {:class => 'form-control'}) %>
+    <div class="form-group"><%= f.label :hot_water_age, "Quina és l'antiguitat del sistema per escalfar aigua?" %><br />
+    <%= f.select(:hot_water_age, [['', 0], ['Més de 10 anys', 1], ['Entre 5 i 10 anys', 2], ['Menys de 5 anys', 3]], {}, {:class => 'form-control'}) %>
     </div>
 
-    <div class="form-group"><%= f.label :heating_type, "Quin tipus de calefacció teniu instal·lada?" %><br />
-    <%= f.select(:heating_type, [['Radiadors d\'aigua'], ['Radiadors elèctrics'], ['Terra radiant'], ['Climatitzador'], ['No hi ha calefacció']], {}, {:class => 'form-control'}) %>
+    <div class="hidden-content hidden-hot-water-age" id="aigua-calenta-antiga">
+      <p>Els equips de més de 10 anys acostumen a tenir un rendiment considerablement menor que els equips més moderns. La despesa energètica que suposa escalfar aigua acostuma a ser el 20% del total, per tant millorar el rendiment d'aquest equip es notarà en la factura.</p>
     </div>
 
-    <div class="form-group"><%= f.label :heating_improvements, "Heu realitzat alguna millora en el sistema de calefacció?" %><br />
-    <%= f.select(:heating_improvements, [['Sí, he renovat l\'aparell/s recentment per un d\'alt rendiment'], ['No, però ho vull fer'], ['No']], {}, {:class => 'form-control'}) %>
+    <div class="hidden-content hidden-hot-water-age" id="aigua-calenta-normal">
+      <p>El 20% de l'energia que es consumeix en una llar és per escalfar aigua, per tant és una bona desició plantejar-se la compra d'un sistema d'alt rendiment.</p>
     </div>
+
+    <div class="hidden-content hidden-hot-water-age" id="aigua-calenta-nova">
+      <p>És habitual que el 20% de l'energia que es consumeix en una llar sigui per escalfar aigua per a rentar plats, dutxar-se, etc. Si teniu un sistema nou i eficient notareu l'estalvi energètic. Tot i així recordeu que l'energia més neta és aquella que no es consumeix.</p>
+    </div>
+
+    <div class="form-group"><%= f.label :heating_age, "Quina és l'antiguitat del sistema de calefacció?" %><br />
+    <span class="text-tips">Encara que sigui el mateix sistema que el d'aigua calenta torneu a indicar la seva antiguitat</span><br />
+    <%= f.select(:heating_age, [['', 0], ['Més de 10 anys', 1], ['Entre 5 i 10 anys', 2], ['Menys de 5 anys', 3]], {}, {:class => 'form-control'}) %>
+    </div>
+
+    <div class="hidden-content hidden-heating-age" id="calefaccio-antiga">
+      <p>En un habitatge convencional la calefacció representa el 43% del consum d'energia. Els sistemes antics acostumen a tenir un rendiment pitjor que els moderns, per tant resulta difícil consumir poca energia amb un sistema de calefacció poc eficient.</p>
+    </div>
+
+    <div class="hidden-content hidden-heating-age" id="calefaccio-normal">
+      <p>En un habitatge convencional la calefacció representa el 43% del consum d'energia. El vostre sistema de calefacció ja té uns anys però encara no es considera obsolet. Tot i així, canviar-lo per un sistema molt eficient pot suposar una gran diferència en el consum d'energia.</p>
+    </div>
+
+    <div class="hidden-content hidden-heating-age" id="calefaccio-nova">
+      <p>En un habitatge convencional la calefacció representa el 43% del consum d'energia. Si teniu un sistema de calefacció nou el més probable és que sigui força eficient, tot i que entre els sistemes nous hi ha grans diferències de rendiment. Recordeu que un ús responsable de la calefacció és la millor manera d'estalviar energia a la llar.</p>
+    </div>
+
+
+    <div class="form-group"><%= f.label :cooling_type, "Quin sistema de refrigeració teniu instal·lat?" %><br />
+    <%= f.select(:cooling_type, [['', 0], ['Aire condicionat de paret o sostre (només refrigeració)', 1], ['Bomba de calor (calefacció + refrigeració)', 2], ['No tinc cap sistema d\'aire condicionat', 3]], {}, {:class => 'form-control'}) %>
+    </div>
+
+    <div class="form-group"><%= f.label :cooling_age, "Quina és l'antiguitat del sistema de refrigeració?" %><br />
+    <%= f.select(:cooling_age, [['', 0], ['Més de 10 anys', 1], ['Entre 5 i 10 anys', 2], ['Menys de 5 anys', 3]], {}, {:class => 'form-control'}) %>
+    </div>
+
+    <div class="hidden-content hidden-cooling-age" id="refrigeracio-antiga">
+      <p>A Catalunya el punt de més consum d'energia s'ha desplaçat de l'hivern a l'estiu a causa de la utilització de l'aire condicionat. Utilitzant sistemes més eficients seria possible reduir el consum d'energia considerablement.</p>
+    </div>
+
+    <div class="hidden-content hidden-cooling-age" id="refrigeracio-normal">
+      <p>És una bona decisió renovar el sistema de refrigeració per un d'alt rendiment, ja que comporta una reducció del consum i del valor de la factura.</p>
+    </div>
+
+    <div class="hidden-content hidden-cooling-age" id="refrigeracio-nova">
+      <p>A Catalunya el punt de més consum d'energia s'ha desplaçat de l'hivern a l'estiu a causa de la utilització de l'aire condicionat. Si teniu un sistema nou possiblement sigui força eficient, tot i que hi ha una gran diversitat de rendiments depenent de l'aparell. Fent un ús responsable de l'aire condicionat podreu estalviar encara més energia.</p>
+    </div>
+
 
   </div>
 </div>
 
+<div class="row">
+  <div class="col-md-4 side-content">
+    <h3>Il·luminació artificial</h3>
+    <p> La il·luminació representa un 10% del consum elèctric, percentatge que es podria reduir amb la instal·lació de bombetes més eficients. A l'hora de substituir les bombetes de la llar, cal tenir present a quina estança es col·loquen i el temps que estan en funcionament.</p>
+  </div>
+  <div class="col-md-8 principal-content">
+    <div class="form-group"><%= f.label :lighting_type, "Quin tipus d'il·luminació és el més majoritari a la vostra llar?" %><br />
+    <%= f.select(:lighting_type, [['', 0], ['Bombetes de baix consum i fluorescents de tub', 1], ['Bombetes halògenes', 2], ['Bombetes incandescents', 3], ['Bombetes de LEDs', 4], ['Hi ha molta varietat de làmpades', 5]], {}, {:class => 'form-control'}) %>
+    </div>
+
+    <div class="form-group"><%= f.label :lighting_power, "Quina és, aproximadament, la potència total en il·luminació?" %><br />
+    <span class="text-tips">Valor en W. Els valors típics són: 5W per bombeta tipus LED, 14W per bombeta de baix consum, 35W per bombeta halògena, 36W per fluorescent i 60W per bombeta incandescent.</span>
+    <%= f.text_field :lighting_power, :class => 'form-control' %>
+    </div>
 
 
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4 side-content">
+    <h3>Potència dels electrodomèstics</h3>
+    <p>Els electrodomèstics, tant grans com petits representen el 20% del consum d'energia. Escollir i utilitzar de forma adequada els electrodomèstics, així com tenir cura de la instal·lació elèctrica, és molt bona opció per ser més eficients. Cal parar-se a pensar en la potència contractada a la vostra llar per reduir en diners i en emissions de CO<sub>2</sub>.</p>
+  </div>
+  <div class="col-md-8 principal-content">
+    <div class="form-group"><%= f.label :contracted_power, "Quina potència elèctrica teniu contractada?" %><br />
+    <span class="text-tips">Valor en W.</span>
+    <%= f.text_field :contracted_power, :class => 'form-control' %>
+    </div>
 
+    <p>A continuació es demanen les potències de diversos aparells de la llar. Ja hi ha uns valors per defecte, però si per exemple no teniu rentaplats poseu el valor a zero. Si teniu més d'un aparell d'una tipologia, per exemple tres televisors, poseu la potència sumada dels aparells. Comproveu la potència real dels vostres aparells per fer un estudi més acurat.</p>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group"><%= f.label :refrigerator_power, "Potència de la nevera i congelador" %><br />
+        <span class="text-tips">Valor en W. Un valor típic és 300W.</span>
+        <%= f.text_field :refrigerator_power, :class => 'form-control', :value => '300' %>
+        </div>
 
+        <div class="form-group"><%= f.label :microwave_power, "Potència del microones" %><br />
+        <span class="text-tips">Valor en W. Un valor típic és 800W.</span>
+        <%= f.text_field :microwave_power, :class => 'form-control' , :value => '800'%>
+        </div>
 
+        <div class="form-group"><%= f.label :washingmachine_power, "Potència de la rentadora" %><br />
+        <span class="text-tips">Valor en W. Un valor típic és 2000W.</span>
+        <%= f.text_field :washingmachine_power, :class => 'form-control', :value => '2000' %>
+        </div>
 
+        <div class="form-group"><%= f.label :dishwasher_power, "Potència del rentaplats" %><br />
+        <span class="text-tips">Valor en W. Un valor típic és 1800W.</span>
+        <%= f.text_field :refrigerator_power, :class => 'form-control', :value => '1800' %>
+        </div>
 
+        <div class="form-group"><%= f.label :oven_power, "Potència del forn" %><br />
+        <span class="text-tips">Valor en W. Un valor típic és 2500W.</span>
+        <%= f.text_field :oven_power, :class => 'form-control', :value => '2500' %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group"><%= f.label :vitroceramic_power, "Potència de la cuina vitroceràmica" %><br />
+        <span class="text-tips">Valor en W. Un valor típic és 1800W.</span>
+        <%= f.text_field :vitroceramic_power, :class => 'form-control', :value => '1800' %>
+        </div>
 
+        <div class="form-group"><%= f.label :coffeemachine_power, "Potència de la cafetera" %><br />
+        <span class="text-tips">Valor en W. Un valor típic és 1000W.</span>
+        <%= f.text_field :coffeemachine_power, :class => 'form-control', :value => '1000' %>
+        </div>
 
+        <div class="form-group"><%= f.label :tv_power, "Potència del televisor" %><br />
+        <span class="text-tips">Valor en W. Un valor típic és 60W.</span>
+        <%= f.text_field :tv_power, :class => 'form-control', :value => '60' %>
+        </div>
 
+        <div class="form-group"><%= f.label :pc_power, "Potència de l'ordinador" %><br />
+        <span class="text-tips">Valor en W. Un valor típic és 25W.</span>
+        <%= f.text_field :pc_power, :class => 'form-control', :value => '25' %>
+        </div>
 
-    <div><%= f.submit "Guardar les dades", :class => "btn button-default" %></div>
+        <div class="form-group"><%= f.label :stereo_power, "Equip de música" %><br />
+        <span class="text-tips">Valor en W. Un valor típic és 25W.</span>
+        <%= f.text_field :stereo_power, :class => 'form-control', :value => '25' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4 side-content">
+    <h3>Consum d'energia</h3>
+    <p>Per fer un anàlisi del consum d'energia d'un habitatge una de les dades més importants és conèixer l'evolució del consum real al llarg de l'any.</p>
+  </div>
+  <div class="col-md-8 principal-content">
+    <h4>Consum d'electricitat</h4>
+    <p>Si us resulta complicat assignar un consum a cada mes perquè rebeu la factura cada dos mesos podeu posar els consums en els mesos que rebeu les factures i deixar els altres mesos a zero.</p>
+    <span class="text-tips">Valors en kWh.</span>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group"><%= f.label :electricity_consumption_january, "Gener" %><br />
+        <%= f.text_field :electricity_consumption_january, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :electricity_consumption_february, "Febrer" %><br />
+        <%= f.text_field :electricity_consumption_february, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :electricity_consumption_march, "Març" %><br />
+        <%= f.text_field :electricity_consumption_march, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :electricity_consumption_april, "Abril" %><br />
+        <%= f.text_field :electricity_consumption_april, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :electricity_consumption_may, "Maig" %><br />
+        <%= f.text_field :electricity_consumption_may, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :electricity_consumption_june, "Juny" %><br />
+        <%= f.text_field :electricity_consumption_june, :class => 'form-control', :value => '0' %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group"><%= f.label :electricity_consumption_july, "Juliol" %><br />
+        <%= f.text_field :electricity_consumption_july, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :electricity_consumption_august, "Agost" %><br />
+        <%= f.text_field :electricity_consumption_august, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :electricity_consumption_september, "Setembre" %><br />
+        <%= f.text_field :electricity_consumption_september, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :electricity_consumption_october, "Octubre" %><br />
+        <%= f.text_field :electricity_consumption_october, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :electricity_consumption_november, "Novembre" %><br />
+        <%= f.text_field :electricity_consumption_november, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :electricity_consumption_december, "Desembre" %><br />
+        <%= f.text_field :electricity_consumption_december, :class => 'form-control', :value => '0' %>
+        </div>
+      </div>
+    </div>
+    <h4>Consum de gas</h4>
+    <p>Si us resulta complicat assignar un consum a cada mes perquè rebeu la factura cada dos mesos podeu posar els consums en els mesos que rebeu les factures i deixar els altres mesos a zero.</p>
+    <span class="text-tips">Valors en kWh.</span>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group"><%= f.label :gas_consumption_january, "Gener" %><br />
+        <%= f.text_field :gas_consumption_january, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :gas_consumption_february, "Febrer" %><br />
+        <%= f.text_field :gas_consumption_february, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :gas_consumption_march, "Març" %><br />
+        <%= f.text_field :gas_consumption_march, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :gas_consumption_april, "Abril" %><br />
+        <%= f.text_field :gas_consumption_april, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :gas_consumption_may, "Maig" %><br />
+        <%= f.text_field :gas_consumption_may, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :gas_consumption_june, "Juny" %><br />
+        <%= f.text_field :gas_consumption_june, :class => 'form-control', :value => '0' %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group"><%= f.label :gas_consumption_july, "Juliol" %><br />
+        <%= f.text_field :gas_consumption_july, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :gas_consumption_august, "Agost" %><br />
+        <%= f.text_field :gas_consumption_august, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :gas_consumption_september, "Setembre" %><br />
+        <%= f.text_field :gas_consumption_september, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :gas_consumption_october, "Octubre" %><br />
+        <%= f.text_field :gas_consumption_october, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :gas_consumption_november, "Novembre" %><br />
+        <%= f.text_field :gas_consumption_november, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :gas_consumption_december, "Desembre" %><br />
+        <%= f.text_field :gas_consumption_december, :class => 'form-control', :value => '0' %>
+        </div>
+      </div>
+    </div>
+    <h4>Consum de gasoil</h4>
+    <p>Si us resulta complicat assignar un consum a cada mes perquè rebeu factures cada dos o tres mesos podeu posar els consums en els mesos que rebeu les factures i deixar els altres mesos a zero.</p>
+    <span class="text-tips">Valors en kWh.</span>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group"><%= f.label :gasoil_consumption_january, "Gener" %><br />
+        <%= f.text_field :gasoil_consumption_january, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :gasoil_consumption_february, "Febrer" %><br />
+        <%= f.text_field :gasoil_consumption_february, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :gasoil_consumption_march, "Març" %><br />
+        <%= f.text_field :gasoil_consumption_march, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :gasoil_consumption_april, "Abril" %><br />
+        <%= f.text_field :gasoil_consumption_april, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :gasoil_consumption_may, "Maig" %><br />
+        <%= f.text_field :gasoil_consumption_may, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :gasoil_consumption_june, "Juny" %><br />
+        <%= f.text_field :gasoil_consumption_june, :class => 'form-control', :value => '0' %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group"><%= f.label :gasoil_consumption_july, "Juliol" %><br />
+        <%= f.text_field :gasoil_consumption_july, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :gasoil_consumption_august, "Agost" %><br />
+        <%= f.text_field :gasoil_consumption_august, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :gasoil_consumption_september, "Setembre" %><br />
+        <%= f.text_field :gasoil_consumption_september, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :gasoil_consumption_october, "Octubre" %><br />
+        <%= f.text_field :gasoil_consumption_october, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :gasoil_consumption_november, "Novembre" %><br />
+        <%= f.text_field :gasoil_consumption_november, :class => 'form-control', :value => '0' %>
+        </div>
+        <div class="form-group"><%= f.label :gasoil_consumption_december, "Desembre" %><br />
+        <%= f.text_field :gasoil_consumption_december, :class => 'form-control', :value => '0' %>
+        </div>
+      </div>
+    </div>
+    <h4>Altres consums energètics</h4>
+    <div class="checkbox">
+      <label>
+        <%= f.check_box :other_energy_sources %> Al meu habitatge hi ha altres consums d'energia que no queden reflectits aquí, com el butà o la biomassa.
+      </label>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8 col-md-offset-4 principal-content">
+    <h3>Quina qualificació energètica creieu que obtindreu?</h3>
+    <div class="form-group"><%= f.label :energy_class_guess, "Seleccioneu la qualificació energètica que creieu que obtindrà el vostre habitatge" %><br />
+    <span class="text-tips">En completar el formulari la podreu comparar amb la qualificació energètica de l'AutoTest</span><br />
+    <%= f.select(:energy_class_guess, [['', 0], ['A', 'a'], ['B', 'b'], ['C', 'c'], ['D', 'd'], ['E', 'e'], ['F', 'f'], ['G', 'g']], {}, {:class => 'form-control'}) %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8 col-md-offset-4">
+    <p>Podeu guardar les dades encara que no hagueu completat tot el formulari, podreu accedir-hi més tard per completar-lo.</p>
+    <div><%= f.submit "Guardar les dades", :class => "btn button-new" %></div>
 
     <% end %>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() { 
+    $(".hidden-content").hide();
+
+    $("#project_project_type").change(function() {
+      var selected_value = $("#project_project_type").val();
+      switch(selected_value) {
+        case '0':
+          $(".hidden-project-type").hide();
+          break;
+        case '1':
+          $(".hidden-project-type").hide();
+          $("#project_type_pis").show();
+          break;
+        case '2':
+          $(".hidden-project-type").hide();
+          $("#project_type_unifamiliar").show();
+          break;
+        case '3':
+          $(".hidden-project-type").hide();
+          $("#project_type_edifici").show();
+          break;
+      }
+    });
+
+    $("#project_construction_period").change(function() {
+      var selected_value = $("#project_construction_period").val();
+      switch(selected_value) {
+        case '0':
+          $(".hidden-construction-period").hide();
+          break;
+        case '1':
+          $(".hidden-construction-period").hide();
+          $("#anterior1981").show();
+          break;
+        case '2':
+          $(".hidden-construction-period").hide();
+          $("#1981-1987").show();
+          break;
+        case '3':
+          $(".hidden-construction-period").hide();
+          $("#1988-2006").show();
+          break;
+        case '4':
+          $(".hidden-construction-period").hide();
+          $("#posterior2006").show();
+          break;
+      }
+    });
+
+    $("#project_facade_improvements").change(function() {
+      var selected_value = $("#project_facade_improvements").val();
+      switch(selected_value) {
+        case '0':
+          $(".hidden-facade-improvements").hide();
+          break;
+        case '1':
+          $(".hidden-facade-improvements").hide();
+          $("#facanes-millorades-termic").show();
+          break;
+        case '2':
+          $(".hidden-facade-improvements").hide();
+          $("#facanes-millorades-notermic").show();
+          break;
+        case '3':
+          $(".hidden-facade-improvements").hide();
+          $("#facanes-millorades-properament").show();
+          break;
+        case '4':
+          $(".hidden-facade-improvements").hide();
+          $("#facanes-millorades-no").show();
+          break;
+      }
+    });
+
+    $("#project_roof_improvements").change(function() {
+      var selected_value = $("#project_roof_improvements").val();
+      switch(selected_value) {
+        case '0':
+          $(".hidden-roof-improvements").hide();
+          break;
+        case '1':
+          $(".hidden-roof-improvements").hide();
+          $("#coberta-millorada-termic").show();
+          break;
+        case '2':
+          $(".hidden-roof-improvements").hide();
+          $("#coberta-millorada-notermic").show();
+          break;
+        case '3':
+          $(".hidden-roof-improvements").hide();
+          $("#coberta-millorada-properament").show();
+          break;
+        case '4':
+          $(".hidden-roof-improvements").hide();
+          $("#coberta-millorada-no").show();
+          break;
+      }
+    });
+
+    $("#project_window_type").change(function() {
+      var type = $("#project_window_type").val();
+      var tightness = $("#project_window_tightness").val();
+      if (tightness != 0) {
+        window_evaluation(type, tightness);
+      }
+      
+    });
+
+    $("#project_window_tightness").change(function() {
+      var type = $("#project_window_type").val();
+      var tightness = $("#project_window_tightness").val();
+      window_evaluation(type, tightness);
+      
+    });
+
+
+    function window_evaluation(type, tightness) {
+      if (type == 0 || tightness == 0) {
+        $(".hidden-window-tightness").hide();
+        $("#finestres-falta-info").show();
+      }
+      else if (type == 2 && tightness == 1) {
+        $(".hidden-window-tightness").hide();
+        $("#finestres-bones-estanques").show();
+      }
+      else if (type == 4 && tightness == 1) {
+        $(".hidden-window-tightness").hide();
+        $("#finestres-bones-estanques").show();
+      }
+      else if (type == 1 && tightness == 3) {
+        $(".hidden-window-tightness").hide();
+        $("#finestres-regulars").show();
+      }
+      else if (type == 3 && tightness == 3) {
+        $(".hidden-window-tightness").hide();
+        $("#finestres-regulars").show();
+      }
+      else if (type == 1 && tightness == 2) {
+        $(".hidden-window-tightness").hide();
+        $("#finestres-regulars").show();
+      }
+      else {
+        $(".hidden-window-tightness").hide();
+        $("#finestres-bones-noestanques").show();
+      }
+    } 
+
+    $("#project_hot_water_age").change(function() {
+      var selected_value = $("#project_hot_water_age").val();
+      switch(selected_value) {
+        case '0':
+          $(".hidden-hot-water-age").hide();
+          break;
+        case '1':
+          $(".hidden-hot-water-age").hide();
+          $("#aigua-calenta-antiga").show();
+          break;
+        case '2':
+          $(".hidden-hot-water-age").hide();
+          $("#aigua-calenta-normal").show();
+          break;
+        case '3':
+          $(".hidden-hot-water-age").hide();
+          $("#aigua-calenta-nova").show();
+          break;
+      }
+    });
+
+    $("#project_heating_age").change(function() {
+      var selected_value = $("#project_heating_age").val();
+      switch(selected_value) {
+        case '0':
+          $(".hidden-heating-age").hide();
+          break;
+        case '1':
+          $(".hidden-heating-age").hide();
+          $("#calefaccio-antiga").show();
+          break;
+        case '2':
+          $(".hidden-heating-age").hide();
+          $("#calefaccio-normal").show();
+          break;
+        case '3':
+          $(".hidden-heating-age").hide();
+          $("#calefaccio-nova").show();
+          break;
+      }
+    });
+
+    $("#project_cooling_age").change(function() {
+      var selected_value = $("#project_cooling_age").val();
+      switch(selected_value) {
+        case '0':
+          $(".hidden-cooling-age").hide();
+          break;
+        case '1':
+          $(".hidden-cooling-age").hide();
+          $("#refrigeracio-antiga").show();
+          break;
+        case '2':
+          $(".hidden-cooling-age").hide();
+          $("#refrigeracio-normal").show();
+          break;
+        case '3':
+          $(".hidden-cooling-age").hide();
+          $("#refrigeracio-nova").show();
+          break;
+      }
+    });
+
+  });
+</script>
+
+

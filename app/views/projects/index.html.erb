@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     <div class="col-md-4 side-content">
-    	<p class="side-description">Des d'aquest apartat podeu gestionar els vostres projectes. Si voleu fer l'AutoTest del vostre habitatge cliqueu el botó "Crear un nou projecte". En el cas que tingueu més d'un habitatge o edifici podeu crear més projectes clicant el mateix botó.</p>
+    	<p class="side-description">Des d'aquest apartat podeu gestionar els vostres AutoTests. Si voleu fer l'AutoTest del vostre habitatge cliqueu el botó "Crear un nou AutoTest". En el cas que tingueu més d'un habitatge o edifici podeu crear més AutoTests clicant el mateix botó.</p>
     </div>
     <div class="col-md-8 principal-content">
 			<% @projects.each do |project| %>
@@ -35,7 +35,7 @@
 			<% end %>
 			
 			<%= link_to :action => 'new' do %>
-				<div class="btn button-new"><span class="glyphicon glyphicon-plus"> </span> Crear un nou projecte</div> 
+				<div class="btn button-new"><span class="glyphicon glyphicon-plus"> </span> Crear un nou AutoTest</div> 
 			<% end %>
 		
   		
