@@ -22,43 +22,78 @@
   <div class="col-md-8 principal-content">
 		<h3><%= @project.name %></h3>
 		<h4>Qualificació energètica</h4>
-		<div class="row">
-			<div class="col-md-4">
-				<span class="text-tips">Més eficient</span>
-				<%= image_tag("etiqueta_" + @simulation.energy_class + ".jpg", width: "200", height: "139") %>
-				<span class="text-tips">Menys eficient</span>
+		<% if !@simulation %>
+			<p>Heu introduït massa poca informació com per poder determinar la qualificació energètica del vostre habitatge. Si us plau introduïu més informació.</p>
+		<% else %>
+			<div class="row">
+				<div class="col-md-4">
+					<span class="text-tips">Més eficient</span>
+					<%= image_tag("etiqueta_" + @simulation.energy_class + ".jpg", width: "200", height: "139") %>
+					<span class="text-tips">Menys eficient</span>
+				</div>
+				<div class="col-md-7 col-md-offset-1">
+					<p><%= @simulation_result %></p>
+				</div>
 			</div>
-			<div class="col-md-7 col-md-offset-1">
-				<p>La qualificació energètica del vostre habitatge és la <%= @simulation.energy_class.upcase %>. La vostra suposició era que sortiria una <%= @project.energy_class_guess.upcase %><%= @comparison %></p>
-			</div>
-		</div>
+		<% end %>
 		
-		<h4>Propostes de millora per al vostre habitatge:</h4>
-		<div class="row">
-			<div class="col-md-4">
-				<%= image_tag(@suggestions_img[0], class: "suggestion-image", width: "180", height: "134") %>
+		
+		<% if !@suggestions[0] %>
+			<% if @simulation %>
+				<% if @simulation.energy_class > 'd' %>
+					<p>No podem fer suggeriments automàticament per al vostre habitatge. És possible que hagueu introduït massa poca informació per a poder-los generar, o que hi hagi contradicció de dades. Per exemple que hagueu posat que teniu un habitatge antic però amb façanes i cobertes molt ben aïllades. Quan es demana el període de construcció o rehabilitació de l'habitatge cal posar el de l'última rehabilitació per tal d'obtenir resultats més acurats.</p>
+				<% else %>
+					<p>No hi ha suggeriments que poguem fer automàticament per al vostre habitatge, sembla que està en bones condicions des del punt de vista energètic o que heu introduït massa poques dades per a avaluar-lo correctament. De totes maneres això no vol dir que no es pugui millorar. Us recomanem que contracteu un Test Energia per a poder fer un estudi més acurat i arribar a tenir un habitatge de molt baix consum energètic.</p>
+				<% end %>
+			<% end %>
+		<% else %>
+			<h4>Propostes de millora:</h4>
+
+			<div class="row">
+				<div class="col-md-3">
+					<%= image_tag(@suggestions_img[0], class: "suggestion-image", width: "180", height: "134") %>
+				</div>
+				<div class="col-md-8 col-md-offset-1">
+					<h4><%= @suggestions_title[0] %></h4>
+					<p><%= @suggestions[0] %></p>
+				</div>
 			</div>
-			<div class="col-md-7 col-md-offset-1">
-				<p><%= @suggestions[0] %></p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4">
-				<%= image_tag(@suggestions_img[1], class: "suggestion-image", width: "180", height: "134") %>
-			</div>
-			<div class="col-md-7 col-md-offset-1">
-				<p><%= @suggestions[1] %></p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4">
-				<%= image_tag(@suggestions_img[2], class: "suggestion-image", width: "180", height: "134") %>
-			</div>
-			<div class="col-md-7 col-md-offset-1">
-				<p><%= @suggestions[2] %></p>
-			</div>
-		</div>
-	
+			
+			<hr>
+			<% if @suggestions[1] %>
+				
+				<div class="row">
+					<div class="col-md-3">
+						<%= image_tag(@suggestions_img[1], class: "suggestion-image", width: "180", height: "134") %>
+					</div>
+					<div class="col-md-8 col-md-offset-1">
+						<h4><%= @suggestions_title[1] %></h4>
+						<p><%= @suggestions[1] %></p>
+					</div>
+				</div>
+				<hr>
+			<% end %>
+
+			
+			<% if @suggestions[2] %>
+				
+				<div class="row">
+					<div class="col-md-3">
+						<%= image_tag(@suggestions_img[2], class: "suggestion-image", width: "180", height: "134") %>
+					</div>
+					<div class="col-md-8 col-md-offset-1">
+						<h4><%= @suggestions_title[2] %></h4>
+						<p><%= @suggestions[2] %></p>
+					</div>
+				</div>
+				<hr>
+			<% end %>
+
+		<% end %>
+
+		<%= link_to :action => 'edit', :id => @project.id do %>
+			<div class="btn button-default"><span class="glyphicon glyphicon-pencil"> </span> Editar dades</div>
+		<% end %>
 		
 		
 	</div>

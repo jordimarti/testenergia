@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to :controller => 'xprojects', :action => 'index/' do %>
+      <div class="btn button-page-menu"><span class="glyphicon glyphicon-arrow-left"> </span> Tornar a la llista de projectes</div>
+    <% end %>
+    <h2 class="page-title">Propostes de millora</h2>
+    <h3><%= @xproject.name %></h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 principal-content">
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Nom</th>
+						<th>Cost</th>
+						<th>Estalvi</th>
+						<th>Retorn de la inversió</th>
+						<th>Editar</th>
+						<th>Eliminar</th>
+					</tr>
+				</thead>
+				<tbody>
+				<% @improvements.each do |improvement| %>
+					
+					<tr>
+						<td><%= improvement.name %></td>
+						<td>
+							<% improvement.cost.times do %>
+								<span class="glyphicon glyphicon-euro"> </span>
+							<% end %>
+						</td>
+						<td>
+							<% improvement.savings.times do %>
+								<span class="glyphicon glyphicon-star"> </span>
+							<% end %>
+						</td>
+						<td>
+							<% improvement.roi.times do %>
+								<span class="glyphicon glyphicon-time"> </span>
+							<% end %>
+						</td>
+						<td><%= link_to :action => 'edit', :id => improvement.id, :xproject_id => @xproject.id do %>
+							<span class="glyphicon glyphicon-pencil"> </span>
+							<% end %></td>
+						<td><%= link_to :action => 'destroy', :id => improvement.id do %>
+							<span class="glyphicon glyphicon-trash"> </span>
+							<% end %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+		
+		
+	</div>
+	<%= link_to :action => 'new', :xproject_id => @xproject.id do %>
+			<div class="btn button-new"><span class="glyphicon glyphicon-plus"> </span> Crear una nova proposta de millora</div> 
+		<% end %>
+</div>

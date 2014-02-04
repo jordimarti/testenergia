@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to :action => 'index/'+@xproject.id.to_s do %>
+      <div class="btn button-page-menu"><span class="glyphicon glyphicon-arrow-left"> </span> Tornar a la llista de millores</div>
+    <% end %>
+    <h2 class="page-title">Editar proposta de millora</h2>
+    <h3><%= @xproject.name %></h3>
+  </div>
+</div>
+<%= form_for(:improvement, :url => {:action => 'update', :id => @improvement.id}) do |f| %>
+<div class="row">
+  <div class="col-md-12 principal-content">
+    <%= f.error_messages %>
+    <%= f.hidden_field :xproject_id, { :value => @xproject.id } %>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group"><%= f.label :name, "Nom de la proposta" %><br />
+          <%= f.text_field :name, :autofocus => true, :class => 'form-control' %></div>
+
+        <div class="form-group"><%= f.label :cost, "Cost de la proposta" %><br />
+          <%= f.select(:cost, [['1'], ['2'], ['3'], ['4']], {}, {:class => 'form-control'}) %>
+        </div>
+
+        <div class="form-group"><%= f.label :savings, "Estalvi d'energia associat a la proposta" %><br />
+          <%= f.select(:savings, [['1'], ['2'], ['3'], ['4']], {}, {:class => 'form-control'}) %>
+        </div>
+
+        <div class="form-group"><%= f.label :roi, "Rapidesa de retorn de la inversió" %><br />
+          <%= f.select(:roi, [['1'], ['2'], ['3'], ['4']], {}, {:class => 'form-control'}) %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group"><%= f.label :description, "Descripció de la proposta" %><br />
+          <%= f.text_area :description, :rows => "11", :class => 'form-control' %></div>
+      </div>
+    </div>
+
+    
+  </div>
+  <div><%= f.submit "Guardar les dades", :class => "btn button-new" %></div>
+<% end %>
+</div>

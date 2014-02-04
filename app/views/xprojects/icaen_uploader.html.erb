@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-12">
+  	<h1>File Upload</h1>
+		<%= form_for(:xproject, :url => {:action => 'write_icaen', :id => @xproject.id, :multipart => true}) do |f| %>
+
+			<div class="form-group"><%= f.label :icaen_xml, "Seleccionar arxiu" %><br />
+	    	<%= f.file_field :icaen_xml, :class => 'form-control' %>
+	  	</div>
+
+	  	<div><%= f.submit "Pujar arxiu", :class => "btn button-new" %></div>
+
+    <% end %>
+
+	</div>
+</div>

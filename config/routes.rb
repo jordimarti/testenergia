@@ -1,5 +1,10 @@
 Testenergia::Application.routes.draw do
   
+  get "improvements/index"
+  get "improvements/show"
+  get "improvements/new"
+  get "improvements/edit"
+  get "improvements/delete"
   get "xprojects/create_from_project"
   get "xprojects/show"
   get "xprojects/new"

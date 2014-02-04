@@ -2,24 +2,24 @@
 
 <div class="row">
   <div class="col-md-12">
-    <h2 class="page-title">Eliminar projecte</h2>
+    <h2 class="page-title">Eliminar AutoTest</h2>
   </div>
 </div>
 <div class="row">
   <div class="col-md-4 side-content">
   	<%= link_to :action => 'index' do %>
-      <div class="btn button-page-menu"><span class="glyphicon glyphicon-arrow-left"> </span> Tornar a la llista de projectes</div>
+      <div class="btn button-page-menu"><span class="glyphicon glyphicon-arrow-left"> </span> Tornar a la llista d'AutoTests</div>
     <% end %>
   </div>
   <div class="col-md-8 principal-content">
 	  <%= form_for(:project, :url => {:action => 'destroy', :id => @project.id}) do |f| %>
 
-	    <p>Esteu segurs de voler eliminar aquest projecte?</p>
+	    <p>Esteu segurs de voler eliminar aquest AutoTest?</p>
 
 	    <p class="reference-name"><%= @project.name %></p>
 
 	    <div class="form-buttons">
-	      <div><%= f.submit "Eliminar projecte", :class => "btn button-alert" %></div>
+	      <div><%= f.submit "Eliminar AutoTest", :class => "btn button-alert" %></div>
 	    </div>
 
 	  <% end %>
