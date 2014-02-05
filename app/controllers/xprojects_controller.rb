@@ -1,5 +1,7 @@
 class XprojectsController < ApplicationController
   before_filter :authenticate_expert!
+  before_filter :report_reader, :only => [ :update ]
+
   def index
     this_expert = Expert.find(current_expert.id)
     @xprojects = this_expert.xprojects
@@ -7,6 +9,7 @@ class XprojectsController < ApplicationController
 
   def show
     @xproject = Xproject.find(params[:id])
+    @improvements = @xproject.improvements
   end
 
   def new
@@ -28,7 +31,7 @@ class XprojectsController < ApplicationController
     # Save the object
     if @xproject.save
       # If save succeeds, redirect to the index action
-      flash[:notice] = "El projecte s'ha creat correctament."
+      #flash[:notice] = "El projecte s'ha creat correctament."
       redirect_to(:action => 'index')
     else
       # If save fails, redisplay the form so user can fix problems
@@ -41,7 +44,7 @@ class XprojectsController < ApplicationController
     # Save the object
     if @xproject.save
       # If save succeeds, redirect to the index action
-      flash[:notice] = "El projecte s'ha creat correctament."
+      #flash[:notice] = "El projecte s'ha creat correctament."
       redirect_to(:action => 'index')
     else
       # If save fails, redisplay the form so user can fix problems
@@ -71,11 +74,116 @@ class XprojectsController < ApplicationController
     # Update the object
     if @xproject.update_attributes(xproject_params)
       # If save succeeds, redirect to the index action
-      flash[:notice] = "Les dades del projecte s'han gravat correctament."
+      #flash[:notice] = "Les dades del projecte s'han gravat correctament."
       redirect_to(:action => 'edit', :id => @xproject.id)
     else
       # If save fails, redisplay the form so user can fix problems
       render('edit')
+    end
+  end
+
+  def report_reader
+    # Read data from CE3X report and save to database
+    unless params[:xproject][:report_results].empty?
+      params[:xproject][:global_emissions] = params[:xproject][:report_results].lines.at(22).split(" ").first
+      
+      params[:xproject][:global_emissions_rating] = params[:xproject][:report_results].lines.at(2).split(" ").at(3)
+      if !params[:xproject][:global_emissions_rating]
+        params[:xproject][:global_emissions_rating] = params[:xproject][:report_results].lines.at(3).split(" ").at(3)
+        if !params[:xproject][:global_emissions_rating]
+          params[:xproject][:global_emissions_rating] = params[:xproject][:report_results].lines.at(4).split(" ").at(3)
+          if !params[:xproject][:global_emissions_rating]
+            params[:xproject][:global_emissions_rating] = params[:xproject][:report_results].lines.at(5).split(" ").at(3)
+            if !params[:xproject][:global_emissions_rating]
+              params[:xproject][:global_emissions_rating] = params[:xproject][:report_results].lines.at(6).split(" ").at(3)
+              if !params[:xproject][:global_emissions_rating]
+                params[:xproject][:global_emissions_rating] = params[:xproject][:report_results].lines.at(7).split(" ").at(3)
+                if !params[:xproject][:global_emissions_rating]
+                  params[:xproject][:global_emissions_rating] = params[:xproject][:report_results].lines.at(8).split(" ").at(3)
+                end
+              end
+            end
+          end
+        end
+      end
+
+      params[:xproject][:heating_emissions] = params[:xproject][:report_results].lines.at(15).split(" ").first
+      params[:xproject][:heating_emissions_rating] = params[:xproject][:report_results].lines.at(10).split(" ").first
+      params[:xproject][:hot_water_emissions] = params[:xproject][:report_results].lines.at(15).split(" ").last
+      params[:xproject][:hot_water_emissions_rating] = params[:xproject][:report_results].lines.at(10).split(" ").last
+      params[:xproject][:cooling_emissions] = params[:xproject][:report_results].lines.at(22).split(" ").at(1)
+      params[:xproject][:cooling_emissions_rating] = params[:xproject][:report_results].lines.at(17).split(" ").first
+      params[:xproject][:heating_demand] = params[:xproject][:report_results].lines.at(44).split(" ").first
+      
+      params[:xproject][:heating_demand_rating] = params[:xproject][:report_results].lines.at(29).split(" ").at(3)
+      if !params[:xproject][:heating_demand_rating]
+        params[:xproject][:heating_demand_rating] = params[:xproject][:report_results].lines.at(30).split(" ").at(3)
+        if !params[:xproject][:heating_demand_rating]
+          params[:xproject][:heating_demand_rating] = params[:xproject][:report_results].lines.at(31).split(" ").at(3)
+          if !params[:xproject][:heating_demand_rating]
+            params[:xproject][:heating_demand_rating] = params[:xproject][:report_results].lines.at(32).split(" ").at(3)
+            if !params[:xproject][:heating_demand_rating]
+              params[:xproject][:heating_demand_rating] = params[:xproject][:report_results].lines.at(33).split(" ").at(3)
+              if !params[:xproject][:heating_demand_rating]
+                params[:xproject][:heating_demand_rating] = params[:xproject][:report_results].lines.at(34).split(" ").at(3)
+                if !params[:xproject][:heating_demand_rating]
+                  params[:xproject][:heating_demand_rating] = params[:xproject][:report_results].lines.at(35).split(" ").at(3)
+                end
+              end
+            end
+          end
+        end
+      end
+
+      params[:xproject][:cooling_demand] = params[:xproject][:report_results].lines.at(44).split(" ").last
+      
+      params[:xproject][:cooling_demand_rating] = params[:xproject][:report_results].lines.at(36).split(" ").at(3)
+      if !params[:xproject][:cooling_demand_rating]
+        params[:xproject][:cooling_demand_rating] = params[:xproject][:report_results].lines.at(37).split(" ").at(3)
+        if !params[:xproject][:cooling_demand_rating]
+          params[:xproject][:cooling_demand_rating] = params[:xproject][:report_results].lines.at(38).split(" ").at(3)
+          if !params[:xproject][:cooling_demand_rating]
+            params[:xproject][:cooling_demand_rating] = params[:xproject][:report_results].lines.at(39).split(" ").at(3)
+            if !params[:xproject][:cooling_demand_rating]
+              params[:xproject][:cooling_demand_rating] = params[:xproject][:report_results].lines.at(40).split(" ").at(3)
+              if !params[:xproject][:cooling_demand_rating]
+                params[:xproject][:cooling_demand_rating] = params[:xproject][:report_results].lines.at(41).split(" ").at(3)
+                if !params[:xproject][:cooling_demand_rating]
+                  params[:xproject][:cooling_demand_rating] = params[:xproject][:report_results].lines.at(42).split(" ").at(3)
+                end
+              end
+            end
+          end
+        end
+      end
+      params[:xproject][:global_primary_energy] = params[:xproject][:report_results].lines.at(69).split(" ").first
+      
+      params[:xproject][:global_primary_energy_rating] = params[:xproject][:report_results].lines.at(49).split(" ").at(3)
+      if !params[:xproject][:global_primary_energy_rating]
+        params[:xproject][:global_primary_energy_rating] = params[:xproject][:report_results].lines.at(50).split(" ").at(3)
+        if !params[:xproject][:global_primary_energy_rating]
+          params[:xproject][:global_primary_energy_rating] = params[:xproject][:report_results].lines.at(51).split(" ").at(3)
+          if !params[:xproject][:global_primary_energy_rating]
+            params[:xproject][:global_primary_energy_rating] = params[:xproject][:report_results].lines.at(52).split(" ").at(3)
+            if !params[:xproject][:global_primary_energy_rating]
+              params[:xproject][:global_primary_energy_rating] = params[:xproject][:report_results].lines.at(53).split(" ").at(3)
+              if !params[:xproject][:global_primary_energy_rating]
+                params[:xproject][:global_primary_energy_rating] = params[:xproject][:report_results].lines.at(54).split(" ").at(3)
+                if !params[:xproject][:global_primary_energy_rating]
+                  params[:xproject][:global_primary_energy_rating] = params[:xproject][:report_results].lines.at(55).split(" ").at(3)
+                end
+              end
+            end
+          end
+        end
+      end
+
+      params[:xproject][:heating_primary_energy] = params[:xproject][:report_results].lines.at(62).split(" ").first
+      params[:xproject][:heating_primary_energy_rating] = params[:xproject][:report_results].lines.at(57).split(" ").first
+      params[:xproject][:hot_water_primary_energy] = params[:xproject][:report_results].lines.at(62).split(" ").last
+      params[:xproject][:hot_water_primary_energy_rating] = params[:xproject][:report_results].lines.at(57).split(" ").last
+      params[:xproject][:cooling_primary_energy] = params[:xproject][:report_results].lines.at(69).split(" ").at(1)
+      params[:xproject][:cooling_primary_energy_rating] = params[:xproject][:report_results].lines.at(64).split(" ").first
     end
   end
 
@@ -85,7 +193,7 @@ class XprojectsController < ApplicationController
 
   def destroy
     xproject = Xproject.find(params[:id]).destroy
-    flash[:notice] = "El projecte '#{xproject.name}' ha estat correctament eliminat."
+    #flash[:notice] = "El projecte '#{xproject.name}' ha estat correctament eliminat."
     redirect_to(:action => 'index')
   end
 
@@ -740,6 +848,6 @@ a.(lp0
 
   private
     def xproject_params
-      params.require(:xproject).permit(:user_id, :expert_id, :name, :building_road_type, :building_road_name, :building_address_number, :building_block, :building_stairs, :building_story, :building_door, :building_zip_code, :building_town, :cadastre, :construction_period, :construction_year, :project_type, :area, :facade_improvements, :roof_improvements, :window_type, :window_tightness, :facade_definition, :facade_score, :roof_definition, :roof_score, :floor_definition, :floor_score, :windows_definition, :windows_score, :hot_water_type, :hot_water_age, :heating_age, :cooling_type, :cooling_age, :lighting_type, :lighting_power, :contracted_power, :refrigerator_power, :microwave_power, :washingmachine_power, :dishwasher_power, :oven_power, :vitroceramic_power, :tv_power, :pc_power, :stereo_power, :coffeemachine_power, :hot_water_definition, :hot_water_score, :heating_definition, :heating_score, :cooling_definition, :cooling_score, :lighting_definition, :lighting_score, :appliances_definition, :appliances_score, :electricity_consumption_january, :electricity_consumption_february, :electricity_consumption_march, :electricity_consumption_april, :electricity_consumption_may, :electricity_consumption_june, :electricity_consumption_july, :electricity_consumption_august, :electricity_consumption_september, :electricity_consumption_october, :electricity_consumption_november, :electricity_consumption_december, :gas_consumption_january, :gas_consumption_february, :gas_consumption_march, :gas_consumption_april, :gas_consumption_may, :gas_consumption_june, :gas_consumption_july, :gas_consumption_august, :gas_consumption_september, :gas_consumption_october, :gas_consumption_november, :gas_consumption_december, :gasoil_consumption_january, :gasoil_consumption_february, :gasoil_consumption_march, :gasoil_consumption_april, :gasoil_consumption_may, :gasoil_consumption_june, :gasoil_consumption_july, :gasoil_consumption_august, :gasoil_consumption_september, :gasoil_consumption_october, :gasoil_consumption_november, :gasoil_consumption_december, :other_energy_sources, :energy_class_guess, :energy_class, :user_first_name, :user_surname1, :user_surname2, :user_id_document_type, :user_id_document_number, :user_telephone, :user_mobile_phone, :user_road_type, :user_road_name, :user_address_number, :user_block, :user_stairs, :user_story, :user_door, :user_zip_code, :user_town)
+      params.require(:xproject).permit(:user_id, :expert_id, :name, :building_road_type, :building_road_name, :building_address_number, :building_block, :building_stairs, :building_story, :building_door, :building_zip_code, :building_town, :cadastre, :construction_period, :construction_year, :project_type, :area, :facade_improvements, :roof_improvements, :window_type, :window_tightness, :facade_definition, :facade_score, :roof_definition, :roof_score, :floor_definition, :floor_score, :windows_definition, :windows_score, :hot_water_type, :hot_water_age, :heating_age, :cooling_type, :cooling_age, :lighting_type, :lighting_power, :contracted_power, :refrigerator_power, :microwave_power, :washingmachine_power, :dishwasher_power, :oven_power, :vitroceramic_power, :tv_power, :pc_power, :stereo_power, :coffeemachine_power, :hot_water_definition, :hot_water_score, :heating_definition, :heating_score, :cooling_definition, :cooling_score, :lighting_definition, :lighting_score, :appliances_definition, :appliances_score, :electricity_consumption_january, :electricity_consumption_february, :electricity_consumption_march, :electricity_consumption_april, :electricity_consumption_may, :electricity_consumption_june, :electricity_consumption_july, :electricity_consumption_august, :electricity_consumption_september, :electricity_consumption_october, :electricity_consumption_november, :electricity_consumption_december, :gas_consumption_january, :gas_consumption_february, :gas_consumption_march, :gas_consumption_april, :gas_consumption_may, :gas_consumption_june, :gas_consumption_july, :gas_consumption_august, :gas_consumption_september, :gas_consumption_october, :gas_consumption_november, :gas_consumption_december, :gasoil_consumption_january, :gasoil_consumption_february, :gasoil_consumption_march, :gasoil_consumption_april, :gasoil_consumption_may, :gasoil_consumption_june, :gasoil_consumption_july, :gasoil_consumption_august, :gasoil_consumption_september, :gasoil_consumption_october, :gasoil_consumption_november, :gasoil_consumption_december, :other_energy_sources, :energy_class_guess, :energy_class, :user_first_name, :user_surname1, :user_surname2, :user_id_document_type, :user_id_document_number, :user_telephone, :user_mobile_phone, :user_road_type, :user_road_name, :user_address_number, :user_block, :user_stairs, :user_story, :user_door, :user_zip_code, :user_town, :report_results, :global_emissions, :global_emissions_rating, :heating_emissions, :heating_emissions_rating, :hot_water_emissions, :hot_water_emissions_rating, :cooling_emissions, :cooling_emissions_rating, :heating_demand, :heating_demand_rating, :cooling_demand, :cooling_demand_rating, :global_primary_energy, :global_primary_energy_rating, :heating_primary_energy, :heating_primary_energy_rating, :hot_water_primary_energy, :hot_water_primary_energy_rating, :cooling_primary_energy, :cooling_primary_energy_rating)
     end
 end

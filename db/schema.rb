@@ -342,6 +342,27 @@ ActiveRecord::Schema.define(version: 20140204085749) do
     t.boolean  "other_energy_sources"
     t.string   "energy_class_guess"
     t.string   "energy_class"
+    t.text     "report_results"
+    t.decimal  "global_emissions",                  precision: 10, scale: 2
+    t.string   "global_emissions_rating"
+    t.decimal  "heating_emissions",                 precision: 10, scale: 2
+    t.string   "heating_emissions_rating"
+    t.decimal  "hot_water_emissions",               precision: 10, scale: 2
+    t.string   "hot_water_emissions_rating"
+    t.decimal  "cooling_emissions",                 precision: 10, scale: 2
+    t.string   "cooling_emissions_rating"
+    t.decimal  "heating_demand",                    precision: 10, scale: 2
+    t.string   "heating_demand_rating"
+    t.decimal  "cooling_demand",                    precision: 10, scale: 2
+    t.string   "cooling_demand_rating"
+    t.decimal  "global_primary_energy",             precision: 10, scale: 2
+    t.string   "global_primary_energy_rating"
+    t.decimal  "heating_primary_energy",            precision: 10, scale: 2
+    t.string   "heating_primary_energy_rating"
+    t.decimal  "hot_water_primary_energy",          precision: 10, scale: 2
+    t.string   "hot_water_primary_energy_rating"
+    t.decimal  "cooling_primary_energy",            precision: 10, scale: 2
+    t.string   "cooling_primary_energy_rating"
     t.string   "user_first_name"
     t.string   "user_surname1"
     t.string   "user_surname2"

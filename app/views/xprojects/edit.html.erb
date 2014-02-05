@@ -19,6 +19,7 @@
       <li><a href="#instalacions" data-toggle="tab">Instal·lacions</a></li>
       <li><a href="#electrodomestics" data-toggle="tab">Electrodomèstics</a></li>
       <li><a href="#consums" data-toggle="tab">Consums</a></li>
+      <li><a href="#resultats" data-toggle="tab">Resultats</a></li>
     </ul>
   </div>
 </div>
@@ -832,6 +833,155 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="tab-pane" id="resultats">
+        <div class="content-in-tabs">
+          <div class="row">
+            <div class="col-md-6">
+              <p>Copieu el contingut de l'annex 2 de l'informe CE3X, des del títol "1. Calificación energética del edificio" fins a l'energia primària en il·luminació.</p>
+              <p>Si per alguna raó al grabar les dades no queden correctament col·locades als camps inferiors haureu d'esborrar el text i introduir les dades manualment.</p>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :report_results, "Text de l'annex 2 de l'informe CE3X" %><br />
+                <%= f.text_area :report_results, :rows => "11", :class => 'form-control' %>
+              </div>
+            </div>
+          </div>
+
+          <hr>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :global_emissions, "Emissions globals" %> (kgCO<sub>2</sub>/m<sup>2</sup>any)<br />
+              <%= f.text_field :global_emissions, :class => 'form-control' %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :global_emissions_rating, "Qualificació de les emissions globals" %><br />
+              <%= f.select(:global_emissions_rating, [[''], ['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G']], {}, {:class => 'form-control'}) %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :heating_emissions, "Emissions per calefacció" %> (kgCO<sub>2</sub>/m<sup>2</sup>any)<br />
+              <%= f.text_field :heating_emissions, :class => 'form-control' %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :heating_emissions_rating, "Qualificació de les emissions per calefacció" %><br />
+              <%= f.select(:heating_emissions_rating, [[''], ['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G']], {}, {:class => 'form-control'}) %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :cooling_emissions, "Emissions per refrigeració" %> (kgCO<sub>2</sub>/m<sup>2</sup>any)<br />
+              <%= f.text_field :cooling_emissions, :class => 'form-control' %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :cooling_emissions_rating, "Qualificació de les emissions per refrigeració" %><br />
+              <%= f.select(:cooling_emissions_rating, [[''], ['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G']], {}, {:class => 'form-control'}) %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :hot_water_emissions, "Emissions ACS" %> (kgCO<sub>2</sub>/m<sup>2</sup>any)<br />
+              <%= f.text_field :hot_water_emissions, :class => 'form-control' %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :hot_water_emissions_rating, "Qualificació de les emissions per ACS" %><br />
+              <%= f.select(:hot_water_emissions_rating, [[''], ['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G']], {}, {:class => 'form-control'}) %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :heating_demand, "Demanda de calefacció" %> (kWh/m<sup>2</sup>any)<br />
+              <%= f.text_field :heating_demand, :class => 'form-control' %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :heating_demand_rating, "Qualificació de la demanda de calefacció" %><br />
+              <%= f.select(:heating_demand_rating, [[''], ['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G']], {}, {:class => 'form-control'}) %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :cooling_demand, "Demanda de refrigeració" %> (kWh/m<sup>2</sup>any)<br />
+              <%= f.text_field :cooling_demand, :class => 'form-control' %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :cooling_demand_rating, "Qualificació de la demanda de refrigeració" %><br />
+              <%= f.select(:cooling_demand_rating, [[''], ['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G']], {}, {:class => 'form-control'}) %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :global_primary_energy, "Consum global d'energia primària" %> (kWh/m<sup>2</sup>any)<br />
+              <%= f.text_field :global_primary_energy, :class => 'form-control' %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :global_primary_energy_rating, "Qualificació del consum global d'energia primària" %><br />
+              <%= f.select(:global_primary_energy_rating, [[''], ['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G']], {}, {:class => 'form-control'}) %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :heating_primary_energy, "Consum d'energia primària per calefacció" %> (kWh/m<sup>2</sup>any)<br />
+              <%= f.text_field :heating_primary_energy, :class => 'form-control' %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :heating_primary_energy_rating, "Qualificació del consum d'energia primària per calefacció" %><br />
+              <%= f.select(:heating_primary_energy_rating, [[''], ['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G']], {}, {:class => 'form-control'}) %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :cooling_primary_energy, "Consum d'energia primària per refrigeració" %> (kWh/m<sup>2</sup>any)<br />
+              <%= f.text_field :cooling_primary_energy, :class => 'form-control' %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :cooling_primary_energy_rating, "Qualificació del consum d'energia primària per refrigeració" %><br />
+              <%= f.select(:cooling_primary_energy_rating, [[''], ['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G']], {}, {:class => 'form-control'}) %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :hot_water_primary_energy, "Consum d'energia primària per ACS" %> (kWh/m<sup>2</sup>any)<br />
+              <%= f.text_field :hot_water_primary_energy, :class => 'form-control' %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :hot_water_primary_energy_rating, "Qualificació del consum d'energia primària per ACS" %><br />
+              <%= f.select(:hot_water_primary_energy_rating, [[''], ['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G']], {}, {:class => 'form-control'}) %>
+              </div>
+            </div>
+          </div>
+
 
         </div>
       </div>

@@ -1,18 +1,152 @@
+
 <div class="row">
   <div class="col-md-12">
-		<h2 class="page-title">Dades del projecte</h2>
-	</div>
+    <%= link_to :action => 'index' do %>
+      <div class="btn button-page-menu"><span class="glyphicon glyphicon-arrow-left"> </span> Tornar a la llista de projectes</div>
+    <% end %>
+    <h2 class="page-title">Informe Test Energia</h2>
+  </div>
 </div>
 <div class="row">
-  <div class="col-md-4 side-content">
-    <%= link_to :action => 'index' do %>
-			<div class="btn button-page-menu"><span class="glyphicon glyphicon-arrow-left"> </span> Tornar a la llista de projectes</div>
-		<% end %>
-  </div>
-  <div class="col-md-8 principal-content">
-		<p>Nom del projecte: <%= @xproject.name %></p>
-		<p>Tipus de projecte: <%= @xproject.project_type %></p>
-		<p>Superfície útil: <%= @xproject.area %></p>
+  <div class="col-md-12 principal-content">
+		<h3><%= @xproject.name %></h3>
+		
+		<h4>Eficiència energètica dels elements constructius</h4>
+		
+		<div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Element</th>
+            <th>Descripció</th>
+            <th>Eficiència energètica</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Façanes</td>
+            <td><%= @xproject.facade_definition %></td>
+            <td>
+              <% @xproject.facade_score.times do %>
+                <span class="glyphicon glyphicon-star"> </span>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td>Cobertes</td>
+            <td><%= @xproject.roof_definition %></td>
+            <td>
+              <% @xproject.roof_score.times do %>
+                <span class="glyphicon glyphicon-star"> </span>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td>Terres</td>
+            <td><%= @xproject.floor_definition %></td>
+            <td>
+              <% @xproject.floor_score.times do %>
+                <span class="glyphicon glyphicon-star"> </span>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td>Finestres</td>
+            <td><%= @xproject.windows_definition %></td>
+            <td>
+              <% @xproject.windows_score.times do %>
+                <span class="glyphicon glyphicon-star"> </span>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td>Aigua calenta</td>
+            <td><%= @xproject.hot_water_definition %></td>
+            <td>
+              <% @xproject.hot_water_score.times do %>
+                <span class="glyphicon glyphicon-star"> </span>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td>Calefacció</td>
+            <td><%= @xproject.heating_definition %></td>
+            <td>
+              <% @xproject.heating_score.times do %>
+                <span class="glyphicon glyphicon-star"> </span>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td>Refrigeració</td>
+            <td><%= @xproject.cooling_definition %></td>
+            <td>
+              <% @xproject.cooling_score.times do %>
+                <span class="glyphicon glyphicon-star"> </span>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td>Il·luminació</td>
+            <td><%= @xproject.lighting_definition %></td>
+            <td>
+              <% @xproject.lighting_score.times do %>
+                <span class="glyphicon glyphicon-star"> </span>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td>Electrodomèstics</td>
+            <td><%= @xproject.appliances_definition %></td>
+            <td>
+              <% @xproject.appliances_score.times do %>
+                <span class="glyphicon glyphicon-star"> </span>
+              <% end %>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+
+    <h4>Propostes de millora</h4>
+    <div class="table-responsive">
+      <div class="table-responsive">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Nom</th>
+						<th>Cost</th>
+						<th>Estalvi</th>
+						<th>Retorn de la inversió</th>
+					</tr>
+				</thead>
+				<tbody>
+				<% @improvements.each do |improvement| %>
+					
+					<tr>
+						<td><%= improvement.name %></td>
+						<td>
+							<% improvement.cost.times do %>
+								<span class="glyphicon glyphicon-euro"> </span>
+							<% end %>
+						</td>
+						<td>
+							<% improvement.savings.times do %>
+								<span class="glyphicon glyphicon-star"> </span>
+							<% end %>
+						</td>
+						<td>
+							<% improvement.roi.times do %>
+								<span class="glyphicon glyphicon-time"> </span>
+							<% end %>
+						</td>
+					</tr>
+
+				<% end %>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>
 
