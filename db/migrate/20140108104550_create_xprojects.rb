@@ -118,6 +118,8 @@ class CreateXprojects < ActiveRecord::Migration
       t.string :hot_water_primary_energy_rating
       t.decimal :cooling_primary_energy, :precision => 10, :scale => 2
       t.string :cooling_primary_energy_rating
+      t.integer :total_energy_consumption
+      t.integer :total_energy_consumption_improvements
       ## User info
       t.string :user_first_name
       t.string :user_surname1
@@ -126,6 +128,7 @@ class CreateXprojects < ActiveRecord::Migration
       t.string :user_id_document_number
       t.string :user_telephone
       t.string :user_mobile_phone
+      t.string :user_email
       t.string :user_road_type
       t.string :user_road_name
       t.string :user_address_number

@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GSIT_PICA_GRO_SOLLICITUD xmlns="http://gencat.net/scsp/esquemes/productes/gro/gsit/sollicitud" xmlns:tnsa="http://gencat.net/scsp/esquemes/productes/gr/comuns">
+  <DadesTramit>
+    <Avisos>
+      <CanviEstat>
+        <AdrecaElectronica>0</AdrecaElectronica>
+        <SMS>0</SMS>
+      </CanviEstat>
+      <Resolt>
+        <AdrecaElectronica>0</AdrecaElectronica>
+        <SMS>0</SMS>
+      </Resolt>
+      <Rebut>
+        <AdrecaElectronica>0</AdrecaElectronica>
+        <SMS>0</SMS>
+      </Rebut>
+    </Avisos>
+    <Locale>ca_ES</Locale>
+    <Versio>1</Versio>
+    <VersioFormulari/>
+    <EsBloquejat>false</EsBloquejat>
+    <Pla>B</Pla>
+    <ControlRepetits>
+      <Identificador>201402071000015a60000613d1ad8d</Identificador
+>
+      <DataCaducitat>20150207</DataCaducitat
+>
+    </ControlRepetits>
+    <URLWebService>https://ovt.gencat.cat/gsitgf/AppJava/services/GestorFormularis?wsdl</URLWebService>
+    <URLSubmit>https://ovt.gencat.cat/gsitgf/AppJava/traint/tramitar.do?reqCode=tramitar</URLSubmit>
+    <ErrorsNegoci>
+      <Gestor/>
+      <CodiError/>
+      <Missatge/>
+    </ErrorsNegoci>
+    <ErrorsSistema>
+      <Gestor/>
+      <CodiError/>
+      <Missatge/>
+    </ErrorsSistema>
+    <AvisosNegoci>
+      <Avis>
+        <Gestor/>
+        <CodiAvis/>
+        <Missatge/>
+      </Avis>
+      <Avis>
+        <Gestor/>
+        <CodiAvis/>
+        <Missatge/>
+      </Avis>
+      <Avis>
+        <Gestor/>
+        <CodiAvis/>
+        <Missatge/>
+      </Avis>
+      <Avis>
+        <Gestor/>
+        <CodiAvis/>
+        <Missatge/>
+      </Avis>
+      <Avis>
+        <Gestor/>
+        <CodiAvis/>
+        <Missatge/>
+      </Avis>
+    </AvisosNegoci>
+    <Pagaments>
+      <ImportsDisponibles>
+        <Import>
+          <TipusPagament>Taxa per la certificació energètica d'edificis</TipusPagament>
+          <Import>0.0</Import>
+        </Import>
+      </ImportsDisponibles>
+      <ImportEscollit>
+        <TipusPagament/>
+        <Import/>
+      </ImportEscollit>
+    </Pagaments>
+    <Adjunts>
+      <Adjunt>
+        <Rol>certificat</Rol>
+        <Descripcio>Informe de certificació d'eficiència energètica obtingut amb les eines reconegudes pel Ministeri (format .pdf o .zip)</Descripcio>
+      </Adjunt>
+      <Adjunt>
+        <Rol>Compliment_HE1</Rol>
+        <Descripcio>Document de compliment de la Normativa del CTE corresponent a la data de sol·licitud de llicència d'obres (HE1 i HE0 pel CTE 2013, HE1 pel CTE 2006 en un document .zip o .rar)</Descripcio>
+      </Adjunt>
+      <Adjunt>
+        <Rol>arxius</Rol>
+        <Descripcio>Arxius informàtics associats al procés de la certificació. (Adjuntar tots els arxius i carpetes generades per les eines homologades durant el procés de certificació en un sol document .zip o .rar)</Descripcio>
+      </Adjunt>
+      <Adjunt>
+        <Rol>encarrec</Rol>
+        <Descripcio>Model de representació en el procediment iniciat a instància del propietari, promotor o representant de l'edifici o part del mateix objecte de certificació (format .pdf o .zip)</Descripcio>
+      </Adjunt>
+      <Adjunt>
+        <Rol>recomanacions</Rol>
+        <Descripcio>Document amb el detall de les recomanacions de millora d'eficiència energètica de l'edifici o habitatge i descripció de les proves i comprovacions fetes pel tècnic certificador (en .pdf o .zip)</Descripcio>
+      </Adjunt>
+      <Validacio>
+        <Adjunt>
+          <Rol>certificat</Rol>
+          <Tamany>750</Tamany>
+          <Format>pdf;zip;rar</Format>
+          <Opcional>false</Opcional>
+        </Adjunt>
+        <Adjunt>
+          <Rol>Compliment_HE1</Rol>
+          <Tamany>500</Tamany>
+          <Format>pdf;zip;rar</Format>
+          <Opcional>true</Opcional>
+        </Adjunt>
+        <Adjunt>
+          <Rol>arxius</Rol>
+          <Tamany>4000</Tamany>
+          <Format>zip;rar</Format>
+          <Opcional>false</Opcional>
+        </Adjunt>
+        <Adjunt>
+          <Rol>encarrec</Rol>
+          <Tamany>500</Tamany>
+          <Format>pdf;zip;rar</Format>
+          <Opcional>false</Opcional>
+        </Adjunt>
+        <Adjunt>
+          <Rol>recomanacions</Rol>
+          <Tamany>1500</Tamany>
+          <Format>pdf;zip;rar</Format>
+          <Opcional>false</Opcional>
+        </Adjunt>
+      </Validacio>
+    </Adjunts>
+    <Autenticacio>
+      <NomConcatenat/>
+    </Autenticacio>
+    <DadesDepartament>
+      <LogotipDept/>
+    </DadesDepartament>
+    <MidaMaxima>5120</MidaMaxima>
+    <PDFObligaSign>true</PDFObligaSign>
+    <UrlTramitEnLinia>https%3A%2F%2Fovt.gencat.cat%2Fgsitgf%2FAppJava%2Fce%2Ftraint%2FrenderitzarCE.do%3FreqCode%3Dinicial%26set-locale%3Dca_ES%26idServei%3DENE001SOLC</UrlTramitEnLinia>
+  </DadesTramit>
+  <Capcalera>
+    <Idioma>ca</Idioma>
+    <Requeridor tipusUsuari="">
+      <Identificador xmlns="http://gencat.net/scsp/esquemes/productes/gr/comuns" tipusDocument="">
+        <PaisDocument>
+          <CodiINE/>
+          <Nom/>
+        </PaisDocument>
+        <Identificador/>
+      </Identificador>
+    </Requeridor>
+    <Desti TipusOrganisme="">
+      <IdentificadorDesti xmlns="http://gencat.net/scsp/esquemes/productes/gr/comuns"/>
+      <SubIdentificador xmlns="http://gencat.net/scsp/esquemes/productes/gr/comuns" tipusSubIdentificador=""/>
+    </Desti>
+    <Objecte>
+      <tnsa:Tramit>
+        <tnsa:IdTramit>ENE001</tnsa:IdTramit>
+        <tnsa:NomTramit>Certificació d'eficiència energètica d'edificis.</tnsa:NomTramit>
+      </tnsa:Tramit>
+      <tnsa:Modalitat>
+        <tnsa:IdModalitat>SOLC</tnsa:IdModalitat>
+        <tnsa:Modalitat>Sol·licitud de la certificació d'eficiència energètica d'edificis / part de l'edifici</tnsa:Modalitat>
+      </tnsa:Modalitat>
+      <tnsa:VersioNegoci>201303</tnsa:VersioNegoci>
+      <ClassificacioFuncional xmlns="http://gencat.net/scsp/esquemes/productes/gr/comuns">
+        <NomProcediment/>
+        <TipusDocument/>
+        <Seguretat>
+          <SensibilitatDadesLOPD/>
+          <NivellClassificacioEvidencial/>
+          <NivellSeguretat/>
+        </Seguretat>
+      </ClassificacioFuncional>
+    </Objecte>
+  </Capcalera>
+  <Cos>
+    <Requeridor tipusUsuari="particular">
+      <Particular xmlns="http://gencat.net/scsp/esquemes/productes/gr/comuns" esSignatari="">
+        <Nom>Albert</Nom>
+        <Cognom1>López</Cognom1>
+        <Document tipusDocument="nif">
+          <PaisDocument>
+            <CodiINE/>
+            <Nom/>
+          </PaisDocument>
+          <Identificador>9382938498V</Identificador>
+        </Document>
+        <Cognom2>Segura</Cognom2>
+        <Adreca normalitzada="false">
+          <Pais>
+            <CodiINE/>
+            <Nom/>
+          </Pais>
+          <Provincia>
+            <CodiINE>08</CodiINE>
+            <Nom>Barcelona</Nom>
+          </Provincia>
+          <Comarca/>
+          <Municipi>
+            <CodiINE>08013</CodiINE>
+            <Nom>Albert</Nom>
+          </Municipi>
+          <CodiPostal>08013</CodiPostal>
+          <TipusVia>
+            <CodiArvato>CA</CodiArvato>
+            <Descripcio>Carrer</Descripcio>
+          </TipusVia>
+          <NomVia>Aribau</NomVia>
+          <Numero>78</Numero>
+          <Bloc></Bloc>
+          <Escala></Escala>
+          <Pis>4</Pis>
+          <Porta>2</Porta>
+        </Adreca>
+        <Telefon1>933456178</Telefon1>
+        <Telefon2>670123872</Telefon2>
+        <AdrecaElectronica>correu@electronic.com</AdrecaElectronica>
+        <DadesNaixement/>
+      </Particular>
+      <Empresa xmlns="http://gencat.net/scsp/esquemes/productes/gr/comuns">
+        <Nom_RaoSocial/>
+        <Adreca normalitzada="">
+          <Pais>
+            <CodiINE/>
+            <Nom/>
+          </Pais>
+          <Provincia/>
+          <Comarca/>
+          <Municipi>
+            <Nom/>
+          </Municipi>
+          <TipusVia/>
+          <NomVia/>
+        </Adreca>
+        <Representant esSignatari="">
+          <Nom/>
+          <Cognom1/>
+          <Document tipusDocument="">
+            <PaisDocument>
+              <CodiINE/>
+              <Nom/>
+            </PaisDocument>
+            <Identificador/>
+          </Document>
+          <DadesNaixement/>
+        </Representant>
+        <Document tipusDocument="">
+          <Identificador/>
+        </Document>
+      </Empresa>
+    </Requeridor>
+    <Presentador tipusUsuari="particular">
+      <Particular xmlns="http://gencat.net/scsp/esquemes/productes/gr/comuns" esSignatari="">
+        <Nom>Jordi</Nom>
+        <Cognom1>Martí</Cognom1>
+        <Document tipusDocument="nif">
+          <PaisDocument>
+            <CodiINE/>
+            <Nom/>
+          </PaisDocument>
+          <Identificador>36531630V</Identificador>
+        </Document>
+        <Cognom2>Muñoz</Cognom2>
+        <Adreca normalitzada="false">
+          <Pais>
+            <CodiINE>108</CodiINE>
+            <Nom>Espanya</Nom>
+          </Pais>
+          <Provincia>
+            <CodiINE>08</CodiINE>
+            <Nom>Barcelona</Nom>
+          </Provincia>
+          <Comarca/>
+          <Municipi>
+            <CodiINE>08019</CodiINE>
+            <Nom>Barcelona</Nom>
+          </Municipi>
+          <CodiPostal>08026</CodiPostal>
+          <TipusVia>
+            <CodiArvato>CA</CodiArvato>
+            <Descripcio>Carrer</Descripcio>
+          </TipusVia>
+          <NomVia>Rogent</NomVia>
+          <Numero>118</Numero>
+          <Bloc>1</Bloc>
+          <Escala>2</Escala>
+          <Pis>Pr</Pis>
+          <Porta>4</Porta>
+        </Adreca>
+        <Telefon1>935535450</Telefon1>
+        <Telefon2>670410706</Telefon2>
+        <AdrecaElectronica>jordimarti@me.com</AdrecaElectronica>
+        <DadesNaixement/>
+      </Particular>
+    </Presentador>
+    <Contingut>
+      <DadesParticulars>
+        <Motius>
+          <Id>5</Id>
+          <Descripcio>Certificació voluntària</Descripcio>
+        </Motius>
+        <PropietatEdifici>
+          <Id>0</Id>
+          <Descripcio>Ús privat</Descripcio>
+        </PropietatEdifici>
+        <FaseCertificat>
+          <Id>2</Id>
+          <Descripcio>Edifici existent</Descripcio>
+        </FaseCertificat>
+        <IdentificacioEdifici>
+          <Us>
+            <Id>3</Id>
+            <Descripcio>Habitatge unifamiliar </Descripcio>
+          </Us>
+          <TipusCertificat>
+            <Id>0</Id>
+            <Descripcio>Si</Descripcio>
+          </TipusCertificat>
+          <NumCadastre/>
+          <MetresCadastre>134.0</MetresCadastre>
+          <dataFinalObra/>
+          <Adreca normalitzada="false">
+            <Pais xmlns="http://gencat.net/scsp/esquemes/productes/gr/comuns">
+              <CodiINE/>
+              <Nom/>
+            </Pais>
+            <Provincia xmlns="http://gencat.net/scsp/esquemes/productes/gr/comuns">
+              <CodiINE>08</CodiINE>
+              <Nom>Barcelona</Nom>
+            </Provincia>
+            <Comarca xmlns="http://gencat.net/scsp/esquemes/productes/gr/comuns">
+              <CodiINE>13</CodiINE>
+              <Nom>Barcelonès</Nom>
+            </Comarca>
+            <Municipi xmlns="http://gencat.net/scsp/esquemes/productes/gr/comuns">
+              <CodiINE>08019</CodiINE>
+              <Nom>Barcelona</Nom>
+            </Municipi>
+            <CodiPostal xmlns="http://gencat.net/scsp/esquemes/productes/gr/comuns">08047</CodiPostal>
+            <TipusVia xmlns="http://gencat.net/scsp/esquemes/productes/gr/comuns">
+              <CodiArvato>CA</CodiArvato>
+              <Descripcio>Carrer</Descripcio>
+            </TipusVia>
+            <NomVia xmlns="http://gencat.net/scsp/esquemes/productes/gr/comuns">Jacint Verdaguer</NomVia>
+            <Numero xmlns="http://gencat.net/scsp/esquemes/productes/gr/comuns">80</Numero>
+            <Bloc xmlns="http://gencat.net/scsp/esquemes/productes/gr/comuns"></Bloc>
+            <Escala xmlns="http://gencat.net/scsp/esquemes/productes/gr/comuns"></Escala>
+            <Pis xmlns="http://gencat.net/scsp/esquemes/productes/gr/comuns"></Pis>
+            <Porta xmlns="http://gencat.net/scsp/esquemes/productes/gr/comuns"></Porta>
+          </Adreca>
+          <Tipus>
+            <Id/>
+            <Descripcio/>
+          </Tipus>
+          <NombreHabitatges/>
+          <numRegistreAlternatiu/>
+          <numRegistreModificar/>
+          <ModificacionsCertificat>
+            <Id/>
+            <Descripcio/>
+          </ModificacionsCertificat>
+          <AltreNumCadastre/>
+          <AltreNumAdreca/>
+        </IdentificacioEdifici>
+        <TaulaTecnics>
+          <PrimerTecnic>
+            <Titulacio>
+              <Id>1</Id>
+              <Descripcio>Arquitecte Tècnic</Descripcio>
+            </Titulacio>
+            <NumCollegiat>11.485</NumCollegiat>
+            <Collegi>CAATEEB</Collegi>
+          </PrimerTecnic>
+        </TaulaTecnics>
+        <GestorInmoble tipusUsuari="particular">
+          <Particular xmlns="http://gencat.net/scsp/esquemes/productes/gr/comuns" esSignatari="">
+            <Nom/>
+            <Cognom1/>
+            <Document tipusDocument="">
+              <PaisDocument>
+                <CodiINE/>
+                <Nom/>
+              </PaisDocument>
+              <Identificador/>
+            </Document>
+            <Adreca normalitzada="false">
+              <Pais>
+                <CodiINE>108</CodiINE>
+                <Nom>Espanya</Nom>
+              </Pais>
+              <Provincia/>
+              <Comarca/>
+              <Municipi>
+                <Nom/>
+              </Municipi>
+              <TipusVia/>
+              <NomVia/>
+            </Adreca>
+            <DadesNaixement/>
+          </Particular>
+        </GestorInmoble>
+        <QualificacioEnergetica>
+          <ConsumEnergiaPrimariaAnual>
+            <Kwh_any/>
+            <Kwh_anym2>800.00</Kwh_anym2>
+          </ConsumEnergiaPrimariaAnual>
+          <EmissionsAnualsCO2>
+            <KgCO2_any/>
+            <KgCO2_m2any>600.00</KgCO2_m2any>
+          </EmissionsAnualsCO2>
+          <ZonaClimatica/>
+          <Procediment>
+            <Id>1</Id>
+            <Descripcio>CE3X</Descripcio>
+          </Procediment>
+          <Normativa>
+            <Id>3</Id>
+            <Descripcio>NRE-AT-87</Descripcio>
+          </Normativa>
+          <QualificacioObtinguda>
+            <Id>5</Id>
+            <Descripcio>F</Descripcio>
+          </QualificacioObtinguda>
+          <QualificacioEnergiaPrimaria>
+            <Id>4</Id>
+            <Descripcio>E</Descripcio>
+          </QualificacioEnergiaPrimaria>
+          <AnyConstruccio>
+            <Id/>
+            <Descripcio/>
+          </AnyConstruccio>
+        </QualificacioEnergetica>
+        <CaracteristiquesEdifici>
+          <Aillament>
+            <Id>1</Id>
+            <Descripcio>NO</Descripcio>
+          </Aillament>
+          <oberturaMajoritaria>
+            <Id>0</Id>
+            <Descripcio>Simple</Descripcio>
+          </oberturaMajoritaria>
+          <PotenciaACS>8.0</PotenciaACS>
+          <fontEnergeticaACS>
+            <Id>0</Id>
+            <Descripcio>Electricitat</Descripcio>
+          </fontEnergeticaACS>
+          <potenciaCalefaccio/>
+          <fontEnergeticaCalefaccio>
+            <Id>4</Id>
+            <Descripcio>Gasoil</Descripcio>
+          </fontEnergeticaCalefaccio>
+          <potenciaRefrigeracio/>
+          <potenciaIluminacio/>
+          <EnergiaSolarTermica>
+            <Id>1</Id>
+            <Descripcio>NO</Descripcio>
+          </EnergiaSolarTermica>
+          <ContribucioACS/>
+          <EnergiaSolarFotovoltaica>
+            <Id>1</Id>
+            <Descripcio>NO</Descripcio>
+          </EnergiaSolarFotovoltaica>
+          <PotenciaInstalada/>
+          <EnergiaGeotermica>
+            <Id>1</Id>
+            <Descripcio>NO</Descripcio>
+          </EnergiaGeotermica>
+          <SistemaBiomassa>
+            <Id>1</Id>
+            <Descripcio>NO</Descripcio>
+          </SistemaBiomassa>
+          <observacions/>
+        </CaracteristiquesEdifici>
+        <Instalacio>
+          <Calefaccio>
+            <Id>1</Id>
+            <Descripcio>Individualitzat</Descripcio>
+          </Calefaccio>
+          <QualificacioCalefaccio>
+            <Id>4</Id>
+            <Descripcio>E</Descripcio>
+          </QualificacioCalefaccio>
+          <Refrigeracio>
+            <Id>1</Id>
+            <Descripcio>Individualitzat</Descripcio>
+          </Refrigeracio>
+          <QualificacioRefrigeracio>
+            <Id>3</Id>
+            <Descripcio>D</Descripcio>
+          </QualificacioRefrigeracio>
+        </Instalacio>
+        <QualificacionsEnergètiquesParcials>
+          <EmissionsCalefaccio/>
+          <QualificacioCalefaccio>
+            <Id/>
+            <Descripcio/>
+          </QualificacioCalefaccio>
+          <EmissionsRefrigeracio/>
+          <QualificacioRefrigeracio>
+            <Id/>
+            <Descripcio/>
+          </QualificacioRefrigeracio>
+          <EmissionsACS/>
+          <QualificacioEmissionsACS>
+            <Id/>
+            <Descripcio/>
+          </QualificacioEmissionsACS>
+          <EmissionsEnllumenament/>
+          <QualificacioEnllumenament>
+            <Id/>
+            <Descripcio/>
+          </QualificacioEnllumenament>
+          <EnergiaCalefaccioConsums/>
+          <QualificacioEnergiaCalefaccioConsums>
+            <Id/>
+            <Descripcio/>
+          </QualificacioEnergiaCalefaccioConsums>
+          <EnergiaRefrigeracioConsums/>
+          <QualificacioEnergiaRefrigeracioConsums>
+            <Id/>
+            <Descripcio/>
+          </QualificacioEnergiaRefrigeracioConsums>
+          <EnergiaACSConsums/>
+          <QualificacioEnergiaACSConsums>
+            <Id/>
+            <Descripcio/>
+          </QualificacioEnergiaACSConsums>
+          <EnergiaEnllumenamentConsums/>
+          <QualificacioEnergiaEnllumenamentConsums>
+            <Id/>
+            <Descripcio/>
+          </QualificacioEnergiaEnllumenamentConsums>
+          <EnergiaCalefaccioDemanda/>
+          <QualificacioEnergiaCalefaccioDemanda>
+            <Id/>
+            <Descripcio/>
+          </QualificacioEnergiaCalefaccioDemanda>
+          <EnergiaRefrigeracioDemanda/>
+          <QualificacioEnergiaRefrigeracioDemanda>
+            <Id/>
+            <Descripcio/>
+          </QualificacioEnergiaRefrigeracioDemanda>
+        </QualificacionsEnergètiquesParcials>
+        <Declaro>
+          <Declaro1>0</Declaro1>
+          <Declaro2>0</Declaro2>
+          <Declaro3>0</Declaro3>
+          <Declaro4>0</Declaro4>
+          <Declaro5>0</Declaro5>
+        </Declaro>
+        <Autoritzo>
+          <Autoritzo1>0</Autoritzo1>
+          <Autoritzo2>0</Autoritzo2>
+        </Autoritzo>
+        <TipusPersona>1</TipusPersona>
+        <TipusDocumentPromotor>DNI</TipusDocumentPromotor>
+        <TipusDocumentTecnic/>
+        <TipusDocumentRepresentant/>
+      </DadesParticulars>
+    </Contingut>
+    <InfoServei volRebreAvis="0">
+      <DadesContacte xmlns="http://gencat.net/scsp/esquemes/productes/gr/comuns" tipusUsuari="particular">
+        <Particular esSignatari="">
+          <Nom/>
+          <Cognom1/>
+          <Document tipusDocument="">
+            <PaisDocument>
+              <CodiINE/>
+              <Nom/>
+            </PaisDocument>
+            <Identificador/>
+          </Document>
+          <Adreca normalitzada="">
+            <Pais>
+              <CodiINE/>
+              <Nom/>
+            </Pais>
+            <Provincia/>
+            <Comarca/>
+            <Municipi>
+              <Nom/>
+            </Municipi>
+            <TipusVia/>
+            <NomVia/>
+          </Adreca>
+          <DadesNaixement/>
+        </Particular>
+      </DadesContacte>
+    </InfoServei>
+  </Cos>
+</GSIT_PICA_GRO_SOLLICITUD>

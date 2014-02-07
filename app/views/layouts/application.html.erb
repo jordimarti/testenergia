@@ -66,6 +66,7 @@
 							<li><a href="#">Autoavaluació</a></li>
 							<li><a href="#">Preguntes freqüents</a></li>
 							<li><a href="#">Tutorial de registre</a></li>
+							<li><%= link_to("Projectes", {:controller => '/xprojects', :action => 'index'}) %></li>
 						</ul>
 					</li>
 					<li class="<%= @active_contacte %>"><%= link_to("Contacte", {:controller => '/contacte', :action => 'index'}) %></li>

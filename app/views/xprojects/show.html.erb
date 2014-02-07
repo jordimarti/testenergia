@@ -10,6 +10,70 @@
 <div class="row">
   <div class="col-md-12 principal-content">
 		<h3><%= @xproject.name %></h3>
+
+    <h4>Qualificació energètica de l'habitatge</h4>
+    <div class="row">
+      <div class="col-md-4">
+        <h5>Emissions de CO<sub>2</sub></h5>
+        <span class="text-tips">Més eficient</span>
+        <%= image_tag("etiqueta_" + @xproject.global_emissions_rating.downcase + ".jpg", width: "200", height: "139") %>
+        <span class="text-tips">Menys eficient</span>
+        <p><%= @xproject.global_emissions %> (kgCO<sub>2</sub>/m<sup>2</sup>any)</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Demanda d'energia primària</h5>
+        <span class="text-tips">Més eficient</span>
+        <%= image_tag("etiqueta_" + @xproject.global_primary_energy_rating.downcase + ".jpg", width: "200", height: "139") %>
+        <span class="text-tips">Menys eficient</span>
+        <p><%= @xproject.global_primary_energy %> (kgCO<sub>2</sub>/m<sup>2</sup>any)</p>
+      </div>
+      <div class="col-md-4">
+
+      </div>
+    </div>
+
+    <hr>
+    <h4>Estimació de l'energia consumida en un any</h4>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
+
+        var options = {
+          title: 'My Daily Activities'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+    </script>
+    <div class="row">
+      <div class="col-md-4">
+        <h5>Calefacció i refrigeració</h5>
+        <p>5000 kWh</p>
+        <h5>Il·luminació</h5>
+        <p>3000 kWh</p>
+        <h5>Aigua calenta</h5>
+        <p>2000 kWh</p>
+        <h5>Electrodomèstics</h5>
+        <p>800 kWh</p>
+      </div>
+      <div class="col-md-8">
+        <h5>Total energia consumida</h5>
+        <p>8000 kWh</p>
+        <div id="piechart" style="width: 400px; height: 400px;"></div>
+      </div>
+    </div>
+
 		
 		<h4>Eficiència energètica dels elements constructius</h4>
 		

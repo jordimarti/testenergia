@@ -261,7 +261,7 @@ ActiveRecord::Schema.define(version: 20140204085749) do
     t.string   "construction_period"
     t.string   "construction_year"
     t.string   "project_type"
-    t.decimal  "area",                              precision: 10, scale: 2
+    t.decimal  "area",                                  precision: 10, scale: 2
     t.string   "cadastre"
     t.string   "facade_improvements"
     t.string   "roof_improvements"
@@ -290,7 +290,7 @@ ActiveRecord::Schema.define(version: 20140204085749) do
     t.integer  "lighting_power"
     t.string   "lighting_definition"
     t.integer  "lighting_score"
-    t.decimal  "contracted_power",                  precision: 10, scale: 2
+    t.decimal  "contracted_power",                      precision: 10, scale: 2
     t.integer  "refrigerator_power"
     t.integer  "microwave_power"
     t.integer  "washingmachine_power"
@@ -343,26 +343,28 @@ ActiveRecord::Schema.define(version: 20140204085749) do
     t.string   "energy_class_guess"
     t.string   "energy_class"
     t.text     "report_results"
-    t.decimal  "global_emissions",                  precision: 10, scale: 2
+    t.decimal  "global_emissions",                      precision: 10, scale: 2
     t.string   "global_emissions_rating"
-    t.decimal  "heating_emissions",                 precision: 10, scale: 2
+    t.decimal  "heating_emissions",                     precision: 10, scale: 2
     t.string   "heating_emissions_rating"
-    t.decimal  "hot_water_emissions",               precision: 10, scale: 2
+    t.decimal  "hot_water_emissions",                   precision: 10, scale: 2
     t.string   "hot_water_emissions_rating"
-    t.decimal  "cooling_emissions",                 precision: 10, scale: 2
+    t.decimal  "cooling_emissions",                     precision: 10, scale: 2
     t.string   "cooling_emissions_rating"
-    t.decimal  "heating_demand",                    precision: 10, scale: 2
+    t.decimal  "heating_demand",                        precision: 10, scale: 2
     t.string   "heating_demand_rating"
-    t.decimal  "cooling_demand",                    precision: 10, scale: 2
+    t.decimal  "cooling_demand",                        precision: 10, scale: 2
     t.string   "cooling_demand_rating"
-    t.decimal  "global_primary_energy",             precision: 10, scale: 2
+    t.decimal  "global_primary_energy",                 precision: 10, scale: 2
     t.string   "global_primary_energy_rating"
-    t.decimal  "heating_primary_energy",            precision: 10, scale: 2
+    t.decimal  "heating_primary_energy",                precision: 10, scale: 2
     t.string   "heating_primary_energy_rating"
-    t.decimal  "hot_water_primary_energy",          precision: 10, scale: 2
+    t.decimal  "hot_water_primary_energy",              precision: 10, scale: 2
     t.string   "hot_water_primary_energy_rating"
-    t.decimal  "cooling_primary_energy",            precision: 10, scale: 2
+    t.decimal  "cooling_primary_energy",                precision: 10, scale: 2
     t.string   "cooling_primary_energy_rating"
+    t.integer  "total_energy_consumption"
+    t.integer  "total_energy_consumption_improvements"
     t.string   "user_first_name"
     t.string   "user_surname1"
     t.string   "user_surname2"
@@ -370,6 +372,7 @@ ActiveRecord::Schema.define(version: 20140204085749) do
     t.string   "user_id_document_number"
     t.string   "user_telephone"
     t.string   "user_mobile_phone"
+    t.string   "user_email"
     t.string   "user_road_type"
     t.string   "user_road_name"
     t.string   "user_address_number"

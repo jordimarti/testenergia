@@ -15,3 +15,125 @@
 .boto-final {
 	margin-top: 20px;
 }
+
+body.print-body {
+	font-size: 12px;
+}
+
+h3.print-h3 {
+	font-size: 18px;
+	-webkit-margin-before: 0.2em;
+	-webkit-margin-after: 0.5em;
+	text-align: center;
+
+}
+
+.print-container {
+	margin-left: 40px;
+	width: 670px;
+}
+
+.print-logo {
+	float: left;
+}
+
+.print-top-info {
+	text-align: right;
+	margin-right: 30px;
+}
+
+.print-titol {
+	clear: both;
+	margin-top: 20px;
+}
+
+h5.print {
+	margin-bottom: 5px;
+}
+
+.print-tecnic {
+	float: left;
+	width: 180px;
+	margin-right: 20px;
+}
+
+.print-adreca {
+	float: left;
+	width: 180px;
+	margin-right: 20px;
+}
+
+.print-caracteristiques {
+	float: left;
+	width: 180px;
+	margin-right: 30px;
+}
+
+.print-apartat {
+	clear: both;
+	padding-top: 20px;
+	page-break-inside: avoid;
+}
+
+.print-etiqueta {
+	width: 300px;
+	float: left;
+	margin-right: 20px;
+}
+
+.print-distribucio-consums {
+	float: left;
+	margin-right: 20px;
+}
+
+.print-comparacio {
+	float: left;
+	margin-right: 30px;
+}
+
+.img_barra_energia {
+	width: 616px;
+	height: 40px;
+	margin-top: 40px;
+}
+
+.print-comparacio-energia {
+	position: relative;
+	height: 150px;
+}
+
+.print-distribucio-llegenda {
+	float: left;
+	padding-top: 40px;
+}
+
+.img_icon {
+	width: 20px;
+	height: 20px;
+}
+
+.llegenda-container {
+	margin-bottom: 12px;
+}
+
+.print-table > thead > tr > th {
+	border: 1px solid black;
+	padding: 4px;
+}
+
+.print-table > tbody > tr > td {
+	border: 1px solid black;
+	padding: 4px;
+}
+
+.print-table {
+	border: 1px solid black;
+	width: 616px;
+}
+
+p.print-explicacio {
+	font-size: 12px;
+	line-height: 16px;
+	margin-top: 10px;
+}
+

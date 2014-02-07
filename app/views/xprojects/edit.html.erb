@@ -982,6 +982,21 @@
             </div>
           </div>
 
+          <hr>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :total_energy_consumption, "Consum anual d'energia" %> (kWh/any)<br />
+              <%= f.text_field :total_energy_consumption, :class => 'form-control' %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :total_energy_consumption_improvements, "Consum anual d'energia si s'apliquen les propostes de millora" %> (kWh/any)<br />
+              <%= f.text_field :total_energy_consumption_improvements, :class => 'form-control' %>
+              </div>
+            </div>
+          </div>
+
 
         </div>
       </div>

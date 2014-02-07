@@ -1,15 +1,13 @@
 <div class="row">
   <div class="col-md-12">
+    <%= link_to :action => 'index' do %>
+      <div class="btn button-page-menu"><span class="glyphicon glyphicon-arrow-left"> </span> Tornar a la llista de projectes</div>
+    <% end %>
     <h2 class="page-title">Eliminar projecte</h2>
   </div>
 </div>
 <div class="row">
-  <div class="col-md-4 side-content">
-  	<%= link_to :action => 'index' do %>
-      <div class="btn button-page-menu"><span class="glyphicon glyphicon-arrow-left"> </span> Tornar a la llista de projectes</div>
-    <% end %>
-  </div>
-  <div class="col-md-8 principal-content">
+  <div class="col-md-12 principal-content">
 	  <%= form_for(:xproject, :url => {:action => 'destroy', :id => @xproject.id}) do |f| %>
 
 	    <p>Esteu segurs de voler eliminar aquest projecte?</p>

@@ -12,6 +12,12 @@ class XprojectsController < ApplicationController
     @improvements = @xproject.improvements
   end
 
+  def print
+    @xproject = Xproject.find(params[:id])
+    @improvements = @xproject.improvements
+    render layout: "print_layout"
+  end
+
   def new
     @xproject = Xproject.new
     
@@ -204,8 +210,8 @@ class XprojectsController < ApplicationController
 
   def write_file
     xproject = Xproject.find(params[:id])
-    client_id = xproject.user_id
-    client = User.find(client_id)
+    #client_id = xproject.user_id
+    #client = User.find(client_id)
 
     File.atomic_write('cex/arxiu'+params[:id]+'.cex') do |file|
       cex_file = "S'CEXv1.1 Residencial'
@@ -213,7 +219,7 @@ p0
 .(lp0
 V" + xproject.name + "
 p1
-aV" + xproject.address + "
+aV" + xproject.building_road_name + ", " + xproject.building_address_number + "
 p2
 aVBarcelona 
 p3
@@ -221,7 +227,7 @@ aVBarcelona
 p4
 aV
 p5
-aV" + client.first_name + " " + client.surname1 + " " + client.surname2 + "
+aV" + xproject.user_first_name + " " + xproject.user_surname1 + " " + xproject.user_surname2 + "
 p6
 ag5
 aVDirecció client
@@ -363,7 +369,7 @@ a.(lp0
   end
 
   def write_icaen
-    xproject = Xproject.find(params[:id])
+    @xproject = Xproject.find(params[:id])
     #client_id = xproject.user_id
     #client = User.find(client_id)
 
@@ -442,10 +448,26 @@ a.(lp0
         <Missatge/>
       </Avis>
     </AvisosNegoci>
+    <Pagaments>
+      <ImportsDisponibles>
+        <Import>
+          <TipusPagament>Taxa per la certificació energètica d'edificis</TipusPagament>
+          <Import>0.0</Import>
+        </Import>
+      </ImportsDisponibles>
+      <ImportEscollit>
+        <TipusPagament/>
+        <Import/>
+      </ImportEscollit>
+    </Pagaments>
     <Adjunts>
       <Adjunt>
         <Rol>certificat</Rol>
-        <Descripcio>Informe de certificació d'eficiència energètica obtingut amb les eines homologades (format .pdf o .zip)</Descripcio>
+        <Descripcio>Informe de certificació d'eficiència energètica obtingut amb les eines reconegudes pel Ministeri (format .pdf o .zip)</Descripcio>
+      </Adjunt>
+      <Adjunt>
+        <Rol>Compliment_HE1</Rol>
+        <Descripcio>Document de compliment de la Normativa del CTE corresponent a la data de sol·licitud de llicència d'obres (HE1 i HE0 pel CTE 2013, HE1 pel CTE 2006 en un document .zip o .rar)</Descripcio>
       </Adjunt>
       <Adjunt>
         <Rol>arxius</Rol>
@@ -462,25 +484,31 @@ a.(lp0
       <Validacio>
         <Adjunt>
           <Rol>certificat</Rol>
-          <Tamany>1000</Tamany>
+          <Tamany>750</Tamany>
           <Format>pdf;zip;rar</Format>
           <Opcional>false</Opcional>
         </Adjunt>
         <Adjunt>
+          <Rol>Compliment_HE1</Rol>
+          <Tamany>500</Tamany>
+          <Format>pdf;zip;rar</Format>
+          <Opcional>true</Opcional>
+        </Adjunt>
+        <Adjunt>
           <Rol>arxius</Rol>
-          <Tamany>4500</Tamany>
+          <Tamany>4000</Tamany>
           <Format>zip;rar</Format>
           <Opcional>false</Opcional>
         </Adjunt>
         <Adjunt>
           <Rol>encarrec</Rol>
-          <Tamany>1000</Tamany>
+          <Tamany>500</Tamany>
           <Format>pdf;zip;rar</Format>
           <Opcional>false</Opcional>
         </Adjunt>
         <Adjunt>
           <Rol>recomanacions</Rol>
-          <Tamany>1000</Tamany>
+          <Tamany>1500</Tamany>
           <Format>pdf;zip;rar</Format>
           <Opcional>false</Opcional>
         </Adjunt>
@@ -518,9 +546,9 @@ a.(lp0
       </tnsa:Tramit>
       <tnsa:Modalitat>
         <tnsa:IdModalitat>SOLC</tnsa:IdModalitat>
-        <tnsa:Modalitat>Certificació d'eficiència energètica d'edificis</tnsa:Modalitat>
+        <tnsa:Modalitat>Sol·licitud de la certificació d'eficiència energètica d'edificis / part de l'edifici</tnsa:Modalitat>
       </tnsa:Modalitat>
-      <tnsa:VersioNegoci>201302</tnsa:VersioNegoci>
+      <tnsa:VersioNegoci>201303</tnsa:VersioNegoci>
       <ClassificacioFuncional xmlns=\"http://gencat.net/scsp/esquemes/productes/gr/comuns\">
         <NomProcediment/>
         <TipusDocument/>
@@ -535,28 +563,45 @@ a.(lp0
   <Cos>
     <Requeridor tipusUsuari=\"particular\">
       <Particular xmlns=\"http://gencat.net/scsp/esquemes/productes/gr/comuns\" esSignatari=\"\">
-        <Nom/>
-        <Cognom1/>
-        <Document tipusDocument=\"\">
+        <Nom>" + @xproject.user_first_name + "</Nom>
+        <Cognom1>" + @xproject.user_surname1 + "</Cognom1>
+        <Document tipusDocument=\"nif\">
           <PaisDocument>
             <CodiINE/>
             <Nom/>
           </PaisDocument>
-          <Identificador/>
+          <Identificador>" + @xproject.user_id_document_number + "</Identificador>
         </Document>
-        <Adreca normalitzada=\"\">
+        <Cognom2>" + @xproject.user_surname2 + "</Cognom2>
+        <Adreca normalitzada=\"false\">
           <Pais>
             <CodiINE/>
             <Nom/>
           </Pais>
-          <Provincia/>
+          <Provincia>
+            <CodiINE>08</CodiINE>
+            <Nom>Barcelona</Nom>
+          </Provincia>
           <Comarca/>
           <Municipi>
-            <Nom/>
+            <CodiINE>" + @xproject.user_zip_code + "</CodiINE>
+            <Nom>" + @xproject.user_first_name + "</Nom>
           </Municipi>
-          <TipusVia/>
-          <NomVia/>
+          <CodiPostal>08013</CodiPostal>
+          <TipusVia>
+            <CodiArvato>CA</CodiArvato>
+            <Descripcio>" + @xproject.user_road_type + "</Descripcio>
+          </TipusVia>
+          <NomVia>" + @xproject.user_road_name + "</NomVia>
+          <Numero>" + @xproject.user_address_number + "</Numero>
+          <Bloc>" + @xproject.user_block + "</Bloc>
+          <Escala>" + @xproject.user_stairs + "</Escala>
+          <Pis>" + @xproject.user_story + "</Pis>
+          <Porta>" + @xproject.user_door + "</Porta>
         </Adreca>
+        <Telefon1>" + @xproject.user_telephone + "</Telefon1>
+        <Telefon2>" + @xproject.user_mobile_phone + "</Telefon2>
+        <AdrecaElectronica>correu@electronic.com</AdrecaElectronica>
         <DadesNaixement/>
       </Particular>
       <Empresa xmlns=\"http://gencat.net/scsp/esquemes/productes/gr/comuns\">
@@ -593,151 +638,244 @@ a.(lp0
     </Requeridor>
     <Presentador tipusUsuari=\"particular\">
       <Particular xmlns=\"http://gencat.net/scsp/esquemes/productes/gr/comuns\" esSignatari=\"\">
-        <Nom/>
-        <Cognom1/>
-        <Document tipusDocument=\"\">
+        <Nom>Jordi</Nom>
+        <Cognom1>Martí</Cognom1>
+        <Document tipusDocument=\"nif\">
           <PaisDocument>
             <CodiINE/>
             <Nom/>
           </PaisDocument>
-          <Identificador/>
+          <Identificador>36531630V</Identificador>
         </Document>
+        <Cognom2>Muñoz</Cognom2>
         <Adreca normalitzada=\"false\">
           <Pais>
             <CodiINE>108</CodiINE>
             <Nom>Espanya</Nom>
           </Pais>
-          <Provincia/>
+          <Provincia>
+            <CodiINE>08</CodiINE>
+            <Nom>Barcelona</Nom>
+          </Provincia>
           <Comarca/>
           <Municipi>
-            <Nom/>
+            <CodiINE>08019</CodiINE>
+            <Nom>Barcelona</Nom>
           </Municipi>
-          <TipusVia/>
-          <NomVia/>
+          <CodiPostal>08026</CodiPostal>
+          <TipusVia>
+            <CodiArvato>CA</CodiArvato>
+            <Descripcio>Carrer</Descripcio>
+          </TipusVia>
+          <NomVia>Rogent</NomVia>
+          <Numero>118</Numero>
+          <Bloc>1</Bloc>
+          <Escala>2</Escala>
+          <Pis>Pr</Pis>
+          <Porta>4</Porta>
         </Adreca>
+        <Telefon1>935535450</Telefon1>
+        <Telefon2>670410706</Telefon2>
+        <AdrecaElectronica>jordimarti@me.com</AdrecaElectronica>
         <DadesNaixement/>
       </Particular>
     </Presentador>
     <Contingut>
       <DadesParticulars>
         <Motius>
-          <Id>1</Id>
-          <Descripcio>Lloguer</Descripcio>
+          <Id>5</Id>
+          <Descripcio>Certificació voluntària</Descripcio>
         </Motius>
+        <PropietatEdifici>
+          <Id>0</Id>
+          <Descripcio>Ús privat</Descripcio>
+        </PropietatEdifici>
+        <FaseCertificat>
+          <Id>2</Id>
+          <Descripcio>Edifici existent</Descripcio>
+        </FaseCertificat>
         <IdentificacioEdifici>
           <Us>
-            <Id>0</Id>
-            <Descripcio>Habitatge individual en bloc d'habitatges</Descripcio>
+            <Id>3</Id>
+            <Descripcio>Habitatge unifamiliar </Descripcio>
           </Us>
           <TipusCertificat>
-            <Id>1</Id>
-            <Descripcio>Estimades</Descripcio>
+            <Id>0</Id>
+            <Descripcio>Si</Descripcio>
           </TipusCertificat>
           <NumCadastre/>
-          <MetresCadastre>86.00</MetresCadastre>
-          <DataPrevistaInici/>
-          <DataObtencioLlicencia/>
+          <MetresCadastre>" + @xproject.area.to_s + "</MetresCadastre>
           <dataFinalObra/>
           <Adreca normalitzada=\"false\">
             <Pais xmlns=\"http://gencat.net/scsp/esquemes/productes/gr/comuns\">
               <CodiINE/>
               <Nom/>
             </Pais>
-            <Provincia xmlns=\"http://gencat.net/scsp/esquemes/productes/gr/comuns\"/>
-            <Comarca xmlns=\"http://gencat.net/scsp/esquemes/productes/gr/comuns\"/>
+            <Provincia xmlns=\"http://gencat.net/scsp/esquemes/productes/gr/comuns\">
+              <CodiINE>08</CodiINE>
+              <Nom>Barcelona</Nom>
+            </Provincia>
+            <Comarca xmlns=\"http://gencat.net/scsp/esquemes/productes/gr/comuns\">
+              <CodiINE>13</CodiINE>
+              <Nom>Barcelonès</Nom>
+            </Comarca>
             <Municipi xmlns=\"http://gencat.net/scsp/esquemes/productes/gr/comuns\">
-              <Nom/>
+              <CodiINE>08019</CodiINE>
+              <Nom>" + @xproject.building_town + "</Nom>
             </Municipi>
-            <TipusVia xmlns=\"http://gencat.net/scsp/esquemes/productes/gr/comuns\"/>
-            <NomVia xmlns=\"http://gencat.net/scsp/esquemes/productes/gr/comuns\"/>
+            <CodiPostal xmlns=\"http://gencat.net/scsp/esquemes/productes/gr/comuns\">" + @xproject.building_zip_code + "</CodiPostal>
+            <TipusVia xmlns=\"http://gencat.net/scsp/esquemes/productes/gr/comuns\">
+              <CodiArvato>CA</CodiArvato>
+              <Descripcio>" + @xproject.building_road_type + "</Descripcio>
+            </TipusVia>
+            <NomVia xmlns=\"http://gencat.net/scsp/esquemes/productes/gr/comuns\">" + @xproject.building_road_name + "</NomVia>
+            <Numero xmlns=\"http://gencat.net/scsp/esquemes/productes/gr/comuns\">" + @xproject.building_address_number + "</Numero>
+            <Bloc xmlns=\"http://gencat.net/scsp/esquemes/productes/gr/comuns\">" + @xproject.building_block + "</Bloc>
+            <Escala xmlns=\"http://gencat.net/scsp/esquemes/productes/gr/comuns\">" + @xproject.building_stairs + "</Escala>
+            <Pis xmlns=\"http://gencat.net/scsp/esquemes/productes/gr/comuns\">" + @xproject.building_story + "</Pis>
+            <Porta xmlns=\"http://gencat.net/scsp/esquemes/productes/gr/comuns\">" + @xproject.building_door + "</Porta>
           </Adreca>
           <Tipus>
             <Id/>
             <Descripcio/>
           </Tipus>
           <NombreHabitatges/>
+          <numRegistreAlternatiu/>
+          <numRegistreModificar/>
+          <ModificacionsCertificat>
+            <Id/>
+            <Descripcio/>
+          </ModificacionsCertificat>
+          <AltreNumCadastre/>
+          <AltreNumAdreca/>
         </IdentificacioEdifici>
         <TaulaTecnics>
           <PrimerTecnic>
             <Titulacio>
-              <Id/>
-              <Descripcio/>
+              <Id>1</Id>
+              <Descripcio>Arquitecte Tècnic</Descripcio>
             </Titulacio>
-            <NumCollegiat/>
-            <Collegi/>
+            <NumCollegiat>11.485</NumCollegiat>
+            <Collegi>CAATEEB</Collegi>
           </PrimerTecnic>
         </TaulaTecnics>
+        <GestorInmoble tipusUsuari=\"particular\">
+          <Particular xmlns=\"http://gencat.net/scsp/esquemes/productes/gr/comuns\" esSignatari=\"\">
+            <Nom/>
+            <Cognom1/>
+            <Document tipusDocument=\"\">
+              <PaisDocument>
+                <CodiINE/>
+                <Nom/>
+              </PaisDocument>
+              <Identificador/>
+            </Document>
+            <Adreca normalitzada=\"false\">
+              <Pais>
+                <CodiINE>108</CodiINE>
+                <Nom>Espanya</Nom>
+              </Pais>
+              <Provincia/>
+              <Comarca/>
+              <Municipi>
+                <Nom/>
+              </Municipi>
+              <TipusVia/>
+              <NomVia/>
+            </Adreca>
+            <DadesNaixement/>
+          </Particular>
+        </GestorInmoble>
         <QualificacioEnergetica>
           <ConsumEnergiaPrimariaAnual>
             <Kwh_any/>
-            <Kwh_anym2/>
+            <Kwh_anym2>800.00</Kwh_anym2>
           </ConsumEnergiaPrimariaAnual>
           <EmissionsAnualsCO2>
             <KgCO2_any/>
-            <KgCO2_m2any/>
+            <KgCO2_m2any>600.00</KgCO2_m2any>
           </EmissionsAnualsCO2>
           <ZonaClimatica/>
           <Procediment>
-            <Id/>
-            <Descripcio/>
+            <Id>1</Id>
+            <Descripcio>CE3X</Descripcio>
           </Procediment>
           <Normativa>
-            <Id/>
-            <Descripcio/>
+            <Id>3</Id>
+            <Descripcio>NRE-AT-87</Descripcio>
           </Normativa>
           <QualificacioObtinguda>
-            <Id/>
-            <Descripcio/>
+            <Id>5</Id>
+            <Descripcio>F</Descripcio>
           </QualificacioObtinguda>
           <QualificacioEnergiaPrimaria>
+            <Id>4</Id>
+            <Descripcio>E</Descripcio>
+          </QualificacioEnergiaPrimaria>
+          <AnyConstruccio>
             <Id/>
             <Descripcio/>
-          </QualificacioEnergiaPrimaria>
-          <AnyConstruccio/>
+          </AnyConstruccio>
         </QualificacioEnergetica>
         <CaracteristiquesEdifici>
-          <Tancament/>
           <Aillament>
-            <Id/>
-            <Descripcio/>
+            <Id>1</Id>
+            <Descripcio>NO</Descripcio>
           </Aillament>
-          <Obertures/>
           <oberturaMajoritaria>
-            <Id/>
-            <Descripcio/>
+            <Id>0</Id>
+            <Descripcio>Simple</Descripcio>
           </oberturaMajoritaria>
-          <PotenciaACS/>
+          <PotenciaACS>8.0</PotenciaACS>
           <fontEnergeticaACS>
-            <Id/>
-            <Descripcio/>
+            <Id>0</Id>
+            <Descripcio>Electricitat</Descripcio>
           </fontEnergeticaACS>
           <potenciaCalefaccio/>
           <fontEnergeticaCalefaccio>
-            <Id/>
-            <Descripcio/>
+            <Id>4</Id>
+            <Descripcio>Gasoil</Descripcio>
           </fontEnergeticaCalefaccio>
           <potenciaRefrigeracio/>
           <potenciaIluminacio/>
           <EnergiaSolarTermica>
-            <Id/>
-            <Descripcio/>
+            <Id>1</Id>
+            <Descripcio>NO</Descripcio>
           </EnergiaSolarTermica>
           <ContribucioACS/>
           <EnergiaSolarFotovoltaica>
-            <Id/>
-            <Descripcio/>
+            <Id>1</Id>
+            <Descripcio>NO</Descripcio>
           </EnergiaSolarFotovoltaica>
           <PotenciaInstalada/>
           <EnergiaGeotermica>
-            <Id/>
-            <Descripcio/>
+            <Id>1</Id>
+            <Descripcio>NO</Descripcio>
           </EnergiaGeotermica>
           <SistemaBiomassa>
-            <Id/>
-            <Descripcio/>
+            <Id>1</Id>
+            <Descripcio>NO</Descripcio>
           </SistemaBiomassa>
           <observacions/>
         </CaracteristiquesEdifici>
+        <Instalacio>
+          <Calefaccio>
+            <Id>1</Id>
+            <Descripcio>Individualitzat</Descripcio>
+          </Calefaccio>
+          <QualificacioCalefaccio>
+            <Id>4</Id>
+            <Descripcio>E</Descripcio>
+          </QualificacioCalefaccio>
+          <Refrigeracio>
+            <Id>1</Id>
+            <Descripcio>Individualitzat</Descripcio>
+          </Refrigeracio>
+          <QualificacioRefrigeracio>
+            <Id>3</Id>
+            <Descripcio>D</Descripcio>
+          </QualificacioRefrigeracio>
+        </Instalacio>
         <QualificacionsEnergètiquesParcials>
           <EmissionsCalefaccio/>
           <QualificacioCalefaccio>
@@ -795,11 +933,16 @@ a.(lp0
           <Declaro2>0</Declaro2>
           <Declaro3>0</Declaro3>
           <Declaro4>0</Declaro4>
+          <Declaro5>0</Declaro5>
         </Declaro>
         <Autoritzo>
           <Autoritzo1>0</Autoritzo1>
           <Autoritzo2>0</Autoritzo2>
         </Autoritzo>
+        <TipusPersona>1</TipusPersona>
+        <TipusDocumentPromotor>DNI</TipusDocumentPromotor>
+        <TipusDocumentTecnic/>
+        <TipusDocumentRepresentant/>
       </DadesParticulars>
     </Contingut>
     <InfoServei volRebreAvis=\"0\">
@@ -848,6 +991,6 @@ a.(lp0
 
   private
     def xproject_params
-      params.require(:xproject).permit(:user_id, :expert_id, :name, :building_road_type, :building_road_name, :building_address_number, :building_block, :building_stairs, :building_story, :building_door, :building_zip_code, :building_town, :cadastre, :construction_period, :construction_year, :project_type, :area, :facade_improvements, :roof_improvements, :window_type, :window_tightness, :facade_definition, :facade_score, :roof_definition, :roof_score, :floor_definition, :floor_score, :windows_definition, :windows_score, :hot_water_type, :hot_water_age, :heating_age, :cooling_type, :cooling_age, :lighting_type, :lighting_power, :contracted_power, :refrigerator_power, :microwave_power, :washingmachine_power, :dishwasher_power, :oven_power, :vitroceramic_power, :tv_power, :pc_power, :stereo_power, :coffeemachine_power, :hot_water_definition, :hot_water_score, :heating_definition, :heating_score, :cooling_definition, :cooling_score, :lighting_definition, :lighting_score, :appliances_definition, :appliances_score, :electricity_consumption_january, :electricity_consumption_february, :electricity_consumption_march, :electricity_consumption_april, :electricity_consumption_may, :electricity_consumption_june, :electricity_consumption_july, :electricity_consumption_august, :electricity_consumption_september, :electricity_consumption_october, :electricity_consumption_november, :electricity_consumption_december, :gas_consumption_january, :gas_consumption_february, :gas_consumption_march, :gas_consumption_april, :gas_consumption_may, :gas_consumption_june, :gas_consumption_july, :gas_consumption_august, :gas_consumption_september, :gas_consumption_october, :gas_consumption_november, :gas_consumption_december, :gasoil_consumption_january, :gasoil_consumption_february, :gasoil_consumption_march, :gasoil_consumption_april, :gasoil_consumption_may, :gasoil_consumption_june, :gasoil_consumption_july, :gasoil_consumption_august, :gasoil_consumption_september, :gasoil_consumption_october, :gasoil_consumption_november, :gasoil_consumption_december, :other_energy_sources, :energy_class_guess, :energy_class, :user_first_name, :user_surname1, :user_surname2, :user_id_document_type, :user_id_document_number, :user_telephone, :user_mobile_phone, :user_road_type, :user_road_name, :user_address_number, :user_block, :user_stairs, :user_story, :user_door, :user_zip_code, :user_town, :report_results, :global_emissions, :global_emissions_rating, :heating_emissions, :heating_emissions_rating, :hot_water_emissions, :hot_water_emissions_rating, :cooling_emissions, :cooling_emissions_rating, :heating_demand, :heating_demand_rating, :cooling_demand, :cooling_demand_rating, :global_primary_energy, :global_primary_energy_rating, :heating_primary_energy, :heating_primary_energy_rating, :hot_water_primary_energy, :hot_water_primary_energy_rating, :cooling_primary_energy, :cooling_primary_energy_rating)
+      params.require(:xproject).permit(:user_id, :expert_id, :name, :building_road_type, :building_road_name, :building_address_number, :building_block, :building_stairs, :building_story, :building_door, :building_zip_code, :building_town, :cadastre, :construction_period, :construction_year, :project_type, :area, :facade_improvements, :roof_improvements, :window_type, :window_tightness, :facade_definition, :facade_score, :roof_definition, :roof_score, :floor_definition, :floor_score, :windows_definition, :windows_score, :hot_water_type, :hot_water_age, :heating_age, :cooling_type, :cooling_age, :lighting_type, :lighting_power, :contracted_power, :refrigerator_power, :microwave_power, :washingmachine_power, :dishwasher_power, :oven_power, :vitroceramic_power, :tv_power, :pc_power, :stereo_power, :coffeemachine_power, :hot_water_definition, :hot_water_score, :heating_definition, :heating_score, :cooling_definition, :cooling_score, :lighting_definition, :lighting_score, :appliances_definition, :appliances_score, :electricity_consumption_january, :electricity_consumption_february, :electricity_consumption_march, :electricity_consumption_april, :electricity_consumption_may, :electricity_consumption_june, :electricity_consumption_july, :electricity_consumption_august, :electricity_consumption_september, :electricity_consumption_october, :electricity_consumption_november, :electricity_consumption_december, :gas_consumption_january, :gas_consumption_february, :gas_consumption_march, :gas_consumption_april, :gas_consumption_may, :gas_consumption_june, :gas_consumption_july, :gas_consumption_august, :gas_consumption_september, :gas_consumption_october, :gas_consumption_november, :gas_consumption_december, :gasoil_consumption_january, :gasoil_consumption_february, :gasoil_consumption_march, :gasoil_consumption_april, :gasoil_consumption_may, :gasoil_consumption_june, :gasoil_consumption_july, :gasoil_consumption_august, :gasoil_consumption_september, :gasoil_consumption_october, :gasoil_consumption_november, :gasoil_consumption_december, :other_energy_sources, :energy_class_guess, :energy_class, :user_first_name, :user_surname1, :user_surname2, :user_id_document_type, :user_id_document_number, :user_telephone, :user_mobile_phone, :user_email, :user_road_type, :user_road_name, :user_address_number, :user_block, :user_stairs, :user_story, :user_door, :user_zip_code, :user_town, :report_results, :global_emissions, :global_emissions_rating, :heating_emissions, :heating_emissions_rating, :hot_water_emissions, :hot_water_emissions_rating, :cooling_emissions, :cooling_emissions_rating, :heating_demand, :heating_demand_rating, :cooling_demand, :cooling_demand_rating, :global_primary_energy, :global_primary_energy_rating, :heating_primary_energy, :heating_primary_energy_rating, :hot_water_primary_energy, :hot_water_primary_energy_rating, :cooling_primary_energy, :cooling_primary_energy_rating, :total_energy_consumption, :total_energy_consumption_improvements)
     end
 end
