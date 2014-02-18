@@ -1,5 +1,8 @@
 Testenergia::Application.routes.draw do
   
+  get "contacte/index"
+  get "joc/index"
+  get "servei/index"
   get "improvements/index"
   get "improvements/show"
   get "improvements/new"

@@ -1,30 +1,32 @@
-
-		<div class="row">
-			<h2 class="page-title">AutoTest Energia</h2>
+<div class="row">
+  <div class="col-md-12">
+		<h2 class="page-title">AutoTest</h2>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-8">
+		<p>L’autotest és una eina que permet estimar quina és la qualificació energètica del seu habitatge. Aquesta qualificació energètica és com la dels electrodomèstics, té 7 categories que van de la lletra “A” a la “G”.</p>
+		<p>Si som conscients del nostre consum energètic podrem millorar i reduir les emissions de CO<sub>2</sub> a l’atmosfera i el nostre habitatge serà més sostenible.</p>
+		<div class="btn-register-autotest">
+			<%= link_to("Fer un AutoTest sense registre", {:controller => '/autotest', :action => 'new'}, :class => 'btn button-new') %>
 		</div>
-		<div class="row">
-			<div class="col-md-3">
-				<%= image_tag('logos_empreses.jpg', :alt => 'logos empreses') %>
-			</div>
-			<div class="col-md-7 col-md-offset-1">
-				<p>L’autotest és una eina que permet estimar quina és la qualificació energètica del seu habitatge. Aquesta qualificació energètica és com la dels electrodomèstics, té 7 categories que van de la lletra “A” a la “G”.</p>
-				<p>Si som conscients del nostre consum energètic podrem millorar i reduir les emissions de CO<sub>2</sub> a l’atmosfera i el nostre habitatge serà més sostenible.</p>
-				<div class="row">
-					<div class="col-md-6 autotest-start-container">
 
-						<div class="autotest-start-buttons">
-							<a href="dades_generals"><button type="button" class="btn btn-default">AutoTest de l'habitatge <span class="glyphicon glyphicon-arrow-right"></span></button></a>
-						</div>
-						<p class="tip-start">(habitatge situat dins d'un edifici plurifamiliar)</p>
-					</div>
-					<div class="col-md-6 autotest-start-container">
+		<hr>
 
-						<div class="autotest-start-buttons">
-							<a href="dades_generals"><button type="button" class="btn btn-default">AutoTest de l'edifici <span class="glyphicon glyphicon-arrow-right"></span></button></a>
-						</div>
-						<p class="tip-start">(edifici sencer o un habitatge unifamiliar)</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	
+		<h4>Registreu-vos a Test Energia per poder fer l'AutoTest complet</h4>
+		<p>Registrar-se a Test Energia és gratuït i us permetrà beneficiar-vos dels següents avantatges:</p>
+		<p><span class="glyphicon glyphicon-ok-sign"> </span> Informe complet amb propostes de millora per al vostre habitatge.</p>
+		<p><span class="glyphicon glyphicon-ok-sign"> </span> Creació de diversos Autotests guardant la informació per a futures consultes.</p>
+		<p><span class="glyphicon glyphicon-ok-sign"> </span> Facilitats per a la contractació d'un Test Energia.</p>
+
+		<%= link_to("AutoTest per a usuaris registrats", {:controller => '/projects', :action => 'index'}, :class => 'btn button-new') %>
+	</div>
+	<div class="col-md-4">
+		<%= image_tag('autotest/model_informe.png', :alt => 'Model informe AutoTest', :width => '250', :height => '310') %>
+	</div>
+</div>
+
+
+
+
+			

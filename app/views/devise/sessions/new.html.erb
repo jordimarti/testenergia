@@ -6,30 +6,31 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-4 col-md-offset-4">
+			<div class="col-md-6">
 
-			<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-			  <div class="form-group"><%= f.label :email, "Correu electrònic" %><br />
-			  <%= f.email_field :email, :autofocus => true, :class => 'form-control' %></div>
+				<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+				  <div class="form-group"><%= f.label :email, "Correu electrònic" %><br />
+				  <%= f.email_field :email, :autofocus => true, :class => 'form-control' %></div>
 
-			  <div class="form-group"><%= f.label :password, "Contrasenya" %><br />
-			  <%= f.password_field :password, :class => 'form-control'  %></div>
+				  <div class="form-group"><%= f.label :password, "Contrasenya" %><br />
+				  <%= f.password_field :password, :class => 'form-control'  %></div>
 
-			  <% if devise_mapping.rememberable? -%>
-			    <div class="form-group"><%= f.check_box :remember_me %> <%= f.label :remember_me, "Recordar les dades" %></div>
-			  <% end -%>
+				  <% if devise_mapping.rememberable? -%>
+				    <div class="form-group"><%= f.check_box :remember_me %> <%= f.label :remember_me, "Recordar les dades" %></div>
+				  <% end -%>
 
-			  <div><%= f.submit "Inicieu sessió", :class => "btn btn-default" %></div>
-			<% end %>
+				  <div><%= f.submit "Inicieu sessió", :class => "btn button-new" %></div>
+				<% end %>
 
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4 col-md-offset-4 other-options">
-			
-			<%= render "devise/shared/links" %>
+				<%= render "devise/shared/links" %>
 
 			</div>
+			<div class="col-md-6">
+				<h4>No teniu compte d'usuari de Test Energia?</h4>
+				<p>Registreu-vos gratuïtament a Test Energia per poder fer un AutoTest més complet i facilitar la contractació d'un Test Energia.</p>
+				<%= link_to("Registreu-vos a Test Energia", {:controller => '/users', :action => 'sign_up'}, :class => 'btn button-new') %> 
+			</div>
 		</div>
+		
 	</div>
 </div>

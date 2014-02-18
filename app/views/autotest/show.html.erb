@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-4 side-content">
+    <%= link_to :action => 'index' do %>
+			<div class="btn button-page-menu"><span class="glyphicon glyphicon-arrow-left"> </span> Tornar a la pàgina inicial</div>
+		<% end %>
+	</div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+		<h2 class="page-title">Informe AutoTest Energia</h2>
+	</div>
+</div>
+<div class="row">
+  <div class="col-md-4 side-content">
+    <p>Aquest informe no és un document legal i no té cap validesa per al compliment del Real Decret 235/2013 sobre certificació energètica d'edificis. La qualificació energètica que apareix en aquest informe és orientativa.</p>
+    
+ 	</div>
+  <div class="col-md-8 principal-content">
+		<h4>Qualificació energètica</h4>
+		<% if !@simulation %>
+			<p>Heu introduït massa poca informació com per poder determinar la qualificació energètica del vostre habitatge. Si us plau introduïu més informació.</p>
+		<% else %>
+			<div class="row">
+				<div class="col-md-4">
+					<span class="text-tips">Més eficient</span>
+					<%= image_tag("etiqueta_" + @simulation.energy_class + ".jpg", width: "200", height: "139") %>
+					<span class="text-tips">Menys eficient</span>
+				</div>
+				<div class="col-md-7 col-md-offset-1">
+					<p><%= @simulation_result %></p>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+		<h2 class="page-title">Informe AutoTest amb propostes de millora</h2>
+		<p>Recordeu que si voleu un informe amb propostes de millora heu de registrar-vos.</p>
+    <%= link_to("AutoTest per a usuaris registrats", {:controller => '/projects', :action => 'index'}, :class => 'btn button-new') %>
+	</div>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204085749) do
+ActiveRecord::Schema.define(version: 20140217131502) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -30,6 +30,26 @@ ActiveRecord::Schema.define(version: 20140204085749) do
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+
+  create_table "autotests", force: true do |t|
+    t.string   "building_town"
+    t.string   "construction_period"
+    t.string   "construction_year"
+    t.string   "project_type"
+    t.string   "facade_improvements"
+    t.string   "roof_improvements"
+    t.string   "window_type"
+    t.string   "window_tightness"
+    t.string   "hot_water_type"
+    t.string   "hot_water_age"
+    t.string   "heating_age"
+    t.string   "cooling_type"
+    t.string   "cooling_age"
+    t.string   "lighting_type"
+    t.string   "energy_class_guess"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "building_systems", force: true do |t|
     t.string   "name"
