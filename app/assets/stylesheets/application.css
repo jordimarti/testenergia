@@ -9,9 +9,8 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require bootstrap
- *= require basic_layout
- *= require autotest
+ *= require_basic_layout
+ *= require_autotest
  *= require_tree .
  */
 

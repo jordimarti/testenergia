@@ -36,8 +36,12 @@ gem 'figaro', '~> 0.7.0'
 # Error messages
 gem "dynamic_form"
 
+# Twitter Bootstrap 3
+gem "bootstrap-sass", "~> 3.1.0.2"
+
 group :development do
 	gem 'mysql2'
+	gem 'rails_layout'
 end
 
 group :production do

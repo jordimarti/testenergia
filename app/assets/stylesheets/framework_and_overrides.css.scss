@@ -1,0 +1,126 @@
+// import the CSS framework
+@import "bootstrap";
+
+// make all images responsive by default
+img {
+  @extend .img-responsive;
+  margin: 0 auto;
+  }
+// override for the 'Home' navigation link
+.navbar-brand {
+  font-size: inherit;
+  }
+
+// THESE ARE EXAMPLES YOU CAN MODIFY
+// create your own classes
+// to make views framework-neutral
+.column {
+  @extend .col-md-6;
+  @extend .text-center;
+  }
+.form {
+  @extend .col-md-6;
+  }
+.form-centered {
+  @extend .col-md-6;
+  @extend .text-center;
+  }
+.submit {
+  @extend .btn;
+  @extend .btn-primary;
+  @extend .btn-lg;
+  }
+// apply styles to HTML elements
+// to make views framework-neutral
+main {
+  @extend .container;
+  background-color: #eee;
+  padding-bottom: 80px;
+  width: 100%;
+  margin-top: 51px; // accommodate the navbar
+  }
+section {
+  @extend .row;
+  margin-top: 20px;
+  }
+
+
+//Els meus estils a partir d'aquí
+.navbar {
+    margin-bottom: 0px;   
+}
+
+.navbar-default {
+    background-color: white;
+    border-color: white;
+}
+
+.navbar-toggle {
+    margin-top: 35px;   
+}
+
+.navbar-brand {
+    padding-left: 0px;   
+}
+
+.navbar-buttons-container {
+    float: right;
+    margin-top: 35px;
+}
+
+.navbar-nav > li > a {
+    padding: 5px 10px 5px 10px;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    background-color: #e2f2ee;
+    border-radius: 5px;
+}
+
+.navbar-collapse {
+    margin-top: 36px;   
+}
+
+.alert {
+    margin-top: 20px;
+}
+
+.alert-success {
+    color: white;
+    background-color: #88BC4A;
+}
+
+.alert-warning {
+    color: white;
+    background-color: #F1693C;
+
+}
+
+.alert-dismissable .close {
+    color: white;
+    opacity: 0.6;
+}
+
+.button-default {
+    background-color: #EAEAEA;
+    border: none;
+}
+
+.button-default:hover {
+    background-color: #0E91A1;
+}
+
+.button-new {
+    color: white;
+    background-color: #88BC4A;
+    border: none;
+}
+
+.button-new:hover {
+    background-color: #0E91A1;
+}
+
+.btn:hover {
+    color: white;
+}
+
