@@ -93,7 +93,7 @@
           var data = google.visualization.arrayToDataTable([
             ['Item', 'Percentatge'],
             ['Calefacció', <%= consum_calefaccio %>],
-            ['Refrigeració', <%= consum_refrigeracio %>],
+            //['Refrigeració', <%= consum_refrigeracio %>],
             ['Aigua calenta sanitària', <%= consum_acs %>],
             ['Il·luminació', <%= consum_iluminacio %>],
             ['Cuina', <%= consum_cuina %>],
@@ -102,7 +102,7 @@
 
           var options = {
             legend: 'none',
-            colors:['#de3700','#0098c8', '#ff9a01', '#009802', '#9b009b', '#2e63cf'],
+            colors:['#de3700','#0098c8', /*'#ff9a01',*/ '#009802', '#9b009b', '#2e63cf'],
             chartArea:{left:0,top:0,width:"100%",height:"100%"}
           };
 
@@ -119,10 +119,10 @@
           <%= image_tag('icon_calefaccio.png', :class => 'img_icon') %>
           <span>Calefacció: <%= consum_calefaccio.to_i %> kWh/any (<%= consum_calefaccio.to_i * 0.22 %>€)</span>
         </div>
-        <div class="llegenda-refrigeracio llegenda-container">
+        <!--<div class="llegenda-refrigeracio llegenda-container">
           <%= image_tag('icon_refrigeracio.png', :class => 'img_icon') %>
           <span>Refrigeració: <%= consum_refrigeracio.to_i %> kWh/any (<%= consum_refrigeracio.to_i * 0.22 %>€)</span>
-        </div>
+        </div>-->
         <div class="llegenda-acs llegenda-container">
           <%= image_tag('icon_acs.png', :class => 'img_icon') %>
           <span>Aigua calenta sanitària: <%= consum_acs.to_i %> kWh/any (<%= consum_acs.to_i * 0.22 %>€)</span>
