@@ -9,6 +9,11 @@
     	<p class="side-description">Des d'aquest apartat podeu gestionar els vostres AutoTests. Si voleu fer l'AutoTest del vostre habitatge cliqueu el botó "Crear un nou AutoTest". En el cas que tingueu més d'un habitatge o edifici podeu crear més AutoTests clicant el mateix botó.</p>
     </div>
     <div class="col-md-8 principal-content">
+			<% if @projects.count == 0 %>
+				<h3>Encara no heu creat cap Autotest</h3>
+			<% end %>
+
+
 			<% @projects.each do |project| %>
 			<div class="project-container">
 				<h3><%= project.name %></h3>
