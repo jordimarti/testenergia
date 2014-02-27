@@ -45,24 +45,32 @@ Home page
 }
 
 .hero-content {
-    background-image: url('home/background-hero.jpg');
+    background-image: url('home/foto_hero3.jpg');
     background-size: cover;
     background-color: black;
-    margin-top: 40px;
+    min-height: 400px;
 }
 
 .text-hero {
-    padding: 40px 0px 0px 40px;
     margin-bottom: 60px;
+    text-align: center;
 }
 
 .text-hero > h1 {
     color: white;
+    margin: 0px;
+    padding-top: 80px;
 }
 
 .text-hero > h2 {
     color: white;
     font-size: 22px;
+    padding-top: 20px;
+}
+
+.hero-button {
+    padding-top: 60px;
+    padding-bottom: 40px;
 }
 
 .img-publi {
