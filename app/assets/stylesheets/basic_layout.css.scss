@@ -45,7 +45,7 @@ Home page
 }
 
 .hero-content {
-    background-image: url('home/foto_hero3.jpg');
+    background-image: url(image-path('home/foto_hero3.jpg'));
     background-size: cover;
     background-color: black;
     min-height: 400px;
