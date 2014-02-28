@@ -1,67 +1,159 @@
 
-<div class="row">
-	<div class="col-md-12">
-		<div class="home-content">
-			<div class="hero-content">
-				<div class="text-hero">
-					<h1>Molt més que la certificació energètica de l'edifici</h1>
-					<h2>El Test Energia és una avaluació energètica entenedora, acurada i realista.</h2>
-					<div class="hero-button">
-						<%= link_to("AutoTest per a usuaris registrats", {:controller => '/projects', :action => 'index'}, :class => 'btn button-new') %>
+
+<div class="home-content">
+	<div class="hero-content">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="text-hero">
+						<h1>Molt més que la certificació energètica de l'edifici</h1>
+						<h2>El Test Energia és una avaluació energètica entenedora, acurada i realista.</h2>
+						<div class="hero-button">
+							<%= link_to("Descobreix Test Energia", {:controller => '/servei', :action => 'index'}, :class => 'btn button-new button-big') %>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>	
-	</div>
-</div>
-
-<div class="row">
-	<div class="col-md-4">
-		<a href="#"><%= image_tag('home/publi_servei.png', :alt => 'Servei', :class => 'img-publi') %></a>
-	</div>
-	<div class="col-md-4">
-		<a href="#"><%= image_tag('home/publi_casajuga.png', :alt => 'Joc Amb la casa sí que s\'hi juga', :class => 'img-publi') %></a>
-	</div>
-	<div class="col-md-4">
-		<a href="#"><%= image_tag('home/publi_autotest.png', :alt => 'AutoTest', :class => 'img-publi') %></a>
-	</div>
-</div>
-
-<hr>
-
-<div class="row">
-	<div class="col-md-12">
-		<h2>Els mitjans de comunicació parlen de Test Energia</h2>
-	</div>
-</div>
-
-<div class="row">
-	<div class="col-md-6">
-		<h4>Telenotícies migdia TV3</h4>
-		<div class='embed-container'>
-			<iframe src='http://www.youtube.com/embed/zf4_kKXYqyE' frameborder='0' allowfullscreen></iframe>
 		</div>
 	</div>
-	<div class="col-md-6">
-		<h4>Telenotícies vespre TV3</h4>
-		<div class='embed-container'>
-			<iframe src='http://www.youtube.com/embed/D-4f6fuI_r4' frameborder='0' allowfullscreen></iframe>
-		</div>
-	</div>
-</div>
+</div>	
 
-<div class="row">
-	<div class="col-md-6">
-		<h4>Notícies BTV</h4>
-		<div class='embed-container'>
-			<iframe src='http://www.youtube.com/embed/sIbRwuz49ok' frameborder='0' allowfullscreen></iframe>
-		</div>
-	</div>
-	<div class="col-md-6">
-		<h4>Notícies TV2</h4>
-		<div class='embed-container'>
-			<iframe src='http://www.youtube.com/embed/3DIU8TI7FeI' frameborder='0' allowfullscreen></iframe>
+<div class="publi">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<h2>Amb la casa sí que s'hi juga</h2>
+				<div class="row">
+					<div class="col-md-4">
+						<%= image_tag('home/casajuga.png', :alt => 'Amb la casa sí que s\'hi juga', :class => 'img-publi') %>
+					</div>
+					<div class="col-md-8">
+						<div class="text-publi">
+							<p>Feu la rehabilitació energètica d'una casa amb l'ajuda d'en Toni. Podreu veure que hi ha moltes maneres d'estalviar energia a la llar!</p>
+							<p><%= link_to("Jugueu ara!", {:controller => '/casajuga', :action => 'index'}, :class => 'btn button-new') %></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 vertical-rule-container">
+				<h2>AutoTest Energia</h2>
+				<div class="row">
+					<div class="col-md-4">
+						<%= image_tag('home/etiqueta.png', :alt => 'Etiqueta energètica', :class => 'img-publi') %>
+					</div>
+					<div class="col-md-8">
+						<div class="text-publi">
+							<p>Realitzeu l'AutoTest del vostre habitatge per conèixer, de forma aproximada, quina qualificació energètica li correspon.</p>
+							<p><%= link_to("Fer AutoTest", {:controller => '/autotest', :action => 'index'}, :class => 'btn button-new') %></p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
+
+<div class="mitjans-comunicacio">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>Els mitjans de comunicació parlen de Test Energia</h2>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6 mitjans-text">
+				<p>L'increment constant del cost de l'energia ha fet créixer l'interès en l'estalvi energètic per part de la ciutadania.</p>
+				<p>És per això que diferents mitjans de comunicació han fet reportatges sobre la iniciativa de Test Energia. A continuació podeu veure els reportatges que s'han emès per televisió.</p>
+			</div>
+			<div class="col-md-6">
+				<div class="row">
+					<div class="col-md-6 botons-videos">
+						<button id="btn-video1" class="btn button-success button-video">Telenotícies migdia TV3</button>
+						<button id="btn-video2" class="btn button-success button-video">Telenotícies vespre TV3</button>
+						<button id="btn-video5" class="btn button-success button-video">Programa Migdia 8TV</button>
+					</div>
+					<div class="col-md-6 botons-videos">
+						<button id="btn-video3" class="btn button-success button-video">Notícies BTV</button>
+						<button id="btn-video4" class="btn button-success button-video">Notícies TV2</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div id="video1" class="mitjans-video">
+					<h4>Telenotícies migdia TV3</h4>
+					<div class='embed-container'>
+						<iframe src='http://www.youtube.com/embed/zf4_kKXYqyE' frameborder='0' allowfullscreen></iframe>
+					</div>
+				</div>
+
+				<div id="video2" class="mitjans-video">
+					<h4>Telenotícies vespre TV3</h4>
+					<div class='embed-container'>
+						<iframe src='http://www.youtube.com/embed/D-4f6fuI_r4' frameborder='0' allowfullscreen></iframe>
+					</div>
+				</div>
+
+				<div id="video3" class="mitjans-video">
+					<h4>Notícies BTV</h4>
+					<div class='embed-container'>
+						<iframe src='http://www.youtube.com/embed/sIbRwuz49ok' frameborder='0' allowfullscreen></iframe>
+					</div>
+				</div>
+
+				<div id="video4" class="mitjans-video">
+					<h4>Notícies TV2</h4>
+					<div class='embed-container'>
+						<iframe src='http://www.youtube.com/embed/3DIU8TI7FeI' frameborder='0' allowfullscreen></iframe>
+					</div>
+				</div>
+
+				<div id="video5" class="mitjans-video">
+					<h4>Programa Migdia 8TV</h4>
+					<div class='embed-container'>
+						<object id="flashObj" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,47,0"><param name="movie" value="http://c.brightcove.com/services/viewer/federated_f9?isVid=1&isUI=1" /><param name="bgcolor" value="#FFFFFF" /><param name="flashVars" value="videoId=3235607027001&playerID=1588814393001&playerKey=AQ~~,AAABchwM4pE~,LvFrPHYJm51zNcbnHsHYiIgzUdGNI1uh&domain=embed&dynamicStreaming=true" /><param name="base" value="http://admin.brightcove.com" /><param name="seamlesstabbing" value="false" /><param name="allowFullScreen" value="true" /><param name="swLiveConnect" value="true" /><param name="allowScriptAccess" value="always" /><embed src="http://c.brightcove.com/services/viewer/federated_f9?isVid=1&isUI=1" bgcolor="#FFFFFF" flashVars="videoId=3235607027001&playerID=1588814393001&playerKey=AQ~~,AAABchwM4pE~,LvFrPHYJm51zNcbnHsHYiIgzUdGNI1uh&domain=embed&dynamicStreaming=true" base="http://admin.brightcove.com" name="flashObj" width="480" height="270" seamlesstabbing="false" type="application/x-shockwave-flash" allowFullScreen="true" allowScriptAccess="always" swLiveConnect="true" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"></embed></object>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+  $(document).ready(function() { 
+    $(".mitjans-video").hide();
+    $("#video1").show();
+
+    $("#btn-video1").click(function() {
+    	$(".mitjans-video").hide();
+    	$("#video1").show();
+    });
+
+    $("#btn-video2").click(function() {
+    	$(".mitjans-video").hide();
+    	$("#video2").show();
+    });
+
+    $("#btn-video3").click(function() {
+    	$(".mitjans-video").hide();
+    	$("#video3").show();
+    });
+
+    $("#btn-video4").click(function() {
+    	$(".mitjans-video").hide();
+    	$("#video4").show();
+    });
+
+    $("#btn-video5").click(function() {
+    	$(".mitjans-video").hide();
+    	$("#video5").show();
+    });
+
+  });
+</script>
+
+
 

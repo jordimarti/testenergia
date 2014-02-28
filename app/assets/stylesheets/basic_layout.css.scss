@@ -73,8 +73,45 @@ Home page
     padding-bottom: 40px;
 }
 
+.publi {
+    padding: 40px 0px 60px 0px;
+    background-color: white;
+}
+
 .img-publi {
-    margin-top: 20px;
+    padding-top: 30px;
+}
+
+.text-publi {
+    padding-top: 30px;
+}
+
+div.col-md-6.vertical-rule-container {
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-left-color: #ccc;
+    padding-left: 30px;
+}
+
+.mitjans-comunicacio {
+    /*background-image: url(image-path('home/mitjans_comunicacio.jpg'));
+    background-size: cover;
+    background-color: #0E91A1;
+    min-height: 400px;
+    color: white;*/
+    padding-top: 40px;
+}
+
+.mitjans-text {
+    padding-top: 40px;
+}
+
+.botons-videos {
+    padding-top: 40px;
+}
+
+button.btn.button-success.button-video {
+    margin-bottom: 15px;
 }
 
 .embed-container { 
@@ -98,6 +135,12 @@ Home page
 /*-----------------
 Service page
 ------------------*/
+
+.explicacio-servei {
+    background-color: #0E91A1;
+    padding: 60px 0px 60px 0px;
+    color: white;
+}
 
 .service-questions {
     text-align: center;
@@ -559,6 +602,16 @@ Game page
 
 .last-margin {
     height: 200px;   
+}
+
+
+/*-------------------
+AutoTest
+--------------------*/
+
+.button-autotest {
+    text-align: center;
+    padding: 60px 0px 30px 0px;
 }
 
 /*-------------------

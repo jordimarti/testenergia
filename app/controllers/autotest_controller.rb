@@ -29,17 +29,17 @@ class AutotestController < ApplicationController
     if @simulation && @autotest.energy_class_guess != '0'
       if @autotest.energy_class_guess < @simulation.energy_class
         if @autotest.energy_class_guess < 'e'
-          @simulation_result = "La qualificació energètica del vostre habitatge és " + @simulation.energy_class.upcase + ". Havíeu suposat que sortiria una " + @autotest.energy_class_guess.upcase + ", però és poc habitual que un habitatge existent tingui una qualificació energètica per sobre de la lletra E, a no ser que s'hagi construït després del 2006. "
+          @simulation_result = "La qualificació energètica del vostre habitatge és " + @simulation.energy_class.upcase + ". Havíeu suposat que sortiria una " + @autotest.energy_class_guess.upcase + ", però és poc habitual que un habitatge existent tingui una qualificació energètica per sobre de la lletra E, a no ser que s'hagi construït després del 2006. Registreu-vos per veure propostes de millora adequades per al vostre habitatge."
         else 
-          @simulation_result = "La qualificació energètica del vostre habitatge és " + @simulation.energy_class.upcase + ". Havíeu suposat que sortiria una " + @autotest.energy_class_guess.upcase + ", però la qualificació energètica és pitjor del que esperàveu. Feu realitat les propostes de millora per aconseguir tenir un habitatge de baix consum energètic."
+          @simulation_result = "La qualificació energètica del vostre habitatge és " + @simulation.energy_class.upcase + ". Havíeu suposat que sortiria una " + @autotest.energy_class_guess.upcase + ", però la qualificació energètica és pitjor del que esperàveu. Registreu-vos per veure propostes de millora adequades per al vostre habitatge."
         end
       elsif @autotest.energy_class_guess == @simulation.energy_class
-        @simulation_result = "La qualificació energètica del vostre habitatge és " + @simulation.energy_class.upcase + ", per tant heu encertat la qualificació energètica! Feu realitat les propostes de millora per aconseguir tenir un habitatge de baix consum energètic."
+        @simulation_result = "La qualificació energètica del vostre habitatge és " + @simulation.energy_class.upcase + ", per tant heu encertat la qualificació energètica! Registreu-vos per veure propostes de millora adequades per al vostre habitatge."
       else 
-        @simulation_result = "La qualificació energètica del vostre habitatge és " + @simulation.energy_class.upcase + ". Heu estat massa pessimistes, la qualificació energètica és millor del que esperàveu! Això no vol dir que no calgui millorar l'edifici. Feu realitat les propostes de millora per aconseguir tenir un habitatge de baix consum energètic."
+        @simulation_result = "La qualificació energètica del vostre habitatge és " + @simulation.energy_class.upcase + ". Heu estat massa pessimistes, la qualificació energètica és millor del que esperàveu! Això no vol dir que no calgui millorar l'edifici. Registreu-vos per veure propostes de millora adequades per al vostre habitatge."
       end
     elsif @simulation && @autotest.energy_class_guess == '0'
-      @simulation_result = "La qualificació energètica del vostre habitatge és " + @simulation.energy_class.upcase + ". Feu realitat les propostes de millora per aconseguir tenir un habitatge de baix consum energètic."
+      @simulation_result = "La qualificació energètica del vostre habitatge és " + @simulation.energy_class.upcase + ".  Registreu-vos per veure propostes de millora adequades per al vostre habitatge."
     end
   end
 
