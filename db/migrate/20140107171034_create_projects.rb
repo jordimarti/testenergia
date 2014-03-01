@@ -4,13 +4,7 @@ class CreateProjects < ActiveRecord::Migration
     	t.integer :user_id
     	t.integer :expert_id
     	t.string :name
-      t.string :building_road_type
-      t.string :building_road_name
-      t.string :building_address_number
-      t.string :building_block
-      t.string :building_stairs
-      t.string :building_story
-      t.string :building_door
+      t.string :building_address
       t.string :building_zip_code
       t.string :building_town
     	t.string :construction_period

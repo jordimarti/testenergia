@@ -21,7 +21,7 @@
     </div>
     <div class="print-adreca">
       <h5 class="print">Adreça:</h5>
-      <span><%= @xproject.building_road_name + ', ' + @xproject.building_address_number + ' ' + @xproject.building_story + ' ' + @xproject.building_door %></span><br/>
+      <span><%= @xproject.building_address %></span><br/>
       <span><%= @xproject.building_zip_code + ' ' + @xproject.building_town %></span>
     </div>
     <div class="print-caracteristiques">
@@ -78,13 +78,6 @@
 
     <div class="print-distribucio-consums">
       <h5>Distribució dels consums a la llar</h5>
-      
-      <% consum_calefaccio = @xproject.total_energy_consumption * 0.26
-      consum_refrigeracio = @xproject.total_energy_consumption * 0.08
-      consum_acs = @xproject.total_energy_consumption * 0.23
-      consum_iluminacio = @xproject.total_energy_consumption * 0.1
-      consum_cuina = @xproject.total_energy_consumption * 0.11
-      consum_electrodomestics = @xproject.total_energy_consumption * 0.22 %>
 
       <script type="text/javascript">
         google.load("visualization", "1", {packages:["corechart"]});
@@ -92,17 +85,16 @@
         function drawChart() {
           var data = google.visualization.arrayToDataTable([
             ['Item', 'Percentatge'],
-            ['Calefacció', <%= consum_calefaccio %>],
-            //['Refrigeració', <%= consum_refrigeracio %>],
-            ['Aigua calenta sanitària', <%= consum_acs %>],
-            ['Il·luminació', <%= consum_iluminacio %>],
-            ['Cuina', <%= consum_cuina %>],
-            ['Electrodomèstics', <%= consum_electrodomestics %>]
+            ['Calefacció', <%= @consum_calefaccio %>],
+            ['Refrigeració', <%= @consum_refrigeracio %>],
+            ['Aigua calenta sanitària', <%= @consum_acs %>],
+            ['Il·luminació', <%= @consum_iluminacio %>],
+            ['Electrodomèstics', <%= @consum_electrodomestics %>]
           ]);
 
           var options = {
             legend: 'none',
-            colors:['#de3700','#0098c8', /*'#ff9a01',*/ '#009802', '#9b009b', '#2e63cf'],
+            colors:['#de3700','#0098c8', '#ff9a01', '#009802', '#2e63cf'],
             chartArea:{left:0,top:0,width:"100%",height:"100%"}
           };
 
@@ -117,27 +109,23 @@
       <div class="print-item-llegenda">
         <div class="llegenda-calefaccio llegenda-container">
           <%= image_tag('icon_calefaccio.png', :class => 'img_icon') %>
-          <span>Calefacció: <%= consum_calefaccio.to_i %> kWh/any (<%= consum_calefaccio.to_i * 0.22 %>€)</span>
+          <span>Calefacció: <%= @consum_calefaccio.to_i %> kWh/any (<%= (@consum_calefaccio*0.22).to_i %>€)</span>
         </div>
-        <!--<div class="llegenda-refrigeracio llegenda-container">
+        <div class="llegenda-refrigeracio llegenda-container">
           <%= image_tag('icon_refrigeracio.png', :class => 'img_icon') %>
-          <span>Refrigeració: <%= consum_refrigeracio.to_i %> kWh/any (<%= consum_refrigeracio.to_i * 0.22 %>€)</span>
-        </div>-->
+          <span>Refrigeració: <%= @consum_refrigeracio.to_i %> kWh/any (<%= (@consum_refrigeracio*0.22).to_i %>€)</span>
+        </div>
         <div class="llegenda-acs llegenda-container">
           <%= image_tag('icon_acs.png', :class => 'img_icon') %>
-          <span>Aigua calenta sanitària: <%= consum_acs.to_i %> kWh/any (<%= consum_acs.to_i * 0.22 %>€)</span>
+          <span>Aigua calenta sanitària: <%= @consum_acs.to_i %> kWh/any (<%= (@consum_acs*0.22).to_i %>€)</span>
         </div>
         <div class="llegenda-iluminacio llegenda-container">
           <%= image_tag('icon_iluminacio.png', :class => 'img_icon') %>
-          <span>Il·luminació: <%= consum_iluminacio.to_i %> kWh/any (<%= consum_iluminacio.to_i * 0.22 %>€)</span>
-        </div>
-        <div class="llegenda-cuina llegenda-container">
-          <%= image_tag('icon_cuina.png', :class => 'img_icon') %>
-          <span>Cuina: <%= consum_cuina.to_i %> kWh/any (<%= consum_cuina.to_i * 0.22 %>€)</span>
+          <span>Il·luminació: <%= @consum_iluminacio.to_i %> kWh/any (<%= (@consum_iluminacio*0.22).to_i %>€)</span>
         </div>
         <div class="llegenda-electrodomestics llegenda-container">
           <%= image_tag('icon_electrodomestics.png', :class => 'img_icon') %>
-          <span>Electrodomèstics: <%= consum_electrodomestics.to_i %> kWh/any (<%= consum_electrodomestics.to_i * 0.22 %>€)</span>
+          <span>Electrodomèstics: <%= @consum_electrodomestics.to_i %> kWh/any (<%= (@consum_electrodomestics*0.22).to_i %>€)</span>
         </div>
       </div>
     </div>

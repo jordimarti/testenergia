@@ -17,9 +17,7 @@
       <li><a href="#propietari" data-toggle="tab">Dades propietari/a</a></li>
       <li><a href="#envolupant" data-toggle="tab">Envolupant tèrmica</a></li>
       <li><a href="#instalacions" data-toggle="tab">Instal·lacions</a></li>
-      <li><a href="#electrodomestics" data-toggle="tab">Electrodomèstics</a></li>
       <li><a href="#consums" data-toggle="tab">Consums</a></li>
-      <li><a href="#resultats" data-toggle="tab">Resultats</a></li>
     </ul>
   </div>
 </div>
@@ -38,34 +36,18 @@
               <%= f.select(:project_type, [['', 0],['Habitatge dins d\'un edifici', 1], ['Habitatge unifamiliar', 2], ['Edifici d\'habitatges', 3]], {}, {:class => 'form-control'}) %>
               </div>
 
-              <div class="form-group"><%= f.label :building_road_type, "Tipus de via" %><br />
-              <%= f.select(:building_road_type, [['Albereda'], ['Apartament'], ['Avinguda'], ['Baixada'], ['Barranc, Correga'], ['Barri'], ['Bloc'], ['Camí'], ['Can'], ['Carrer'], ['Carreró'], ['Carretera'], ['Colònia'], ['Costa'], ['Disseminat'], ['Edifici'], ['Glorieta'], ['Grup'], ['Lloc'], ['Mercat'], ['Parc'], ['Partida'], ['Passatge'], ['Passeig'], ['Plaça'], ['Placeta'], ['Poblat'], ['Polígon'], ['Prolongació'], ['Pujada'], ['Rambla'], ['Ronda'], ['Sendera'], ['Torrent'], ['Travessia'], ['Urbanització'], ['Xalet']], {:selected => 'Carrer'}, {:class => 'form-control'}) %></div>
-
-              <div class="form-group"><%= f.label :building_road_name, "Nom de la via" %><br />
-              <%= f.text_field :building_road_name, :class => 'form-control' %></div>
-
-              <div class="form-group"><%= f.label :building_address_number, "Número" %><br />
-              <%= f.text_field :building_address_number, :class => 'form-control' %></div>
-
-              <div class="form-group"><%= f.label :building_block, "Bloc" %><br />
-              <%= f.text_field :building_block, :class => 'form-control' %></div>
-
-              <div class="form-group"><%= f.label :building_stairs, "Escala" %><br />
-              <%= f.text_field :building_stairs, :class => 'form-control' %></div>
-
-              <div class="form-group"><%= f.label :building_story, "Pis" %><br />
-              <%= f.text_field :building_story, :class => 'form-control' %></div>
-
-              <div class="form-group"><%= f.label :building_door, "Porta" %><br />
-              <%= f.text_field :building_door, :class => 'form-control' %></div>
-            </div>
-            <div class="col-md-6">
+              <div class="form-group"><%= f.label :building_address, "Adreça" %><br />
+              <%= f.text_field :building_address, :class => 'form-control' %></div>
+              
+            
               <div class="form-group"><%= f.label :building_town, "Municipi" %><br />
               <%= f.select(:building_town, [['Abella de la Conca'], ['Abrera'], ['Àger'], ['Agramunt'], ['Aguilar de Segarra'], ['Agullana'], ['Aiguafreda'], ['Aiguamúrcia'], ['Aiguaviva'], ['Aitona'], ['Alamús, els'], ['Alàs i Cerc'], ['Albagés, l\''], ['Albanyà'], ['Albatàrrec'], ['Albesa'], ['Albi, l\''], ['Albinyana'], ['Albiol, l\''], ['Albons'], ['Alcanar'], ['Alcanó'], ['Alcarràs'], ['Alcoletge'], ['Alcover'], ['Aldea, l\''], ['Aldover'], ['Aleixar, l\''], ['Alella'], ['Alfara de Carles'], ['Alfarràs'], ['Alfés'], ['Alforja'], ['Algerri'], ['Alguaire'], ['Alins'], ['Alió'], ['Almacelles'], ['Almatret'], ['Almenar'], ['Almoster'], ['Alòs de Balaguer'], ['Alp'], ['Alpens'], ['Alpicat'], ['Alt Àneu'], ['Altafulla'], ['Amer'], ['Ametlla de Mar, l\''], ['Ametlla del Vallès, l\''], ['Ampolla, l\''], ['Amposta'], ['Anglès'], ['Anglesola'], ['Arbeca'], ['Arboç, l\''], ['Arbolí'], ['Arbúcies'], ['Arenys de Mar'], ['Arenys de Munt'], ['Argelaguer'], ['Argençola'], ['Argentera, l\''], ['Argentona'], ['Armentera, l\''], ['Arnes'], ['Arres'], ['Arsèguel'], ['Artés'], ['Artesa de Lleida'], ['Artesa de Segre'], ['Ascó'], ['Aspa'], ['Avellanes i Santa Linya, les'], ['Avià'], ['Avinyó'], ['Avinyonet de Puigventós'], ['Avinyonet del Penedès'], ['Badalona'], ['Badia del Vallès'], ['Bagà'], ['Baix Pallars'], ['Balaguer'], ['Balenyà'], ['Balsareny'], ['Banyeres del Penedès'], ['Banyoles'], ['Barbens'], ['Barberà de la Conca'], ['Barberà del Vallès'], ['Barcelona'], ['Baronia de Rialb, la'], ['Bàscara'], ['Bassella'], ['Batea'], ['Bausen'], ['Begues'], ['Begur'], ['Belianes'], ['Bell-lloc d\'Urgell'], ['Bellaguarda'], ['Bellcaire d\'Empordà'], ['Bellcaire d\'Urgell'], ['Bellmunt d\'Urgell'], ['Bellmunt del Priorat'], ['Bellprat'], ['Bellpuig'], ['Bellvei'], ['Bellver de Cerdanya'], ['Bellvís'], ['Benavent de Segrià'], ['Benifallet'], ['Benissanet'], ['Berga'], ['Besalú'], ['Bescanó'], ['Beuda'], ['Bigues i Riells'], ['Biosca'], ['Bisbal d\'Empordà, la'], ['Bisbal de Falset, la'], ['Bisbal del Penedès, la'], ['Biure'], ['Blancafort'], ['Blanes'], ['Boadella i les Escaules'], ['Bolvir'], ['Bonastre'], ['Bòrdes, Es'], ['Bordils'], ['Borges Blanques, les'], ['Borges del Camp, les'], ['Borrassà'], ['Borredà'], ['Bossòst'], ['Bot'], ['Botarell'], ['Bovera'], ['Bràfim'], ['Breda'], ['Bruc, el'], ['Brull, el'], ['Brunyola'], ['Cabacés'], ['Cabanabona'], ['Cabanelles'], ['Cabanes'], ['Cabanyes, les'], ['Cabó'], ['Cabra del Camp'], ['Cabrera d\'Anoia'], ['Cabrera de Mar'], ['Cabrils'], ['Cadaqués'], ['Calaf'], ['Calafell'], ['Calders'], ['Caldes d\'Estrac'], ['Caldes de Malavella'], ['Caldes de Montbui'], ['Calella'], ['Calldetenes'], ['Callús'], ['Calonge'], ['Calonge de Segarra'], ['Camarasa'], ['Camarles'], ['Cambrils'], ['Camós'], ['Campdevànol'], ['Campelles'], ['Campins'], ['Campllong'], ['Camprodon'], ['Canejan'], ['Canet d\'Adri'], ['Canet de Mar'], ['Canonja, la'], ['Canovelles'], ['Cànoves i Samalús'], ['Cantallops'], ['Canyelles'], ['Capafonts'], ['Capçanes'], ['Capellades'], ['Capmany'], ['Capolat'], ['Cardedeu'], ['Cardona'], ['Carme'], ['Caseres'], ['Cassà de la Selva'], ['Casserres'], ['Castell de l\'Areny'], ['Castell de Mur'], ['Castell-Platja d\'Aro'], ['Castellar de la Ribera'], ['Castellar de n\'Hug'], ['Castellar del Riu'], ['Castellar del Vallès'], ['Castellbell i el Vilar'], ['Castellbisbal'], ['Castellcir'], ['Castelldans'], ['Castelldefels'], ['Castellet i la Gornal'], ['Castellfollit de la Roca'], ['Castellfollit de Riubregós'], ['Castellfollit del Boix'], ['Castellgalí'], ['Castellnou de Bages'], ['Castellnou de Seana'], ['Castelló d\'Empúries'], ['Castelló de Farfanya'], ['Castellolí'], ['Castellserà'], ['Castellterçol'], ['Castellvell del Camp'], ['Castellví de la Marca'], ['Castellví de Rosanes'], ['Catllar, el'], ['Cava'], ['Cellera de Ter, la'], ['Celrà'], ['Centelles'], ['Cercs'], ['Cerdanyola del Vallès'], ['Cervelló'], ['Cervera'], ['Cervià de les Garrigues'], ['Cervià de Ter'], ['Cistella'], ['Ciutadilla'], ['Clariana de Cardener'], ['Cogul, el'], ['Colera'], ['Coll de Nargó'], ['Collbató'], ['Colldejou'], ['Collsuspina'], ['Colomers'], ['Coma i la Pedra, la'], ['Conca de Dalt'], ['Conesa'], ['Constantí'], ['Copons'], ['Corbera d\'Ebre'], ['Corbera de Llobregat'], ['Corbins'], ['Corçà'], ['Cornellà de Llobregat'], ['Cornellà del Terri'], ['Cornudella de Montsant'], ['Creixell'], ['Crespià'], ['Cruïlles, Monells i Sant Sadurní de l\'Heura'], ['Cubelles'], ['Cubells'], ['Cunit'], ['Darnius'], ['Das'], ['Deltebre'], ['Dosrius'], ['Duesaigües'], ['Escala, l\''], ['Esparreguera'], ['Espinelves'], ['Espluga Calba, l\''], ['Espluga de Francolí, l\''], ['Esplugues de Llobregat'], ['Espolla'], ['Esponellà'], ['Espot'], ['Espunyola, l\''], ['Estamariu'], ['Estany, l\''], ['Estaràs'], ['Esterri d\'Àneu'], ['Esterri de Cardós'], ['Falset'], ['Far d\'Empordà, el'], ['Farrera'], ['Fatarella, la'], ['Febró, la'], ['Figaró-Montmany'], ['Fígols'], ['Fígols i Alinyà'], ['Figuera, la'], ['Figueres'], ['Figuerola del Camp'], ['Flaçà'], ['Flix'], ['Floresta, la'], ['Fogars de la Selva'], ['Fogars de Montclús'], ['Foixà'], ['Folgueroles'], ['Fondarella'], ['Fonollosa'], ['Font-rubí'], ['Fontanals de Cerdanya'], ['Fontanilles'], ['Fontcoberta'], ['Foradada'], ['Forallac'], ['Forès'], ['Fornells de la Selva'], ['Fortià'], ['Franqueses del Vallès, les'], ['Freginals'], ['Fuliola, la'], ['Fulleda'], ['Gaià'], ['Galera, la'], ['Gallifa'], ['Gandesa'], ['Garcia'], ['Garidells, els'], ['Garriga, la'], ['Garrigàs'], ['Garrigoles'], ['Garriguella'], ['Gavà'], ['Gavet de la Conca'], ['Gelida'], ['Ger'], ['Gimenells i el Pla de la Font'], ['Ginestar'], ['Girona'], ['Gironella'], ['Gisclareny'], ['Godall'], ['Golmés'], ['Gombrèn'], ['Gósol'], ['Granada, la'], ['Granadella, la'], ['Granera'], ['Granja d\'Escarp, la'], ['Granollers'], ['Granyanella'], ['Granyena de les Garrigues'], ['Granyena de Segarra'], ['Gratallops'], ['Gualba'], ['Gualta'], ['Guardiola de Berguedà'], ['Guiamets, els'], ['Guils de Cerdanya'], ['Guimerà'], ['Guingueta d\'Àneu, la'], ['Guissona'], ['Guixers'], ['Gurb'], ['Horta de Sant Joan'], ['Hospitalet de Llobregat, l\''], ['Hostalets de Pierola, els'], ['Hostalric'], ['Igualada'], ['Isona i Conca Dellà'], ['Isòvol'], ['Ivars d\'Urgell'], ['Ivars de Noguera'], ['Ivorra'], ['Jafre'], ['Jonquera, la'], ['Jorba'], ['Josa i Tuixén'], ['Juià'], ['Juncosa'], ['Juneda'], ['Les'], ['Linyola'], ['Llacuna, la'], ['Lladó'], ['Lladorre'], ['Lladurs'], ['Llagosta, la'], ['Llagostera'], ['Llambilles'], ['Llanars'], ['Llançà'], ['Llardecans'], ['Llavorsí'], ['Lleida'], ['Llers'], ['Lles de Cerdanya'], ['Lliçà d\'Amunt'], ['Lliçà de Vall'], ['Llimiana'], ['Llinars del Vallès'], ['Llívia'], ['Lloar, el'], ['Llobera'], ['Llorac'], ['Llorenç del Penedès'], ['Lloret de Mar'], ['Llosses, les'], ['Lluçà'], ['Maçanet de Cabrenys'], ['Maçanet de la Selva'], ['Madremanya'], ['Maià de Montcal'], ['Maials'], ['Maldà'], ['Malgrat de Mar'], ['Malla'], ['Manlleu'], ['Manresa'], ['Marçà'], ['Margalef'], ['Marganell'], ['Martorell'], ['Martorelles'], ['Mas de Barberans'], ['Masarac'], ['Masdenverge'], ['Masies de Roda, les'], ['Masies de Voltregà, les'], ['Masllorenç'], ['Masnou, el'], ['Masó, la'], ['Maspujols'], ['Masquefa'], ['Masroig, el'], ['Massalcoreig'], ['Massanes'], ['Massoteres'], ['Matadepera'], ['Mataró'], ['Mediona'], ['Menàrguens'], ['Meranges'], ['Mieres'], ['Milà, el'], ['Miralcamp'], ['Miravet'], ['Moià'], ['Molar, el'], ['Molins de Rei'], ['Mollerussa'], ['Mollet de Peralada'], ['Mollet del Vallès'], ['Molló'], ['Molsosa, la'], ['Monistrol de Calders'], ['Monistrol de Montserrat'], ['Mont-ral'], ['Mont-ras'], ['Mont-roig del Camp'], ['Montagut i Oix'], ['Montblanc'], ['Montbrió del Camp'], ['Montcada i Reixac'], ['Montclar'], ['Montellà i Martinet'], ['Montesquiu'], ['Montferrer i Castellbò'], ['Montferri'], ['Montgai'], ['Montgat'], ['Montmajor'], ['Montmaneu'], ['Montmell, el'], ['Montmeló'], ['Montoliu de Lleida'], ['Montoliu de Segarra'], ['Montornès de Segarra'], ['Montornès del Vallès'], ['Montseny'], ['Móra d\'Ebre'], ['Móra la Nova'], ['Morell, el'], ['Morera de Montsant, la'], ['Muntanyola'], ['Mura'], ['Nalec'], ['Naut Aran'], ['Navarcles'], ['Navàs'], ['Navata'], ['Navès'], ['Nou de Berguedà, la'], ['Nou de Gaià, la'], ['Nulles'], ['Odèn'], ['Òdena'], ['Ogassa'], ['Olèrdola'], ['Olesa de Bonesvalls'], ['Olesa de Montserrat'], ['Oliana'], ['Oliola'], ['Olius'], ['Olivella'], ['Olost'], ['Olot'], ['Oluges, les'], ['Olvan'], ['Omellons, els'], ['Omells de na Gaia, els'], ['Ordis'], ['Organyà'], ['Orís'], ['Oristà'], ['Orpí'], ['Òrrius'], ['Os de Balaguer'], ['Osor'], ['Ossó de Sió'], ['Pacs del Penedès'], ['Palafolls'], ['Palafrugell'], ['Palamós'], ['Palau d\'Anglesola, el'], ['Palau de Santa Eulàlia'], ['Palau-sator'], ['Palau-saverdera'], ['Palau-solità i Plegamans'], ['Pallaresos, els'], ['Pallejà'], ['Palma d\'Ebre, la'], ['Palma de Cervelló, la'], ['Palol de Revardit'], ['Pals'], ['Papiol, el'], ['Pardines'], ['Parets del Vallès'], ['Parlavà'], ['Passanant i Belltall'], ['Pau'], ['Paüls'], ['Pedret i Marzà'], ['Penelles'], ['Pera, la'], ['Perafita'], ['Perafort'], ['Peralada'], ['Peramola'], ['Perelló, el'], ['Piera'], ['Piles, les'], ['Pineda de Mar'], ['Pinell de Brai, el'], ['Pinell de Solsonès'], ['Pinós'], ['Pira'], ['Pla de Santa Maria, el'], ['Pla del Penedès, el'], ['Planes d\'Hostoles, les'], ['Planoles'], ['Plans de Sió, els'], ['Poal, el'], ['Pobla de Cérvoles, la'], ['Pobla de Claramunt, la'], ['Pobla de Lillet, la'], ['Pobla de Mafumet, la'], ['Pobla de Massaluca, la'], ['Pobla de Montornès, la'], ['Pobla de Segur, la'], ['Poboleda'], ['Polinyà'], ['Pont d\'Armentera, el'], ['Pont de Bar, el'], ['Pont de Molins'], ['Pont de Suert, el'], ['Pont de Vilomara i Rocafort, el'], ['Pontils'], ['Pontons'], ['Pontós'], ['Ponts'], ['Porqueres'], ['Porrera'], ['Port de la Selva, el'], ['Portbou'], ['Portella, la'], ['Pradell de la Teixeta'], ['Prades'], ['Prat de Comte'], ['Prat de Llobregat, el'], ['Pratdip'], ['Prats de Lluçanès'], ['Prats de Rei, els'], ['Prats i Sansor'], ['Preixana'], ['Preixens'], ['Premià de Dalt'], ['Premià de Mar'], ['Preses, les'], ['Prullans'], ['Puig-reig'], ['Puigcerdà'], ['Puigdàlber'], ['Puiggròs'], ['Puigpelat'], ['Puigverd d\'Agramunt'], ['Puigverd de Lleida'], ['Pujalt'], ['Quar, la'], ['Quart'], ['Queralbs'], ['Querol'], ['Rabós'], ['Rajadell'], ['Rasquera'], ['Regencós'], ['Rellinars'], ['Renau'], ['Reus'], ['Rialp'], ['Riba-roja d\'Ebre'], ['Riba, la'], ['Ribera d\'Ondara'], ['Ribera d\'Urgellet'], ['Ribes de Freser'], ['Riells i Viabrea'], ['Riera de Gaià, la'], ['Riner'], ['Ripoll'], ['Ripollet'], ['Riu de Cerdanya'], ['Riudarenes'], ['Riudaura'], ['Riudecanyes'], ['Riudecols'], ['Riudellots de la Selva'], ['Riudoms'], ['Riumors'], ['Roca del Vallès, la'], ['Rocafort de Queralt'], ['Roda de Barà'], ['Roda de Ter'], ['Rodonyà'], ['Roquetes'], ['Roses'], ['Rosselló'], ['Rourell, el'], ['Rubí'], ['Rubió'], ['Rupià'], ['Rupit i Pruit'], ['Sabadell'], ['Sagàs'], ['Salàs de Pallars'], ['Saldes'], ['Sales de Llierca'], ['Sallent'], ['Salomó'], ['Salou'], ['Salt'], ['Sanaüja'], ['Sant Adrià de Besòs'], ['Sant Agustí de Lluçanès'], ['Sant Andreu de la Barca'], ['Sant Andreu de Llavaneres'], ['Sant Andreu Salou'], ['Sant Aniol de Finestres'], ['Sant Antoni de Vilamajor'], ['Sant Bartomeu del Grau'], ['Sant Boi de Llobregat'], ['Sant Boi de Lluçanès'], ['Sant Carles de la Ràpita'], ['Sant Cebrià de Vallalta'], ['Sant Celoni'], ['Sant Climent de Llobregat'], ['Sant Climent Sescebes'], ['Sant Cugat del Vallès'], ['Sant Cugat Sesgarrigues'], ['Sant Esteve de la Sarga'], ['Sant Esteve de Palautordera'], ['Sant Esteve Sesrovires'], ['Sant Feliu de Buixalleu'], ['Sant Feliu de Codines'], ['Sant Feliu de Guíxols'], ['Sant Feliu de Llobregat'], ['Sant Feliu de Pallerols'], ['Sant Feliu Sasserra'], ['Sant Ferriol'], ['Sant Fost de Campsentelles'], ['Sant Fruitós de Bages'], ['Sant Gregori'], ['Sant Guim de Freixenet'], ['Sant Guim de la Plana'], ['Sant Hilari Sacalm'], ['Sant Hipòlit de Voltregà'], ['Sant Iscle de Vallalta'], ['Sant Jaume d\'Enveja'], ['Sant Jaume de Frontanyà'], ['Sant Jaume de Llierca'], ['Sant Jaume dels Domenys'], ['Sant Joan de les Abadesses'], ['Sant Joan de Mollet'], ['Sant Joan de Vilatorrada'], ['Sant Joan Despí'], ['Sant Joan les Fonts'], ['Sant Jordi Desvalls'], ['Sant Julià de Cerdanyola'], ['Sant Julià de Ramis'], ['Sant Julià de Vilatorta'], ['Sant Julià del Llor i Bonmatí'], ['Sant Just Desvern'], ['Sant Llorenç d\'Hortons'], ['Sant Llorenç de la Muga'], ['Sant Llorenç de Morunys'], ['Sant Llorenç Savall'], ['Sant Martí d\'Albars'], ['Sant Martí de Centelles'], ['Sant Martí de Llémena'], ['Sant Martí de Riucorb'], ['Sant Martí de Tous'], ['Sant Martí Sarroca'], ['Sant Martí Sesgueioles'], ['Sant Martí Vell'], ['Sant Mateu de Bages'], ['Sant Miquel de Campmajor'], ['Sant Miquel de Fluvià'], ['Sant Mori'], ['Sant Pau de Segúries'], ['Sant Pere de Ribes'], ['Sant Pere de Riudebitlles'], ['Sant Pere de Torelló'], ['Sant Pere de Vilamajor'], ['Sant Pere Pescador'], ['Sant Pere Sallavinera'], ['Sant Pol de Mar'], ['Sant Quintí de Mediona'], ['Sant Quirze de Besora'], ['Sant Quirze del Vallès'], ['Sant Quirze Safaja'], ['Sant Ramon'], ['Sant Sadurní d\'Anoia'], ['Sant Sadurní d\'Osormort'], ['Sant Salvador de Guardiola'], ['Sant Vicenç de Castellet'], ['Sant Vicenç de Montalt'], ['Sant Vicenç de Torelló'], ['Sant Vicenç dels Horts'], ['Santa Bàrbara'], ['Santa Cecília de Voltregà'], ['Santa Coloma de Cervelló'], ['Santa Coloma de Farners'], ['Santa Coloma de Gramenet'], ['Santa Coloma de Queralt'], ['Santa Cristina d\'Aro'], ['Santa Eugènia de Berga'], ['Santa Eulàlia de Riuprimer'], ['Santa Eulàlia de Ronçana'], ['Santa Fe del Penedès'], ['Santa Llogaia d\'Àlguema'], ['Santa Margarida de Montbui'], ['Santa Margarida i els Monjos'], ['Santa Maria d\'Oló'], ['Santa Maria de Besora'], ['Santa Maria de Corcó'], ['Santa Maria de Martorelles'], ['Santa Maria de Merlès'], ['Santa Maria de Miralles'], ['Santa Maria de Palautordera'], ['Santa Oliva'], ['Santa Pau'], ['Santa Perpètua de Mogoda'], ['Santa Susanna'], ['Santpedor'], ['Sarral'], ['Sarrià de Ter'], ['Sarroca de Bellera'], ['Sarroca de Lleida'], ['Saus, Camallera i Llampaies'], ['Savallà del Comtat'], ['Secuita, la'], ['Selva de Mar, la'], ['Selva del Camp, la'], ['Senan'], ['Sénia, la'], ['Senterada'], ['Sentiu de Sió, la'], ['Sentmenat'], ['Serinyà'], ['Seròs'], ['Serra de Daró'], ['Setcases'], ['Seu d\'Urgell, la'], ['Seva'], ['Sidamon'], ['Sils'], ['Sitges'], ['Siurana'], ['Sobremunt'], ['Soleràs, el'], ['Solivella'], ['Solsona'], ['Sora'], ['Soriguera'], ['Sort'], ['Soses'], ['Subirats'], ['Sudanell'], ['Sunyer'], ['Súria'], ['Susqueda'], ['Tagamanent'], ['Talamanca'], ['Talarn'], ['Talavera'], ['Tallada d\'Empordà, la'], ['Taradell'], ['Tarragona'], ['Tàrrega'], ['Tarrés'], ['Tarroja de Segarra'], ['Tavèrnoles'], ['Tavertet'], ['Teià'], ['Térmens'], ['Terrades'], ['Terrassa'], ['Tiana'], ['Tírvia'], ['Tiurana'], ['Tivenys'], ['Tivissa'], ['Tona'], ['Torà'], ['Tordera'], ['Torelló'], ['Torms, els'], ['Tornabous'], ['Torre de Cabdella, la'], ['Torre de Claramunt, la'], ['Torre de Fontaubella, la'], ['Torre de l\'Espanyol, la'], ['Torre-serona'], ['Torrebesses'], ['Torredembarra'], ['Torrefarrera'], ['Torrefeta i Florejacs'], ['Torregrossa'], ['Torrelameu'], ['Torrelavit'], ['Torrelles de Foix'], ['Torrelles de Llobregat'], ['Torrent'], ['Torres de Segre'], ['Torroella de Fluvià'], ['Torroella de Montgrí'], ['Torroja del Priorat'], ['Tortellà'], ['Tortosa'], ['Toses'], ['Tossa de Mar'], ['Tremp'], ['Ullà'], ['Ullastrell'], ['Ullastret'], ['Ulldecona'], ['Ulldemolins'], ['Ultramort'], ['Urús'], ['Vacarisses'], ['Vajol, la'], ['Vall d\'en Bas, la'], ['Vall de Bianya, la'], ['Vall de Boí, la'], ['Vall de Cardós'], ['Vall-llobrega'], ['Vallbona d\'Anoia'], ['Vallbona de les Monges'], ['Vallcebre'], ['Vallclara'], ['Vallfogona de Balaguer'], ['Vallfogona de Ripollès'], ['Vallfogona de Riucorb'], ['Vallgorguina'], ['Vallirana'], ['Vallmoll'], ['Vallromanes'], ['Valls'], ['Valls d\'Aguilar, les'], ['Valls de Valira, les'], ['Vandellòs i l\'Hospitalet de l\'Infant'], ['Vansa i Fórnols, la'], ['Veciana'], ['Vendrell, el'], ['Ventalló'], ['Verdú'], ['Verges'], ['Vespella de Gaià'], ['Vic'], ['Vidrà'], ['Vidreres'], ['Vielha e Mijaran'], ['Vila-rodona'], ['Vila-sacra'], ['Vila-sana'], ['Vila-seca'], ['Vilabella'], ['Vilabertran'], ['Vilablareix'], ['Vilada'], ['Viladamat'], ['Viladasens'], ['Viladecans'], ['Viladecavalls'], ['Vilademuls'], ['Viladrau'], ['Vilafant'], ['Vilafranca del Penedès'], ['Vilagrassa'], ['Vilajuïga'], ['Vilalba dels Arcs'], ['Vilalba Sasserra'], ['Vilaller'], ['Vilallonga de Ter'], ['Vilallonga del Camp'], ['Vilamacolum'], ['Vilamalla'], ['Vilamaniscle'], ['Vilamòs'], ['Vilanant'], ['Vilanova d\'Escornalbou'], ['Vilanova de Bellpuig'], ['Vilanova de l\'Aguda'], ['Vilanova de la Barca'], ['Vilanova de Meià'], ['Vilanova de Prades'], ['Vilanova de Sau'], ['Vilanova de Segrià'], ['Vilanova del Camí'], ['Vilanova del Vallès'], ['Vilanova i la Geltrú'], ['Vilaplana'], ['Vilassar de Dalt'], ['Vilassar de Mar'], ['Vilaür'], ['Vilaverd'], ['Vilella Alta, la'], ['Vilella Baixa, la'], ['Vilobí d\'Onyar'], ['Vilobí del Penedès'], ['Vilopriu'], ['Vilosell, el'], ['Vimbodí i Poblet'], ['Vinaixa'], ['Vinebre'], ['Vinyols i els Arcs'], ['Viver i Serrateix'], ['Xerta']], {:selected => 'Barcelona'}, {:class => 'form-control'}) %></div>
 
               <div class="form-group"><%= f.label :building_zip_code, "Codi postal" %><br />
               <%= f.text_field :building_zip_code, :class => 'form-control' %></div>
 
+            </div>
+            <div class="col-md-6">
               <div class="form-group"><%= f.label :construction_period, "Període de construcció de l'edifici" %><br />
                 <span class="text-tips">Si hi ha hagut una gran rehabilitació posar el període de la rehabilitació</span><br />
               <%= f.select(:construction_period, [['', 0], ['Abans de 1981', 1], ['Entre 1981 i 1987', 2], ['Entre 1988 i 2006', 3], ['Després del 2006', 4]], {}, {:class => 'form-control'}) %></div>
@@ -102,34 +84,16 @@
 
               <div class="form-group"><%= f.label :user_id_document_number, "Número de document d'identitat" %><br />
               <%= f.text_field :user_id_document_number, :class => 'form-control' %></div>
-
+            </div>
+            <div class="col-md-6">
               <div class="form-group"><%= f.label :user_telephone, "Número de telèfon fix" %><br />
               <%= f.text_field :user_telephone, :class => 'form-control' %></div>
 
               <div class="form-group"><%= f.label :user_mobile_phone, "Número de telèfon mòbil" %><br />
               <%= f.text_field :user_mobile_phone, :class => 'form-control' %></div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :user_road_type, "Tipus de via" %><br />
-              <%= f.select(:user_road_type, [['Albereda'], ['Apartament'], ['Avinguda'], ['Baixada'], ['Barranc, Correga'], ['Barri'], ['Bloc'], ['Camí'], ['Can'], ['Carrer'], ['Carreró'], ['Carretera'], ['Colònia'], ['Costa'], ['Disseminat'], ['Edifici'], ['Glorieta'], ['Grup'], ['Lloc'], ['Mercat'], ['Parc'], ['Partida'], ['Passatge'], ['Passeig'], ['Plaça'], ['Placeta'], ['Poblat'], ['Polígon'], ['Prolongació'], ['Pujada'], ['Rambla'], ['Ronda'], ['Sendera'], ['Torrent'], ['Travessia'], ['Urbanització'], ['Xalet']], {:selected => 'Carrer'}, {:class => 'form-control'}) %></div>
-
-              <div class="form-group"><%= f.label :user_road_name, "Nom de la via" %><br />
-              <%= f.text_field :user_road_name, :class => 'form-control' %></div>
-
-              <div class="form-group"><%= f.label :user_address_number, "Número" %><br />
-              <%= f.text_field :user_address_number, :class => 'form-control' %></div>
-
-              <div class="form-group"><%= f.label :user_block, "Bloc" %><br />
-              <%= f.text_field :user_block, :class => 'form-control' %></div>
-
-              <div class="form-group"><%= f.label :user_stairs, "Escala" %><br />
-              <%= f.text_field :user_stairs, :class => 'form-control' %></div>
-
-              <div class="form-group"><%= f.label :user_story, "Pis" %><br />
-              <%= f.text_field :user_story, :class => 'form-control' %></div>
-
-              <div class="form-group"><%= f.label :user_door, "Porta" %><br />
-              <%= f.text_field :user_door, :class => 'form-control' %></div>
+            
+              <div class="form-group"><%= f.label :user_address, "Adreça" %><br />
+                <%= f.text_field :user_address, :class => 'form-control' %></div>
 
               <div class="form-group"><%= f.label :user_zip_code, "Codi postal" %><br />
               <%= f.text_field :user_zip_code, :class => 'form-control' %></div>
@@ -575,76 +539,7 @@
               </div>
             </div>
           </div>
-          
-        </div>
-      </div>
-      <div class="tab-pane" id="electrodomestics">
-        <div class="content-in-tabs">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group"><%= f.label :contracted_power, "Potència elèctrica contractada" %><br />
-              <span class="text-tips">Valor en kW.</span>
-              <%= f.text_field :contracted_power, :class => 'form-control' %>
-              </div>
 
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              
-              <div class="form-group"><%= f.label :refrigerator_power, "Potència de la nevera i congelador" %><br />
-              <span class="text-tips">Valor en W. Un valor típic és 300W.</span>
-              <%= f.text_field :refrigerator_power, :class => 'form-control' %>
-              </div>
-
-              <div class="form-group"><%= f.label :microwave_power, "Potència del microones" %><br />
-              <span class="text-tips">Valor en W. Un valor típic és 800W.</span>
-              <%= f.text_field :microwave_power, :class => 'form-control' %>
-              </div>
-
-              <div class="form-group"><%= f.label :washingmachine_power, "Potència de la rentadora" %><br />
-              <span class="text-tips">Valor en W. Un valor típic és 2000W.</span>
-              <%= f.text_field :washingmachine_power, :class => 'form-control' %>
-              </div>
-
-              <div class="form-group"><%= f.label :dishwasher_power, "Potència del rentaplats" %><br />
-              <span class="text-tips">Valor en W. Un valor típic és 1800W.</span>
-              <%= f.text_field :refrigerator_power, :class => 'form-control' %>
-              </div>
-
-              <div class="form-group"><%= f.label :oven_power, "Potència del forn" %><br />
-              <span class="text-tips">Valor en W. Un valor típic és 2500W.</span>
-              <%= f.text_field :oven_power, :class => 'form-control' %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :vitroceramic_power, "Potència de la cuina vitroceràmica" %><br />
-              <span class="text-tips">Valor en W. Un valor típic és 1800W.</span>
-              <%= f.text_field :vitroceramic_power, :class => 'form-control' %>
-              </div>
-
-              <div class="form-group"><%= f.label :coffeemachine_power, "Potència de la cafetera" %><br />
-              <span class="text-tips">Valor en W. Un valor típic és 1000W.</span>
-              <%= f.text_field :coffeemachine_power, :class => 'form-control' %>
-              </div>
-
-              <div class="form-group"><%= f.label :tv_power, "Potència del televisor" %><br />
-              <span class="text-tips">Valor en W. Un valor típic és 60W.</span>
-              <%= f.text_field :tv_power, :class => 'form-control' %>
-              </div>
-
-              <div class="form-group"><%= f.label :pc_power, "Potència de l'ordinador" %><br />
-              <span class="text-tips">Valor en W. Un valor típic és 25W.</span>
-              <%= f.text_field :pc_power, :class => 'form-control' %>
-              </div>
-
-              <div class="form-group"><%= f.label :stereo_power, "Equip de música" %><br />
-              <span class="text-tips">Valor en W. Un valor típic és 25W.</span>
-              <%= f.text_field :stereo_power, :class => 'form-control' %>
-              </div>
-            </div>
-          </div>
-          <hr>
           <div class="row">
             <div class="col-md-12">
               <div class="panel panel-default">
@@ -667,11 +562,79 @@
               </div>
             </div>
           </div>
-
+          
         </div>
       </div>
+      
       <div class="tab-pane" id="consums">
         <div class="content-in-tabs">
+          
+          <div class="row">
+            <div class="col-md-12">
+              <h3>Dades informe CE3X</h3>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :global_primary_energy, "Consum global d'energia primària" %> (kWh/m<sup>2</sup>any)<br />
+              <%= f.text_field :global_primary_energy, :class => 'form-control' %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :global_primary_energy_rating, "Qualificació del consum global d'energia primària" %><br />
+              <%= f.select(:global_primary_energy_rating, [[''], ['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G']], {}, {:class => 'form-control'}) %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :global_emissions, "Emissions globals" %> (kgCO<sub>2</sub>/m<sup>2</sup>any)<br />
+              <%= f.text_field :global_emissions, :class => 'form-control' %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :global_emissions_rating, "Qualificació de les emissions globals" %><br />
+              <%= f.select(:global_emissions_rating, [[''], ['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G']], {}, {:class => 'form-control'}) %>
+              </div>
+            </div>
+          </div>
+
+          <hr>
+
+          <div class="row">
+            <div class="col-md-12">
+              <h3>Dades de consums reals</h3>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :total_energy_consumption, "Consum anual d'energia (de factures)" %> (kWh/any)<br />
+              <%= f.text_field :total_energy_consumption, :class => 'form-control' %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><%= f.label :total_energy_consumption_improvements, "Estimació consum aplicant millores" %> (kWh/any)<br />
+              <%= f.text_field :total_energy_consumption_improvements, :class => 'form-control' %>
+              </div>
+            </div>
+          </div>
+
+          <hr>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group"><%= f.label :contracted_power, "Potència elèctrica contractada" %><br />
+              <span class="text-tips">Valor en kW.</span>
+              <%= f.text_field :contracted_power, :class => 'form-control' %>
+              </div>
+
+            </div>
+          </div>
+
+
           <div class="row">
             <div class="col-md-4">
               <div class="panel panel-default">
@@ -833,171 +796,44 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div class="tab-pane" id="resultats">
-        <div class="content-in-tabs">
-          <div class="row">
-            <div class="col-md-6">
-              <p>Copieu el contingut de l'annex 2 de l'informe CE3X, des del títol "1. Calificación energética del edificio" fins a l'energia primària en il·luminació.</p>
-              <p>Si per alguna raó al grabar les dades no queden correctament col·locades als camps inferiors haureu d'esborrar el text i introduir les dades manualment.</p>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :report_results, "Text de l'annex 2 de l'informe CE3X" %><br />
-                <%= f.text_area :report_results, :rows => "11", :class => 'form-control' %>
-              </div>
-            </div>
-          </div>
 
           <hr>
 
           <div class="row">
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :global_emissions, "Emissions globals" %> (kgCO<sub>2</sub>/m<sup>2</sup>any)<br />
-              <%= f.text_field :global_emissions, :class => 'form-control' %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :global_emissions_rating, "Qualificació de les emissions globals" %><br />
-              <%= f.select(:global_emissions_rating, [[''], ['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G']], {}, {:class => 'form-control'}) %>
-              </div>
+            <div class="col-md-12">
+              <h4>Distribució dels consums</h4>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :heating_emissions, "Emissions per calefacció" %> (kgCO<sub>2</sub>/m<sup>2</sup>any)<br />
-              <%= f.text_field :heating_emissions, :class => 'form-control' %>
-              </div>
+            <div class="col-md-4">
+              <div class="form-group"><%= f.label :heating_percentage, "% consum calefacció" %><br />
+              <span class="text-tips">Valor típic: 34</span><br />
+              <%= f.text_field :heating_percentage, :class => 'form-control' %></div>
             </div>
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :heating_emissions_rating, "Qualificació de les emissions per calefacció" %><br />
-              <%= f.select(:heating_emissions_rating, [[''], ['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G']], {}, {:class => 'form-control'}) %>
-              </div>
+            <div class="col-md-4">
+              <div class="form-group"><%= f.label :cooling_percentage, "% consum refrigeració" %><br />
+              <span class="text-tips">Valor típic: 2</span><br />
+              <%= f.text_field :cooling_percentage, :class => 'form-control' %></div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group"><%= f.label :hot_water_percentage, "% consum ACS" %><br />
+              <span class="text-tips">Valor típic: 25</span><br />
+              <%= f.text_field :hot_water_percentage, :class => 'form-control' %></div>
             </div>
           </div>
-
           <div class="row">
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :cooling_emissions, "Emissions per refrigeració" %> (kgCO<sub>2</sub>/m<sup>2</sup>any)<br />
-              <%= f.text_field :cooling_emissions, :class => 'form-control' %>
-              </div>
+            <div class="col-md-4">
+              <div class="form-group"><%= f.label :lighting_percentage, "% consum il·luminació" %><br />
+              <span class="text-tips">Valor típic: 5</span><br />
+              <%= f.text_field :lighting_percentage, :class => 'form-control' %></div>
             </div>
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :cooling_emissions_rating, "Qualificació de les emissions per refrigeració" %><br />
-              <%= f.select(:cooling_emissions_rating, [[''], ['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G']], {}, {:class => 'form-control'}) %>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :hot_water_emissions, "Emissions ACS" %> (kgCO<sub>2</sub>/m<sup>2</sup>any)<br />
-              <%= f.text_field :hot_water_emissions, :class => 'form-control' %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :hot_water_emissions_rating, "Qualificació de les emissions per ACS" %><br />
-              <%= f.select(:hot_water_emissions_rating, [[''], ['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G']], {}, {:class => 'form-control'}) %>
-              </div>
+            <div class="col-md-4">
+              <div class="form-group"><%= f.label :appliances_percentage, "% consum electrodomèstics" %><br />
+              <span class="text-tips">Valor típic: 34</span><br />
+              <%= f.text_field :appliances_percentage, :class => 'form-control' %></div>
             </div>
           </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :heating_demand, "Demanda de calefacció" %> (kWh/m<sup>2</sup>any)<br />
-              <%= f.text_field :heating_demand, :class => 'form-control' %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :heating_demand_rating, "Qualificació de la demanda de calefacció" %><br />
-              <%= f.select(:heating_demand_rating, [[''], ['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G']], {}, {:class => 'form-control'}) %>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :cooling_demand, "Demanda de refrigeració" %> (kWh/m<sup>2</sup>any)<br />
-              <%= f.text_field :cooling_demand, :class => 'form-control' %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :cooling_demand_rating, "Qualificació de la demanda de refrigeració" %><br />
-              <%= f.select(:cooling_demand_rating, [[''], ['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G']], {}, {:class => 'form-control'}) %>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :global_primary_energy, "Consum global d'energia primària" %> (kWh/m<sup>2</sup>any)<br />
-              <%= f.text_field :global_primary_energy, :class => 'form-control' %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :global_primary_energy_rating, "Qualificació del consum global d'energia primària" %><br />
-              <%= f.select(:global_primary_energy_rating, [[''], ['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G']], {}, {:class => 'form-control'}) %>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :heating_primary_energy, "Consum d'energia primària per calefacció" %> (kWh/m<sup>2</sup>any)<br />
-              <%= f.text_field :heating_primary_energy, :class => 'form-control' %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :heating_primary_energy_rating, "Qualificació del consum d'energia primària per calefacció" %><br />
-              <%= f.select(:heating_primary_energy_rating, [[''], ['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G']], {}, {:class => 'form-control'}) %>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :cooling_primary_energy, "Consum d'energia primària per refrigeració" %> (kWh/m<sup>2</sup>any)<br />
-              <%= f.text_field :cooling_primary_energy, :class => 'form-control' %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :cooling_primary_energy_rating, "Qualificació del consum d'energia primària per refrigeració" %><br />
-              <%= f.select(:cooling_primary_energy_rating, [[''], ['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G']], {}, {:class => 'form-control'}) %>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :hot_water_primary_energy, "Consum d'energia primària per ACS" %> (kWh/m<sup>2</sup>any)<br />
-              <%= f.text_field :hot_water_primary_energy, :class => 'form-control' %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :hot_water_primary_energy_rating, "Qualificació del consum d'energia primària per ACS" %><br />
-              <%= f.select(:hot_water_primary_energy_rating, [[''], ['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G']], {}, {:class => 'form-control'}) %>
-              </div>
-            </div>
-          </div>
-
-          <hr>
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :total_energy_consumption, "Consum anual d'energia" %> (kWh/any)<br />
-              <%= f.text_field :total_energy_consumption, :class => 'form-control' %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :total_energy_consumption_improvements, "Consum anual d'energia si s'apliquen les propostes de millora" %> (kWh/any)<br />
-              <%= f.text_field :total_energy_consumption_improvements, :class => 'form-control' %>
-              </div>
-            </div>
-          </div>
-
-
         </div>
       </div>
     </div>

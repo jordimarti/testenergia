@@ -4,13 +4,7 @@ class CreateXprojects < ActiveRecord::Migration
     	t.integer :user_id
       t.integer :expert_id
       t.string :name
-      t.string :building_road_type
-      t.string :building_road_name
-      t.string :building_address_number
-      t.string :building_block
-      t.string :building_stairs
-      t.string :building_story
-      t.string :building_door
+      t.string :building_address
       t.string :building_zip_code
       t.string :building_town
       t.string :construction_period
@@ -46,16 +40,6 @@ class CreateXprojects < ActiveRecord::Migration
       t.string :lighting_definition
       t.integer :lighting_score
       t.decimal :contracted_power, :precision => 10, :scale => 2
-      t.integer :refrigerator_power
-      t.integer :microwave_power
-      t.integer :washingmachine_power
-      t.integer :dishwasher_power
-      t.integer :oven_power
-      t.integer :vitroceramic_power
-      t.integer :tv_power
-      t.integer :pc_power
-      t.integer :stereo_power
-      t.integer :coffeemachine_power
       t.string :appliances_definition
       t.integer :appliances_score
       t.integer :electricity_consumption_january
@@ -97,29 +81,17 @@ class CreateXprojects < ActiveRecord::Migration
       t.boolean :other_energy_sources
       t.string :energy_class_guess
       t.string :energy_class
-      t.text :report_results
       t.decimal :global_emissions, :precision => 10, :scale => 2
       t.string :global_emissions_rating
-      t.decimal :heating_emissions, :precision => 10, :scale => 2
-      t.string :heating_emissions_rating
-      t.decimal :hot_water_emissions, :precision => 10, :scale => 2
-      t.string :hot_water_emissions_rating
-      t.decimal :cooling_emissions, :precision => 10, :scale => 2
-      t.string :cooling_emissions_rating
-      t.decimal :heating_demand, :precision => 10, :scale => 2
-      t.string :heating_demand_rating
-      t.decimal :cooling_demand, :precision => 10, :scale => 2
-      t.string :cooling_demand_rating
       t.decimal :global_primary_energy, :precision => 10, :scale => 2
       t.string :global_primary_energy_rating
-      t.decimal :heating_primary_energy, :precision => 10, :scale => 2
-      t.string :heating_primary_energy_rating
-      t.decimal :hot_water_primary_energy, :precision => 10, :scale => 2
-      t.string :hot_water_primary_energy_rating
-      t.decimal :cooling_primary_energy, :precision => 10, :scale => 2
-      t.string :cooling_primary_energy_rating
       t.integer :total_energy_consumption
       t.integer :total_energy_consumption_improvements
+      t.integer :heating_percentage
+      t.integer :cooling_percentage
+      t.integer :hot_water_percentage
+      t.integer :lighting_percentage
+      t.integer :appliances_percentage
       ## User info
       t.string :user_first_name
       t.string :user_surname1
@@ -129,13 +101,7 @@ class CreateXprojects < ActiveRecord::Migration
       t.string :user_telephone
       t.string :user_mobile_phone
       t.string :user_email
-      t.string :user_road_type
-      t.string :user_road_name
-      t.string :user_address_number
-      t.string :user_block
-      t.string :user_stairs
-      t.string :user_story
-      t.string :user_door
+      t.string :user_address
       t.string :user_zip_code
       t.string :user_town
       t.timestamps
