@@ -1,7 +1,6 @@
-class CreateImprovements < ActiveRecord::Migration
+class CreateDefaultImprovements < ActiveRecord::Migration
   def change
-    create_table :improvements do |t|
-    	t.integer :xproject_id
+    create_table :default_improvements do |t|
     	t.string :name
       t.text :description
       t.integer :measure_type

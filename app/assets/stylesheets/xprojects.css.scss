@@ -137,3 +137,30 @@ p.print-explicacio {
 	margin-top: 10px;
 }
 
+.pagebreak { 
+	page-break-before: always; 
+}
+
+.print-dades-proposta {
+	float: left;
+	width: 200px;
+}
+
+p.print-explicacio-proposta {
+	margin-left: 220px;
+	width: 394px;
+	font-size: 14px;
+	line-height: 18px;
+}
+
+p.print-explicacio-dades {
+	font-size: 12px;
+	line-height: 16px;
+	margin-top: 0px;
+}
+
+hr.print-espaiador-dades {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+

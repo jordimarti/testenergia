@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140217131502) do
+ActiveRecord::Schema.define(version: 20140301162637) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -83,6 +83,28 @@ ActiveRecord::Schema.define(version: 20140217131502) do
     t.datetime "updated_at"
   end
 
+  create_table "default_improvements", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "measure_type"
+    t.integer  "cost"
+    t.integer  "energy_savings"
+    t.integer  "emissions_savings"
+    t.integer  "economic_savings"
+    t.integer  "roi"
+    t.integer  "difficulty"
+    t.integer  "better_comfort"
+    t.integer  "better_healthiness"
+    t.integer  "better_security"
+    t.integer  "less_noise"
+    t.integer  "less_airflow"
+    t.integer  "less_moisture"
+    t.integer  "less_maintenance"
+    t.integer  "water_savings"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "experts", force: true do |t|
     t.string   "email",                     default: "", null: false
     t.string   "encrypted_password",        default: "", null: false
@@ -124,9 +146,21 @@ ActiveRecord::Schema.define(version: 20140217131502) do
     t.integer  "xproject_id"
     t.string   "name"
     t.text     "description"
+    t.integer  "measure_type"
     t.integer  "cost"
-    t.integer  "savings"
+    t.integer  "energy_savings"
+    t.integer  "emissions_savings"
+    t.integer  "economic_savings"
     t.integer  "roi"
+    t.integer  "difficulty"
+    t.integer  "better_comfort"
+    t.integer  "better_healthiness"
+    t.integer  "better_security"
+    t.integer  "less_noise"
+    t.integer  "less_airflow"
+    t.integer  "less_moisture"
+    t.integer  "less_maintenance"
+    t.integer  "water_savings"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

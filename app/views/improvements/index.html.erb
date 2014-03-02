@@ -17,7 +17,8 @@
 						<th>Nom</th>
 						<th>Cost</th>
 						<th>Estalvi</th>
-						<th>Retorn de la inversió</th>
+						<th>ROI</th>
+						<th>CO<sub>2</sub></th>
 						<th>Editar</th>
 						<th>Eliminar</th>
 					</tr>
@@ -33,13 +34,18 @@
 							<% end %>
 						</td>
 						<td>
-							<% improvement.savings.times do %>
+							<% improvement.energy_savings.times do %>
 								<span class="glyphicon glyphicon-star"> </span>
 							<% end %>
 						</td>
 						<td>
 							<% improvement.roi.times do %>
 								<span class="glyphicon glyphicon-time"> </span>
+							<% end %>
+						</td>
+						<td>
+							<% improvement.emissions_savings.times do %>
+								<span class="glyphicon glyphicon-leaf"> </span>
 							<% end %>
 						</td>
 						<td><%= link_to :action => 'edit', :id => improvement.id, :xproject_id => @xproject.id do %>
@@ -57,7 +63,10 @@
 		
 	</div>
 	<%= link_to :action => 'new', :xproject_id => @xproject.id do %>
-			<div class="btn button-new"><span class="glyphicon glyphicon-plus"> </span> Crear una nova proposta de millora</div> 
-		<% end %>
+		<div class="btn button-new"><span class="glyphicon glyphicon-plus"> </span> Nova proposta</div> 
+	<% end %>
+	<%= link_to :controller => 'default_improvements', :action => 'index', :xproject_id => @xproject.id do %>
+		<div class="btn button-new"><span class="glyphicon glyphicon-plus"> </span> Nova proposta a partir de llibreria</div> 
+	<% end %>
 </div>
 </div>

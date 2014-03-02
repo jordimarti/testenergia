@@ -52,8 +52,29 @@ class ImprovementsController < ApplicationController
     redirect_to(:action => 'index/'+@improvement.xproject_id.to_s)
   end
 
+  def create_from_default
+    # Creates an improvement from a default improvement 
+    @default_improvement = DefaultImprovement.find(params[:id])
+    @xproject = Xproject.find(params[:xproject_id])
+    @improvement = Improvement.new()
+    if @improvement.update_attributes(
+      :xproject_id => @xproject.id, 
+      :name => @default_improvement.name,
+      :description => @default_improvement.description,
+      :cost => @default_improvement.cost,
+      :energy_savings => @default_improvement.energy_savings,
+      :emissions_savings => @default_improvement.emissions_savings,
+      :roi => @default_improvement.roi
+      )
+      flash[:notice] = "Proposta creada a partir de llibreria."
+      redirect_to(:action => 'index', :id => @xproject.id)
+    else
+      render('new')
+    end
+  end
+
   private
     def improvement_params
-      params.require(:improvement).permit(:xproject_id, :name, :description, :cost, :savings, :roi)
+      params.require(:improvement).permit(:xproject_id, :name, :description, :measure_type, :cost, :energy_savings, :emissions_savings, :economic_savings, :roi, :difficulty, :better_comfort, :better_healthiness, :better_security, :less_noise, :less_airflow, :less_moisture, :less_maintenance, :water_savings)
     end
 end

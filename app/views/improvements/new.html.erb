@@ -22,11 +22,15 @@
 		      <%= f.select(:cost, [['Menys de 200€', 1], ['Entre 200€ i 1000€', 2], ['Entre 1000€ i 5000€', 3], ['Més de 5000€', 4]], {}, {:class => 'form-control'}) %>
 		    </div>
 
-		    <div class="form-group"><%= f.label :savings, "Estalvi d'energia associat a la proposta" %><br />
-		      <%= f.select(:savings, [['Menys de 100€ l\'any', 1], ['De 100€ a 200€ l\'any', 2], ['De 200€ a 300€ l\'any', 3], ['Més de 300€ l\'any', 4]], {}, {:class => 'form-control'}) %>
+		    <div class="form-group"><%= f.label :energy_savings, "Estalvi d'energia associat a la proposta" %><br />
+		      <%= f.select(:energy_savings, [['Menys de 100€ l\'any', 1], ['De 100€ a 200€ l\'any', 2], ['De 200€ a 300€ l\'any', 3], ['Més de 300€ l\'any', 4]], {}, {:class => 'form-control'}) %>
 		    </div>
 
-		    <div class="form-group"><%= f.label :roi, "Rapidesa de retorn de la inversió" %><br />
+		    <div class="form-group"><%= f.label :emissions_savings, "Reducció emissions CO2" %><br />
+		      <%= f.select(:emissions_savings, [['Menys del 10%', 1], ['Entre el 10% i el 30%', 2], ['Entre el 30% i el 60%', 3], ['Més del 60%', 4]], {}, {:class => 'form-control'}) %>
+		    </div>
+
+		    <div class="form-group"><%= f.label :roi, "Rapidesa del retorn de la inversió" %><br />
 		      <%= f.select(:roi, [['Menys de 5 anys', 1], ['De 5 a 10 anys', 2], ['De 10 a 15 anys', 3], ['Més de 15 anys', 4]], {}, {:class => 'form-control'}) %>
 		    </div>
 		  </div>
