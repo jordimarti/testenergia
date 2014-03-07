@@ -1,5 +1,5 @@
 class XprojectsController < ApplicationController
-  before_filter :authenticate_expert!
+  #before_filter :authenticate_expert!
 
   def index
     this_expert = Expert.find(current_expert.id)

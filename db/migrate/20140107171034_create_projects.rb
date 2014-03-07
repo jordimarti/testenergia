@@ -70,13 +70,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :user_id_document_number
       t.string :user_telephone
       t.string :user_mobile_phone
-      t.string :user_road_type
-      t.string :user_road_name
-      t.string :user_address_number
-      t.string :user_block
-      t.string :user_stairs
-      t.string :user_story
-      t.string :user_door
+      t.string :user_address
       t.string :user_zip_code
       t.string :user_town
       t.timestamps
