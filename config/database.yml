@@ -3,3 +3,9 @@ development:
   host: localhost
   username: jordimarti
   database: testenergia_development
+
+production:
+  adapter: postgresql
+  host: localhost
+  username: jordimarti
+  database: testenergia_production
