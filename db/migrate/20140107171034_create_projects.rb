@@ -23,16 +23,6 @@ class CreateProjects < ActiveRecord::Migration
       t.string :lighting_type
       t.integer :lighting_power
     	t.decimal :contracted_power, :precision => 10, :scale => 2
-    	t.integer :refrigerator_power
-    	t.integer :microwave_power
-    	t.integer :washingmachine_power
-    	t.integer :dishwasher_power
-    	t.integer :oven_power
-    	t.integer :vitroceramic_power
-    	t.integer :tv_power
-    	t.integer :pc_power
-    	t.integer :stereo_power
-    	t.integer :coffeemachine_power
     	t.integer :electricity_consumption_january
       t.integer :electricity_consumption_february
       t.integer :electricity_consumption_march

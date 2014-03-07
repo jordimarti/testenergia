@@ -80,6 +80,7 @@ Home page
 
 .img-publi {
     padding-top: 30px;
+    max-width: 140px;
 }
 
 .text-publi {
@@ -94,12 +95,14 @@ div.col-md-6.vertical-rule-container {
 }
 
 .mitjans-comunicacio {
-    /*background-image: url(image-path('home/mitjans_comunicacio.jpg'));
+    background-image: url(image-path('home/mitjans_comunicacio.jpg'));
     background-size: cover;
     background-color: #0E91A1;
     min-height: 400px;
-    color: white;*/
+    color: white;
     padding-top: 40px;
+    padding-bottom: 80px;
+    margin-bottom: -50px;
 }
 
 .mitjans-text {
@@ -112,6 +115,7 @@ div.col-md-6.vertical-rule-container {
 
 button.btn.button-success.button-video {
     margin-bottom: 15px;
+    color: #333;
 }
 
 .embed-container { 
@@ -142,9 +146,19 @@ Service page
     color: white;
 }
 
+.elements-servei {
+    margin-top: 50px;
+}
+
+.info-certificacio {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
 .service-questions {
     text-align: center;
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .img-questions {
@@ -171,6 +185,10 @@ AutoTest
 .button-autotest {
     text-align: center;
     padding: 60px 0px 30px 0px;
+}
+
+.autotest-description {
+    margin-bottom: 50px;
 }
 
 /*-------------------
@@ -208,7 +226,7 @@ h2.page-title {
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-bottom-color: #ccc;
-    padding-bottom: 80px;
+    padding-bottom: 50px;
 }
 
 .other-options {

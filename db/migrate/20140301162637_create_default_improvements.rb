@@ -3,6 +3,7 @@ class CreateDefaultImprovements < ActiveRecord::Migration
     create_table :default_improvements do |t|
     	t.string :name
       t.text :description
+      t.integer :category
       t.integer :measure_type
       t.integer :cost
       t.integer :energy_savings

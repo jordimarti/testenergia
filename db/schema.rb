@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140301162637) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -86,6 +89,7 @@ ActiveRecord::Schema.define(version: 20140301162637) do
   create_table "default_improvements", force: true do |t|
     t.string   "name"
     t.text     "description"
+    t.integer  "category"
     t.integer  "measure_type"
     t.integer  "cost"
     t.integer  "energy_savings"
@@ -188,16 +192,6 @@ ActiveRecord::Schema.define(version: 20140301162637) do
     t.string   "lighting_type"
     t.integer  "lighting_power"
     t.decimal  "contracted_power",                  precision: 10, scale: 2
-    t.integer  "refrigerator_power"
-    t.integer  "microwave_power"
-    t.integer  "washingmachine_power"
-    t.integer  "dishwasher_power"
-    t.integer  "oven_power"
-    t.integer  "vitroceramic_power"
-    t.integer  "tv_power"
-    t.integer  "pc_power"
-    t.integer  "stereo_power"
-    t.integer  "coffeemachine_power"
     t.integer  "electricity_consumption_january"
     t.integer  "electricity_consumption_february"
     t.integer  "electricity_consumption_march"

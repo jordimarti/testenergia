@@ -39,16 +39,13 @@ gem "dynamic_form"
 # Twitter Bootstrap 3
 gem "bootstrap-sass", "~> 3.1.0.2"
 
-group :development do
-	gem 'mysql2'
-	gem 'rails_layout'
-end
 
-group :production do
-	gem 'pg'
-	gem 'rails_12factor'
-	gem 'thin'
-end
+gem 'rails_layout'
+gem 'pg'
+gem 'rails_12factor'
+gem 'thin'
+
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

@@ -7,19 +7,226 @@
     <h2 class="page-title">Llibreria de propostes de millora</h2>
   </div>
 </div>
-<div class="row">
-  <div class="col-md-12 principal-content">
-  	<ul>
-	  	<% @default_improvements.each do |improvement| %>
-	  	<li>
-	  		<%= link_to :controller => 'improvements', :action => 'create_from_default', :id => improvement.id, :xproject_id => @xproject.id do %>
-	  			<%= improvement.id %>
-	  			<%= improvement.name %>
-	  		<% end %>
-	  	</li>
 
-	  	<% end %>
-  	</ul>
+<div class="row">
+  <div class="col-md-6 principal-content">
+    <div class="panel-group" id="accordion">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+              Increment d'aïllament de l'envolupant
+            </a>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul>
+              <% @default_improvements_c1.each do |improvement| %>
+              <li>
+                <%= link_to :controller => 'improvements', :action => 'create_from_default', :id => improvement.id, :xproject_id => @xproject.id do %>
+                  <%= improvement.name %>
+                <% end %>
+              </li>
+
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+              Millores als forats
+            </a>
+          </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+          <div class="panel-body">
+            <ul>
+              <% @default_improvements_c2.each do |improvement| %>
+              <li>
+                <%= link_to :controller => 'improvements', :action => 'create_from_default', :id => improvement.id, :xproject_id => @xproject.id do %>
+                  <%= improvement.name %>
+                <% end %>
+              </li>
+
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+              Millores en el sistema de calefacció
+            </a>
+          </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse">
+          <div class="panel-body">
+            <ul>
+              <% @default_improvements_c3.each do |improvement| %>
+              <li>
+                <%= link_to :controller => 'improvements', :action => 'create_from_default', :id => improvement.id, :xproject_id => @xproject.id do %>
+                  <%= improvement.name %>
+                <% end %>
+              </li>
+
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+              Millores en el sistema de refrigeració
+            </a>
+          </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse">
+          <div class="panel-body">
+            <ul>
+              <% @default_improvements_c4.each do |improvement| %>
+              <li>
+                <%= link_to :controller => 'improvements', :action => 'create_from_default', :id => improvement.id, :xproject_id => @xproject.id do %>
+                  <%= improvement.name %>
+                <% end %>
+              </li>
+
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+              Millores en el sistema de calefacció i refrigeració
+            </a>
+          </h4>
+        </div>
+        <div id="collapseFive" class="panel-collapse collapse">
+          <div class="panel-body">
+            <ul>
+              <% @default_improvements_c5.each do |improvement| %>
+              <li>
+                <%= link_to :controller => 'improvements', :action => 'create_from_default', :id => improvement.id, :xproject_id => @xproject.id do %>
+                  <%= improvement.name %>
+                <% end %>
+              </li>
+
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+              Millores en el sistema d'ACS
+            </a>
+          </h4>
+        </div>
+        <div id="collapseSix" class="panel-collapse collapse">
+          <div class="panel-body">
+            <ul>
+              <% @default_improvements_c6.each do |improvement| %>
+              <li>
+                <%= link_to :controller => 'improvements', :action => 'create_from_default', :id => improvement.id, :xproject_id => @xproject.id do %>
+                  <%= improvement.name %>
+                <% end %>
+              </li>
+
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">
+              Millores en el sistema de ventilació
+            </a>
+          </h4>
+        </div>
+        <div id="collapseSeven" class="panel-collapse collapse">
+          <div class="panel-body">
+            <ul>
+              <% @default_improvements_c7.each do |improvement| %>
+              <li>
+                <%= link_to :controller => 'improvements', :action => 'create_from_default', :id => improvement.id, :xproject_id => @xproject.id do %>
+                  <%= improvement.name %>
+                <% end %>
+              </li>
+
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseEight">
+              Millores en el sistema d'il·luminació
+            </a>
+          </h4>
+        </div>
+        <div id="collapseEight" class="panel-collapse collapse">
+          <div class="panel-body">
+            <ul>
+              <% @default_improvements_c8.each do |improvement| %>
+              <li>
+                <%= link_to :controller => 'improvements', :action => 'create_from_default', :id => improvement.id, :xproject_id => @xproject.id do %>
+                  <%= improvement.name %>
+                <% end %>
+              </li>
+
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-5 col-md-offset-1 principal-content">
+    <h3>Propostes per defecte a partir de la informació existent</h3>
+    <% if @automeasure_insulate_facade %>
+      <p>
+        <%= @automeasure_insulate_facade_message %>
+        <br/>
+        <%= link_to :controller => 'improvements', :action => 'create_from_default', :id => @automeasure_insulate_facade.id, :xproject_id => @xproject.id do %>
+        <%= @automeasure_insulate_facade.name %>
+        <% end %>
+      </p>
+    <% end %>
+    <% if @automeasure_insulate_roof %>
+      <p>
+        <%= @automeasure_insulate_roof_message %>
+        <br/>
+        <%= link_to :controller => 'improvements', :action => 'create_from_default', :id => @automeasure_insulate_roof.id, :xproject_id => @xproject.id do %>
+        <%= @automeasure_insulate_roof.name %>
+        <% end %>
+      </p>
+    <% end %>
+    <% if @automeasure_hot_water %>
+      <p>
+        <%= @automeasure_hot_water_message %>
+        <br/>
+        <%= link_to :controller => 'improvements', :action => 'create_from_default', :id => @automeasure_hot_water.id, :xproject_id => @xproject.id do %>
+        <%= @automeasure_hot_water.name %>
+        <% end %>
+      </p>
+    <% end %>
   </div>
 </div>
 </div>
