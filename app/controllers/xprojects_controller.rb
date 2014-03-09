@@ -1,5 +1,5 @@
 class XprojectsController < ApplicationController
-  #before_filter :authenticate_expert!
+  before_filter :authenticate_expert!
 
   def index
     this_expert = Expert.find(current_expert.id)
@@ -20,6 +20,17 @@ class XprojectsController < ApplicationController
     @consum_iluminacio = @xproject.total_energy_consumption * @xproject.lighting_percentage / 100
     @consum_electrodomestics = @xproject.total_energy_consumption * @xproject.appliances_percentage / 100
     render layout: "print_layout"
+  end
+
+  def print_pdf
+    File.open("doc_raptor_sample.pdf", "w+b") do |f|
+      f.write DocRaptor.create(:document_url => "http://localhost:3000/servei/print/1",
+        :name             => "doc_raptor_sample.pdf",
+        :document_type    => "pdf",
+        :strict           => "none",
+        :test             => true)
+    end
+    send_file "doc_raptor_sample.pdf"
   end
 
   def new
