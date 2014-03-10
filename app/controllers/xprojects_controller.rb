@@ -132,7 +132,7 @@ p0
 .(lp0
 V" + xproject.name + "
 p1
-aV" + xproject.building_road_name + ", " + xproject.building_address_number + "
+aV" + xproject.building_address + "
 p2
 aVBarcelona 
 p3
