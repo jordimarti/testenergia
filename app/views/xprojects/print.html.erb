@@ -10,14 +10,24 @@
 		
 
   <div class="print-titol">
-    <h3 class="print-h3"><%= @xproject.name %></h3>
+    <h2 class="print-h2"><%= @xproject.name %></h2>
   </div>
 
   <div class="print-info-basica">
-    <div class="print-tecnic">
-      <h5 class="print">Realitzat per:</h5>
-      <span>Jordi Martí Muñoz</span><br/>
-      <span>Aparellador</span>
+    <div class="print-propietari">
+      <h5 class="print">Sol·licitant:</h5>
+      <span><%= @xproject.user_first_name + ' ' + @xproject.user_surname1 + ' ' + @xproject.user_surname2 %></span><br/>
+      <% case @xproject.user_id_document_type
+      when '0'
+        tipus_document = "DNI"
+      when '1'
+        tipus_document = "NIE"
+      when '2'
+        tipus_document = "Passaport"
+      when '3'
+        tipus_document = "NIF"
+      end %>
+      <span><%= tipus_document + ': ' + @xproject.user_id_document_number %></span>
     </div>
     <div class="print-adreca">
       <h5 class="print">Adreça:</h5>
@@ -63,76 +73,39 @@
     <div class="print-comparacio-energia">
       <div class="tip-consum consum-actual" style="position: absolute; top: 0px; right: 136px; text-align: right; border-right-style: solid; border-right-width: 2px; border-right-color: #333333; padding-right: 5px; height: 50px;">
         <span>Consum actual</span><br/>
-        <span><%= @xproject.total_energy_consumption %> kWh/any</span>
+        <span><%= @total_energy_consumption %> kWh/any</span>
       </div>
       <% #Posem el consum real a 480px de l'esquerra. La posició del consum de millores es busca a partir d'aquesta dada %>
-      <% posicio_consum_millores = @xproject.total_energy_consumption_improvements*480/@xproject.total_energy_consumption %>
+      <% posicio_consum_millores = @total_energy_consumption_improvements*480/@total_energy_consumption %>
       <div class="tip-consum consum-millores" style="position: absolute; top: 70px; left: <%= posicio_consum_millores %>px; text-align: left; border-left-style: solid; border-left-width: 2px; border-left-color: #333333; padding-left: 5px; padding-top: 20px; height: 50px;">
         <span>Consum aplicant propostes de millora</span><br/>
-        <span><%= @xproject.total_energy_consumption_improvements %> kWh/any</span>
+        <span><%= @total_energy_consumption_improvements %> kWh/any</span>
       </div>
       <div class="print-barra-energia">
         <%= image_tag('barra_energia.png', :alt => 'barra energia', :class => 'img_barra_energia') %>
       </div>
     </div>
-
-    <div class="print-distribucio-consums">
-      <h5>Distribució dels consums a la llar</h5>
-
-      <script type="text/javascript">
-        google.load("visualization", "1", {packages:["corechart"]});
-        google.setOnLoadCallback(drawChart);
-        function drawChart() {
-          var data = google.visualization.arrayToDataTable([
-            ['Item', 'Percentatge'],
-            ['Calefacció', <%= @consum_calefaccio %>],
-            ['Refrigeració', <%= @consum_refrigeracio %>],
-            ['Aigua calenta sanitària', <%= @consum_acs %>],
-            ['Il·luminació', <%= @consum_iluminacio %>],
-            ['Electrodomèstics', <%= @consum_electrodomestics %>]
-          ]);
-
-          var options = {
-            legend: 'none',
-            colors:['#de3700','#0098c8', '#ff9a01', '#009802', '#2e63cf'],
-            chartArea:{left:0,top:0,width:"100%",height:"100%"}
-          };
-
-          var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-          chart.draw(data, options);
-        }
-      </script>
-      <div id="piechart" style="width: 300px; height: 200px;"></div>
-    </div>
-
-    <div class="print-distribucio-llegenda">
-      <div class="print-item-llegenda">
-        <div class="llegenda-calefaccio llegenda-container">
-          <%= image_tag('icon_calefaccio.png', :class => 'img_icon') %>
-          <span>Calefacció: <%= @consum_calefaccio.to_i %> kWh/any (<%= (@consum_calefaccio*0.22).to_i %>€)</span>
-        </div>
-        <div class="llegenda-refrigeracio llegenda-container">
-          <%= image_tag('icon_refrigeracio.png', :class => 'img_icon') %>
-          <span>Refrigeració: <%= @consum_refrigeracio.to_i %> kWh/any (<%= (@consum_refrigeracio*0.22).to_i %>€)</span>
-        </div>
-        <div class="llegenda-acs llegenda-container">
-          <%= image_tag('icon_acs.png', :class => 'img_icon') %>
-          <span>Aigua calenta sanitària: <%= @consum_acs.to_i %> kWh/any (<%= (@consum_acs*0.22).to_i %>€)</span>
-        </div>
-        <div class="llegenda-iluminacio llegenda-container">
-          <%= image_tag('icon_iluminacio.png', :class => 'img_icon') %>
-          <span>Il·luminació: <%= @consum_iluminacio.to_i %> kWh/any (<%= (@consum_iluminacio*0.22).to_i %>€)</span>
-        </div>
-        <div class="llegenda-electrodomestics llegenda-container">
-          <%= image_tag('icon_electrodomestics.png', :class => 'img_icon') %>
-          <span>Electrodomèstics: <%= @consum_electrodomestics.to_i %> kWh/any (<%= (@consum_electrodomestics*0.22).to_i %>€)</span>
-        </div>
-      </div>
-    </div>
   </div>
 
-  <div class="print-apartat">
 
+
+  <div class="print-apartat">
+    <div class="print-info-tecnic">
+      <h5 class="print">Nom del tècnic:</h5>
+      <span><%= @expert.expert_first_name + ' ' + @expert.expert_surname1 + ' ' + @expert.expert_surname2%></span><br/>
+      <h5 class="print">Titulació:</h5>
+      <span><%= @expert.title %></span>
+    </div>
+    <div class="print-info-tecnic2">
+      <h5 class="print">Correu electrònic:</h5>
+      <span><%= @expert.email %></span>
+      <h5 class="print">Telèfon:</h5>
+      <span><%= @expert.expert_telephone %></span>
+    </div>
+    <div class="print-data-signatura">
+      <h5 class="print">Data i signatura:</h5>
+      
+    </div>
   </div>
 
 	

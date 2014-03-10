@@ -13,18 +13,21 @@ class XprojectsController < ApplicationController
 
   def print
     @xproject = Xproject.find(params[:id])
+    @expert = Expert.find(current_expert.id)
     @improvements = @xproject.improvements
-    @consum_calefaccio = @xproject.total_energy_consumption * @xproject.heating_percentage / 100
-    @consum_refrigeracio = @xproject.total_energy_consumption * @xproject.cooling_percentage / 100
-    @consum_acs = @xproject.total_energy_consumption * @xproject.hot_water_percentage / 100
-    @consum_iluminacio = @xproject.total_energy_consumption * @xproject.lighting_percentage / 100
-    @consum_electrodomestics = @xproject.total_energy_consumption * @xproject.appliances_percentage / 100
+    @total_energy_consumption = @xproject.electricity_consumption + @xproject.gas_consumption + @xproject.gasoil_consumption
+    @total_energy_consumption_improvements = @xproject.electricity_consumption_improvements + @xproject.gas_consumption_improvements + @xproject.gasoil_consumption_improvements
+    @consum_calefaccio = @total_energy_consumption * @xproject.heating_percentage / 100
+    @consum_refrigeracio = @total_energy_consumption * @xproject.cooling_percentage / 100
+    @consum_acs = @total_energy_consumption * @xproject.hot_water_percentage / 100
+    @consum_iluminacio = @total_energy_consumption * @xproject.lighting_percentage / 100
+    @consum_electrodomestics = @total_energy_consumption * @xproject.appliances_percentage / 100
     render layout: "print_layout"
   end
 
   def print_pdf
     File.open("doc_raptor_sample.pdf", "w+b") do |f|
-      f.write DocRaptor.create(:document_url => "http://localhost:3000/servei/print/1",
+      f.write DocRaptor.create(:document_url => "http://fierce-garden-4895.herokuapp.com/report/print/1",
         :name             => "doc_raptor_sample.pdf",
         :document_type    => "pdf",
         :strict           => "none",
@@ -273,6 +276,6 @@ a.(lp0
 
   private
     def xproject_params
-      params.require(:xproject).permit(:user_id, :expert_id, :name, :building_address, :building_zip_code, :building_town, :cadastre, :construction_period, :construction_year, :project_type, :area, :facade_improvements, :roof_improvements, :window_type, :window_tightness, :facade_definition, :facade_score, :roof_definition, :roof_score, :floor_definition, :floor_score, :windows_definition, :windows_score, :hot_water_type, :hot_water_age, :heating_age, :cooling_type, :cooling_age, :lighting_type, :lighting_power, :contracted_power, :hot_water_definition, :hot_water_score, :heating_definition, :heating_score, :cooling_definition, :cooling_score, :lighting_definition, :lighting_score, :appliances_definition, :appliances_score, :electricity_consumption_january, :electricity_consumption_february, :electricity_consumption_march, :electricity_consumption_april, :electricity_consumption_may, :electricity_consumption_june, :electricity_consumption_july, :electricity_consumption_august, :electricity_consumption_september, :electricity_consumption_october, :electricity_consumption_november, :electricity_consumption_december, :gas_consumption_january, :gas_consumption_february, :gas_consumption_march, :gas_consumption_april, :gas_consumption_may, :gas_consumption_june, :gas_consumption_july, :gas_consumption_august, :gas_consumption_september, :gas_consumption_october, :gas_consumption_november, :gas_consumption_december, :gasoil_consumption_january, :gasoil_consumption_february, :gasoil_consumption_march, :gasoil_consumption_april, :gasoil_consumption_may, :gasoil_consumption_june, :gasoil_consumption_july, :gasoil_consumption_august, :gasoil_consumption_september, :gasoil_consumption_october, :gasoil_consumption_november, :gasoil_consumption_december, :other_energy_sources, :energy_class_guess, :energy_class, :user_first_name, :user_surname1, :user_surname2, :user_id_document_type, :user_id_document_number, :user_telephone, :user_mobile_phone, :user_email, :user_address, :user_zip_code, :user_town, :global_emissions, :global_emissions_rating, :global_primary_energy, :global_primary_energy_rating, :total_energy_consumption, :total_energy_consumption_improvements, :heating_percentage, :cooling_percentage, :hot_water_percentage, :lighting_percentage, :appliances_percentage)
+      params.require(:xproject).permit(:user_id, :expert_id, :name, :building_address, :building_zip_code, :building_town, :cadastre, :construction_period, :construction_year, :project_type, :area, :facade_improvements, :roof_improvements, :window_type, :window_tightness, :facade_definition, :facade_score, :roof_definition, :roof_score, :floor_definition, :floor_score, :windows_definition, :windows_score, :hot_water_type, :hot_water_age, :heating_age, :cooling_type, :cooling_age, :lighting_type, :lighting_power, :contracted_power, :hot_water_definition, :hot_water_score, :heating_definition, :heating_score, :cooling_definition, :cooling_score, :lighting_definition, :lighting_score, :appliances_definition, :appliances_score, :electricity_consumption, :electricity_price, :electricity_emissions, :electricity_consumption_improvements, :gas_consumption, :gas_price, :gas_emissions, :gas_consumption_improvements, :gasoil_consumption, :gasoil_price, :gasoil_emissions, :gasoil_consumption_improvements, :other_energy_sources, :energy_class_guess, :energy_class, :user_first_name, :user_surname1, :user_surname2, :user_id_document_type, :user_id_document_number, :user_telephone, :user_mobile_phone, :user_email, :user_address, :user_zip_code, :user_town, :global_emissions, :global_emissions_rating, :global_primary_energy, :global_primary_energy_rating, :total_energy_consumption, :total_energy_consumption_improvements, :heating_percentage, :heating_energy_source, :cooling_percentage, :cooling_energy_source, :hot_water_percentage, :hot_water_energy_source, :lighting_percentage, :appliances_percentage)
     end
 end

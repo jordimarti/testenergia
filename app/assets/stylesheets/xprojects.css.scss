@@ -20,16 +20,16 @@ body.print-body {
 	font-size: 12px;
 }
 
-h3.print-h3 {
-	font-size: 18px;
-	-webkit-margin-before: 0.2em;
-	-webkit-margin-after: 0.5em;
+h2.print-h2 {
+	font-size: 28px;
+	-webkit-margin-before: 0.7em;
+	-webkit-margin-after: 1em;
 	text-align: center;
 
 }
 
 .print-container {
-	margin-left: 40px;
+	margin-left: -15px;
 	width: 670px;
 }
 
@@ -51,10 +51,28 @@ h5.print {
 	margin-bottom: 5px;
 }
 
-.print-tecnic {
+.print-propietari {
 	float: left;
 	width: 180px;
 	margin-right: 20px;
+}
+
+.print-info-tecnic {
+	float: left;
+	width: 180px;
+	margin-right: 20px;
+}
+
+.print-info-tecnic2 {
+	float: left;
+	width: 180px;
+	margin-right: 20px;
+}
+
+.print-data-signatura {
+	float: left;
+	width: 180px;
+	margin-right: 30px;
 }
 
 .print-adreca {

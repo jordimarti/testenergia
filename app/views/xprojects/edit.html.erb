@@ -80,7 +80,7 @@
               <%= f.text_field :user_surname2, :class => 'form-control' %></div>
 
               <div class="form-group"><%= f.label :user_id_document_type, "Tipus de document d'identitat" %><br />
-              <%= f.select(:user_id_document_type, [['DNI', 0], ['NIE', 1], ['Passaport', 2]], {}, {:class => 'form-control'}) %></div>
+              <%= f.select(:user_id_document_type, [['DNI', 0], ['NIE', 1], ['Passaport', 2], ['NIF', 3]], {}, {:class => 'form-control'}) %></div>
 
               <div class="form-group"><%= f.label :user_id_document_number, "Número de document d'identitat" %><br />
               <%= f.text_field :user_id_document_number, :class => 'form-control' %></div>
@@ -610,24 +610,9 @@
           </div>
 
           <div class="row">
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :total_energy_consumption, "Consum anual d'energia (de factures)" %> (kWh/any)<br />
-              <%= f.text_field :total_energy_consumption, :class => 'form-control' %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group"><%= f.label :total_energy_consumption_improvements, "Estimació consum aplicant millores" %> (kWh/any)<br />
-              <%= f.text_field :total_energy_consumption_improvements, :class => 'form-control' %>
-              </div>
-            </div>
-          </div>
-
-          <hr>
-
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group"><%= f.label :contracted_power, "Potència elèctrica contractada" %><br />
-              <span class="text-tips">Valor en kW.</span>
+            <div class="col-md-4">
+              <div class="form-group"><%= f.label :contracted_power, "Potència elèctrica contractada " %>
+              <span class="text-tips">(kW)</span><br />
               <%= f.text_field :contracted_power, :class => 'form-control' %>
               </div>
 
@@ -639,52 +624,28 @@
             <div class="col-md-4">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h3 class="panel-title">Consum d'electricitat</h3>
+                  <h3 class="panel-title">Electricitat</h3>
                 </div>
                 <div class="panel-body">
-                  
-                  <span class="text-tips">Valors en kWh.</span>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group"><%= f.label :electricity_consumption_january, "Gener" %><br />
-                      <%= f.text_field :electricity_consumption_january, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :electricity_consumption_february, "Febrer" %><br />
-                      <%= f.text_field :electricity_consumption_february, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :electricity_consumption_march, "Març" %><br />
-                      <%= f.text_field :electricity_consumption_march, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :electricity_consumption_april, "Abril" %><br />
-                      <%= f.text_field :electricity_consumption_april, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :electricity_consumption_may, "Maig" %><br />
-                      <%= f.text_field :electricity_consumption_may, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :electricity_consumption_june, "Juny" %><br />
-                      <%= f.text_field :electricity_consumption_june, :class => 'form-control' %>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group"><%= f.label :electricity_consumption_july, "Juliol" %><br />
-                      <%= f.text_field :electricity_consumption_july, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :electricity_consumption_august, "Agost" %><br />
-                      <%= f.text_field :electricity_consumption_august, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :electricity_consumption_september, "Setembre" %><br />
-                      <%= f.text_field :electricity_consumption_september, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :electricity_consumption_october, "Octubre" %><br />
-                      <%= f.text_field :electricity_consumption_october, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :electricity_consumption_november, "Novembre" %><br />
-                      <%= f.text_field :electricity_consumption_november, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :electricity_consumption_december, "Desembre" %><br />
-                      <%= f.text_field :electricity_consumption_december, :class => 'form-control' %>
-                      </div>
-                    </div>
+                  <div class="form-group">
+                    <%= f.label :electricity_consumption, "Consum anual " %>
+                    <span class="text-tips">(kWh)</span><br />
+                    <%= f.text_field :electricity_consumption, :class => 'form-control' %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :electricity_emissions, "Emissions CO2 " %>
+                    <span class="text-tips">(kg/kWh)</span><br />
+                    <%= f.text_field :electricity_emissions, :class => 'form-control' %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :electricity_price, "Preu " %>
+                    <span class="text-tips">(€/kWh)</span><br />
+                    <%= f.text_field :electricity_price, :class => 'form-control' %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :electricity_consumption_improvements, "Estimació consum aplicant millores " %>
+                    <br />
+                    <%= f.text_field :electricity_consumption_improvements, :class => 'form-control' %>
                   </div>
                 </div>
               </div>
@@ -692,52 +653,28 @@
             <div class="col-md-4">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h3 class="panel-title">Consum de gas</h3>
+                  <h3 class="panel-title">Gas</h3>
                 </div>
                 <div class="panel-body">
-                  
-                  <span class="text-tips">Valors en kWh.</span>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group"><%= f.label :gas_consumption_january, "Gener" %><br />
-                      <%= f.text_field :gas_consumption_january, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :gas_consumption_february, "Febrer" %><br />
-                      <%= f.text_field :gas_consumption_february, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :gas_consumption_march, "Març" %><br />
-                      <%= f.text_field :gas_consumption_march, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :gas_consumption_april, "Abril" %><br />
-                      <%= f.text_field :gas_consumption_april, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :gas_consumption_may, "Maig" %><br />
-                      <%= f.text_field :gas_consumption_may, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :gas_consumption_june, "Juny" %><br />
-                      <%= f.text_field :gas_consumption_june, :class => 'form-control' %>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group"><%= f.label :gas_consumption_july, "Juliol" %><br />
-                      <%= f.text_field :gas_consumption_july, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :gas_consumption_august, "Agost" %><br />
-                      <%= f.text_field :gas_consumption_august, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :gas_consumption_september, "Setembre" %><br />
-                      <%= f.text_field :gas_consumption_september, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :gas_consumption_october, "Octubre" %><br />
-                      <%= f.text_field :gas_consumption_october, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :gas_consumption_november, "Novembre" %><br />
-                      <%= f.text_field :gas_consumption_november, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :gas_consumption_december, "Desembre" %><br />
-                      <%= f.text_field :gas_consumption_december, :class => 'form-control' %>
-                      </div>
-                    </div>
+                  <div class="form-group">
+                    <%= f.label :gas_consumption, "Consum anual " %>
+                    <span class="text-tips">(kWh)</span><br />
+                    <%= f.text_field :gas_consumption, :class => 'form-control' %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :gas_emissions, "Emissions CO2 " %>
+                    <span class="text-tips">(kg/kWh)</span><br />
+                    <%= f.text_field :gas_emissions, :class => 'form-control' %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :gas_price, "Preu " %>
+                    <span class="text-tips">(€/kWh)</span><br />
+                    <%= f.text_field :gas_price, :class => 'form-control' %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :gas_consumption_improvements, "Estimació consum aplicant millores " %>
+                    <br />
+                    <%= f.text_field :gas_consumption_improvements, :class => 'form-control' %>
                   </div>
                 </div>
               </div>
@@ -745,52 +682,28 @@
             <div class="col-md-4">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h3 class="panel-title">Consum de gasoil</h3>
+                  <h3 class="panel-title">Gasoil</h3>
                 </div>
                 <div class="panel-body">
-                  
-                  <span class="text-tips">Valors en kWh.</span>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group"><%= f.label :gasoil_consumption_january, "Gener" %><br />
-                      <%= f.text_field :gasoil_consumption_january, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :gasoil_consumption_february, "Febrer" %><br />
-                      <%= f.text_field :gasoil_consumption_february, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :gasoil_consumption_march, "Març" %><br />
-                      <%= f.text_field :gasoil_consumption_march, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :gasoil_consumption_april, "Abril" %><br />
-                      <%= f.text_field :gasoil_consumption_april, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :gasoil_consumption_may, "Maig" %><br />
-                      <%= f.text_field :gasoil_consumption_may, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :gasoil_consumption_june, "Juny" %><br />
-                      <%= f.text_field :gasoil_consumption_june, :class => 'form-control' %>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group"><%= f.label :gasoil_consumption_july, "Juliol" %><br />
-                      <%= f.text_field :gasoil_consumption_july, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :gasoil_consumption_august, "Agost" %><br />
-                      <%= f.text_field :gasoil_consumption_august, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :gasoil_consumption_september, "Setembre" %><br />
-                      <%= f.text_field :gasoil_consumption_september, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :gasoil_consumption_october, "Octubre" %><br />
-                      <%= f.text_field :gasoil_consumption_october, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :gasoil_consumption_november, "Novembre" %><br />
-                      <%= f.text_field :gasoil_consumption_november, :class => 'form-control' %>
-                      </div>
-                      <div class="form-group"><%= f.label :gasoil_consumption_december, "Desembre" %><br />
-                      <%= f.text_field :gasoil_consumption_december, :class => 'form-control' %>
-                      </div>
-                    </div>
+                  <div class="form-group">
+                    <%= f.label :gasoil_consumption, "Consum anual " %>
+                    <span class="text-tips">(kWh)</span><br />
+                    <%= f.text_field :gasoil_consumption, :class => 'form-control' %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :gasoil_emissions, "Emissions CO2 " %>
+                    <span class="text-tips">(kg/kWh)</span><br />
+                    <%= f.text_field :gasoil_emissions, :class => 'form-control' %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :gasoil_price, "Preu " %>
+                    <span class="text-tips">(€/kWh)</span><br />
+                    <%= f.text_field :gasoil_price, :class => 'form-control' %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :gasoil_consumption_improvements, "Estimació consum aplicant millores " %>
+                    <br />
+                    <%= f.text_field :gasoil_consumption_improvements, :class => 'form-control' %>
                   </div>
                 </div>
               </div>
@@ -802,36 +715,94 @@
           <div class="row">
             <div class="col-md-12">
               <h4>Distribució dels consums</h4>
+              <p>El percentatge de consum és respecte la font d'energia seleccionada, no respecte el consum total. Per exemple la calefacció pot suposar el 60% del consum de gas, però el 40% respecte el total de consum. A l'apartat "Percentatge de consum" hi posaríem 60.</p>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-4">
-              <div class="form-group"><%= f.label :heating_percentage, "% consum calefacció" %><br />
-              <span class="text-tips">Valor típic: 34</span><br />
-              <%= f.text_field :heating_percentage, :class => 'form-control' %></div>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Calefacció</h3>
+                </div>
+                <div class="panel-body">
+                  <div class="form-group">
+                    <%= f.label :heating_energy_source, "Font d'energia" %><br />
+                    <%= f.select(:heating_energy_source, [['', 0], ['Electricitat', 1], ['Gas', 2], ['Gasoil', 3]], {}, {:class => 'form-control'}) %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :heating_percentage, "Percentatge de consum" %>
+                    <br />
+                    <%= f.text_field :heating_percentage, :class => 'form-control' %>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="col-md-4">
-              <div class="form-group"><%= f.label :cooling_percentage, "% consum refrigeració" %><br />
-              <span class="text-tips">Valor típic: 2</span><br />
-              <%= f.text_field :cooling_percentage, :class => 'form-control' %></div>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Refrigeració</h3>
+                </div>
+                <div class="panel-body">
+                  <div class="form-group">
+                    <%= f.label :cooling_energy_source, "Font d'energia" %><br />
+                    <%= f.select(:cooling_energy_source, [['', 0], ['Electricitat', 1], ['Gas', 2], ['Gasoil', 3]], {}, {:class => 'form-control'}) %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :cooling_percentage, "Percentatge de consum" %>
+                    <br />
+                    <%= f.text_field :cooling_percentage, :class => 'form-control' %>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="col-md-4">
-              <div class="form-group"><%= f.label :hot_water_percentage, "% consum ACS" %><br />
-              <span class="text-tips">Valor típic: 25</span><br />
-              <%= f.text_field :hot_water_percentage, :class => 'form-control' %></div>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">ACS</h3>
+                </div>
+                <div class="panel-body">
+                  <div class="form-group">
+                    <%= f.label :hot_water_energy_source, "Font d'energia" %><br />
+                    <%= f.select(:hot_water_energy_source, [['', 0], ['Electricitat', 1], ['Gas', 2], ['Gasoil', 3]], {}, {:class => 'form-control'}) %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :hot_water_percentage, "Percentatge de consum" %>
+                    <br />
+                    <%= f.text_field :hot_water_percentage, :class => 'form-control' %>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-4">
-              <div class="form-group"><%= f.label :lighting_percentage, "% consum il·luminació" %><br />
-              <span class="text-tips">Valor típic: 5</span><br />
-              <%= f.text_field :lighting_percentage, :class => 'form-control' %></div>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Il·luminació</h3>
+                </div>
+                <div class="panel-body">
+                  <div class="form-group">
+                    <%= f.label :lighting_percentage, "Percentatge de consum" %>
+                    <br />
+                    <%= f.text_field :lighting_percentage, :class => 'form-control' %>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="col-md-4">
-              <div class="form-group"><%= f.label :appliances_percentage, "% consum electrodomèstics" %><br />
-              <span class="text-tips">Valor típic: 34</span><br />
-              <%= f.text_field :appliances_percentage, :class => 'form-control' %></div>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Electrodomèstics</h3>
+                </div>
+                <div class="panel-body">
+                  <div class="form-group">
+                    <%= f.label :appliances_percentage, "Percentatge de consum" %>
+                    <br />
+                    <%= f.text_field :appliances_percentage, :class => 'form-control' %>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
