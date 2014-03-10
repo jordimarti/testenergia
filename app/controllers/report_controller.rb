@@ -1,7 +1,7 @@
 class ReportController < ApplicationController
   #Creates the PDF report. It should be in xprojects, but as it requires authentication and this must be sent to Docraptor, I placed it here
   def print
-    @xproject = Xproject.find(params[:id])
+    @xproject = Xproject.find(1)
     @expert = Expert.find(@xproject.expert_id)
     @improvements = @xproject.improvements
     @total_energy_consumption = @xproject.electricity_consumption + @xproject.gas_consumption + @xproject.gasoil_consumption
