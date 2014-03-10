@@ -37,7 +37,7 @@ class XprojectsController < ApplicationController
   end
 
   def print_docraptor
-    data = DocRaptor.create(:name => "DocRaptor.pdf", :document_url => "http://www.w3c.es/estandares/", :document_type => "pdf", :strict => "none")
+    data = DocRaptor.create(:name => "DocRaptor.pdf", :document_url => "http://fierce-garden-4895.herokuapp.com", :document_type => "pdf", :strict => "none")
     send_data data, :type => 'application/pdf', :filename => "DocRaptor.pdf"
   end
 
