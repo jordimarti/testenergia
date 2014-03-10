@@ -27,7 +27,7 @@ class XprojectsController < ApplicationController
 
   def print_pdf
     File.open("test_energia.pdf", "w+b") do |f|
-      f.write DocRaptor.create(:document_url => Rails.root.to_s + 'report/print/1',
+      f.write DocRaptor.create(:document_url => Rails.root.to_s + '/report/print/1',
         :name             => "test_energia.pdf",
         :document_type    => "pdf",
         :strict           => "none",
