@@ -7,22 +7,33 @@
     <span>info@testenergia.cat</span><br/>
     <span>Tel. 932402060</span>
   </div>
-		
+    
 
   <div class="print-titol">
-    <h3 class="print-h3"><%= @xproject.name %></h3>
+    <h2 class="print-h2"><%= @xproject.name %></h2>
   </div>
 
   <div class="print-info-basica">
-    <div class="print-tecnic">
-      <h5 class="print">Realitzat per:</h5>
-      <span>Jordi Martí Muñoz</span><br/>
-      <span>Aparellador</span>
+    <div class="print-propietari">
+      <h5 class="print">Sol·licitant:</h5>
+      <span><%= @xproject.user_first_name + ' ' + @xproject.user_surname1 + ' ' + @xproject.user_surname2 %></span><br/>
+      <% case @xproject.user_id_document_type
+      when '0'
+        tipus_document = "DNI"
+      when '1'
+        tipus_document = "NIE"
+      when '2'
+        tipus_document = "Passaport"
+      when '3'
+        tipus_document = "NIF"
+      end %>
+      <span><%= tipus_document + ': ' + @xproject.user_id_document_number %></span>
     </div>
     <div class="print-adreca">
       <h5 class="print">Adreça:</h5>
       <span><%= @xproject.building_address %></span><br/>
-      <span><%= @xproject.building_zip_code + ' ' + @xproject.building_town %></span>
+      <span>Codi postal: <%= @xproject.building_zip_code %></span><br/>
+      <span>Municipi: <%= @xproject.building_town %></span>
     </div>
     <div class="print-caracteristiques">
       <h5 class="print">Característiques:</h5>
@@ -35,7 +46,8 @@
         tipus_projecte = "Edifici d'habitatges"
         end %>
       <span><%= tipus_projecte %></span><br/>
-      <span>Superfície: <%= @xproject.area %> m<sup>2</sup></span>
+      <span>Superfície: <%= @xproject.area %> m<sup>2</sup></span><br/>
+      <span>Any de construcció: <%= @xproject.construction_year %> </span>
     </div>
   </div>
 
@@ -63,60 +75,47 @@
     <div class="print-comparacio-energia">
       <div class="tip-consum consum-actual" style="position: absolute; top: 0px; right: 136px; text-align: right; border-right-style: solid; border-right-width: 2px; border-right-color: #333333; padding-right: 5px; height: 50px;">
         <span>Consum actual</span><br/>
-        <span><%= @xproject.total_energy_consumption %> kWh/any</span>
+        <span><%= @total_energy_consumption %> kWh/any</span>
       </div>
       <% #Posem el consum real a 480px de l'esquerra. La posició del consum de millores es busca a partir d'aquesta dada %>
-      <% posicio_consum_millores = @xproject.total_energy_consumption_improvements*480/@xproject.total_energy_consumption %>
+      <% posicio_consum_millores = @total_energy_consumption_improvements*480/@total_energy_consumption %>
       <div class="tip-consum consum-millores" style="position: absolute; top: 70px; left: <%= posicio_consum_millores %>px; text-align: left; border-left-style: solid; border-left-width: 2px; border-left-color: #333333; padding-left: 5px; padding-top: 20px; height: 50px;">
         <span>Consum aplicant propostes de millora</span><br/>
-        <span><%= @xproject.total_energy_consumption_improvements %> kWh/any</span>
+        <span><%= @total_energy_consumption_improvements %> kWh/any</span>
       </div>
       <div class="print-barra-energia">
         <%= image_tag('barra_energia.png', :alt => 'barra energia', :class => 'img_barra_energia') %>
       </div>
     </div>
-
-    <div class="print-distribucio-consums">
-      <h5>Distribució dels consums a la llar</h5>
-
-      
-    </div>
-
-    <div class="print-distribucio-llegenda">
-      <div class="print-item-llegenda">
-        <div class="llegenda-calefaccio llegenda-container">
-          <%= image_tag('icon_calefaccio.png', :class => 'img_icon') %>
-          <span>Calefacció: <%= @consum_calefaccio.to_i %> kWh/any (<%= (@consum_calefaccio*0.22).to_i %>€)</span>
-        </div>
-        <div class="llegenda-refrigeracio llegenda-container">
-          <%= image_tag('icon_refrigeracio.png', :class => 'img_icon') %>
-          <span>Refrigeració: <%= @consum_refrigeracio.to_i %> kWh/any (<%= (@consum_refrigeracio*0.22).to_i %>€)</span>
-        </div>
-        <div class="llegenda-acs llegenda-container">
-          <%= image_tag('icon_acs.png', :class => 'img_icon') %>
-          <span>Aigua calenta sanitària: <%= @consum_acs.to_i %> kWh/any (<%= (@consum_acs*0.22).to_i %>€)</span>
-        </div>
-        <div class="llegenda-iluminacio llegenda-container">
-          <%= image_tag('icon_iluminacio.png', :class => 'img_icon') %>
-          <span>Il·luminació: <%= @consum_iluminacio.to_i %> kWh/any (<%= (@consum_iluminacio*0.22).to_i %>€)</span>
-        </div>
-        <div class="llegenda-electrodomestics llegenda-container">
-          <%= image_tag('icon_electrodomestics.png', :class => 'img_icon') %>
-          <span>Electrodomèstics: <%= @consum_electrodomestics.to_i %> kWh/any (<%= (@consum_electrodomestics*0.22).to_i %>€)</span>
-        </div>
-      </div>
-    </div>
   </div>
+
+
 
   <div class="print-apartat">
+    <h4>Informació del tècnic</h4>
+    <div class="print-info-tecnic">
+      <h5 class="print">Nom del tècnic:</h5>
+      <span><%= @expert.expert_first_name + ' ' + @expert.expert_surname1 + ' ' + @expert.expert_surname2%></span><br/>
+      <h5 class="print">Titulació:</h5>
+      <span><%= @expert.title %></span>
+    </div>
+    <div class="print-info-tecnic2">
+      <h5 class="print">Correu electrònic:</h5>
+      <span><%= @expert.email %></span>
+      <h5 class="print">Telèfon:</h5>
+      <span><%= @expert.expert_telephone %></span>
+    </div>
+    <div class="print-data-signatura">
+      <h5 class="print">Data i signatura:</h5>
 
+    </div>
   </div>
 
-	
-  <div class="print-apartat">	
-		<h4>Eficiència energètica dels elements constructius</h4>
-		
-		<div class="table">
+  
+  <div class="print-apartat"> 
+    <h4>Eficiència energètica dels elements constructius</h4>
+    
+    <div class="table">
       <table class="print-table">
         <thead>
           <tr>
@@ -223,45 +222,45 @@
     <h4>Propostes de millora</h4>
     <div style="position: relative;">
       <table class="print-table">
-				<thead>
-					<tr>
-						<th class="print-header">Nom</th>
-						<th>Cost</th>
-						<th>Estalvi</th>
-						<th>Retorn inversió</th>
+        <thead>
+          <tr>
+            <th class="print-header">Nom</th>
+            <th>Cost</th>
+            <th>Estalvi</th>
+            <th>Retorn inversió</th>
             <th>CO<sub>2</sub></th>
-					</tr>
-				</thead>
-				<tbody>
-				<% @improvements.each do |improvement| %>
-					
-					<tr>
-						<td width="300px"><%= improvement.name %></td>
-						<td>
-							<% improvement.cost.times do %>
-								<span class="glyphicon glyphicon-euro"> </span>
-							<% end %>
-						</td>
-						<td>
-							<% improvement.energy_savings.times do %>
-								<span class="glyphicon glyphicon-star"> </span>
-							<% end %>
-						</td>
-						<td>
-							<% improvement.roi.times do %>
-								<span class="glyphicon glyphicon-time"> </span>
-							<% end %>
-						</td>
+          </tr>
+        </thead>
+        <tbody>
+        <% @improvements.each do |improvement| %>
+          
+          <tr>
+            <td width="300px"><%= improvement.name %></td>
+            <td>
+              <% improvement.cost.times do %>
+                <span class="glyphicon glyphicon-euro"> </span>
+              <% end %>
+            </td>
+            <td>
+              <% improvement.energy_savings.times do %>
+                <span class="glyphicon glyphicon-star"> </span>
+              <% end %>
+            </td>
+            <td>
+              <% improvement.roi.times do %>
+                <span class="glyphicon glyphicon-time"> </span>
+              <% end %>
+            </td>
             <td>
               <% improvement.emissions_savings.times do %>
                 <span class="glyphicon glyphicon-leaf"> </span>
               <% end %>
             </td>
-					</tr>
+          </tr>
 
-				<% end %>
-				</tbody>
-			</table>
+        <% end %>
+        </tbody>
+      </table>
       <p class="print-explicacio">
         Cost de les propostes:<br/>
         <span class="glyphicon glyphicon-euro"> </span> Menys de 200 € | <span class="glyphicon glyphicon-euro"> </span><span class="glyphicon glyphicon-euro"> </span> Entre 200 € i 1.000 € | <span class="glyphicon glyphicon-euro"> </span><span class="glyphicon glyphicon-euro"> </span><span class="glyphicon glyphicon-euro"> </span> Entre 1.000 i 5.000 € | <span class="glyphicon glyphicon-euro"> </span><span class="glyphicon glyphicon-euro"> </span><span class="glyphicon glyphicon-euro"> </span><span class="glyphicon glyphicon-euro"> </span> Més de 5.000 €
@@ -278,8 +277,8 @@
         Reducció de les emissions de CO<sub>2</sub><br />
         <span class="glyphicon glyphicon-leaf"> </span> Menys del 10% | <span class="glyphicon glyphicon-leaf"> </span><span class="glyphicon glyphicon-leaf"> </span> Entre el 10% i el 30% | <span class="glyphicon glyphicon-leaf"> </span><span class="glyphicon glyphicon-leaf"> </span><span class="glyphicon glyphicon-leaf"> </span> Entre el 30% i el 60% | <span class="glyphicon glyphicon-leaf"> </span><span class="glyphicon glyphicon-leaf"> </span><span class="glyphicon glyphicon-leaf"> </span><span class="glyphicon glyphicon-leaf"> </span> Més del 60%
       </p>
-		</div>
-	</div>
+    </div>
+  </div>
 
   <div class="pagebreak">
     <h3>Propostes de millora</h3>

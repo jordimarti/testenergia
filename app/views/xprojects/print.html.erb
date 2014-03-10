@@ -32,7 +32,8 @@
     <div class="print-adreca">
       <h5 class="print">Adreça:</h5>
       <span><%= @xproject.building_address %></span><br/>
-      <span><%= @xproject.building_zip_code + ' ' + @xproject.building_town %></span>
+      <span>Codi postal: <%= @xproject.building_zip_code %></span><br/>
+      <span>Municipi: <%= @xproject.building_town %></span>
     </div>
     <div class="print-caracteristiques">
       <h5 class="print">Característiques:</h5>
@@ -45,7 +46,8 @@
         tipus_projecte = "Edifici d'habitatges"
         end %>
       <span><%= tipus_projecte %></span><br/>
-      <span>Superfície: <%= @xproject.area %> m<sup>2</sup></span>
+      <span>Superfície: <%= @xproject.area %> m<sup>2</sup></span><br/>
+      <span>Any de construcció: <%= @xproject.construction_year %> </span>
     </div>
   </div>
 
@@ -90,6 +92,7 @@
 
 
   <div class="print-apartat">
+    <h4>Informació del tècnic</h4>
     <div class="print-info-tecnic">
       <h5 class="print">Nom del tècnic:</h5>
       <span><%= @expert.expert_first_name + ' ' + @expert.expert_surname1 + ' ' + @expert.expert_surname2%></span><br/>
@@ -104,7 +107,7 @@
     </div>
     <div class="print-data-signatura">
       <h5 class="print">Data i signatura:</h5>
-      
+
     </div>
   </div>
 
