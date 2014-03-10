@@ -36,6 +36,12 @@ class XprojectsController < ApplicationController
     send_file "test_energia.pdf"
   end
 
+  def print_docraptor
+    data = DocRaptor.create(:name => "DocRaptor.pdf", :document_url => "http://fierce-garden-4895.herokuapp.com/report/print/1", :document_type => "pdf", :strict => "none")
+    send_data data, :type => 'application/pdf', :filename => "DocRaptor.pdf"
+  end
+
+
   def new
     @xproject = Xproject.new
     
