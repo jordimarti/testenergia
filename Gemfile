@@ -39,7 +39,7 @@ gem "dynamic_form"
 # Twitter Bootstrap 3
 gem "bootstrap-sass", "~> 3.1.0.2"
 
-# Docraptor, ha d'anar acompanyat d'httparty
+# Docraptor
 gem "doc_raptor", "~> 0.3.2"
 
 

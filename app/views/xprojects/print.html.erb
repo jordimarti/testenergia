@@ -2,8 +2,11 @@
     <%= link_to :action => 'index' do %>
       <div class="btn button-page-menu"><span class="glyphicon glyphicon-arrow-left"> </span> Tornar a la llista de projectes</div>
     <% end %>
-    <%= link_to :action => 'print_docraptor' do %>
-      <div class="btn button-page-menu"><span class="glyphicon glyphicon-file"> </span> Crear PDF</div> 
+    <div class="btn button-page-menu">
+      <a href="http://fathomless-cliffs-4728.herokuapp.com/testenergiapdf/print"><span class="glyphicon glyphicon-file"> </span> Crear PDF</a>
+    </div> 
+    <%= link_to :action => 'report/print' do %>
+      <div class="btn button-page-menu"><span class="glyphicon glyphicon-file"> </span> Crear PDF sdf</div> 
     <% end %>
   </div>
 

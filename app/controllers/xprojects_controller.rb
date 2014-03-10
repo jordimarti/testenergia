@@ -37,8 +37,12 @@ class XprojectsController < ApplicationController
   end
 
   def print_docraptor
-    data = DocRaptor.create(:name => "DocRaptor.pdf", :document_url => "http://fierce-garden-4895.herokuapp.com", :document_type => "pdf", :strict => "none")
-    send_data data, :type => 'application/pdf', :filename => "DocRaptor.pdf"
+    respond_to do |format|
+      format.pdf do
+        data = DocRaptor.create(:name => 'DocRaptor.pdf', :document_content => render_to_string, :document_type => "pdf", :prince_options => {:baseurl => 'http://fierce-garden-4895.herokuapp.com/report/print/1'})
+        send_data data, :type => 'application/pdf', :filename => 'DocRaptor.pdf'
+      end
+    end
   end
 
 
