@@ -1,6 +1,4 @@
-
-  
-  <div class="print-logo">
+<div class="print-logo">
     <%= image_tag('logo_test_energia_petit.svg', :alt => 'logo', :class => 'img-responsive') %>
   </div>
   <div class="print-top-info">
@@ -72,7 +70,7 @@
   </div>
 
   <div class="print-apartat">
-    <h4>Avaluació del consum d'energia</h4>
+    <h4>Potencial d'estalvi aplicant millores</h4>
     <div class="print-comparacio-energia">
       <div class="tip-consum consum-actual" style="position: absolute; top: 0px; right: 136px; text-align: right; border-right-style: solid; border-right-width: 2px; border-right-color: #333333; padding-right: 5px; height: 50px;">
         <span>Consum actual</span><br/>
@@ -220,7 +218,139 @@
   </div>
 
   <div class="print-apartat">
-    <h4>Propostes de millora</h4>
+    <h4>Valoració dels consums</h4>
+    <table class="print-table">
+      <thead>
+        <tr>
+          <th>Element</th>
+          <th>Consum d'energia</th>
+          <th>Emissions de CO<sub>2</sub></th>
+          <th>Despesa econòmica</th>
+          <th>Valoració respecte estàndard</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Calefacció</td>
+          <td><%= @consum_calefaccio %></td>
+          <td><%= @emissions_calefaccio %></td>
+          <td><%= @cost_calefaccio %></td>
+          <td> 
+            <% case @valoracio_calefaccio %>
+              <% when -2 %>
+                <span class="glyphicon glyphicon-arrow-down positive"> </span><span class="glyphicon glyphicon-arrow-down positive"> </span>
+              <% when -1 %>
+                <span class="glyphicon glyphicon-arrow-down positive"> </span>
+              <% when 0 %>
+                <span class="glyphicon glyphicon-record"> </span>
+              <% when 1 %>
+                <span class="glyphicon glyphicon-arrow-up negative"> </span>
+              <% when 2 %>
+                <span class="glyphicon glyphicon-arrow-up negative"> </span><span class="glyphicon glyphicon-arrow-up negative"> </span>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>Refrigeració</td>
+          <td><%= @consum_refrigeracio %></td>
+          <td><%= @emissions_refrigeracio %></td>
+          <td><%= @cost_refrigeracio %></td>
+          <td> 
+            <% case @valoracio_refrigeracio %>
+              <% when -2 %>
+                <span class="glyphicon glyphicon-arrow-down positive"> </span><span class="glyphicon glyphicon-arrow-down positive"> </span>
+              <% when -1 %>
+                <span class="glyphicon glyphicon-arrow-down positive"> </span>
+              <% when 0 %>
+                <span class="glyphicon glyphicon-record"> </span>
+              <% when 1 %>
+                <span class="glyphicon glyphicon-arrow-up negative"> </span>
+              <% when 2 %>
+                <span class="glyphicon glyphicon-arrow-up negative"> </span><span class="glyphicon glyphicon-arrow-up negative"> </span>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>ACS</td>
+          <td><%= @consum_acs %></td>
+          <td><%= @emissions_acs %></td>
+          <td><%= @cost_acs %></td>
+          <td> 
+            <% case @valoracio_acs %>
+              <% when -2 %>
+                <span class="glyphicon glyphicon-arrow-down positive"> </span><span class="glyphicon glyphicon-arrow-down positive"> </span>
+              <% when -1 %>
+                <span class="glyphicon glyphicon-arrow-down positive"> </span>
+              <% when 0 %>
+                <span class="glyphicon glyphicon-record"> </span>
+              <% when 1 %>
+                <span class="glyphicon glyphicon-arrow-up negative"> </span>
+              <% when 2 %>
+                <span class="glyphicon glyphicon-arrow-up negative"> </span><span class="glyphicon glyphicon-arrow-up negative"> </span>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>Il·luminació</td>
+          <td><%= @consum_iluminacio %></td>
+          <td><%= @emissions_iluminacio %></td>
+          <td><%= @cost_iluminacio %></td>
+          <td> 
+            <% case @valoracio_iluminacio %>
+              <% when -2 %>
+                <span class="glyphicon glyphicon-arrow-down positive"> </span><span class="glyphicon glyphicon-arrow-down positive"> </span>
+              <% when -1 %>
+                <span class="glyphicon glyphicon-arrow-down positive"> </span>
+              <% when 0 %>
+                <span class="glyphicon glyphicon-record"> </span>
+              <% when 1 %>
+                <span class="glyphicon glyphicon-arrow-up negative"> </span>
+              <% when 2 %>
+                <span class="glyphicon glyphicon-arrow-up negative"> </span><span class="glyphicon glyphicon-arrow-up negative"> </span>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>Electrodomèstics</td>
+          <td><%= @consum_electrodomestics %></td>
+          <td><%= @emissions_electrodomestics %></td>
+          <td><%= @cost_electrodomestics %></td>
+          <td> 
+            <% case @valoracio_electrodomestics %>
+              <% when -2 %>
+                <span class="glyphicon glyphicon-arrow-down positive"> </span><span class="glyphicon glyphicon-arrow-down positive"> </span>
+              <% when -1 %>
+                <span class="glyphicon glyphicon-arrow-down positive"> </span>
+              <% when 0 %>
+                <span class="glyphicon glyphicon-record"> </span>
+              <% when 1 %>
+                <span class="glyphicon glyphicon-arrow-up negative"> </span>
+              <% when 2 %>
+                <span class="glyphicon glyphicon-arrow-up negative"> </span><span class="glyphicon glyphicon-arrow-up negative"> </span>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="print-explicacio">
+      Aquests valors corresponen al promig estimat per un any sobre els consums reals especificats a les factures dels diferents subministraments energètics de l'edifici.
+    </p>
+    <p class="print-explicacio">
+      <span class="glyphicon glyphicon-record"> </span> Consum semblant respecte al consum mitjà d'un edifici similar.
+    </p>
+    <p class="print-explicacio">
+      <span class="glyphicon glyphicon-arrow-down positive"> </span> Consum lleugerament inferior. | <span class="glyphicon glyphicon-arrow-down positive"> </span><span class="glyphicon glyphicon-arrow-down positive"> </span> Consum considerablement inferior.
+    </p>
+    <p class="print-explicacio">
+      <span class="glyphicon glyphicon-arrow-up negative"> </span> Consum lleugerament superior. | <span class="glyphicon glyphicon-arrow-up negative"> </span><span class="glyphicon glyphicon-arrow-up negative"> </span> Consum considerablement superior.
+    </p>
+  </div>
+
+  <div class="pagebreak">
+    <h3>Propostes de millora</h3>
+  </div>
+  <div>
+    <h4>Resum</h4>
     <div style="position: relative;">
       <table class="print-table">
         <thead>
@@ -281,89 +411,85 @@
     </div>
   </div>
 
-  <div class="pagebreak">
-    <h3>Propostes de millora</h3>
-  </div>
 
   <% @improvements.each do |improvement| %>
-  <div class="print-apartat contenidor-millores">
-    <h4><%= improvement.name %></h4>
-    <div class="print-dades-proposta">
-      
-      <h5>Cost d'execució</h5>
-      <% improvement.cost.times do %>
-        <span class="glyphicon glyphicon-euro"> </span>
-      <% end %>
-      <br/>
-      <% case improvement.cost
-        when 1
-          cost = "Menys de 200 €"
-        when 2
-          cost = "Entre 200 € i 1.000 €"
-        when 3
-          cost = "Entre 1.000 i 5.000 €"
-        when 4
-          cost = "Més de 5.000 €"
-      end %>
-      <p class="print-explicacio-dades"><%= cost %></p>
-      <hr class="print-espaiador-dades">
+    <div class="print-apartat contenidor-millores">
+      <h4><%= improvement.name %></h4>
+      <div class="print-dades-proposta">
+        
+        <h5>Cost d'execució</h5>
+        <% improvement.cost.times do %>
+          <span class="glyphicon glyphicon-euro"> </span>
+        <% end %>
+        <br/>
+        <% case improvement.cost
+          when 1
+            cost = "Menys de 200 €"
+          when 2
+            cost = "Entre 200 € i 1.000 €"
+          when 3
+            cost = "Entre 1.000 i 5.000 €"
+          when 4
+            cost = "Més de 5.000 €"
+        end %>
+        <p class="print-explicacio-dades"><%= cost %></p>
+        <hr class="print-espaiador-dades">
 
-      <h5>Estalvi econòmic anual</h5>
-      <% improvement.energy_savings.times do %>
-        <span class="glyphicon glyphicon-star"> </span>
-      <% end %>
-      <br/>
-      <% case improvement.energy_savings
-        when 1
-          estalvi = "Menys de 100 €"
-        when 2
-          estalvi = "Entre 100 € i 200 €"
-        when 3
-          estalvi = "Entre 200 i 300 €"
-        when 4
-          estalvi = "Més de 300 €"
-      end %>
-      <p class="print-explicacio-dades"><%= estalvi %></p>
-      <hr class="print-espaiador-dades">
+        <h5>Estalvi econòmic anual</h5>
+        <% improvement.energy_savings.times do %>
+          <span class="glyphicon glyphicon-star"> </span>
+        <% end %>
+        <br/>
+        <% case improvement.energy_savings
+          when 1
+            estalvi = "Menys de 100 €"
+          when 2
+            estalvi = "Entre 100 € i 200 €"
+          when 3
+            estalvi = "Entre 200 i 300 €"
+          when 4
+            estalvi = "Més de 300 €"
+        end %>
+        <p class="print-explicacio-dades"><%= estalvi %></p>
+        <hr class="print-espaiador-dades">
 
-      <h5>Amortització</h5>
-      <% improvement.roi.times do %>
-        <span class="glyphicon glyphicon-time"> </span>
-      <% end %>
-      <br/>
-      <% case improvement.roi
-        when 1
-          roi = "Menys de 5 anys"
-        when 2
-          roi = "De 5 a 10 anys"
-        when 3
-          roi = "De 10 a 15 anys"
-        when 4
-          roi = "Més de 15 anys"
-      end %>
-      <p class="print-explicacio-dades"><%= roi %></p>
-      <hr class="print-espaiador-dades">
+        <h5>Amortització</h5>
+        <% improvement.roi.times do %>
+          <span class="glyphicon glyphicon-time"> </span>
+        <% end %>
+        <br/>
+        <% case improvement.roi
+          when 1
+            roi = "Menys de 5 anys"
+          when 2
+            roi = "De 5 a 10 anys"
+          when 3
+            roi = "De 10 a 15 anys"
+          when 4
+            roi = "Més de 15 anys"
+        end %>
+        <p class="print-explicacio-dades"><%= roi %></p>
+        <hr class="print-espaiador-dades">
 
-      <h5>Reducció emissions de CO<sub>2</sub></h5>
-      <% improvement.emissions_savings.times do %>
-        <span class="glyphicon glyphicon-leaf"> </span>
-      <% end %>
-      <br/>
-      <% case improvement.emissions_savings
-        when 1
-          roi = "Menys del 10%"
-        when 2
-          roi = "Del 10% al 30%"
-        when 3
-          roi = "Del 30% al 60%"
-        when 4
-          roi = "Més del 60%"
-      end %>
-      <p class="print-explicacio-dades"><%= roi %></p>
-      <hr class="print-espaiador-dades">
+        <h5>Reducció emissions de CO<sub>2</sub></h5>
+        <% improvement.emissions_savings.times do %>
+          <span class="glyphicon glyphicon-leaf"> </span>
+        <% end %>
+        <br/>
+        <% case improvement.emissions_savings
+          when 1
+            roi = "Menys del 10%"
+          when 2
+            roi = "Del 10% al 30%"
+          when 3
+            roi = "Del 30% al 60%"
+          when 4
+            roi = "Més del 60%"
+        end %>
+        <p class="print-explicacio-dades"><%= roi %></p>
+        <hr class="print-espaiador-dades">
+      </div>
+      <p class="print-explicacio-proposta"><%= improvement.description %></p>
+
     </div>
-    <p class="print-explicacio-proposta"><%= improvement.description %></p>
-
-  </div>
   <% end %>
-</div>

@@ -141,12 +141,12 @@ class XprojectsController < ApplicationController
       
     end
     #The project is a building or flat
-    if @xproject.project_type = 1 || @xproject.project_type = 3 
+    if @xproject.project_type != 2
       if indicador_consum < menor_consum_edifici
         if indicador_consum < molt_menor_consum_edifici
-          valoracio = 2
+          valoracio = -2
         elsif
-          valoracio = 1
+          valoracio = -1
         end
       end
       if indicador_consum >= menor_consum_edifici && indicador_consum <= major_consum_edifici
@@ -154,18 +154,21 @@ class XprojectsController < ApplicationController
       end
       if indicador_consum > major_consum_edifici
         if indicador_consum > molt_major_consum_edifici
-          valoracio = -2
-        elsif
-          valoracio = -1
-        end
-      end
-    #The project is a house
-    elsif @xproject.project_type = 2
-      if indicador_consum < menor_consum_casa
-        if indicador_consum < molt_menor_consum_casa
           valoracio = 2
         elsif
           valoracio = 1
+        end
+      end
+      if indicador_consum == 0
+        valoracio = 0
+      end
+    #The project is a house
+    elsif @xproject.project_type == 2
+      if indicador_consum < menor_consum_casa
+        if indicador_consum < molt_menor_consum_casa
+          valoracio = -2
+        elsif
+          valoracio = -1
         end
       end
       if indicador_consum >= menor_consum_casa && indicador_consum <= major_consum_casa
@@ -173,10 +176,13 @@ class XprojectsController < ApplicationController
       end
       if indicador_consum > major_consum_casa
         if indicador_consum > molt_major_consum_casa
-          valoracio = -2
+          valoracio = 2
         elsif
-          valoracio = -1
+          valoracio = 1
         end
+      end
+      if indicador_consum == 0
+        valoracio = 0
       end
     end
 
