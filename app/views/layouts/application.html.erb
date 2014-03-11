@@ -17,12 +17,10 @@
     <div class="container">
       <p class="sessionbar-text pull-right">
         <% if user_signed_in? %>
-          Sessió iniciada com a: <strong><%= current_user.email %></strong>.
-          <%= link_to 'Editar perfil', edit_user_registration_path, :class => 'sessionbar-link' %> |
+          Sessió iniciada com a: <strong><%= current_user.email %></strong> |
           <%= link_to "Tancar sessió", destroy_user_session_path, method: :delete, :class => 'sessionbar-link'  %>
         <% elsif expert_signed_in? %>
-          Sessió d'expert iniciada com a: <strong><%= current_expert.email %></strong>.
-          <%= link_to 'Editar perfil', edit_expert_registration_path, :class => 'sessionbar-link' %> |
+          Sessió d'expert iniciada com a: <strong><%= current_expert.email %></strong> |
           <%= link_to "Tancar sessió", destroy_expert_session_path, method: :delete, :class => 'sessionbar-link'  %>
         <% elsif admin_signed_in? %>
           Sessió d'administrador iniciada com a: <strong><%= current_admin.email %></strong>.
@@ -46,7 +44,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="<%= @active_inici %>"><%= link_to("Inici", {:controller => '/home', :action => 'index'}) %></li>
           <li class="<%= @active_servei %>"><%= link_to("Servei", {:controller => '/servei', :action => 'index'}) %></li>
-          <li class="<%= @active_joc %>"><%= link_to("Joc", {:controller => '/joc', :action => 'index'}) %></li>
+          <li class="<%= @active_joc %>"><a href="#">Joc</a></li>
           <li class="<%= @active_autotest %>"><%= link_to("AutoTest", {:controller => '/autotest', :action => 'index'}) %></li>
           <li class="dropdown <%= @active_expert %>">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Experts <b class="caret"></b></a>

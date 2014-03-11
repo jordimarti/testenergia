@@ -38,13 +38,7 @@ class DeviseCreateExperts < ActiveRecord::Migration
       t.string :expert_id_document_number
       t.string :expert_telephone
       t.string :expert_mobile_phone
-      t.string :expert_road_type
-      t.string :expert_road_name
-      t.string :expert_address_number
-      t.string :expert_block
-      t.string :expert_stairs
-      t.string :expert_story
-      t.string :expert_door
+      t.string :expert_address
       t.string :expert_zip_code
       t.string :expert_town
       t.string :expert_province

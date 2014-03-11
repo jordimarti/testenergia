@@ -287,8 +287,7 @@ class XprojectsController < ApplicationController
 
   def write_file
     xproject = Xproject.find(params[:id])
-    #client_id = xproject.user_id
-    #client = User.find(client_id)
+    expert = Expert.find(current_expert.id)
 
     File.atomic_write('cex/arxiu'+params[:id]+'.cex') do |file|
       cex_file = "S'CEXv1.1 Residencial'
@@ -307,43 +306,43 @@ p5
 aV" + xproject.user_first_name + " " + xproject.user_surname1 + " " + xproject.user_surname2 + "
 p6
 ag5
-aVDirecció client
+aV" + xproject.user_address + "
 p7
-aV935535450
+aV" + xproject.user_telephone + "
 p8
-aVjordimarti@me.com
+aV" + xproject.user_email + "
 p9
-aVRaó social
+aV-
 p10
-aVNom del tècnic
+aV" + expert.expert_first_name + " " + expert.expert_surname1 + " " + expert.expert_surname2 + "
 p11
-aV670410706
+aV" + expert.expert_telephone + "
 p12
-aVjordi.marti@apabcn.cat
+aV" + expert.email + "
 p13
-aV08010
+aV" + expert.expert_zip_code + "
 p14
-aV1111111909
+aV" + xproject.cadastre + "
 p15
 aVBarcelona
 p16
 aVBarcelona
 p17
-aV08010
+aV" + xproject.user_zip_code + "
 p18
-aV36531630
+aV" + expert.expert_id_document_number + "
 p19
-aVB40145
+aV-
 p20
-aVDirecció tècnic
+aV" + expert.expert_address + "
 p21
 aVBarcelona
 p22
 aVBarcelona
 p23
-aV08010
+aV" + expert.expert_zip_code + "
 p24
-aVArquitecte Tècnic
+aV" + expert.title + "
 p25
 a.(lp0
 V
