@@ -13,7 +13,7 @@ class XprojectsController < ApplicationController
 
   def print
     @xproject = Xproject.find(params[:id])
-    @expert = Expert.find(current_expert.id)
+    @expert = Expert.find(@xproject.expert_id)
     @improvements = @xproject.improvements
     @total_energy_consumption = @xproject.electricity_consumption + @xproject.gas_consumption + @xproject.gasoil_consumption
     @total_energy_consumption_improvements = @xproject.electricity_consumption_improvements + @xproject.gas_consumption_improvements + @xproject.gasoil_consumption_improvements
