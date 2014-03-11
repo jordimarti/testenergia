@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-	<meta charset="utf-8">
-	<meta name="description" content="Test Energia">
-	<meta name="author" content="Jordi Martí Muñoz">
-	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-	<title>Test Energia</title>
-	
-	
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Test Energia">
+  <meta name="author" content="Jordi Martí Muñoz">
+
+  <title>Test Energia</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
 </head>
 <body class="print-body">
 	<div class="container print-container">
