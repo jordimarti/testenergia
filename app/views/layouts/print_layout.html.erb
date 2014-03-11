@@ -7,9 +7,201 @@
   <meta name="author" content="Jordi Martí Muñoz">
 
   <title>Test Energia</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+  <style type="text/css">
+      /* setup the page */
+      @page { 
+        size: US-Letter;
+        margin: 0 0 35mm 0;
+        background: #ffffff;
+      }
+
+      /* setup the footer */
+      @page {
+        @bottom {
+          content: flow(footer);
+        }
+      }
+
+      footer {
+        flow: static(footer);
+      }
+
+      body {
+        border-top: 10px solid #3877B1;
+        font-family: "myriad-pro-1", "myriad-pro-2", sans-serif;
+      }
+
+      #container {
+        margin: 0 auto;
+      }
+
+      header, #main {
+        margin: 15mm;
+      }
+
+      header {
+        margin-top: 5mm;
+        border-bottom: 1px solid #7E7E7E;
+        padding-bottom: 5mm;
+      }
+
+      .seller, .status{
+        float: left;
+      }
+
+      .buyer {
+        float: right;
+      }
+
+      .seller {
+        width: 50%;
+      }
+
+      .buyer  {
+        max-width: 30%;
+      }
+
+      .brand {
+        font-weight: bold;
+        font-size: 30px;
+        color: #333;
+        padding: 10px 0 2px;
+        overflow: auto;
+      }
+
+      .brand span, .brand img {
+        float: left;
+      }
+
+      .brand span {
+        display: block;
+        margin: 8px 0 0 5px;
+      }
+
+      .seller address {
+        clear: both;
+        display: block;
+        padding-left: 65px;
+        ont-size: 10pt;
+        line-height: 12pt;
+        color: #262626;
+      }
+
+      .seller address span {
+        display: block;
+      }
+
+      .status.paid {
+        margin: 25pt 0 0 15pt;
+        letter-spacing: -1pt;
+        font-weight: bold;
+        color: #78E400;
+        font-size: 30pt;
+        border: 5px solid #78E400;
+        padding: 1pt 5pt;
+        transform:        rotate(-15deg);
+        -ms-transform:    rotate(-15deg); /* IE 9 */
+        -webkit-transform:rotate(-15deg); /* Safari and Chrome */
+      }
+
+      .buyer {
+        font-size: 9pt;
+        line-height: 12pt;
+        margin-top: 30pt;
+        color: #262626;
+      }
+
+      .buyer h2 {
+        font-weight: bold;
+        font-size: 11pt;
+      }
+
+      .buyer span { display: block; }
+
+      /* main */
+      table {
+        width: 100%;
+      }
+
+      th {
+        font-size: 8pt;
+        color: #919191;
+        line-height: 14pt;
+        text-align: left;
+        padding-left: 10pt;
+        border-bottom: 1px solid #D6D6D6;
+      }
+
+      th:last-child, td:last-child {
+        width: 20%;
+      }
+
+      th:last-child {
+        padding-left: 10mm;
+      }
+
+      td {
+        padding: 10pt;
+        border-bottom: 1px solid #D6D6D6;
+      }
+
+      td h4 {
+        font-weight: bold;
+        font-size: 12pt;
+      }
+
+      td .description {
+        font-size: 9pt;
+        line-height: 14pt;
+      }
+
+      td.price {
+        vertical-align: middle;
+        font-size: 12pt;
+        font-weight: bold;
+        text-align: right;
+      }
+
+      tr:nth-child(odd) td{
+        background: #F1F1F1;
+      }
+
+      #notes {
+        font-size: 9pt;
+        color: #7E7E7E;
+        line-height: 14pt;
+        font-style: italic;
+        margin-top: 4mm;
+        padding: 3mm;
+        float: left;
+      }
+
+      #totals{
+        padding: 3mm;
+        float: right;
+        text-align: right;
+        font-size: 12pt;
+        color: #7E7E7E;
+        line-height: 16pt;
+      }
+
+      /* footer */
+      footer {
+        text-align: center;
+      }
+
+      footer p {
+        background: #F3F3F3;
+        color: #888;
+        text-align: center;
+        font-size: 8pt;
+        line-height: 12pt;
+        padding: 7mm 0;
+        margin-top: 2mm;
+      }
+
+      .clearfix{ clear: both; }
+    </style>
 </head>
 <body class="print-body">
 	<div class="container print-container">
