@@ -3,11 +3,8 @@
       <div class="btn button-page-menu"><span class="glyphicon glyphicon-arrow-left"> </span> Tornar a la llista de projectes</div>
     <% end %>
     <div class="btn button-page-menu">
-      <a href="http://fathomless-cliffs-4728.herokuapp.com/testenergiapdf/print"><span class="glyphicon glyphicon-file"> </span> Crear PDF</a>
+      <a class="link-button" href="http://fathomless-cliffs-4728.herokuapp.com/testenergiapdf/print"><span class="glyphicon glyphicon-file"> </span> Crear PDF</a>
     </div> 
-    <%= link_to :action => 'report/print' do %>
-      <div class="btn button-page-menu"><span class="glyphicon glyphicon-file"> </span> Crear PDF sdf</div> 
-    <% end %>
   </div>
 
   <div class="print-logo">
@@ -49,11 +46,11 @@
     <div class="print-caracteristiques">
       <h5 class="print">Característiques:</h5>
       <% case @xproject.project_type
-      when '1'
+      when 1
         tipus_projecte = "Habitatge dins d'un edifici"
-      when '2'
+      when 2
         tipus_projecte = "Habitatge unifamiliar"
-      when '3'
+      when 3
         tipus_projecte = "Edifici d'habitatges"
         end %>
       <span><%= tipus_projecte %></span><br/>
@@ -228,6 +225,58 @@
       </p>
     </div>
   </div>
+
+  <div class="print-apartat">
+    <table class="print-table">
+      <thead>
+        <tr>
+          <th>Element</th>
+          <th>Consum d'energia</th>
+          <th>Emissions de CO<sub>2</sub></th>
+          <th>Despesa econòmica</th>
+          <th>Valoració respecte estàndard</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Calefacció</td>
+          <td><%= @consum_calefaccio %></td>
+          <td><%= @emissions_calefaccio %></td>
+          <td><%= @cost_calefaccio %></td>
+          <td><%= @valoracio_calefaccio %></td>
+        </tr>
+        <tr>
+          <td>Refrigeració</td>
+          <td><%= @consum_refrigeracio %></td>
+          <td><%= @emissions_refrigeracio %></td>
+          <td><%= @cost_refrigeracio %></td>
+          <td><%= @valoracio_refrigeracio %></td>
+        </tr>
+        <tr>
+          <td>ACS</td>
+          <td><%= @consum_acs %></td>
+          <td><%= @emissions_acs %></td>
+          <td><%= @cost_acs %></td>
+          <td><%= @valoracio_acs %></td>
+        </tr>
+        <tr>
+          <td>Il·luminació</td>
+          <td><%= @consum_iluminacio %></td>
+          <td><%= @emissions_iluminacio %></td>
+          <td><%= @cost_iluminacio %></td>
+          <td><%= @valoracio_iluminacio %></td>
+        </tr>
+        <tr>
+          <td>Electrodomèstics</td>
+          <td><%= @consum_electrodomestics %></td>
+          <td><%= @emissions_electrodomestics %></td>
+          <td><%= @cost_electrodomestics %></td>
+          <td><%= @valoracio_electrodomestics %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
 
   <div class="print-apartat">
     <h4>Propostes de millora</h4>
