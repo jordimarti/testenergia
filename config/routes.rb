@@ -1,5 +1,6 @@
 Testenergia::Application.routes.draw do
   
+  get "casajuga/index"
   get "report/print"
   get "default_improvements/index"
   get "contacte/index"

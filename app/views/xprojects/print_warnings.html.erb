@@ -1,0 +1,16 @@
+<div class="container">
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to :action => 'index' do %>
+      <div class="btn button-page-menu"><span class="glyphicon glyphicon-arrow-left"> </span> Tornar a la llista de projectes</div>
+    <% end %>
+    <h2 class="page-title">No és possible generar l'informe</h2>
+    <p>Solucioneu els següents errors abans de crear l'informe:</p>
+    <ul>
+		  <% @report_warning.each do |warning| %>
+		    <li class="warning"><%= warning %></li>
+		  <% end %>
+		</ul>
+	</div>
+</div>
+</div>

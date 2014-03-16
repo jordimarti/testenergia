@@ -15,45 +15,105 @@ class XprojectsController < ApplicationController
     @xproject = Xproject.find(params[:id])
     @expert = Expert.find(@xproject.expert_id)
     @improvements = @xproject.improvements
-    @total_energy_consumption = @xproject.electricity_consumption + @xproject.gas_consumption + @xproject.gasoil_consumption
-    @total_energy_consumption_improvements = @xproject.electricity_consumption_improvements + @xproject.gas_consumption_improvements + @xproject.gasoil_consumption_improvements
-    @consum_calefaccio = @total_energy_consumption * @xproject.heating_percentage / 100
-    @consum_refrigeracio = @total_energy_consumption * @xproject.cooling_percentage / 100
-    @consum_acs = @total_energy_consumption * @xproject.hot_water_percentage / 100
-    @consum_iluminacio = @total_energy_consumption * @xproject.lighting_percentage / 100
-    @consum_electrodomestics = @total_energy_consumption * @xproject.appliances_percentage / 100
-    
-    @indicador_emissions_calefaccio = emissions_calculator @xproject.heating_energy_source, @xproject.id
-    @indicador_costos_calefaccio = costos_calculator @xproject.heating_energy_source, @xproject.id
-    @emissions_calefaccio = @consum_calefaccio * @indicador_emissions_calefaccio
-    @cost_calefaccio = @consum_calefaccio * @indicador_costos_calefaccio
-    @valoracio_calefaccio = valoracio_consum 'calefaccio', @consum_calefaccio, @xproject.id
-    
-    @indicador_emissions_refrigeracio = emissions_calculator @xproject.cooling_energy_source, @xproject.id
-    @indicador_costos_refrigeracio = costos_calculator @xproject.cooling_energy_source, @xproject.id
-    @emissions_refrigeracio = @consum_refrigeracio * @indicador_emissions_refrigeracio
-    @cost_refrigeracio = @consum_refrigeracio * @indicador_costos_refrigeracio
-    @valoracio_refrigeracio = valoracio_consum 'refrigeracio', @consum_refrigeracio, @xproject.id
-    
-    @indicador_emissions_acs = emissions_calculator @xproject.hot_water_energy_source, @xproject.id
-    @indicador_costos_acs = costos_calculator @xproject.hot_water_energy_source, @xproject.id
-    @emissions_acs = @consum_acs * @indicador_emissions_acs
-    @cost_acs = @consum_acs * @indicador_costos_acs
-    @valoracio_acs = valoracio_consum 'acs', @consum_acs, @xproject.id
+    #Check existence of needed data to create the report
+    @report_warning = Array.new 
+    if !@xproject.electricity_consumption
+      @report_warning.push("Cal definir el consum d'electricitat. Si no n'hi ha poseu zero.")
+    end
+    if !@xproject.gas_consumption
+      @report_warning.push("Cal definir el consum de gas. Si no n'hi ha poseu zero.")
+    end
+    if !@xproject.gasoil_consumption
+      @report_warning.push("Cal definir el consum de gasoil. Si no n'hi ha poseu zero.")
+    end
+    if !@xproject.heating_percentage
+      @report_warning.push("No heu indicat el percentatge de consum destinat a calefacció.")
+    end
+    if !@xproject.cooling_percentage
+      @report_warning.push("No heu indicat el percentatge de consum destinat a refrigeració.")
+    end
+    if !@xproject.hot_water_percentage
+      @report_warning.push("No heu indicat el percentatge de consum destinat a aigua calenta sanitària.")
+    end
+    if !@xproject.lighting_percentage
+      @report_warning.push("No heu indicat el percentatge de consum destinat a il·luminació.")
+    end
+    if !@xproject.appliances_percentage
+      @report_warning.push("No heu indicat el percentatge de consum destinat a electrodomèstics.")
+    end
+    if !@xproject.heating_energy_source || @xproject.heating_energy_source == 0
+      @report_warning.push("No heu indicat la font energètica de la calefacció.")
+    end
+    if !@xproject.cooling_energy_source || @xproject.cooling_energy_source == 0
+      @report_warning.push("No heu indicat la font energètica de la refrigeració.")
+    end
+    if !@xproject.hot_water_energy_source || @xproject.hot_water_energy_source == 0
+      @report_warning.push("No heu indicat la font energètica de l'aigua calenta sanitària.")
+    end
+    if !@xproject.electricity_emissions
+      @report_warning.push("No heu indicat les emissions de CO2 associades al consum d'electricitat.")
+    end
+    if !@xproject.gas_emissions
+      @report_warning.push("No heu indicat les emissions de CO2 associades al consum de gas.")
+    end
+    if !@xproject.gasoil_emissions
+      @report_warning.push("No heu indicat les emissions de CO2 associades al consum de gasoil.")
+    end
+    if !@xproject.electricity_price
+      @report_warning.push("No heu indicat el preu de l'electricitat.")
+    end
+    if !@xproject.gas_price
+      @report_warning.push("No heu indicat el preu del gas.")
+    end
+    if !@xproject.gasoil_price
+      @report_warning.push("No heu indicat el preu del gasoil.")
+    end
+    if @improvements.length == 0
+      @report_warning.push("No heu fet cap proposta de millora.")
+    end
+    if @report_warning.length > 0
+      render :template => "xprojects/print_warnings"
+    elsif
+      @total_energy_consumption = @xproject.electricity_consumption + @xproject.gas_consumption + @xproject.gasoil_consumption
+      @total_energy_consumption_improvements = @xproject.electricity_consumption_improvements + @xproject.gas_consumption_improvements + @xproject.gasoil_consumption_improvements
+      @consum_calefaccio = @total_energy_consumption * @xproject.heating_percentage / 100
+      @consum_refrigeracio = @total_energy_consumption * @xproject.cooling_percentage / 100
+      @consum_acs = @total_energy_consumption * @xproject.hot_water_percentage / 100
+      @consum_iluminacio = @total_energy_consumption * @xproject.lighting_percentage / 100
+      @consum_electrodomestics = @total_energy_consumption * @xproject.appliances_percentage / 100
+      
+      @indicador_emissions_calefaccio = emissions_calculator @xproject.heating_energy_source, @xproject.id
+      @indicador_costos_calefaccio = costos_calculator @xproject.heating_energy_source, @xproject.id
+      @emissions_calefaccio = @consum_calefaccio * @indicador_emissions_calefaccio
+      @cost_calefaccio = @consum_calefaccio * @indicador_costos_calefaccio
+      @valoracio_calefaccio = valoracio_consum 'calefaccio', @consum_calefaccio, @xproject.id
+      
+      @indicador_emissions_refrigeracio = emissions_calculator @xproject.cooling_energy_source, @xproject.id
+      @indicador_costos_refrigeracio = costos_calculator @xproject.cooling_energy_source, @xproject.id
+      @emissions_refrigeracio = @consum_refrigeracio * @indicador_emissions_refrigeracio
+      @cost_refrigeracio = @consum_refrigeracio * @indicador_costos_refrigeracio
+      @valoracio_refrigeracio = valoracio_consum 'refrigeracio', @consum_refrigeracio, @xproject.id
+      
+      @indicador_emissions_acs = emissions_calculator @xproject.hot_water_energy_source, @xproject.id
+      @indicador_costos_acs = costos_calculator @xproject.hot_water_energy_source, @xproject.id
+      @emissions_acs = @consum_acs * @indicador_emissions_acs
+      @cost_acs = @consum_acs * @indicador_costos_acs
+      @valoracio_acs = valoracio_consum 'acs', @consum_acs, @xproject.id
 
-    @indicador_emissions_iluminacio = emissions_calculator @xproject.hot_water_energy_source, @xproject.id
-    @indicador_costos_iluminacio = costos_calculator @xproject.hot_water_energy_source, @xproject.id
-    @emissions_iluminacio = @consum_iluminacio * @indicador_emissions_iluminacio
-    @cost_iluminacio = @consum_iluminacio * @indicador_costos_iluminacio
-    @valoracio_iluminacio = valoracio_consum 'iluminacio', @consum_iluminacio, @xproject.id
+      @indicador_emissions_iluminacio = emissions_calculator @xproject.hot_water_energy_source, @xproject.id
+      @indicador_costos_iluminacio = costos_calculator @xproject.hot_water_energy_source, @xproject.id
+      @emissions_iluminacio = @consum_iluminacio * @indicador_emissions_iluminacio
+      @cost_iluminacio = @consum_iluminacio * @indicador_costos_iluminacio
+      @valoracio_iluminacio = valoracio_consum 'iluminacio', @consum_iluminacio, @xproject.id
 
-    @indicador_emissions_electrodomestics = emissions_calculator @xproject.hot_water_energy_source, @xproject.id
-    @indicador_costos_electrodomestics = costos_calculator @xproject.hot_water_energy_source, @xproject.id
-    @emissions_electrodomestics = @consum_electrodomestics * @indicador_emissions_electrodomestics
-    @cost_electrodomestics = @consum_electrodomestics * @indicador_costos_electrodomestics
-    @valoracio_electrodomestics = valoracio_consum 'electrodomestics', @consum_electrodomestics, @xproject.id
+      @indicador_emissions_electrodomestics = emissions_calculator @xproject.hot_water_energy_source, @xproject.id
+      @indicador_costos_electrodomestics = costos_calculator @xproject.hot_water_energy_source, @xproject.id
+      @emissions_electrodomestics = @consum_electrodomestics * @indicador_emissions_electrodomestics
+      @cost_electrodomestics = @consum_electrodomestics * @indicador_costos_electrodomestics
+      @valoracio_electrodomestics = valoracio_consum 'electrodomestics', @consum_electrodomestics, @xproject.id
 
-    render layout: "print_layout"
+      render layout: "print_layout"
+    end
   end
 
   #Method to calculate emissions for the report above

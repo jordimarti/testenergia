@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta lang="ca">
+        <title>Amb la casa sí que s'hi juga</title>
+        <meta name="description" content="Aplicació educativa per a la rehabilitació energètica d'habitatges">
+        <style>
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+body {
+    background: url(../assets/casajuga/bg_marro.jpg) repeat left;
+    font-family: arial, sans-serif;
+}   
+
+
+.container {
+    
+}
+
+.logo_inici {
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: white;
+}
+
+#left-panel {
+    background: #fff;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding: 5px;
+    border-right: 1px solid #bbb;
+    box-shadow: 0 0 20px #ccc;
+    box-shadow: 5px 0px 5px #888888;
+    background-color: #444444;
+}
+
+
+#right-panel {
+    position: relative;
+    width: 740px;
+    margin: 8px 0 50px 220px;
+    z-index: 0;
+}
+
+#indicators-container {
+    position: relative;  
+    margin-bottom: 15px;
+    height: 50px;
+}
+
+#container-energy {
+    float: left;
+    color: #333;
+    font-size: 13px;
+}
+
+#energy-consumption {
+    background-image: url(../assets/casajuga/barra_energia.jpg);
+    width: 454px;
+    height: 38px;
+    box-shadow: 5px 5px 5px #888888;
+}
+
+#energy-bar {
+    width: 410px;
+    height: 26px;
+    padding-top: 6px;
+    padding-left: 40px;
+}
+
+#energy-fill {
+    background-image: url(../assets/casajuga/gradient_energia.jpg);
+    height: 26px;
+    width: 89%;
+}
+
+#container-money {
+    float: left;
+    margin-left: 12px;
+    color: #333;
+    font-size: 13px;
+}
+
+#money {
+    background-image: url(../assets/casajuga/monedes.jpg);
+    width: 66px;
+    height: 31px;
+    color: white;
+    font-weight: bold;
+    font-size: 26px;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    padding-left: 50px;
+    box-shadow: 5px 5px 5px #888888;
+}
+
+#container-reload {
+    float: left;
+    margin-left: 12px;
+    margin-top: 15px;
+}
+
+#reload {
+    background-image: url(../assets/casajuga/reinici.jpg);
+    width: 76px;
+    height: 26px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 2px;
+    padding-left: 40px;
+    box-shadow: 5px 5px 5px #888888;
+}
+
+.link_reiniciar {
+    text-decoration: none;
+    color: white;
+}
+
+.link_reiniciar:hover {
+    text-decoration: none;
+    color: #999;
+}
+
+#items-container {
+    clear: both;
+    position: relative;
+    margin-top: 20px;
+    height: 172px;
+}
+
+.items {
+    width: 110px;
+    height: 76px;
+    margin: 0px 10px 10px 0px;
+    float: left;
+    box-shadow: 5px 5px 5px #888888;
+}
+
+.chat {
+    background-color: white;
+    font-size: 12px;
+    margin-bottom: 5px;
+    padding: 5px;
+    color: #333;
+}
+
+.chat-image {
+    margin-bottom: -8px;   
+}
+
+.time {
+    color: #666;
+    text-align: right;
+}
+
+.house {
+    clear: both;
+    position: relative;
+    margin: 20px 0px 0px 40px;
+}
+
+/* Imatges */
+
+#casa {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    
+}
+
+#casa_pintura {
+    position: absolute;
+    top: 26px;
+    left: 207px;
+    
+}
+
+#casa_finestres {
+    position: absolute;
+    top: 132px;
+    left: 261px;
+    
+}
+
+#casa_tendal {
+    position: absolute;
+    top: 105px;
+    left: 245px;
+    
+}
+
+#casa_captadors_termics {
+    position: absolute;
+    top: 0px;
+    left: 190px;
+    
+}
+
+#casa_jacuzzi {
+    position: absolute;
+    top: 190px;
+    left: 429px;
+    
+}
+
+#casa_plantes {
+    position: absolute;
+    top: 245px;
+    left: 226px;
+    
+}
+
+#casa_aillament {
+    position: absolute;
+    top: 67px;
+    left: 1px;
+    
+}
+
+#casa_tele {
+    position: absolute;
+    top: 326px;
+    left: 260px;
+    
+}
+
+#casa_captadors_fotovoltaics {
+    position: absolute;
+    top: 29px;
+    left: 100px;
+    
+}
+
+
+#punt_pintura {
+    position: absolute;
+    top: 356px;
+    left: 440px;
+    
+}
+
+#punt_finestres {
+    position: absolute;
+    top: 312px;
+    left: 590px;
+    
+}
+
+#punt_tendal {
+    position: absolute;
+    top: 115px;
+    left: 380px;
+    
+}
+
+#punt_captadors_termics {
+    position: absolute;
+    top: 10px;
+    left: 280px;
+    
+}
+
+#punt_jacuzzi {
+    position: absolute;
+    top: 190px;
+    left: 559px;
+    
+}
+
+#punt_plantes {
+    position: absolute;
+    top: 385px;
+    left: 610px;
+    
+}
+
+#punt_aillament {
+    position: absolute;
+    top: 450px;
+    left: 270px;
+    
+}
+
+#punt_tele {
+    position: absolute;
+    top: 326px;
+    left: 260px;
+    
+}
+
+#punt_captadors_fotovoltaics {
+    position: absolute;
+    top: 49px;
+    left: 100px;
+    
+}
+
+#punt_electrodomestics {
+    position: absolute;
+    top: 329px;
+    left: 60px;
+    
+}
+
+#punt_llums {
+    position: absolute;
+    top: 180px;
+    left: 18px;
+    
+}
+
+#punt_caldera {
+    position: absolute;
+    top: 279px;
+    left: 10px;
+    
+}
+
+.text_items {
+    background-color: #333;
+    padding: 10px;
+    width: 250px;
+    opacity:0.85;
+    display: none;
+}
+
+.text_items > h3 {
+    color: white;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.text_items > p {
+    color: white;
+    font-size: 13px;
+}
+
+#text_pintura {
+    position: absolute;
+    top: 356px;
+    left: 480px;
+    
+}
+
+#text_finestres {
+    position: absolute;
+    top: 312px;
+    left: 320px;
+    
+}
+
+#text_tendal {
+    position: absolute;
+    top: 115px;
+    left: 410px;
+    
+}
+
+#text_captadors_termics {
+    position: absolute;
+    top: 10px;
+    left: 320px;
+    
+}
+
+#text_jacuzzi {
+    position: absolute;
+    top: 190px;
+    left: 280px;
+    
+}
+
+#text_plantes {
+    position: absolute;
+    top: 355px;
+    left: 330px;
+    
+}
+
+#text_aillament {
+    position: absolute;
+    top: 410px;
+    left: 300px;
+    
+}
+
+#text_tele {
+    position: absolute;
+    top: 326px;
+    left: 300px;
+    
+}
+
+#text_captadors_fotovoltaics {
+    position: absolute;
+    top: 49px;
+    left: 140px;
+    
+}
+
+#text_electrodomestics {
+    position: absolute;
+    top: 329px;
+    left: 100px;
+    
+}
+
+#text_llums {
+    position: absolute;
+    top: 180px;
+    left: 58px;
+    
+}
+
+#text_caldera {
+    position: absolute;
+    top: 279px;
+    left: 50px;
+    
+}
+
+.container_final {
+    width: 490px;
+    height: 172px;
+    padding-left: 220px;
+    box-shadow: 5px 5px 5px #888888;
+}
+
+.container_final > p {
+    color: #555;
+    font-size: 16px;
+    padding-top: 14px;
+}
+
+.final_explica_decepcionat {
+    background-image: url(../assets/casajuga/toni_final_explica_decepcionat.jpg);
+}
+
+.final_explica {
+    background-image: url(../assets/casajuga/toni_final_explica.jpg);
+}
+
+.final_content {
+    background-image: url(../assets/casajuga/toni_final_content.jpg);
+}
+
+.final_content_2 {
+    background-image: url(../assets/casajuga/toni_final_content_2.jpg);
+}
+
+#advertiser {
+    position: absolute;
+    top: 250px;
+    left: 207px;
+    z-index: 100;
+    display: none;
+}
+
+.last-margin {
+    height: 200px;   
+}
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div id="left-panel">
+                <div class="logo_inici">
+                    <%= image_tag("casajuga/logo_casa.jpg") %>
+                </div>
+            </div>
+            <div id="right-panel">
+                
+                <div id="indicators-container">
+                    
+                    <div id="container-energy">
+                        <div id="text-energy">Consum d'energia</div>
+                        <div id="energy-consumption">
+                            <div id="energy-bar">
+                                <div id="energy-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="container-money">
+                        <div id="text-money">Monedes</div>
+                        <div id="money">100</div>
+                    </div>
+                    <div id="container-reload">
+                        <div id="reload"><a class="link_reiniciar" href="index.html">Reiniciar</a></div>
+                    </div>
+                </div>
+                
+
+                <div id="items-container">
+                    <div id="tendal" class="items" value="2"><%= image_tag("casajuga/tendal.jpg", width: '110', height: '76') %></div>
+                    <div id="aillant" class="items" value="0"><%= image_tag("casajuga/aillant.jpg", width: '110', height: '76') %></div>
+                    <div id="televisor" class="items" value="5"><%= image_tag("casajuga/televisor.jpg", width: '110', height: '76') %></div>
+                    <div id="pintura" class="items" value="7"><%= image_tag("casajuga/pintura.jpg", width: '110', height: '76') %></div>
+                    <div id="finestres" class="items" value="1"><%= image_tag("casajuga/finestra.jpg", width: '110', height: '76') %></div>
+                    <div id="captadors_termics" class="items" value="10"><%= image_tag("casajuga/captadors_termics.jpg", width: '110', height: '76') %></div>
+                    <div id="jacuzzi" class="items" value="8"><%= image_tag("casajuga/jacuzzi.jpg", width: '110', height: '76') %></div>
+                    <div id="lampades" class="items" value="4"><%= image_tag("casajuga/llums.jpg", width: '110', height: '76') %></div>
+                    <div id="plantes" class="items" value="9"><%= image_tag("casajuga/plantes.jpg", width: '110', height: '76') %></div>
+                    <div id="caldera" class="items" value="3"><%= image_tag("casajuga/caldera.jpg", width: '110', height: '76') %></div>
+                    <div id="electrodomestics" class="items" value="6"><%= image_tag("casajuga/electrodomestics.jpg", width: '110', height: '76') %></div>
+                    <div id="captadors_fotovoltaics" class="items" value="11"><%= image_tag("casajuga/captadors_fotovoltaics.jpg", width: '110', height: '76') %></div>
+                </div>
+                
+                <div class="house">
+                    
+                    <div id="casa"><%= image_tag("casajuga/casa_neta.png") %></div>
+                    <div id="casa_pintura"><%= image_tag("casajuga/casa_pintura.png") %></div>
+                    <div id="casa_finestres"><%= image_tag("casajuga/casa_finestres.png") %></div>
+                    <div id="casa_tendal"><%= image_tag("casajuga/casa_tendal.png") %></div>
+                    <div id="casa_captadors_termics"><%= image_tag("casajuga/casa_captadors_termics.png") %></div>
+                    <div id="casa_jacuzzi"><%= image_tag("casajuga/casa_jacuzzi.png") %></div>
+                    <div id="casa_plantes"><%= image_tag("casajuga/casa_plantes.png") %></div>
+                    <div id="casa_aillament"><%= image_tag("casajuga/casa_aillada.png") %></div>
+                    <div id="casa_tele"><%= image_tag("casajuga/casa_tele.png") %></div>
+                    <div id="casa_captadors_fotovoltaics"><%= image_tag("casajuga/casa_captadors_fotovoltaics.png") %></div>
+                    
+                    <div id="punt_pintura"><%= image_tag("casajuga/punt.png") %></div>
+                    <div id="punt_finestres"><%= image_tag("casajuga/punt.png") %></div>
+                    <div id="punt_tendal"><%= image_tag("casajuga/punt.png") %></div>
+                    <div id="punt_captadors_termics"><%= image_tag("casajuga/punt.png") %></div>
+                    <div id="punt_jacuzzi"><%= image_tag("casajuga/punt.png") %></div>
+                    <div id="punt_plantes"><%= image_tag("casajuga/punt.png") %></div>
+                    <div id="punt_aillament"><%= image_tag("casajuga/punt.png") %></div>
+                    <div id="punt_tele"><%= image_tag("casajuga/punt.png") %></div>
+                    <div id="punt_captadors_fotovoltaics"><%= image_tag("casajuga/punt.png") %></div>
+                    <div id="punt_llums"><%= image_tag("casajuga/punt.png") %></div>
+                    <div id="punt_caldera"><%= image_tag("casajuga/punt.png") %></div>
+                    <div id="punt_electrodomestics"><%= image_tag("casajuga/punt.png") %></div>
+                    
+                    <div id="text_pintura" class="text_items"><h3>Pintura</h3><p>En climes càlids els colors clars poden fer estalviar energia perquè reflexen la radiació del Sol.</p></div>
+                    <div id="text_finestres" class="text_items"><h3>Finestres</h3><p>Unes bones finestres que tanquin bé fan que no s'escapi l'aire climatitzat.</p></div>
+                    <div id="text_tendal" class="text_items"><h3>Tendal</h3><p>El tendal protegeix les finestres de la radiació solar, així a l'estiu la casa està més fresca.</p></div>
+                    <div id="text_captadors_termics" class="text_items"><h3>Captadors solars tèrmics</h3><p>Escalfen l'aigua amb l'energia del Sol. Així quan l'aigua arriba a la caldera ja gairebé no cal escalfar-la més.</p></div>
+                    <div id="text_jacuzzi" class="text_items"><h3>Jacuzzi</h3><p>És divertit tenir un jacuzzi a casa, però fa que gastem més aigua i energia.</p></div>
+                    <div id="text_plantes" class="text_items"><h3>Plantes</h3><p>És interessant tenir plantes a casa, perquè poden captar pols i refrescar l'ambient. De totes maneres les quatre floretes que hem posat aquí no faran gran cosa per estalviar energia.</p></div>
+                    <div id="text_aillament" class="text_items"><h3>Aïllament</h3><p>Aïllar els edificis permet un gran estalvi d'energia. És com posar un abric a la casa.</p></div>
+                    <div id="text_tele" class="text_items"><h3>Televisor</h3><p>Tenir un televisor més gran no farà que estalviem energia.</p></div>
+                    <div id="text_captadors_fotovoltaics" class="text_items"><h3>Captadors solars fotovoltaics</h3><p>Gràcies a la radiació del Sol generen electricitat que podem utilitzar per alimentar els electrodomèstics de casa.</p></div>
+                    <div id="text_llums" class="text_items"><h3>Llums</h3><p>Si canviem totes les bombetes i fluorescents de casa podem tenir la mateixa il·luminació gastant menys electricitat.</p></div>
+                    <div id="text_caldera" class="text_items"><h3>Caldera</h3><p>Encara que per fora semblin totes iguals, hi ha calderes que consumeixen menys energia per escalfar l'aigua.</p></div>
+                    <div id="text_electrodomestics" class="text_items"><h3>Electrodomèstics</h3><p>Escollir els electrodomèstics més eficients fa que poguem estalviar aigua i energia cada vegada que els utilitzem.</p></div>
+                    
+                </div>
+                
+                <div id="advertiser"><%= image_tag("casajuga/advertiser.png") %></div>
+                
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script>
+/* ----------------------------
+APP
+Amb la casa sí que s'hi juga 
+------------------------------ */
+
+$(document).ready(function() {   
+    
+    var fase = 0;
+    var monedes = 100;
+    var preu;
+    var estalvi;
+    var energia = 89;
+    var valor_items = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+    $(".items").click(function(){
+        $("#advertiser").hide();
+        var id_item = $(this).attr('value');
+        if (valor_items[id_item] == 0) {
+            valor_items[id_item] = 1;
+            obtenir_text(id_item);
+            indicadors(id_item);
+        }
+        
+    });
+    
+    //Amagem elements de la casa
+    $("#casa_tendal").hide();
+    $("#casa_aillament").hide();
+    $("#casa_tele").hide();
+    $("#casa_pintura").hide();
+    $("#casa_finestres").hide();
+    $("#casa_jacuzzi").hide();
+    //$("#casa_lampades").hide();
+    $("#casa_plantes").hide();
+    $("#casa_caldera").hide();
+    //$("#casa_electrodomestics").hide();
+    $("#casa_captadors_termics").hide();
+    $("#casa_captadors_fotovoltaics").hide();
+    
+    $("#punt_tendal").hide();
+    $("#punt_aillament").hide();
+    $("#punt_tele").hide();
+    $("#punt_pintura").hide();
+    $("#punt_finestres").hide();
+    $("#punt_jacuzzi").hide();
+    $("#punt_llums").hide();
+    $("#punt_plantes").hide();
+    $("#punt_caldera").hide();
+    $("#punt_electrodomestics").hide();
+    $("#punt_captadors_termics").hide();
+    $("#punt_captadors_fotovoltaics").hide();
+    
+    $("#text_tendal").hide();
+    $("#text_aillament").hide();
+    $("#text_tele").hide();
+    $("#text_pintura").hide();
+    $("#text_finestres").hide();
+    $("#text_jacuzzi").hide();
+    $("#text_llums").hide();
+    $("#text_plantes").hide();
+    $("#text_caldera").hide();
+    $("#text_electrodomestics").hide();
+    $("#text_captadors_termics").hide();
+    $("#text_captadors_fotovoltaics").hide();
+
+    $("#tendal").click(function(){
+        $(this).html('<img src="../assets/casajuga/tendal_off.jpg" alt="tendal" width="110" height="76">');
+        $("#casa_tendal").show();
+        $("#punt_tendal").show();
+        $("#punt_tendal").mouseover(function() {
+            $("#text_tendal").show();
+        });
+        $("#punt_tendal").mouseout(function() {
+            $("#text_tendal").hide();
+        });
+    });
+    $("#aillant").click(function(){
+        $(this).html('<img src="../assets/casajuga/aillant_off.jpg" alt="aïllant tèrmic" width="110" height="76">');
+        $("#casa_aillament").show();
+        $("#punt_aillament").show();
+        $("#punt_aillament").mouseover(function() {
+            $("#text_aillament").show();
+        });
+        $("#punt_aillament").mouseout(function() {
+            $("#text_aillament").hide();
+        });
+    });
+    $("#televisor").click(function(){
+        $(this).html('<img src="../assets/casajuga/televisor_off.jpg" alt="televisor" width="110" height="76">');
+        $("#casa_tele").show();
+        $("#punt_tele").show();
+        $("#punt_tele").mouseover(function() {
+            $("#text_tele").show();
+        });
+        $("#punt_tele").mouseout(function() {
+            $("#text_tele").hide();
+        });
+    });
+    $("#pintura").click(function(){
+        $(this).html('<img src="../assets/casajuga/pintura_off.jpg" alt="pintura" width="110" height="76">');
+        $("#casa_pintura").show();
+        $("#punt_pintura").show();
+        $("#punt_pintura").mouseover(function() {
+            $("#text_pintura").show();
+        });
+        $("#punt_pintura").mouseout(function() {
+            $("#text_pintura").hide();
+        });
+    });
+    $("#finestres").click(function(){
+        $(this).html('<img src="../assets/casajuga/finestra_off.jpg" alt="finestra" width="110" height="76">');
+        $("#casa_finestres").show();
+        $("#punt_finestres").show();
+        $("#punt_finestres").mouseover(function() {
+            $("#text_finestres").show();
+        });
+        $("#punt_finestres").mouseout(function() {
+            $("#text_finestres").hide();
+        });
+    });
+    $("#jacuzzi").click(function(){
+        $(this).html('<img src="../assets/casajuga/jacuzzi_off.jpg" alt="jacuzzi" width="110" height="76">');
+        $("#casa_jacuzzi").show();
+        $("#punt_jacuzzi").show();
+        $("#punt_jacuzzi").mouseover(function() {
+            $("#text_jacuzzi").show();
+        });
+        $("#punt_jacuzzi").mouseout(function() {
+            $("#text_jacuzzi").hide();
+        });
+    });
+    $("#lampades").click(function(){
+        $(this).html('<img src="../assets/casajuga/llums_off.jpg" alt="lampades" width="110" height="76">');
+        $("#casa_llums").show();
+        $("#punt_llums").show();
+        $("#punt_llums").mouseover(function() {
+            $("#text_llums").show();
+        });
+        $("#punt_llums").mouseout(function() {
+            $("#text_llums").hide();
+        });
+    });
+    $("#plantes").click(function(){
+        $(this).html('<img src="../assets/casajuga/plantes_off.jpg" alt="plantes" width="110" height="76">');
+        $("#casa_plantes").show();
+        $("#punt_plantes").show();
+        $("#punt_plantes").mouseover(function() {
+            $("#text_plantes").show();
+        });
+        $("#punt_plantes").mouseout(function() {
+            $("#text_plantes").hide();
+        });
+    });
+    $("#caldera").click(function(){
+        $(this).html('<img src="../assets/casajuga/caldera_off.jpg" alt="caldera" width="110" height="76">');
+        $("#casa_caldera").show();
+        $("#punt_caldera").show();
+        $("#punt_caldera").mouseover(function() {
+            $("#text_caldera").show();
+        });
+        $("#punt_caldera").mouseout(function() {
+            $("#text_caldera").hide();
+        });
+    });
+    $("#electrodomestics").click(function(){
+        $(this).html('<img src="../assets/casajuga/electrodomestics_off.jpg" alt="electrodomestics" width="110" height="76">');
+        $("#casa_electrodomestics").show();
+        $("#punt_electrodomestics").show();
+        $("#punt_electrodomestics").mouseover(function() {
+            $("#text_electrodomestics").show();
+        });
+        $("#punt_electrodomestics").mouseout(function() {
+            $("#text_electrodomestics").hide();
+        });
+    });
+    $("#captadors_termics").click(function(){
+        $(this).html('<img src="../assets/casajuga/captadors_termics_off.jpg" alt="captadors tèrmics" width="110" height="76">');
+        $("#casa_captadors_termics").show();
+        $("#punt_captadors_termics").show();
+        $("#punt_captadors_termics").mouseover(function() {
+            $("#text_captadors_termics").show();
+        });
+        $("#punt_captadors_termics").mouseout(function() {
+            $("#text_captadors_termics").hide();
+        });
+    });
+    $("#captadors_fotovoltaics").click(function(){
+        $(this).html('<img src="../assets/casajuga/captadors_fotovoltaics_off.jpg" alt="captadors fotovoltaics" width="110" height="76">');
+        $("#casa_captadors_fotovoltaics").show();
+        $("#punt_captadors_fotovoltaics").show();
+        $("#punt_captadors_fotovoltaics").mouseover(function() {
+            $("#text_captadors_fotovoltaics").show();
+        });
+        $("#punt_captadors_fotovoltaics").mouseout(function() {
+            $("#text_captadors_fotovoltaics").hide();
+        });
+    });
+
+    
+    function obtenir_text(id_item) {
+        $.getJSON( "../data/respostes.json", function( data ) {
+            var resposta = data.elements[fase].respostes[id_item].text_resposta;
+            escriu_resposta(resposta);
+            canvi_fase();  
+        });
+    }
+    
+    function escriu_resposta(resposta) {
+        var hora = jQuery.now();
+        var time = new Date(hora);
+        h = time.getHours();
+        m = time.getMinutes();
+        if (m < 10) {
+            m = '0'+m;
+        }
+        //Aquí posem un "pedaç" per fer que sempre quedi un marge en l'últim element. Ha de funcionar en IE6, per tant res de last selector
+        $(".last-margin").hide();
+        
+        $("#left-panel").append('<div class="chat"><div class="time">'+h+':'+m+'</div>'+resposta+'</div><div class="last-margin"></div>');   
+        
+    }
+
+    function indicadors(id_item) {
+        
+        switch(id_item) {
+            case '0':
+                preu = 40;
+                estalvi = 30;
+            break;
+            case '1':
+                preu = 20;
+                estalvi = 15;
+            break;
+            case '2':
+                preu = 6;
+                estalvi = 4;
+            break;
+            case '3':
+                preu = 12;
+                estalvi = 10;
+            break;
+            case '4':
+                preu = 6;
+                estalvi = 4;
+            break;
+            case '5':
+                preu = 10;
+                estalvi = -1;
+            break;
+            case '6':
+                preu = 15;
+                estalvi = 12;
+            break;
+            case '7':
+                preu = 10;
+                estalvi = 0;
+            break;
+            case '8':
+                preu = 35;
+                estalvi = -10;
+            break;
+            case '9':
+                preu = 5;
+                estalvi = 0;
+            break;
+            case '10':
+                preu = 20;
+                estalvi = 14;
+            break;
+            case '11':
+                preu = 20;
+                estalvi = 12;
+            break;
+        }
+        
+        monedes = monedes-preu;
+        energia = energia-estalvi;
+
+        $("#money").text(monedes);
+        $("#energy-fill").css("width", energia+"%");
+        if (monedes <= 0) {
+            if (monedes < 0) {
+                $("#money").css( "color", "#f15c4c" );
+            }
+            game_over(monedes);
+        }
+    
+    }
+
+    function canvi_fase() {
+        fase++;
+        if (fase == 1 && valor_items[1] == 0) {
+            setTimeout(function(){
+                var text_fase1 = 'Si l\'aire calent s\'escapa cap a fora hem de fer servir més la calefacció. Se t\'acudeix alguna solució?<img class="chat-image" src="../assets/casajuga/chat_aire_escapa.jpg" alt="Aire escapa">';
+                escriu_resposta(text_fase1);
+                $("#left-panel").scrollTop($("#left-panel").height());
+            }, 3000);
+        }
+        if (fase == 1 && valor_items[1] != 0) {
+            fase++;
+        }
+        if (fase == 2 && valor_items[2] == 0) {
+            setTimeout(function(){
+                var text_fase2 = 'A l\'estiu entren els rajos del sol i la casa s\'escalfa tant que sembla un forn. Hem de fer alguna cosa per evitar-ho!<img class="chat-image" src="../assets/casajuga/chat_rajos_sol.jpg" alt="Radiació solar">';
+                escriu_resposta(text_fase2);
+                $("#left-panel").scrollTop($("#left-panel").height()); 
+            }, 3000);
+        }
+        if (fase == 2 && valor_items[2] != 0) {
+            fase++;
+        }
+        if (fase == 3) {
+            setTimeout(function(){
+                var text_fase3 = 'Se t\'acudeix alguna manera de gastar menys gas natural? Les factures són tan elevades que posen els pèls de punta!<img class="chat-image" src="../assets/casajuga/chat_cremador.jpg" alt="Despesa de gas natural">';
+                escriu_resposta(text_fase3);
+                $("#left-panel").scrollTop($("#left-panel").height());
+            }, 3000);
+        }
+        if (fase == 4) {
+            setTimeout(function(){
+                var text_fase4 = 'Estaria bé trobar la manera de gastar menys electricitat. Com ho podríem fer?<img class="chat-image" src="../assets/casajuga/chat_electricitat.jpg" alt="Despesa elèctrica">';
+                escriu_resposta(text_fase4);
+                $("#left-panel").scrollTop($("#left-panel").height());
+            }, 3000);
+        }
+        if (fase > 4) {
+            setTimeout(function(){
+                var text_fase5 = 'Pots seguir fent canvis a la casa mentre tinguis diners. Recorda que l\'objectiu és estalviar energia!';
+                escriu_resposta(text_fase5);
+                $("#left-panel").scrollTop($("#left-panel").height());
+            }, 3000);
+        }
+        $("#left-panel").scrollTop($("#left-panel").height());
+
+    }
+
+    function game_over(monedes) {
+        var energia_inicial = 89;
+        var energia_final = energia;
+        var total_estalvi = 100 - ((energia_final/energia_inicial)*100);
+        var estalvi_formatejat = total_estalvi.toFixed(0);
+        var diners_restants = monedes*(-1);
+        var missatge_deute = "Amb els diners que estalviaràs a les factures d\'electricitat i gas podràs pagar el deute sense problemes."; 
+        
+        if (diners_restants == 0) {
+            missatge_deute = " ";   
+        }
+        
+        if (total_estalvi < 50) {
+            if (monedes == 0) {
+                $("#items-container").html('<div class="final_explica_decepcionat container_final"><p>Ja no et queden monedes.</p><p>Has aconseguit estalviar un '+estalvi_formatejat+'% d\'energia.</p><p>Hauries pogut utilitzar millor els diners per estalviar energia...</p></div>');
+            }
+            else {
+                $("#items-container").html('<div class="final_explica_decepcionat container_final"><p>Ja no et queden monedes.</p><p>Has acabat amb un deute de '+diners_restants+' monedes i has aconseguit estalviar un '+estalvi_formatejat+'% d\'energia.</p><p>Hauries pogut utilitzar millor els diners per estalviar energia...</p></div>');
+            }
+        }
+        else if (total_estalvi >= 50 && total_estalvi < 75) {
+            if (monedes == 0) {
+                $("#items-container").html('<div class="final_explica container_final"><p>Ja no et queden monedes.</p><p>Has aconseguit estalviar un '+estalvi_formatejat+'% d\'energia.</p><p>Has aconseguit estalviar molta energia, però encara hi havia marge per estalviar més!</p></div>');
+            }
+            else {
+                $("#items-container").html('<div class="final_explica container_final"><p>Ja no et queden monedes.</p><p>Has acabat amb un deute de '+diners_restants+' monedes i has aconseguit estalviar un '+estalvi_formatejat+'% d\'energia.</p><p>Has aconseguit estalviar molta energia, però encara hi havia marge per estalviar més!</p></div>');
+            }
+        }
+        else if (total_estalvi >= 75 && total_estalvi < 100) {
+            if (monedes == 0) {
+                $("#items-container").html('<div class="final_content container_final"><p>Ja no et queden monedes.</p><p>Has aconseguit estalviar un '+estalvi_formatejat+'% d\'energia.</p><p>Ho has fet molt bé! La casa consumeix menys d\'una quarta part del que consumia inicialment! '+missatge_deute+'</p></div>');
+            }
+            else {
+                $("#items-container").html('<div class="final_content container_final"><p>Ja no et queden monedes.</p><p>Has acabat amb un deute de '+diners_restants+' monedes i has aconseguit estalviar un '+estalvi_formatejat+'% d\'energia.</p><p>Ho has fet molt bé! La casa consumeix menys d\'una quarta part del que consumia inicialment! '+missatge_deute+'</p></div>');
+            }
+        }
+        else if (total_estalvi >= 100) {
+            if (monedes == 0) {
+                $("#items-container").html('<div class="final_content_2 container_final"><p>Ja no et queden monedes.</p><p>Has aconseguit estalviar un '+estalvi_formatejat+'% d\'energia.</p><p>Ho has fet molt bé! La casa genera més energia de la que consumeix!  '+missatge_deute+'</p></div>');
+            }
+            else {
+                $("#items-container").html('<div class="final_content_2 container_final"><p>Ja no et queden monedes.</p><p>Has acabat amb un deute de '+diners_restants+' monedes i has aconseguit estalviar un '+estalvi_formatejat+'% d\'energia.</p><p>Ho has fet molt bé! La casa genera més energia de la que consumeix!  '+missatge_deute+'</p></div>');
+            }
+        }
+        
+        
+    }
+
+    //Aquí escrivim els textos introductoris
+    setTimeout(function(){
+        var text_intro1 = 'Aquesta casa consumeix massa energia!<img src="../assets/casajuga/toni_inici.jpg" alt="Toni">';
+        escriu_resposta(text_intro1);
+    }, 100);
+    setTimeout(function(){
+        var text_intro2 = 'L\'hem de rehabilitar per aconseguir estalviar energia i fer-la més confortable.';
+        escriu_resposta(text_intro2);
+    }, 2000);
+    setTimeout(function(){
+        var text_intro3 = 'Veig que es perd calor per les façanes, la coberta i el terra. Com ho podríem evitar?<img class="chat-image" src="../assets/casajuga/chat_perdua_calor.jpg" alt="Pèrdua de calor">';
+        escriu_resposta(text_intro3);
+    }, 4000);
+    setTimeout(function(){
+        function down() {
+            $("#advertiser").animate({ "top": "+=10px" }, "slow" );
+            up();
+        }
+        function up() {
+            $("#advertiser").animate({ "top": "-=10px" }, "slow" );
+            down();
+        }
+        $("#advertiser").show();
+        down();
+    }, 5000);
+
+});
+
+        </script>
+    </body>
+
+</html>

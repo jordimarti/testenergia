@@ -1,0 +1,275 @@
+{
+"elements" : 
+    [
+        {
+            "id_fase": 0,
+            "respostes":
+            [
+                {
+                    "id_element": 0,
+                    "text_resposta": "Molt bé! Com que la casa està ben aïllada perd menys calor a l'hivern i en guanya menys a l'estiu.<img class='chat-image' src='../assets/casajuga/toni_content.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 1,
+                    "text_resposta": "Bé. Millorant les finestres perdem menys calor per les façanes, però hauria estat més efectiu millorar l’aïllament de la casa.<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 2,
+                    "text_resposta": "Creus que la millor manera d’evitar que es perdi calor és posant un tendal??? Hauria estat millor posar aïllant tèrmic.<img class='chat-image' src='../assets/casajuga/toni_explica_decepcionat.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 3,
+                    "text_resposta": "Canviant la caldera no farem que es perdi menys calor... Però és una millora interessant per estalviar energia.<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 4,
+                    "text_resposta": "Canviant els llums no aconseguirem pas que es perdi menys calor... Però és una millora interessant.<img class='chat-image' src='../assets/casajuga/toni_sorpres.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 5,
+                    "text_resposta": "Noooooo! Comprant un televisor més gran no evitarem que es perdi calor per les façanes, la coberta i el terra.<img class='chat-image' src='../assets/casajuga/toni_explica_decepcionat.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 6,
+                    "text_resposta": "Em sembla que canviant electrodomèstics no aconseguirem pas reduir les pèrdues de calor... Però estalviem electricitat!<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 7,
+                    "text_resposta": "Uf! Pintant la casa no aconseguirem pas que es perdi menys calor... Hauria estat millor posar aïllament tèrmic.<img class='chat-image' src='../assets/casajuga/toni_explica_decepcionat.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 8,
+                    "text_resposta": "Noooooo! Comprant un jacuzzi l’únic que farem és consumir més energia. Hauria estat millor posar aïllament tèrmic.<img class='chat-image' src='../assets/casajuga/toni_trist.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 9,
+                    "text_resposta": "Aquestes plantes al jardí queden molt bé, però no faran pas que es perdi menys calor. Hauria estat millor posar aïllament tèrmic.<img class='chat-image' src='../assets/casajuga/toni_explica_decepcionat.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 10,
+                    "text_resposta": "Amb els captadors solars tèrmics es pot estalviar energia, però no evitem que s'escapi l'escalfor.<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 11,
+                    "text_resposta": "Amb els captadors solars fotovoltaics es pot estalviar energia, però no evitem que s'escapi l'escalfor.<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                }
+            ]
+        },
+        {
+            "id_fase": 1,
+            "respostes":
+            [
+                {
+                    "id_element": 0,
+                    "text_resposta": "Aïllar l’edifici fa que es perdi menys calor, però l’aire principalment s’escapa per portes i finestres.<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 1,
+                    "text_resposta": "Molt bé! Si millorem les finestres es perdrà menys calor a l’hivern i se’n guanyarà menys a l’estiu.<img class='chat-image' src='../assets/casajuga/toni_content_2.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 2,
+                    "text_resposta": "Posant un tendal no aconseguirem pas reduir l’aire calent que perdem a l’hivern. El tendal farà que la casa estigui més fresca a l’estiu.<img class='chat-image' src='../assets/casajuga/toni_explica_decepcionat.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 3,
+                    "text_resposta": "Mmmm... Diria que no. Tot i així canviar la caldera també permet estalviar energia.<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 4,
+                    "text_resposta": "Nooo... Tenir uns llums eficients permet estalviar electricitat, però no ens ajuda a evitar que s’escapi l’aire calent a l’hivern.<img class='chat-image' src='../assets/casajuga/toni_explica_decepcionat.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 5,
+                    "text_resposta": "Noooooo! Comprant un televisor més gran no evitarem que s’escapi l’aire calent a l’hivern.<img class='chat-image' src='../assets/casajuga/toni_trist.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 6,
+                    "text_resposta": "Aquesta no és la millor opció per evitar que s’escapi aire calent a l’hivern. Tot i així estalviarem electricitat.<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 7,
+                    "text_resposta": "Uf! Pintant la casa no aconseguirem pas que es perdi menys calor... Hauria estat millor canviar les finestres.<img class='chat-image' src='../assets/casajuga/toni_trist.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 8,
+                    "text_resposta": "Apa! Posar un jacuzzi pot semblar molt divertit, però amb aquests diners es podrien haver fet moltes millores a la casa.<img class='chat-image' src='../assets/casajuga/toni_molt_trist.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 9,
+                    "text_resposta": "Aquestes plantes al jardí queden molt bé, però no faran pas que es perdi menys calor. Hauria estat millor canviar les finestres.<img class='chat-image' src='../assets/casajuga/toni_explica_decepcionat.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 10,
+                    "text_resposta": "Amb els captadors solars tèrmics es pot estalviar energia, però no evitem que s'escapi l'aire calent a l'hivern.<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 11,
+                    "text_resposta": "Amb els captadors solars fotovoltaics es pot estalviar energia, però no evitem que s'escapi l'aire calent a l'hivern.<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                }
+            ]
+        },
+        {
+            "id_fase": 2,
+            "respostes":
+            [
+                {
+                    "id_element": 0,
+                    "text_resposta": "És una millora interessant, però per evitar l’entrada de radiació solar és més útil posar un tendal.<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 1,
+                    "text_resposta": "És una millora interessant, però per evitar l’entrada de radiació solar és més útil posar un tendal.<img class='chat-image' src='../assets/casajuga/toni_content_2.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 2,
+                    "text_resposta": "Molt bé! El tendal farà que els rajos del Sol es quedin a fora, i l’ambient interior serà més fresc a l’estiu.<img class='chat-image' src='../assets/casajuga/toni_content.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 3,
+                    "text_resposta": "Em sembla que aquesta no és la millor opció, però amb una caldera nova també s’estalvia energia!<img class='chat-image' src='../assets/casajuga/toni_content.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 4,
+                    "text_resposta": "Canviant els llums podem estalviar electricitat, però no evitarem que entrin els rajos del Sol.<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 5,
+                    "text_resposta": "No, no, no. Amb un televisor nou no evitarem que entrin els rajos del Sol. Hauria estat més bona idea posar un tendal.<img class='chat-image' src='../assets/casajuga/toni_trist.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 6,
+                    "text_resposta": "Canviar els electrodomèstics per uns de molt eficients permetrà estalviar energia, però no aconseguirem que entri menys radiació solar.<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 7,
+                    "text_resposta": "Una casa pintada amb colors clars és més fresca, però hauria estat més útil posar un tendal.<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 8,
+                    "text_resposta": "Aquesta sí que és bona. Des de quan un jacuzzi pot fer que entrin menys rajos del Sol a la casa?<img class='chat-image' src='../assets/casajuga/toni_trist.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 9,
+                    "text_resposta": "Si fossin uns grans arbres de fulla caduca potser haurien servit d’alguna cosa, però aquestes plantes no ens protegiran de la radiació solar.<img class='chat-image' src='../assets/casajuga/toni_explica_decepcionat.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 10,
+                    "text_resposta": "Amb els captadors solars tèrmics es pot estalviar energia, però no evitem l'entrada de radiació solar. Hauria estat més útil posar un tendal.<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 11,
+                    "text_resposta": "Amb els captadors solars fotovoltaics es pot estalviar energia, però no evitem l'entrada de radiació solar. Hauria estat més útil posar un tendal.<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                }
+            ]
+        },
+        {
+            "id_fase": 3,
+            "respostes":
+            [
+                {
+                    "id_element": 0,
+                    "text_resposta": "Molt bé! Si tenim la casa ben aïllada es consumirà menys energia. Renovar la caldera també era una bona opció.<img class='chat-image' src='../assets/casajuga/toni_content_2.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 1,
+                    "text_resposta": "Molt bé! Si tenim unes bones finestres es perd menys calor a l’hivern. També seria útil tenir una caldera molt eficient.<img class='chat-image' src='../assets/casajuga/toni_content_2.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 2,
+                    "text_resposta": "Mmmmm... No veig de quina forma un tendal pot fer que estalviem gas natural. No hauria estat millor canviar la caldera?<img class='chat-image' src='../assets/casajuga/toni_explica_decepcionat.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 3,
+                    "text_resposta": "Molt bé! Si canviem una caldera antiga per una de més eficient es pot arribar a estalviar molta energia!<img class='chat-image' src='../assets/casajuga/toni_content.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 4,
+                    "text_resposta": "Canviant els llums podem estalviar electricitat, però per estalviar gas natural és millor canviar la caldera.<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 5,
+                    "text_resposta": "No. Comprant un televisor nou no farem pas que baixa la factura del gas. Hauria estat més bona idea canviar la caldera.<img class='chat-image' src='../assets/casajuga/toni_trist.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 6,
+                    "text_resposta": "Normalment els electrodomèstics tan sols utilitzen electricitat, per tant difícilment ens permetrien estlviar gas natural.<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 7,
+                    "text_resposta": "El color de la casa pot influir una mica en la despesa d’energia, però hauria estat molt més útil posar una caldera molt eficient.<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 8,
+                    "text_resposta": "Nooooooo! El jacuzzi farà que consumim més gas natural per escalfar l’aigua! Hauria estat molt més útil posar una caldera molt eficient.<img class='chat-image' src='../assets/casajuga/toni_molt_trist.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 9,
+                    "text_resposta": "Les plantes quedaran molt maques al jardí, però hauria estat molt més útil posar una caldera molt eficient per estalviar gas natural.<img class='chat-image' src='../assets/casajuga/toni_explica_decepcionat.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 10,
+                    "text_resposta": "Molt bé! Amb els captadors solars tèrmics l'aigua ja arriba escalfada a la caldera i gastem menys gas natural.<img class='chat-image' src='../assets/casajuga/toni_content_2.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 11,
+                    "text_resposta": "Amb els captadors solars fotovoltaics es pot estalviar energia, però es genera electricitat i no gas natural.<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                }
+            ]
+        },
+        {
+            "id_fase": 4,
+            "respostes":
+            [
+                {
+                    "id_element": 0,
+                    "text_resposta": "Una casa ben aïllada necessita menys aire condicionat. Una altra opció útil hauria estat posar làmpades molt eficients.<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 1,
+                    "text_resposta": "Una casa amb unes bones finestres necessita menys aire condicionat. Una altra opció útil hauria estat posar làmpades molt eficients.<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 2,
+                    "text_resposta": "Una casa amb unes bones proteccions solars necessita menys aire condicionat. Una altra opció útil hauria estat posar làmpades eficients.<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 3,
+                    "text_resposta": "Una caldera molt eficient pot ajudar a estalviar energia. Una altra opció hauria estat millorar la il·luminació de la casa.<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 4,
+                    "text_resposta": "Molt bé! Amb unes làmpades molt eficients es pot tenir la mateixa il·luminació consumint menys energia.<img class='chat-image' src='../assets/casajuga/toni_content.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 5,
+                    "text_resposta": "Noooo! Posant un televisor més gran no aconseguirem reduir la factura elèctrica. Canviar làmpades hauria estat més útil.<img class='chat-image' src='../assets/casajuga/toni_trist.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 6,
+                    "text_resposta": "Molt bé! Si comprem electrodomèstics molt eficients podrem estalviar una bona part de l’electricitat que es consumeix a l’habitatge.<img class='chat-image' src='../assets/casajuga/toni_content.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 7,
+                    "text_resposta": "No veig de quina manera pintant la casa d’un altre color podrem estalviar electricitat. Canviar làmpades hauria estat més útil.<img class='chat-image' src='../assets/casajuga/toni_explica_decepcionat.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 8,
+                    "text_resposta": "Noooooo! Amb el jacuzzi consumirem més energia! Hauria estat millor canviar les làmpades per unes de més eficients.<img class='chat-image' src='../assets/casajuga/toni_molt_trist.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 9,
+                    "text_resposta": "Uf! No veig com podem consumir menys electricitat canviant les plantes del jardí. Canviar làmpades hauria estat més útil.<img class='chat-image' src='../assets/casajuga/toni_trist.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 10,
+                    "text_resposta": "Amb els captadors solars tèrmics es pot estalviar energia, però no generen electricitat.<img class='chat-image' src='../assets/casajuga/toni_explica.jpg' alt='Toni'>"
+                },
+                {
+                    "id_element": 11,
+                    "text_resposta": "Molt bé! Si generem la nostra pròpia electricitat gastarem menys i contaminarem menys.<img class='chat-image' src='../assets/casajuga/toni_content_2.jpg' alt='Toni'>"
+                }
+            ]
+        }
+    ]
+}
