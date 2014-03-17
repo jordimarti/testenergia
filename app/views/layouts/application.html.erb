@@ -21,6 +21,7 @@
           <%= link_to "Tancar sessió", destroy_user_session_path, method: :delete, :class => 'sessionbar-link'  %>
         <% elsif expert_signed_in? %>
           Sessió d'expert iniciada com a: <strong><%= current_expert.email %></strong> |
+          <%= link_to 'Editar perfil', edit_expert_registration_path, :class => 'sessionbar-link' %> |
           <%= link_to "Tancar sessió", destroy_expert_session_path, method: :delete, :class => 'sessionbar-link'  %>
         <% elsif admin_signed_in? %>
           Sessió d'administrador iniciada com a: <strong><%= current_admin.email %></strong>.
