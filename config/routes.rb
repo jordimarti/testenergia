@@ -1,5 +1,6 @@
 Testenergia::Application.routes.draw do
   
+  get "esdevenir_expert/index"
   get '/casajuga', :to => redirect('/casajuga.html')
   get "report/print"
   get "default_improvements/index"

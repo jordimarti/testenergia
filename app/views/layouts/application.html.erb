@@ -49,11 +49,7 @@
           <li class="dropdown <%= @active_expert %>">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Experts <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Com ser expert</a></li>
-              <li><a href="#">Instruccions autoavaluació</a></li>
-              <li><a href="#">Autoavaluació</a></li>
-              <li><a href="#">Preguntes freqüents</a></li>
-              <li><a href="#">Tutorial de registre</a></li>
+              <li><%= link_to("Com ser expert", {:controller => '/esdevenir_expert', :action => 'index'}) %></li>
               <li><%= link_to("Projectes", {:controller => '/xprojects', :action => 'index'}) %></li>
             </ul>
           </li>
