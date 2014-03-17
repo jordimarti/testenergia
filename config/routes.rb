@@ -1,6 +1,6 @@
 Testenergia::Application.routes.draw do
   
-  get "casajuga/index"
+  get '/casajuga', :to => redirect('/casajuga.html')
   get "report/print"
   get "default_improvements/index"
   get "contacte/index"

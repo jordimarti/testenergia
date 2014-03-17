@@ -1,104 +1,3 @@
-<!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta lang="ca">
-        <title>Amb la casa sí que s'hi juga</title>
-        <meta name="description" content="Aplicació educativa per a la rehabilitació energètica d'habitatges">
-        <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-    </head>
-
-    <body class="background-casajuga">
-        <div class="container">
-            <div id="left-panel">
-                <div class="logo_inici">
-                    <%= image_tag("casajuga/logo_casa.jpg") %>
-                </div>
-            </div>
-            <div id="right-panel">
-                
-                <div id="indicators-container">
-                    
-                    <div id="container-energy">
-                        <div id="text-energy">Consum d'energia</div>
-                        <div id="energy-consumption">
-                            <div id="energy-bar">
-                                <div id="energy-fill"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="container-money">
-                        <div id="text-money">Monedes</div>
-                        <div id="money">100</div>
-                    </div>
-                    <div id="container-reload">
-                        <div id="reload"><a class="link_reiniciar" href="index.html">Reiniciar</a></div>
-                    </div>
-                </div>
-                
-
-                <div id="items-container">
-                    <div id="tendal" class="items" value="2"><%= image_tag("casajuga/tendal.jpg", width: '110', height: '76') %></div>
-                    <div id="aillant" class="items" value="0"><%= image_tag("casajuga/aillant.jpg", width: '110', height: '76') %></div>
-                    <div id="televisor" class="items" value="5"><%= image_tag("casajuga/televisor.jpg", width: '110', height: '76') %></div>
-                    <div id="pintura" class="items" value="7"><%= image_tag("casajuga/pintura.jpg", width: '110', height: '76') %></div>
-                    <div id="finestres" class="items" value="1"><%= image_tag("casajuga/finestra.jpg", width: '110', height: '76') %></div>
-                    <div id="captadors_termics" class="items" value="10"><%= image_tag("casajuga/captadors_termics.jpg", width: '110', height: '76') %></div>
-                    <div id="jacuzzi" class="items" value="8"><%= image_tag("casajuga/jacuzzi.jpg", width: '110', height: '76') %></div>
-                    <div id="lampades" class="items" value="4"><%= image_tag("casajuga/llums.jpg", width: '110', height: '76') %></div>
-                    <div id="plantes" class="items" value="9"><%= image_tag("casajuga/plantes.jpg", width: '110', height: '76') %></div>
-                    <div id="caldera" class="items" value="3"><%= image_tag("casajuga/caldera.jpg", width: '110', height: '76') %></div>
-                    <div id="electrodomestics" class="items" value="6"><%= image_tag("casajuga/electrodomestics.jpg", width: '110', height: '76') %></div>
-                    <div id="captadors_fotovoltaics" class="items" value="11"><%= image_tag("casajuga/captadors_fotovoltaics.jpg", width: '110', height: '76') %></div>
-                </div>
-                
-                <div class="house">
-                    
-                    <div id="casa"><%= image_tag("casajuga/casa_neta.png") %></div>
-                    <div id="casa_pintura"><%= image_tag("casajuga/casa_pintura.png") %></div>
-                    <div id="casa_finestres"><%= image_tag("casajuga/casa_finestres.png") %></div>
-                    <div id="casa_tendal"><%= image_tag("casajuga/casa_tendal.png") %></div>
-                    <div id="casa_captadors_termics"><%= image_tag("casajuga/casa_captadors_termics.png") %></div>
-                    <div id="casa_jacuzzi"><%= image_tag("casajuga/casa_jacuzzi.png") %></div>
-                    <div id="casa_plantes"><%= image_tag("casajuga/casa_plantes.png") %></div>
-                    <div id="casa_aillament"><%= image_tag("casajuga/casa_aillada.png") %></div>
-                    <div id="casa_tele"><%= image_tag("casajuga/casa_tele.png") %></div>
-                    <div id="casa_captadors_fotovoltaics"><%= image_tag("casajuga/casa_captadors_fotovoltaics.png") %></div>
-                    
-                    <div id="punt_pintura"><%= image_tag("casajuga/punt.png") %></div>
-                    <div id="punt_finestres"><%= image_tag("casajuga/punt.png") %></div>
-                    <div id="punt_tendal"><%= image_tag("casajuga/punt.png") %></div>
-                    <div id="punt_captadors_termics"><%= image_tag("casajuga/punt.png") %></div>
-                    <div id="punt_jacuzzi"><%= image_tag("casajuga/punt.png") %></div>
-                    <div id="punt_plantes"><%= image_tag("casajuga/punt.png") %></div>
-                    <div id="punt_aillament"><%= image_tag("casajuga/punt.png") %></div>
-                    <div id="punt_tele"><%= image_tag("casajuga/punt.png") %></div>
-                    <div id="punt_captadors_fotovoltaics"><%= image_tag("casajuga/punt.png") %></div>
-                    <div id="punt_llums"><%= image_tag("casajuga/punt.png") %></div>
-                    <div id="punt_caldera"><%= image_tag("casajuga/punt.png") %></div>
-                    <div id="punt_electrodomestics"><%= image_tag("casajuga/punt.png") %></div>
-                    
-                    <div id="text_pintura" class="text_items"><h3>Pintura</h3><p>En climes càlids els colors clars poden fer estalviar energia perquè reflexen la radiació del Sol.</p></div>
-                    <div id="text_finestres" class="text_items"><h3>Finestres</h3><p>Unes bones finestres que tanquin bé fan que no s'escapi l'aire climatitzat.</p></div>
-                    <div id="text_tendal" class="text_items"><h3>Tendal</h3><p>El tendal protegeix les finestres de la radiació solar, així a l'estiu la casa està més fresca.</p></div>
-                    <div id="text_captadors_termics" class="text_items"><h3>Captadors solars tèrmics</h3><p>Escalfen l'aigua amb l'energia del Sol. Així quan l'aigua arriba a la caldera ja gairebé no cal escalfar-la més.</p></div>
-                    <div id="text_jacuzzi" class="text_items"><h3>Jacuzzi</h3><p>És divertit tenir un jacuzzi a casa, però fa que gastem més aigua i energia.</p></div>
-                    <div id="text_plantes" class="text_items"><h3>Plantes</h3><p>És interessant tenir plantes a casa, perquè poden captar pols i refrescar l'ambient. De totes maneres les quatre floretes que hem posat aquí no faran gran cosa per estalviar energia.</p></div>
-                    <div id="text_aillament" class="text_items"><h3>Aïllament</h3><p>Aïllar els edificis permet un gran estalvi d'energia. És com posar un abric a la casa.</p></div>
-                    <div id="text_tele" class="text_items"><h3>Televisor</h3><p>Tenir un televisor més gran no farà que estalviem energia.</p></div>
-                    <div id="text_captadors_fotovoltaics" class="text_items"><h3>Captadors solars fotovoltaics</h3><p>Gràcies a la radiació del Sol generen electricitat que podem utilitzar per alimentar els electrodomèstics de casa.</p></div>
-                    <div id="text_llums" class="text_items"><h3>Llums</h3><p>Si canviem totes les bombetes i fluorescents de casa podem tenir la mateixa il·luminació gastant menys electricitat.</p></div>
-                    <div id="text_caldera" class="text_items"><h3>Caldera</h3><p>Encara que per fora semblin totes iguals, hi ha calderes que consumeixen menys energia per escalfar l'aigua.</p></div>
-                    <div id="text_electrodomestics" class="text_items"><h3>Electrodomèstics</h3><p>Escollir els electrodomèstics més eficients fa que poguem estalviar aigua i energia cada vegada que els utilitzem.</p></div>
-                    
-                </div>
-                
-                <div id="advertiser"><%= image_tag("casajuga/advertiser.png") %></div>
-                
-            </div>
-        </div>
-
-        <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-        <script>
 /* ----------------------------
 APP
 Amb la casa sí que s'hi juga 
@@ -165,7 +64,7 @@ $(document).ready(function() {
     $("#text_captadors_fotovoltaics").hide();
 
     $("#tendal").click(function(){
-        $(this).html('<img src="../assets/casajuga/tendal_off.jpg" alt="tendal" width="110" height="76">');
+        $(this).html('<img src="img/tendal_off.jpg" alt="tendal" width="110" height="76">');
         $("#casa_tendal").show();
         $("#punt_tendal").show();
         $("#punt_tendal").mouseover(function() {
@@ -176,7 +75,7 @@ $(document).ready(function() {
         });
     });
     $("#aillant").click(function(){
-        $(this).html('<img src="../assets/casajuga/aillant_off.jpg" alt="aïllant tèrmic" width="110" height="76">');
+        $(this).html('<img src="img/aillant_off.jpg" alt="aïllant tèrmic" width="110" height="76">');
         $("#casa_aillament").show();
         $("#punt_aillament").show();
         $("#punt_aillament").mouseover(function() {
@@ -187,7 +86,7 @@ $(document).ready(function() {
         });
     });
     $("#televisor").click(function(){
-        $(this).html('<img src="../assets/casajuga/televisor_off.jpg" alt="televisor" width="110" height="76">');
+        $(this).html('<img src="img/televisor_off.jpg" alt="televisor" width="110" height="76">');
         $("#casa_tele").show();
         $("#punt_tele").show();
         $("#punt_tele").mouseover(function() {
@@ -198,7 +97,7 @@ $(document).ready(function() {
         });
     });
     $("#pintura").click(function(){
-        $(this).html('<img src="../assets/casajuga/pintura_off.jpg" alt="pintura" width="110" height="76">');
+        $(this).html('<img src="img/pintura_off.jpg" alt="pintura" width="110" height="76">');
         $("#casa_pintura").show();
         $("#punt_pintura").show();
         $("#punt_pintura").mouseover(function() {
@@ -209,7 +108,7 @@ $(document).ready(function() {
         });
     });
     $("#finestres").click(function(){
-        $(this).html('<img src="../assets/casajuga/finestra_off.jpg" alt="finestra" width="110" height="76">');
+        $(this).html('<img src="img/finestra_off.jpg" alt="finestra" width="110" height="76">');
         $("#casa_finestres").show();
         $("#punt_finestres").show();
         $("#punt_finestres").mouseover(function() {
@@ -220,7 +119,7 @@ $(document).ready(function() {
         });
     });
     $("#jacuzzi").click(function(){
-        $(this).html('<img src="../assets/casajuga/jacuzzi_off.jpg" alt="jacuzzi" width="110" height="76">');
+        $(this).html('<img src="img/jacuzzi_off.jpg" alt="jacuzzi" width="110" height="76">');
         $("#casa_jacuzzi").show();
         $("#punt_jacuzzi").show();
         $("#punt_jacuzzi").mouseover(function() {
@@ -231,7 +130,7 @@ $(document).ready(function() {
         });
     });
     $("#lampades").click(function(){
-        $(this).html('<img src="../assets/casajuga/llums_off.jpg" alt="lampades" width="110" height="76">');
+        $(this).html('<img src="img/llums_off.jpg" alt="lampades" width="110" height="76">');
         $("#casa_llums").show();
         $("#punt_llums").show();
         $("#punt_llums").mouseover(function() {
@@ -242,7 +141,7 @@ $(document).ready(function() {
         });
     });
     $("#plantes").click(function(){
-        $(this).html('<img src="../assets/casajuga/plantes_off.jpg" alt="plantes" width="110" height="76">');
+        $(this).html('<img src="img/plantes_off.jpg" alt="plantes" width="110" height="76">');
         $("#casa_plantes").show();
         $("#punt_plantes").show();
         $("#punt_plantes").mouseover(function() {
@@ -253,7 +152,7 @@ $(document).ready(function() {
         });
     });
     $("#caldera").click(function(){
-        $(this).html('<img src="../assets/casajuga/caldera_off.jpg" alt="caldera" width="110" height="76">');
+        $(this).html('<img src="img/caldera_off.jpg" alt="caldera" width="110" height="76">');
         $("#casa_caldera").show();
         $("#punt_caldera").show();
         $("#punt_caldera").mouseover(function() {
@@ -264,7 +163,7 @@ $(document).ready(function() {
         });
     });
     $("#electrodomestics").click(function(){
-        $(this).html('<img src="../assets/casajuga/electrodomestics_off.jpg" alt="electrodomestics" width="110" height="76">');
+        $(this).html('<img src="img/electrodomestics_off.jpg" alt="electrodomestics" width="110" height="76">');
         $("#casa_electrodomestics").show();
         $("#punt_electrodomestics").show();
         $("#punt_electrodomestics").mouseover(function() {
@@ -275,7 +174,7 @@ $(document).ready(function() {
         });
     });
     $("#captadors_termics").click(function(){
-        $(this).html('<img src="../assets/casajuga/captadors_termics_off.jpg" alt="captadors tèrmics" width="110" height="76">');
+        $(this).html('<img src="img/captadors_termics_off.jpg" alt="captadors tèrmics" width="110" height="76">');
         $("#casa_captadors_termics").show();
         $("#punt_captadors_termics").show();
         $("#punt_captadors_termics").mouseover(function() {
@@ -286,7 +185,7 @@ $(document).ready(function() {
         });
     });
     $("#captadors_fotovoltaics").click(function(){
-        $(this).html('<img src="../assets/casajuga/captadors_fotovoltaics_off.jpg" alt="captadors fotovoltaics" width="110" height="76">');
+        $(this).html('<img src="img/captadors_fotovoltaics_off.jpg" alt="captadors fotovoltaics" width="110" height="76">');
         $("#casa_captadors_fotovoltaics").show();
         $("#punt_captadors_fotovoltaics").show();
         $("#punt_captadors_fotovoltaics").mouseover(function() {
@@ -299,7 +198,7 @@ $(document).ready(function() {
 
     
     function obtenir_text(id_item) {
-        $.getJSON( "../data/respostes.json", function( data ) {
+        $.getJSON( "data/respostes.json", function( data ) {
             var resposta = data.elements[fase].respostes[id_item].text_resposta;
             escriu_resposta(resposta);
             canvi_fase();  
@@ -392,7 +291,7 @@ $(document).ready(function() {
         fase++;
         if (fase == 1 && valor_items[1] == 0) {
             setTimeout(function(){
-                var text_fase1 = 'Si l\'aire calent s\'escapa cap a fora hem de fer servir més la calefacció. Se t\'acudeix alguna solució?<img class="chat-image" src="../assets/casajuga/chat_aire_escapa.jpg" alt="Aire escapa">';
+                var text_fase1 = 'Si l\'aire calent s\'escapa cap a fora hem de fer servir més la calefacció. Se t\'acudeix alguna solució?<img class="chat-image" src="img/chat_aire_escapa.jpg" alt="Aire escapa">';
                 escriu_resposta(text_fase1);
                 $("#left-panel").scrollTop($("#left-panel").height());
             }, 3000);
@@ -402,7 +301,7 @@ $(document).ready(function() {
         }
         if (fase == 2 && valor_items[2] == 0) {
             setTimeout(function(){
-                var text_fase2 = 'A l\'estiu entren els rajos del sol i la casa s\'escalfa tant que sembla un forn. Hem de fer alguna cosa per evitar-ho!<img class="chat-image" src="../assets/casajuga/chat_rajos_sol.jpg" alt="Radiació solar">';
+                var text_fase2 = 'A l\'estiu entren els rajos del sol i la casa s\'escalfa tant que sembla un forn. Hem de fer alguna cosa per evitar-ho!<img class="chat-image" src="img/chat_rajos_sol.jpg" alt="Radiació solar">';
                 escriu_resposta(text_fase2);
                 $("#left-panel").scrollTop($("#left-panel").height()); 
             }, 3000);
@@ -412,14 +311,14 @@ $(document).ready(function() {
         }
         if (fase == 3) {
             setTimeout(function(){
-                var text_fase3 = 'Se t\'acudeix alguna manera de gastar menys gas natural? Les factures són tan elevades que posen els pèls de punta!<img class="chat-image" src="../assets/casajuga/chat_cremador.jpg" alt="Despesa de gas natural">';
+                var text_fase3 = 'Se t\'acudeix alguna manera de gastar menys gas natural? Les factures són tan elevades que posen els pèls de punta!<img class="chat-image" src="img/chat_cremador.jpg" alt="Despesa de gas natural">';
                 escriu_resposta(text_fase3);
                 $("#left-panel").scrollTop($("#left-panel").height());
             }, 3000);
         }
         if (fase == 4) {
             setTimeout(function(){
-                var text_fase4 = 'Estaria bé trobar la manera de gastar menys electricitat. Com ho podríem fer?<img class="chat-image" src="../assets/casajuga/chat_electricitat.jpg" alt="Despesa elèctrica">';
+                var text_fase4 = 'Estaria bé trobar la manera de gastar menys electricitat. Com ho podríem fer?<img class="chat-image" src="img/chat_electricitat.jpg" alt="Despesa elèctrica">';
                 escriu_resposta(text_fase4);
                 $("#left-panel").scrollTop($("#left-panel").height());
             }, 3000);
@@ -485,7 +384,7 @@ $(document).ready(function() {
 
     //Aquí escrivim els textos introductoris
     setTimeout(function(){
-        var text_intro1 = 'Aquesta casa consumeix massa energia!<img src="../assets/casajuga/toni_inici.jpg" alt="Toni">';
+        var text_intro1 = 'Aquesta casa consumeix massa energia!<img src="img/toni_inici.jpg" alt="Toni">';
         escriu_resposta(text_intro1);
     }, 100);
     setTimeout(function(){
@@ -493,7 +392,7 @@ $(document).ready(function() {
         escriu_resposta(text_intro2);
     }, 2000);
     setTimeout(function(){
-        var text_intro3 = 'Veig que es perd calor per les façanes, la coberta i el terra. Com ho podríem evitar?<img class="chat-image" src="../assets/casajuga/chat_perdua_calor.jpg" alt="Pèrdua de calor">';
+        var text_intro3 = 'Veig que es perd calor per les façanes, la coberta i el terra. Com ho podríem evitar?<img class="chat-image" src="img/chat_perdua_calor.jpg" alt="Pèrdua de calor">';
         escriu_resposta(text_intro3);
     }, 4000);
     setTimeout(function(){
@@ -510,8 +409,3 @@ $(document).ready(function() {
     }, 5000);
 
 });
-
-        </script>
-    </body>
-
-</html>

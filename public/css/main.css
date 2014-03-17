@@ -1,8 +1,3 @@
-// Place all the styles related to the casajuga controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -16,16 +11,16 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
 
-body.background-casajuga {
-    background: url(image-path('casajuga/bg_marro.jpg')) repeat left;
+body {
+    background: url(../img/bg_marro.jpg) repeat left;
     font-family: arial, sans-serif;
 }   
 
@@ -79,7 +74,7 @@ body.background-casajuga {
 }
 
 #energy-consumption {
-    background-image: url(image-path('casajuga/barra_energia.jpg'));
+    background-image: url(../img/barra_energia.jpg);
     width: 454px;
     height: 38px;
     box-shadow: 5px 5px 5px #888888;
@@ -93,7 +88,7 @@ body.background-casajuga {
 }
 
 #energy-fill {
-    background-image: url(image-path('casajuga/gradient_energia.jpg'));
+    background-image: url(../img/gradient_energia.jpg);
     height: 26px;
     width: 89%;
 }
@@ -106,7 +101,7 @@ body.background-casajuga {
 }
 
 #money {
-    background-image: url(image-path('casajuga/monedes.jpg'));
+    background-image: url(../img/monedes.jpg);
     width: 66px;
     height: 31px;
     color: white;
@@ -125,7 +120,7 @@ body.background-casajuga {
 }
 
 #reload {
-    background-image: url(image-path('casajuga/reinici.jpg'));
+    background-image: url(../img/reinici.jpg);
     width: 76px;
     height: 26px;
     color: white;
@@ -460,19 +455,19 @@ body.background-casajuga {
 }
 
 .final_explica_decepcionat {
-    background-image: url(image-path('casajuga/toni_final_explica_decepcionat.jpg'));
+    background-image: url(../img/toni_final_explica_decepcionat.jpg);
 }
 
 .final_explica {
-    background-image: url(image-path('casajuga/toni_final_explica.jpg'));
+    background-image: url(../img/toni_final_explica.jpg);
 }
 
 .final_content {
-    background-image: url(image-path('casajuga/toni_final_content.jpg'));
+    background-image: url(../img/toni_final_content.jpg);
 }
 
 .final_content_2 {
-    background-image: url(image-path('casajuga/toni_final_content_2')); 
+    background-image: url(../img/toni_final_content_2.jpg);
 }
 
 #advertiser {
