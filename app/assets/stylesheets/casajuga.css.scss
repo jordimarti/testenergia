@@ -1,0 +1,487 @@
+// Place all the styles related to the casajuga controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+body.background-casajuga {
+    background: url(image-path('casajuga/bg_marro.jpg')) repeat left;
+    font-family: arial, sans-serif;
+}   
+
+
+.container {
+    
+}
+
+.logo_inici {
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: white;
+}
+
+#left-panel {
+    background: #fff;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding: 5px;
+    border-right: 1px solid #bbb;
+    box-shadow: 0 0 20px #ccc;
+    box-shadow: 5px 0px 5px #888888;
+    background-color: #444444;
+}
+
+
+#right-panel {
+    position: relative;
+    width: 740px;
+    margin: 8px 0 50px 220px;
+    z-index: 0;
+}
+
+#indicators-container {
+    position: relative;  
+    margin-bottom: 15px;
+    height: 50px;
+}
+
+#container-energy {
+    float: left;
+    color: #333;
+    font-size: 13px;
+}
+
+#energy-consumption {
+    background-image: url(image-path('casajuga/barra_energia.jpg'));
+    width: 454px;
+    height: 38px;
+    box-shadow: 5px 5px 5px #888888;
+}
+
+#energy-bar {
+    width: 410px;
+    height: 26px;
+    padding-top: 6px;
+    padding-left: 40px;
+}
+
+#energy-fill {
+    background-image: url(image-path('casajuga/gradient_energia.jpg'));
+    height: 26px;
+    width: 89%;
+}
+
+#container-money {
+    float: left;
+    margin-left: 12px;
+    color: #333;
+    font-size: 13px;
+}
+
+#money {
+    background-image: url(image-path('casajuga/monedes.jpg'));
+    width: 66px;
+    height: 31px;
+    color: white;
+    font-weight: bold;
+    font-size: 26px;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    padding-left: 50px;
+    box-shadow: 5px 5px 5px #888888;
+}
+
+#container-reload {
+    float: left;
+    margin-left: 12px;
+    margin-top: 15px;
+}
+
+#reload {
+    background-image: url(image-path('casajuga/reinici.jpg'));
+    width: 76px;
+    height: 26px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 2px;
+    padding-left: 40px;
+    box-shadow: 5px 5px 5px #888888;
+}
+
+.link_reiniciar {
+    text-decoration: none;
+    color: white;
+}
+
+.link_reiniciar:hover {
+    text-decoration: none;
+    color: #999;
+}
+
+#items-container {
+    clear: both;
+    position: relative;
+    margin-top: 20px;
+    height: 172px;
+}
+
+.items {
+    width: 110px;
+    height: 76px;
+    margin: 0px 10px 10px 0px;
+    float: left;
+    box-shadow: 5px 5px 5px #888888;
+}
+
+.chat {
+    background-color: white;
+    font-size: 12px;
+    margin-bottom: 5px;
+    padding: 5px;
+    color: #333;
+}
+
+.chat-image {
+    margin-bottom: -8px;   
+}
+
+.time {
+    color: #666;
+    text-align: right;
+}
+
+.house {
+    clear: both;
+    position: relative;
+    margin: 20px 0px 0px 40px;
+}
+
+/* Imatges */
+
+#casa {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    
+}
+
+#casa_pintura {
+    position: absolute;
+    top: 26px;
+    left: 207px;
+    
+}
+
+#casa_finestres {
+    position: absolute;
+    top: 132px;
+    left: 261px;
+    
+}
+
+#casa_tendal {
+    position: absolute;
+    top: 105px;
+    left: 245px;
+    
+}
+
+#casa_captadors_termics {
+    position: absolute;
+    top: 0px;
+    left: 190px;
+    
+}
+
+#casa_jacuzzi {
+    position: absolute;
+    top: 190px;
+    left: 429px;
+    
+}
+
+#casa_plantes {
+    position: absolute;
+    top: 245px;
+    left: 226px;
+    
+}
+
+#casa_aillament {
+    position: absolute;
+    top: 67px;
+    left: 1px;
+    
+}
+
+#casa_tele {
+    position: absolute;
+    top: 326px;
+    left: 260px;
+    
+}
+
+#casa_captadors_fotovoltaics {
+    position: absolute;
+    top: 29px;
+    left: 100px;
+    
+}
+
+
+#punt_pintura {
+    position: absolute;
+    top: 356px;
+    left: 440px;
+    
+}
+
+#punt_finestres {
+    position: absolute;
+    top: 312px;
+    left: 590px;
+    
+}
+
+#punt_tendal {
+    position: absolute;
+    top: 115px;
+    left: 380px;
+    
+}
+
+#punt_captadors_termics {
+    position: absolute;
+    top: 10px;
+    left: 280px;
+    
+}
+
+#punt_jacuzzi {
+    position: absolute;
+    top: 190px;
+    left: 559px;
+    
+}
+
+#punt_plantes {
+    position: absolute;
+    top: 385px;
+    left: 610px;
+    
+}
+
+#punt_aillament {
+    position: absolute;
+    top: 450px;
+    left: 270px;
+    
+}
+
+#punt_tele {
+    position: absolute;
+    top: 326px;
+    left: 260px;
+    
+}
+
+#punt_captadors_fotovoltaics {
+    position: absolute;
+    top: 49px;
+    left: 100px;
+    
+}
+
+#punt_electrodomestics {
+    position: absolute;
+    top: 329px;
+    left: 60px;
+    
+}
+
+#punt_llums {
+    position: absolute;
+    top: 180px;
+    left: 18px;
+    
+}
+
+#punt_caldera {
+    position: absolute;
+    top: 279px;
+    left: 10px;
+    
+}
+
+.text_items {
+    background-color: #333;
+    padding: 10px;
+    width: 250px;
+    opacity:0.85;
+    display: none;
+}
+
+.text_items > h3 {
+    color: white;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.text_items > p {
+    color: white;
+    font-size: 13px;
+}
+
+#text_pintura {
+    position: absolute;
+    top: 356px;
+    left: 480px;
+    
+}
+
+#text_finestres {
+    position: absolute;
+    top: 312px;
+    left: 320px;
+    
+}
+
+#text_tendal {
+    position: absolute;
+    top: 115px;
+    left: 410px;
+    
+}
+
+#text_captadors_termics {
+    position: absolute;
+    top: 10px;
+    left: 320px;
+    
+}
+
+#text_jacuzzi {
+    position: absolute;
+    top: 190px;
+    left: 280px;
+    
+}
+
+#text_plantes {
+    position: absolute;
+    top: 355px;
+    left: 330px;
+    
+}
+
+#text_aillament {
+    position: absolute;
+    top: 410px;
+    left: 300px;
+    
+}
+
+#text_tele {
+    position: absolute;
+    top: 326px;
+    left: 300px;
+    
+}
+
+#text_captadors_fotovoltaics {
+    position: absolute;
+    top: 49px;
+    left: 140px;
+    
+}
+
+#text_electrodomestics {
+    position: absolute;
+    top: 329px;
+    left: 100px;
+    
+}
+
+#text_llums {
+    position: absolute;
+    top: 180px;
+    left: 58px;
+    
+}
+
+#text_caldera {
+    position: absolute;
+    top: 279px;
+    left: 50px;
+    
+}
+
+.container_final {
+    width: 490px;
+    height: 172px;
+    padding-left: 220px;
+    box-shadow: 5px 5px 5px #888888;
+}
+
+.container_final > p {
+    color: #555;
+    font-size: 16px;
+    padding-top: 14px;
+}
+
+.final_explica_decepcionat {
+    background-image: url(image-path('casajuga/toni_final_explica_decepcionat.jpg'));
+}
+
+.final_explica {
+    background-image: url(image-path('casajuga/toni_final_explica.jpg'));
+}
+
+.final_content {
+    background-image: url(image-path('casajuga/toni_final_content.jpg'));
+}
+
+.final_content_2 {
+    background-image: url(image-path('casajuga/toni_final_content_2')); 
+}
+
+#advertiser {
+    position: absolute;
+    top: 250px;
+    left: 207px;
+    z-index: 100;
+    display: none;
+}
+
+.last-margin {
+    height: 200px;   
+}
