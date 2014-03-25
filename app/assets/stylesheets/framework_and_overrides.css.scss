@@ -136,3 +136,11 @@ h3 {
 
 }
 
+@media print {
+  * {
+    text-shadow: inherit;
+    color: inherit;
+    background: inherit;
+    box-shadow: inherit;
+  }
+}
