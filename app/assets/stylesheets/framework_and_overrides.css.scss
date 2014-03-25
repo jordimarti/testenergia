@@ -138,9 +138,9 @@ h3 {
 
 @media print {
   * {
-    text-shadow: inherit;
-    color: inherit;
-    background: inherit;
-    box-shadow: inherit;
+    text-shadow: inherit !important;
+    color: inherit !important;
+    background: inherit !important;
+    box-shadow: inherit !important;
   }
 }
