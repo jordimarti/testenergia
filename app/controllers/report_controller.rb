@@ -42,7 +42,7 @@ class ReportController < ApplicationController
     @cost_electrodomestics = @consum_electrodomestics * @indicador_costos_electrodomestics
     @valoracio_electrodomestics = valoracio_consum 'electrodomestics', @consum_electrodomestics, @xproject.id
 
-    render layout: "print_layout"
+    render layout: "report_layout"
   end
 
   #Method to calculate emissions for the report above
