@@ -1,0 +1,33 @@
+<div class="container">
+<div class="row">
+	<div class="col-md-12">
+		<h2>Quadre de control de l'administrador</h2>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+		<h3>Llistat d'experts</h3>
+		<ol>
+		<% @experts.each do |expert| %>
+			<li>
+			<%= link_to :action => 'show', :id => expert.id do %>
+        <%= expert.email %>
+      <% end %>
+    	</li>
+		<% end %>
+		</ol>
+		<%= link_to :controller => 'experts', :action => 'sign_up' do %>
+	      <div class="btn button-new">Registrar un nou expert</div>
+	    <% end %>
+	</div>
+	<div class="col-md-5 col-md-offset-1">
+		<h3>Llistat de projectes</h3>
+		<% @xprojects.each do |xproject| %>
+			<div>
+				<h4><%= xproject.name %></h4>
+			</div>
+		<% end %>
+	</div>
+</div>
+</div>
