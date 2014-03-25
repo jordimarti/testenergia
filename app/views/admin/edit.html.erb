@@ -9,10 +9,10 @@
 	</div>
 
 	<div class="row">
+		<%= form_for(:expert, :url => {:action => 'update', :id => @expert.id}) do |f| %>
 		<div class="col-md-6">
-			<%= form_for(:expert, :url => {:action => 'update', :id => @expert.id}) do |f| %>
-
-				<%= f.error_messages %>
+			
+			<%= f.error_messages %>
 
 	      <div class="form-group"><%= f.label :expert_first_name, "Nom" %>
 	      	<%= f.text_field :expert_first_name, :autofocus => true, :class => 'form-control' %>
@@ -73,9 +73,11 @@
 
 	      
 	    </div>
-	    <div class="col-md-6">
-	    	<div><%= f.submit "Guardar les dades", :class => "btn button-new" %></div>
-	    </div>
+	    <div class="row">
+		    <div class="col-md-6">
+		    	<div><%= f.submit "Guardar les dades", :class => "btn button-new" %></div>
+		    </div>
+		  </div>
 			<% end %>
 		</div>
 	</div>
