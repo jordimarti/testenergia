@@ -130,7 +130,7 @@
             <td><%= @xproject.facade_definition %></td>
             <td>
               <% @xproject.facade_score.times do %>
-                <span class="glyphicon glyphicon-star"> </span>
+                <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %>
               <% end %>
             </td>
           </tr>
@@ -139,7 +139,7 @@
             <td><%= @xproject.roof_definition %></td>
             <td>
               <% @xproject.roof_score.times do %>
-                <span class="glyphicon glyphicon-star"> </span>
+                <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %>
               <% end %>
             </td>
           </tr>
@@ -148,7 +148,7 @@
             <td><%= @xproject.floor_definition %></td>
             <td>
               <% @xproject.floor_score.times do %>
-                <span class="glyphicon glyphicon-star"> </span>
+                <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %>
               <% end %>
             </td>
           </tr>
@@ -157,7 +157,7 @@
             <td><%= @xproject.windows_definition %></td>
             <td>
               <% @xproject.windows_score.times do %>
-                <span class="glyphicon glyphicon-star"> </span>
+                <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %>
               <% end %>
             </td>
           </tr>
@@ -166,7 +166,7 @@
             <td><%= @xproject.hot_water_definition %></td>
             <td>
               <% @xproject.hot_water_score.times do %>
-                <span class="glyphicon glyphicon-star"> </span>
+                <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %>
               <% end %>
             </td>
           </tr>
@@ -175,7 +175,7 @@
             <td><%= @xproject.heating_definition %></td>
             <td>
               <% @xproject.heating_score.times do %>
-                <span class="glyphicon glyphicon-star"> </span>
+                <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %>
               <% end %>
             </td>
           </tr>
@@ -184,7 +184,7 @@
             <td><%= @xproject.cooling_definition %></td>
             <td>
               <% @xproject.cooling_score.times do %>
-                <span class="glyphicon glyphicon-star"> </span>
+                <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %>
               <% end %>
             </td>
           </tr>
@@ -193,7 +193,7 @@
             <td><%= @xproject.lighting_definition %></td>
             <td>
               <% @xproject.lighting_score.times do %>
-                <span class="glyphicon glyphicon-star"> </span>
+                <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %>
               <% end %>
             </td>
           </tr>
@@ -202,7 +202,7 @@
             <td><%= @xproject.appliances_definition %></td>
             <td>
               <% @xproject.appliances_score.times do %>
-                <span class="glyphicon glyphicon-star"> </span>
+                <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %>
               <% end %>
             </td>
           </tr>
@@ -213,7 +213,7 @@
         La valoració que es fa de l'eficiència energètica de cada element és la global per aquell tipus d'element. Per exemple en el cas que hi hagi diferents tipus de façanes la valoració és del conjunt, no d'un tipus de façana en concret.
       </p>
       <p class="print-explicacio">
-        <span class="glyphicon glyphicon-star"> </span> Dolent | <span class="glyphicon glyphicon-star"> </span><span class="glyphicon glyphicon-star"> </span><span class="glyphicon glyphicon-star"> </span> Acceptable | <span class="glyphicon glyphicon-star"> </span><span class="glyphicon glyphicon-star"> </span><span class="glyphicon glyphicon-star"> </span><span class="glyphicon glyphicon-star"> </span><span class="glyphicon glyphicon-star"> </span> Molt bo
+        <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %> Dolent | <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %><%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %><%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %> Acceptable | <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %><%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %><%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %><%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %><%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %> Molt bo
       </p>
     </div>
   </div>
@@ -239,15 +239,15 @@
           <td> 
             <% case @valoracio_calefaccio %>
               <% when -2 %>
-                <span class="glyphicon glyphicon-arrow-down positive"> </span><span class="glyphicon glyphicon-arrow-down positive"> </span>
+                <%= image_tag('font_icons/fletxa-verda-avall.png', width: "14", height: "14")  %><%= image_tag('font_icons/fletxa-verda-avall.png', width: "14", height: "14")  %>
               <% when -1 %>
-                <span class="glyphicon glyphicon-arrow-down positive"> </span>
+                <%= image_tag('font_icons/fletxa-verda-avall.png', width: "14", height: "14")  %>
               <% when 0 %>
-                <span class="glyphicon glyphicon-record"> </span>
+                <%= image_tag('font_icons/igual.png', width: "14", height: "14")  %>
               <% when 1 %>
-                <span class="glyphicon glyphicon-arrow-up negative"> </span>
+                <%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "14", height: "14")  %>
               <% when 2 %>
-                <span class="glyphicon glyphicon-arrow-up negative"> </span><span class="glyphicon glyphicon-arrow-up negative"> </span>
+                <%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "14", height: "14")  %><%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "14", height: "14")  %>
             <% end %>
           </td>
         </tr>
@@ -259,15 +259,15 @@
           <td> 
             <% case @valoracio_refrigeracio %>
               <% when -2 %>
-                <span class="glyphicon glyphicon-arrow-down positive"> </span><span class="glyphicon glyphicon-arrow-down positive"> </span>
+                <%= image_tag('font_icons/fletxa-verda-avall.png', width: "14", height: "14")  %><%= image_tag('font_icons/fletxa-verda-avall.png', width: "14", height: "14")  %>
               <% when -1 %>
-                <span class="glyphicon glyphicon-arrow-down positive"> </span>
+                <%= image_tag('font_icons/fletxa-verda-avall.png', width: "14", height: "14")  %>
               <% when 0 %>
-                <span class="glyphicon glyphicon-record"> </span>
+                <%= image_tag('font_icons/igual.png', width: "14", height: "14")  %>
               <% when 1 %>
-                <span class="glyphicon glyphicon-arrow-up negative"> </span>
+                <%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "14", height: "14")  %>
               <% when 2 %>
-                <span class="glyphicon glyphicon-arrow-up negative"> </span><span class="glyphicon glyphicon-arrow-up negative"> </span>
+                <%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "14", height: "14")  %><%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "14", height: "14")  %>
             <% end %>
           </td>
         </tr>
@@ -279,15 +279,15 @@
           <td> 
             <% case @valoracio_acs %>
               <% when -2 %>
-                <span class="glyphicon glyphicon-arrow-down positive"> </span><span class="glyphicon glyphicon-arrow-down positive"> </span>
+                <%= image_tag('font_icons/fletxa-verda-avall.png', width: "14", height: "14")  %><%= image_tag('font_icons/fletxa-verda-avall.png', width: "14", height: "14")  %>
               <% when -1 %>
-                <span class="glyphicon glyphicon-arrow-down positive"> </span>
+                <%= image_tag('font_icons/fletxa-verda-avall.png', width: "14", height: "14")  %>
               <% when 0 %>
-                <span class="glyphicon glyphicon-record"> </span>
+                <%= image_tag('font_icons/igual.png', width: "14", height: "14")  %>
               <% when 1 %>
-                <span class="glyphicon glyphicon-arrow-up negative"> </span>
+                <%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "14", height: "14")  %>
               <% when 2 %>
-                <span class="glyphicon glyphicon-arrow-up negative"> </span><span class="glyphicon glyphicon-arrow-up negative"> </span>
+                <%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "14", height: "14")  %><%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "14", height: "14")  %>
             <% end %>
           </td>
         </tr>
@@ -299,15 +299,15 @@
           <td> 
             <% case @valoracio_iluminacio %>
               <% when -2 %>
-                <span class="glyphicon glyphicon-arrow-down positive"> </span><span class="glyphicon glyphicon-arrow-down positive"> </span>
+                <%= image_tag('font_icons/fletxa-verda-avall.png', width: "14", height: "14")  %><%= image_tag('font_icons/fletxa-verda-avall.png', width: "14", height: "14")  %>
               <% when -1 %>
-                <span class="glyphicon glyphicon-arrow-down positive"> </span>
+                <%= image_tag('font_icons/fletxa-verda-avall.png', width: "14", height: "14")  %>
               <% when 0 %>
-                <span class="glyphicon glyphicon-record"> </span>
+                <%= image_tag('font_icons/igual.png', width: "14", height: "14")  %>
               <% when 1 %>
-                <span class="glyphicon glyphicon-arrow-up negative"> </span>
+                <%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "14", height: "14")  %>
               <% when 2 %>
-                <span class="glyphicon glyphicon-arrow-up negative"> </span><span class="glyphicon glyphicon-arrow-up negative"> </span>
+                <%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "14", height: "14")  %><%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "14", height: "14")  %>
             <% end %>
           </td>
         </tr>
@@ -319,15 +319,15 @@
           <td> 
             <% case @valoracio_electrodomestics %>
               <% when -2 %>
-                <span class="glyphicon glyphicon-arrow-down positive"> </span><span class="glyphicon glyphicon-arrow-down positive"> </span>
+                <%= image_tag('font_icons/fletxa-verda-avall.png', width: "14", height: "14")  %><%= image_tag('font_icons/fletxa-verda-avall.png', width: "14", height: "14")  %>
               <% when -1 %>
-                <span class="glyphicon glyphicon-arrow-down positive"> </span>
+                <%= image_tag('font_icons/fletxa-verda-avall.png', width: "14", height: "14")  %>
               <% when 0 %>
-                <span class="glyphicon glyphicon-record"> </span>
+                <%= image_tag('font_icons/igual.png', width: "14", height: "14")  %>
               <% when 1 %>
-                <span class="glyphicon glyphicon-arrow-up negative"> </span>
+                <%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "14", height: "14")  %>
               <% when 2 %>
-                <span class="glyphicon glyphicon-arrow-up negative"> </span><span class="glyphicon glyphicon-arrow-up negative"> </span>
+                <%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "14", height: "14")  %><%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "14", height: "14")  %>
             <% end %>
           </td>
         </tr>
@@ -337,13 +337,13 @@
       Aquests valors corresponen al promig estimat per un any sobre els consums reals especificats a les factures dels diferents subministraments energètics de l'edifici.
     </p>
     <p class="print-explicacio">
-      <span class="glyphicon glyphicon-record"> </span> Consum semblant respecte al consum mitjà d'un edifici similar.
+      <%= image_tag('font_icons/igual.png', width: "14", height: "14")  %> Consum semblant respecte al consum mitjà d'un edifici similar.
     </p>
     <p class="print-explicacio">
-      <span class="glyphicon glyphicon-arrow-down positive"> </span> Consum lleugerament inferior. | <span class="glyphicon glyphicon-arrow-down positive"> </span><span class="glyphicon glyphicon-arrow-down positive"> </span> Consum considerablement inferior.
+      <%= image_tag('font_icons/fletxa-verda-avall.png', width: "14", height: "14")  %> Consum lleugerament inferior. | <%= image_tag('font_icons/fletxa-verda-avall.png', width: "14", height: "14")  %><%= image_tag('font_icons/fletxa-verda-avall.png', width: "14", height: "14")  %> Consum considerablement inferior.
     </p>
     <p class="print-explicacio">
-      <span class="glyphicon glyphicon-arrow-up negative"> </span> Consum lleugerament superior. | <span class="glyphicon glyphicon-arrow-up negative"> </span><span class="glyphicon glyphicon-arrow-up negative"> </span> Consum considerablement superior.
+      <%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "14", height: "14")  %> Consum lleugerament superior. | <%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "14", height: "14")  %><%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "14", height: "14")  %> Consum considerablement superior.
     </p>
   </div>
 
@@ -370,22 +370,22 @@
             <td width="300px"><%= improvement.name %></td>
             <td>
               <% improvement.cost.times do %>
-                <span class="glyphicon glyphicon-euro"> </span>
+                <%= image_tag('font_icons/euro.png', width: "14", height: "14")  %>
               <% end %>
             </td>
             <td>
               <% improvement.energy_savings.times do %>
-                <span class="glyphicon glyphicon-star"> </span>
+                <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %>
               <% end %>
             </td>
             <td>
               <% improvement.roi.times do %>
-                <span class="glyphicon glyphicon-time"> </span>
+                <%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %>
               <% end %>
             </td>
             <td>
               <% improvement.emissions_savings.times do %>
-                <span class="glyphicon glyphicon-leaf"> </span>
+                <%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %>
               <% end %>
             </td>
           </tr>
@@ -395,19 +395,19 @@
       </table>
       <p class="print-explicacio">
         Cost de les propostes:<br/>
-        <span class="glyphicon glyphicon-euro"> </span> Menys de 200 € | <span class="glyphicon glyphicon-euro"> </span><span class="glyphicon glyphicon-euro"> </span> Entre 200 € i 1.000 € | <span class="glyphicon glyphicon-euro"> </span><span class="glyphicon glyphicon-euro"> </span><span class="glyphicon glyphicon-euro"> </span> Entre 1.000 i 5.000 € | <span class="glyphicon glyphicon-euro"> </span><span class="glyphicon glyphicon-euro"> </span><span class="glyphicon glyphicon-euro"> </span><span class="glyphicon glyphicon-euro"> </span> Més de 5.000 €
+        <%= image_tag('font_icons/euro.png', width: "14", height: "14")  %> Menys de 200 € | <%= image_tag('font_icons/euro.png', width: "14", height: "14")  %><%= image_tag('font_icons/euro.png', width: "14", height: "14")  %> Entre 200 € i 1.000 € | <%= image_tag('font_icons/euro.png', width: "14", height: "14")  %><%= image_tag('font_icons/euro.png', width: "14", height: "14")  %><%= image_tag('font_icons/euro.png', width: "14", height: "14")  %> Entre 1.000 i 5.000 € | <%= image_tag('font_icons/euro.png', width: "14", height: "14")  %><%= image_tag('font_icons/euro.png', width: "14", height: "14")  %><%= image_tag('font_icons/euro.png', width: "14", height: "14")  %><%= image_tag('font_icons/euro.png', width: "14", height: "14")  %> Més de 5.000 €
       </p>
       <p class="print-explicacio">
         Estalvi econòmic anual de les propostes:<br />
-        <span class="glyphicon glyphicon-star"> </span> Menys de 100 € | <span class="glyphicon glyphicon-star"> </span><span class="glyphicon glyphicon-star"> </span> Entre 100 € i 200 € | <span class="glyphicon glyphicon-star"> </span><span class="glyphicon glyphicon-star"> </span><span class="glyphicon glyphicon-star"> </span> Entre 200 i 300 € | <span class="glyphicon glyphicon-star"> </span><span class="glyphicon glyphicon-star"> </span><span class="glyphicon glyphicon-star"> </span><span class="glyphicon glyphicon-star"> </span> Més de 300 €
+        <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %> Menys de 100 € | <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %><%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %> Entre 100 € i 200 € | <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %><%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %><%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %> Entre 200 i 300 € | <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %><%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %><%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %><%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %> Més de 300 €
       </p>
       <p class="print-explicacio">
         Temps d'amortització de les propostes:<br />
-        <span class="glyphicon glyphicon-time"> </span> Menys de 5 anys | <span class="glyphicon glyphicon-time"> </span><span class="glyphicon glyphicon-time"> </span> De 5 a 10 anys | <span class="glyphicon glyphicon-time"> </span><span class="glyphicon glyphicon-time"> </span><span class="glyphicon glyphicon-time"> </span> De 10 a 15 anys | <span class="glyphicon glyphicon-time"> </span><span class="glyphicon glyphicon-time"> </span><span class="glyphicon glyphicon-time"> </span><span class="glyphicon glyphicon-time"> </span> Més de 15 anys
+        <%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %> Menys de 5 anys | <%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %><%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %> De 5 a 10 anys | <%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %><%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %><%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %> De 10 a 15 anys | <%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %><%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %><%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %><%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %> Més de 15 anys
       </p>
       <p class="print-explicacio">
         Reducció de les emissions de CO<sub>2</sub><br />
-        <span class="glyphicon glyphicon-leaf"> </span> Menys del 10% | <span class="glyphicon glyphicon-leaf"> </span><span class="glyphicon glyphicon-leaf"> </span> Entre el 10% i el 30% | <span class="glyphicon glyphicon-leaf"> </span><span class="glyphicon glyphicon-leaf"> </span><span class="glyphicon glyphicon-leaf"> </span> Entre el 30% i el 60% | <span class="glyphicon glyphicon-leaf"> </span><span class="glyphicon glyphicon-leaf"> </span><span class="glyphicon glyphicon-leaf"> </span><span class="glyphicon glyphicon-leaf"> </span> Més del 60%
+        <%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %> Menys del 10% | <%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %><%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %> Entre el 10% i el 30% | <%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %><%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %><%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %> Entre el 30% i el 60% | <%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %><%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %><%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %><%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %> Més del 60%
       </p>
     </div>
   </div>
@@ -420,7 +420,7 @@
         
         <h5>Cost d'execució</h5>
         <% improvement.cost.times do %>
-          <span class="glyphicon glyphicon-euro"> </span>
+          <%= image_tag('font_icons/euro.png', width: "14", height: "14")  %>
         <% end %>
         <br/>
         <% case improvement.cost
@@ -438,7 +438,7 @@
 
         <h5>Estalvi econòmic anual</h5>
         <% improvement.energy_savings.times do %>
-          <span class="glyphicon glyphicon-star"> </span>
+          <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %>
         <% end %>
         <br/>
         <% case improvement.energy_savings
@@ -456,7 +456,7 @@
 
         <h5>Amortització</h5>
         <% improvement.roi.times do %>
-          <span class="glyphicon glyphicon-time"> </span>
+          <%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %>
         <% end %>
         <br/>
         <% case improvement.roi
@@ -474,7 +474,7 @@
 
         <h5>Reducció emissions de CO<sub>2</sub></h5>
         <% improvement.emissions_savings.times do %>
-          <span class="glyphicon glyphicon-leaf"> </span>
+          <%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %>
         <% end %>
         <br/>
         <% case improvement.emissions_savings
