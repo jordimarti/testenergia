@@ -6,7 +6,7 @@
 </div>
 
 <div class="row">
-	<div class="col-md-6">
+	<div class="col-md-6 principal-content">
 		<h3>Llistat d'experts</h3>
 		<ol>
 		<% @experts.each do |expert| %>
@@ -21,13 +21,15 @@
 	      <div class="btn button-new">Registrar un nou expert</div>
 	    <% end %>
 	</div>
-	<div class="col-md-5 col-md-offset-1">
+	<div class="col-md-5 col-md-offset-1 principal-content">
 		<h3>Llistat de projectes</h3>
+		<ol>
 		<% @xprojects.each do |xproject| %>
 			<div>
-				<h4><%= xproject.name %></h4>
+				<li><%= xproject.name %></li>
 			</div>
 		<% end %>
+		</ol>
 	</div>
 </div>
 </div>
