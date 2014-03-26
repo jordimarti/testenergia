@@ -1,0 +1,25 @@
+<div class="container">
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to :action => 'index' do %>
+      <div class="btn button-page-menu"><span class="glyphicon glyphicon-arrow-left"> </span> Tornar al quadre de control</div>
+    <% end %>
+    <h2 class="page-title">Eliminar expert</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 principal-content">
+	  <%= form_for(:expert, :url => {:action => 'destroy', :id => @expert.id}) do |f| %>
+
+	    <p>Esteu segurs de voler eliminar aquest expert?</p>
+
+	    <p class="reference-name"><%= @expert.email %></p>
+
+	    <div class="form-buttons">
+	      <div><%= f.submit "Eliminar expert", :class => "btn button-alert" %></div>
+	    </div>
+
+	  <% end %>
+	</div>
+</div>
+</div>

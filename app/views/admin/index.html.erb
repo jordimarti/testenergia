@@ -14,6 +14,9 @@
 			<%= link_to :action => 'show', :id => expert.id do %>
         <%= expert.email %>
       <% end %>
+      | <%= link_to :action => 'delete', :id => expert.id do %>
+					<span class="glyphicon glyphicon-trash"> </span> 
+				<% end %>
     	</li>
 		<% end %>
 		</ol>
@@ -26,7 +29,8 @@
 		<ol>
 		<% @xprojects.each do |xproject| %>
 			<div>
-				<li><%= xproject.name %></li>
+				<li>
+					<%= xproject.name %> <span class="subtle-text">(<%= xproject.expert.email %>)</span></li>
 			</div>
 		<% end %>
 		</ol>
