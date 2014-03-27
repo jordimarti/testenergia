@@ -96,7 +96,7 @@
     <% @experts.shuffle.each do |expert| %>
       
       <%= f.radio_button :expert_id, expert.id %>
-      <% nom_expert = expert.expert_first_name + ' ' + expert.expert_surname1 %>
+      <% nom_expert = expert.expert_first_name + ' ' + expert.expert_surname1 + ' (' + expert.expert_town + ')' %>
       <%= f.label :expert_id, nom_expert %><br/>
       
     <% end %>
