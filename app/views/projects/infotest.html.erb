@@ -9,15 +9,37 @@
 </div>
 
 <div class="row">
+  <div class="col-md-12">
+    <%= image_tag('servei/presentacio_test_energia.jpg', :alt => 'Procés del Test Energia', :class => 'img-responsive') %>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-12">
+    <h3>Contractar un Test Energia li reportarà molts avantatges</h3>
+  </div>
+</div>
+
+<div class="row">
   <div class="col-md-6">
-    <p>Contractar un Test Energia li reportarà molts avantatges, estalvi i confort.</p>
+    <p>Contractant un Test Energia vindrà un expert en Test Energia al vostre habitatge per fer un estudi dels elements constructius, instal·lacions i dades de consums per poder-vos indicar la millor forma d'estalviar energia.</p>
+  </div>
+  <div class="col-md-6">
+    <p>El Test Energia, a part de ser una avaluació energètica detallada i entenedora, també inclou la certificació energètica de l'habitatge. Així si en el futur heu de llogar o vendre l'habitatge ja tindreu el document. </p>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-12">
+    <h3>Dades del propietari o propietària de l'immoble</h3>
+    <p>A continuació heu d'introduir informació necessària per a la tramitació del certificat d'eficiència energètica de l'habitatge.</p>
   </div>
 </div>
 
 <%= form_for(:project, :url => {:action => 'update_personal_info', :id => @project.id}) do |f| %>
 <div class="row">
   <div class="col-md-12 principal-content">
-    <h3>Dades del propietari o propietària de l'immoble</h3>
+    
     
     <%= f.error_messages %>
     <%= f.hidden_field :user_id, { :value => current_user.id } %>
@@ -41,6 +63,9 @@
         <%= f.text_field :user_id_document_number, :class => 'form-control' %></div>
       </div>
       <div class="col-md-6">
+        <div class="form-group"><%= f.label :user_email, "Correu electrònic" %><br />
+        <%= f.text_field :user_email, :class => 'form-control' %></div>
+
         <div class="form-group"><%= f.label :user_telephone, "Número de telèfon fix" %><br />
         <%= f.text_field :user_telephone, :class => 'form-control' %></div>
 
@@ -59,9 +84,32 @@
     </div>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h3>Selecció d'expert en Test Energia</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 principal-content">
+    <div class="form-group">
+    <% @experts.shuffle.each do |expert| %>
+      
+      <%= f.radio_button :expert_id, expert.id %>
+      <%= f.label :expert_id, expert.expert_first_name %>
+      
+    <% end %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <p>Seleccioneu un dels experts un fixant-vos en la població per facilitar la visita al vostre habitatge.</p>
+    <p>L'expert que seleccioneu rebrà la informació que heu introduït i es posarà en contacte amb vostè per indicar-li el cost del Test Energia i concretar una data per a fer la visita.</p>
+  </div>
+</div>
+
 <div class="row">
   <div class="col-md-12 boto-final">
-    <div><%= f.submit "Guardar les dades", :class => "btn button-new" %></div>
+    <div><%= f.submit "Sol·licitar Test Energia", :class => "btn button-new" %></div>
     <% end %>
   </div>
 </div>

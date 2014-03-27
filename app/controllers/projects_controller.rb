@@ -155,6 +155,8 @@ class ProjectsController < ApplicationController
   #Information to contract Test Energia, including client data
   def infotest
     @project = Project.find(params[:id])
+    @experts = Expert.find(:all)
+    
   end
 
   #Updates project with client data
