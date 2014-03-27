@@ -156,7 +156,7 @@ class ProjectsController < ApplicationController
   def infotest
     @project = Project.find(params[:id])
     @experts = Expert.find(:all)
-    
+
   end
 
   #Updates project with client data
@@ -186,6 +186,6 @@ class ProjectsController < ApplicationController
 
   private
     def project_params
-      params.require(:project).permit(:user_id, :expert_id, :name, :building_address, :building_zip_code, :building_town, :construction_period, :construction_year, :project_type, :area, :facade_improvements, :roof_improvements, :window_type, :window_tightness, :hot_water_type, :hot_water_age, :heating_age, :cooling_type, :cooling_age, :lighting_type, :lighting_power, :contracted_power, :electricity_consumption, :gas_consumption, :gasoil_consumption, :other_energy_sources, :energy_class_guess, :energy_class, :user_first_name, :user_surname1, :user_surname2, :user_id_document_type, :user_id_document_number, :user_telephone, :user_mobile_phone, :user_address, :user_zip_code, :user_town)
+      params.require(:project).permit(:user_id, :expert_id, :name, :building_address, :building_zip_code, :building_town, :construction_period, :construction_year, :project_type, :area, :facade_improvements, :roof_improvements, :window_type, :window_tightness, :hot_water_type, :hot_water_age, :heating_age, :cooling_type, :cooling_age, :lighting_type, :lighting_power, :contracted_power, :electricity_consumption, :gas_consumption, :gasoil_consumption, :other_energy_sources, :energy_class_guess, :energy_class, :user_first_name, :user_surname1, :user_surname2, :user_id_document_type, :user_id_document_number, :user_email, :user_telephone, :user_mobile_phone, :user_address, :user_zip_code, :user_town)
     end
 end
