@@ -321,93 +321,73 @@
           
           <div class="row">
             <div class="col-md-12">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h3 class="panel-title">Definició de les façanes</h3>
+            
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group"><%= f.label :facade_definition, "Descripció de les façanes" %><br />
+                  <%= f.text_field :facade_definition, :class => 'form-control' %></div>
                 </div>
-                <div class="panel-body">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group"><%= f.label :facade_definition, "Descripció" %><br />
-                      <%= f.text_field :facade_definition, :class => 'form-control' %></div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group"><%= f.label :facade_score, "Puntuació segons criteris tèrmics" %><br />
-                      <%= f.select(:facade_score, [['', 0], ['1 - Molt baixa', 1], ['2 - Baixa', 2], ['3 - Acceptable', 3], ['4 - Alta', 4], ['5 - Molt alta', 5]], {}, {:class => 'form-control'}) %>
-                      </div>
-                    </div>
+                <div class="col-md-6">
+                  <div class="form-group"><%= f.label :facade_score, "Puntuació de les façanes" %><br />
+                  <%= f.select(:facade_score, [['', 0], ['1 - Molt baixa', 1], ['2 - Baixa', 2], ['3 - Acceptable', 3], ['4 - Alta', 4], ['5 - Molt alta', 5]], {}, {:class => 'form-control'}) %>
                   </div>
                 </div>
               </div>
+                
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-12">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h3 class="panel-title">Definició de la coberta</h3>
+        
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group"><%= f.label :roof_definition, "Descripció de la coberta" %><br />
+                  <%= f.text_field :roof_definition, :class => 'form-control' %></div>
                 </div>
-                <div class="panel-body">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group"><%= f.label :roof_definition, "Descripció" %><br />
-                      <%= f.text_field :roof_definition, :class => 'form-control' %></div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group"><%= f.label :roof_score, "Puntuació segons criteris tèrmics" %><br />
-                      <%= f.select(:roof_score, [['', 0], ['1 - Molt baixa', 1], ['2 - Baixa', 2], ['3 - Acceptable', 3], ['4 - Alta', 4], ['5 - Molt alta', 5]], {}, {:class => 'form-control'}) %>
-                      </div>
-                    </div>
+                <div class="col-md-6">
+                  <div class="form-group"><%= f.label :roof_score, "Puntuació de la coberta" %><br />
+                  <%= f.select(:roof_score, [['', 0], ['1 - Molt baixa', 1], ['2 - Baixa', 2], ['3 - Acceptable', 3], ['4 - Alta', 4], ['5 - Molt alta', 5]], {}, {:class => 'form-control'}) %>
                   </div>
                 </div>
               </div>
+                
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-12">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h3 class="panel-title">Definició del terra</h3>
-                </div>
-                <div class="panel-body">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group"><%= f.label :floor_definition, "Descripció" %><br />
-                      <%= f.text_field :floor_definition, :class => 'form-control' %></div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group"><%= f.label :floor_score, "Puntuació segons criteris tèrmics" %><br />
-                      <%= f.select(:floor_score, [['', 0], ['1 - Molt baixa', 1], ['2 - Baixa', 2], ['3 - Acceptable', 3], ['4 - Alta', 4], ['5 - Molt alta', 5]], {}, {:class => 'form-control'}) %>
-                      </div>
+              
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group"><%= f.label :floor_definition, "Descripció del terra" %><br />
+                    <%= f.text_field :floor_definition, :class => 'form-control' %></div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group"><%= f.label :floor_score, "Puntuació del terra" %><br />
+                    <%= f.select(:floor_score, [['', 0], ['1 - Molt baixa', 1], ['2 - Baixa', 2], ['3 - Acceptable', 3], ['4 - Alta', 4], ['5 - Molt alta', 5]], {}, {:class => 'form-control'}) %>
                     </div>
                   </div>
                 </div>
-              </div>
+               
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-12">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h3 class="panel-title">Definició de les finestres</h3>
+              
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group"><%= f.label :windows_definition, "Descripció de les finestres" %><br />
+                  <%= f.text_field :windows_definition, :class => 'form-control' %></div>
                 </div>
-                <div class="panel-body">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group"><%= f.label :windows_definition, "Descripció" %><br />
-                      <%= f.text_field :windows_definition, :class => 'form-control' %></div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group"><%= f.label :windows_score, "Puntuació segons criteris tèrmics" %><br />
-                      <%= f.select(:windows_score, [['', 0], ['1 - Molt baixa', 1], ['2 - Baixa', 2], ['3 - Acceptable', 3], ['4 - Alta', 4], ['5 - Molt alta', 5]], {}, {:class => 'form-control'}) %>
-                      </div>
-                    </div>
+                <div class="col-md-6">
+                  <div class="form-group"><%= f.label :windows_score, "Puntuació de les finestres" %><br />
+                  <%= f.select(:windows_score, [['', 0], ['1 - Molt baixa', 1], ['2 - Baixa', 2], ['3 - Acceptable', 3], ['4 - Alta', 4], ['5 - Molt alta', 5]], {}, {:class => 'form-control'}) %>
                   </div>
                 </div>
               </div>
+                
             </div>
           </div>
   
@@ -453,116 +433,91 @@
           <hr>
           <div class="row">
             <div class="col-md-12">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h3 class="panel-title">Definició del sistema d'ACS</h3>
+            
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group"><%= f.label :hot_water_definition, "Descripció del sistema d'ACS" %><br />
+                  <%= f.text_field :hot_water_definition, :class => 'form-control' %></div>
                 </div>
-                <div class="panel-body">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group"><%= f.label :hot_water_definition, "Descripció" %><br />
-                      <%= f.text_field :hot_water_definition, :class => 'form-control' %></div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group"><%= f.label :hot_water_score, "Puntuació segons criteris de rendiment" %><br />
-                      <%= f.select(:hot_water_score, [['', 0], ['1 - Molt baixa', 1], ['2 - Baixa', 2], ['3 - Acceptable', 3], ['4 - Alta', 4], ['5 - Molt alta', 5]], {}, {:class => 'form-control'}) %>
-                      </div>
-                    </div>
+                <div class="col-md-6">
+                  <div class="form-group"><%= f.label :hot_water_score, "Puntuació del sistema d'ACS" %><br />
+                  <%= f.select(:hot_water_score, [['', 0], ['1 - Molt baixa', 1], ['2 - Baixa', 2], ['3 - Acceptable', 3], ['4 - Alta', 4], ['5 - Molt alta', 5]], {}, {:class => 'form-control'}) %>
                   </div>
                 </div>
               </div>
+                
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-12">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h3 class="panel-title">Definició del sistema de calefacció</h3>
+              
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group"><%= f.label :heating_definition, "Descripció del sistema de calefacció" %><br />
+                  <%= f.text_field :heating_definition, :class => 'form-control' %></div>
                 </div>
-                <div class="panel-body">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group"><%= f.label :heating_definition, "Descripció" %><br />
-                      <%= f.text_field :heating_definition, :class => 'form-control' %></div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group"><%= f.label :heating_score, "Puntuació segons criteris de rendiment" %><br />
-                      <%= f.select(:heating_score, [['', 0], ['1 - Molt baixa', 1], ['2 - Baixa', 2], ['3 - Acceptable', 3], ['4 - Alta', 4], ['5 - Molt alta', 5]], {}, {:class => 'form-control'}) %>
-                      </div>
-                    </div>
+                <div class="col-md-6">
+                  <div class="form-group"><%= f.label :heating_score, "Puntuació del sistema de calefacció" %><br />
+                  <%= f.select(:heating_score, [['', 0], ['1 - Molt baixa', 1], ['2 - Baixa', 2], ['3 - Acceptable', 3], ['4 - Alta', 4], ['5 - Molt alta', 5]], {}, {:class => 'form-control'}) %>
                   </div>
                 </div>
               </div>
+                
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-12">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h3 class="panel-title">Definició del sistema de refrigeració</h3>
+              
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group"><%= f.label :cooling_definition, "Descripció del sistema de refrigeració" %><br />
+                  <%= f.text_field :cooling_definition, :class => 'form-control' %></div>
                 </div>
-                <div class="panel-body">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group"><%= f.label :cooling_definition, "Descripció" %><br />
-                      <%= f.text_field :cooling_definition, :class => 'form-control' %></div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group"><%= f.label :cooling_score, "Puntuació segons criteris de rendiment" %><br />
-                      <%= f.select(:cooling_score, [['', 0], ['1 - Molt baixa', 1], ['2 - Baixa', 2], ['3 - Acceptable', 3], ['4 - Alta', 4], ['5 - Molt alta', 5]], {}, {:class => 'form-control'}) %>
-                      </div>
-                    </div>
+                <div class="col-md-6">
+                  <div class="form-group"><%= f.label :cooling_score, "Puntuació del sistema de refrigeració" %><br />
+                  <%= f.select(:cooling_score, [['', 0], ['1 - Molt baixa', 1], ['2 - Baixa', 2], ['3 - Acceptable', 3], ['4 - Alta', 4], ['5 - Molt alta', 5]], {}, {:class => 'form-control'}) %>
                   </div>
                 </div>
               </div>
+                
             </div>
           </div>
           
           <div class="row">
             <div class="col-md-12">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h3 class="panel-title">Definició del sistema d'il·luminació</h3>
+              
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group"><%= f.label :lighting_definition, "Descripció del sistema d'il·luminació" %><br />
+                  <%= f.text_field :lighting_definition, :class => 'form-control' %></div>
                 </div>
-                <div class="panel-body">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group"><%= f.label :lighting_definition, "Descripció" %><br />
-                      <%= f.text_field :lighting_definition, :class => 'form-control' %></div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group"><%= f.label :lighting_score, "Puntuació segons criteris de rendiment" %><br />
-                      <%= f.select(:lighting_score, [['', 0], ['1 - Molt baixa', 1], ['2 - Baixa', 2], ['3 - Acceptable', 3], ['4 - Alta', 4], ['5 - Molt alta', 5]], {}, {:class => 'form-control'}) %>
-                      </div>
-                    </div>
+                <div class="col-md-6">
+                  <div class="form-group"><%= f.label :lighting_score, "Puntuació del sistema d'il·luminació" %><br />
+                  <%= f.select(:lighting_score, [['', 0], ['1 - Molt baixa', 1], ['2 - Baixa', 2], ['3 - Acceptable', 3], ['4 - Alta', 4], ['5 - Molt alta', 5]], {}, {:class => 'form-control'}) %>
                   </div>
                 </div>
               </div>
+                
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-12">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h3 class="panel-title">Valoració dels electrodomèstics</h3>
+              
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group"><%= f.label :appliances_definition, "Descripció dels electrodomèstics" %><br />
+                  <%= f.text_field :appliances_definition, :class => 'form-control' %></div>
                 </div>
-                <div class="panel-body">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group"><%= f.label :appliances_definition, "Descripció" %><br />
-                      <%= f.text_field :appliances_definition, :class => 'form-control' %></div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group"><%= f.label :appliances_score, "Puntuació segons criteris d'eficiència energètica" %><br />
-                      <%= f.select(:appliances_score, [['', 0], ['1 - Molt baixa', 1], ['2 - Baixa', 2], ['3 - Acceptable', 3], ['4 - Alta', 4], ['5 - Molt alta', 5]], {}, {:class => 'form-control'}) %>
-                      </div>
-                    </div>
+                <div class="col-md-6">
+                  <div class="form-group"><%= f.label :appliances_score, "Puntuació dels electrodomèstics" %><br />
+                  <%= f.select(:appliances_score, [['', 0], ['1 - Molt baixa', 1], ['2 - Baixa', 2], ['3 - Acceptable', 3], ['4 - Alta', 4], ['5 - Molt alta', 5]], {}, {:class => 'form-control'}) %>
                   </div>
                 </div>
               </div>
+               
             </div>
           </div>
           
