@@ -257,7 +257,7 @@ class XprojectsController < ApplicationController
         :strict           => "none",
         :test             => false)
     end
-    send_file "test_energia.pdf"
+    #send_file "test_energia.pdf"
   end
 
   def new
