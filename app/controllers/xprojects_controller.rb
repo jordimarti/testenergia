@@ -251,11 +251,11 @@ class XprojectsController < ApplicationController
 
   def print_pdf
     File.open("test_energia.pdf", "w+b") do |f|
-      f.write DocRaptor.create(:document_url => "http://fierce-garden-4895.herokuapp.com/report/print/1",
+      f.write DocRaptor.create(:document_url => "http://fierce-garden-4895.herokuapp.com/report/print/"+params[:id],
         :name             => "test_energia.pdf",
         :document_type    => "pdf",
         :strict           => "none",
-        :test             => true)
+        :test             => false)
     end
     send_file "test_energia.pdf"
   end

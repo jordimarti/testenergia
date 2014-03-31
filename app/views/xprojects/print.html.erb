@@ -3,6 +3,9 @@
       <div class="btn button-page-menu"><span class="glyphicon glyphicon-arrow-left"> </span> Tornar a la llista de projectes</div>
     <% end %>
     <div class="btn button-page-menu">
+      <%= link_to :action => 'print_pdf', :id => xproject.id do %>
+        <div class="btn button-page-menu"><span class="glyphicon glyphicon-file"> </span> PDF</div>
+      <% end %>
       <a class="link-button" href="http://fathomless-cliffs-4728.herokuapp.com/testenergiapdf/print/<%= @xproject.id %>"><span class="glyphicon glyphicon-file"> </span> Crear PDF</a>
     </div> 
   </div>
