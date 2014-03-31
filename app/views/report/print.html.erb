@@ -70,41 +70,42 @@
     </div>
   </div>
 
-  <div class="print-apartat">
-    <h4 class="print">Potencial d'estalvi aplicant millores</h4>
-    <div class="percentatge-estalvi">
-      <div class="numero-percentatge-estalvi">
-        <%= @percentage_savings.to_i %>% <span class="numero-percentatge-estalvi-petit">del consum <sup>*</sup></span>
+  <div class="container-estalvi-millores">
+    <div class="print-apartat">
+      <h4 class="print">Potencial d'estalvi aplicant millores</h4>
+      <div class="percentatge-estalvi">
+        <div class="numero-percentatge-estalvi">
+          <%= @percentage_savings.to_i %>% <span class="numero-percentatge-estalvi-petit">del consum <sup>*</sup></span>
+        </div>
+        <div class="text-percentatge-estalvi">
+          <p>Aplicant les propostes de millora podríeu estalviar un <%= @percentage_savings.to_i %>% de l'energia que consumiu cada any.</p>
+        </div>
       </div>
-      <div class="text-percentatge-estalvi">
-        <p>Aplicant les propostes de millora podríeu estalviar un <%= @percentage_savings.to_i %>% de l'energia que consumiu cada any.</p>
+      <div class="diners-estalvi">
+        <div class="numero-diners-estalvi">
+          <%= @money_savings.to_i %>€ <span class="numero-diners-estalvi-petit">cada any <sup>*</sup></span>
+        </div>
+        <div class="text-diners-estalvi">
+          <p>Si porteu a terme les propostes de millora podreu estalviar <%= @money_savings.to_i %>€ cada any.</p>
+        </div>
+      </div>
+      <div class="print-comparacio-energia">
+        <div class="tip-consum consum-actual" style="position: absolute; top: 0px; right: 136px; text-align: right; border-right-style: solid; border-right-width: 2px; border-right-color: #333333; padding-right: 5px; height: 50px;">
+          <span>Consum actual</span><br/>
+          <span><%= @total_energy_consumption %> kWh/any</span>
+        </div>
+        <% #Posem el consum real a 480px de l'esquerra. La posició del consum de millores es busca a partir d'aquesta dada %>
+        <% posicio_consum_millores = @total_energy_consumption_improvements*480/@total_energy_consumption %>
+        <div class="tip-consum consum-millores" style="position: absolute; top: 70px; left: <%= posicio_consum_millores %>px; text-align: left; border-left-style: solid; border-left-width: 2px; border-left-color: #333333; padding-left: 5px; padding-top: 20px; height: 30px;">
+          <span>Consum aplicant propostes de millora</span><br/>
+          <span><%= @total_energy_consumption_improvements %> kWh/any</span>
+        </div>
+        <div class="print-barra-energia">
+          <%= image_tag('barra_energia.png', :alt => 'barra energia', :class => 'img_barra_energia') %>
+        </div>
+        <p class="print-llegenda"><sup>*</sup>El consum d'energia d'un edifici no es pot predir amb exactitud perquè depèn de molts factors variables com l'ús de l'edifici o el clima. Per aquesta raó les estimacions d'estalvi energètic d'aquest document són orientatives.</p>
       </div>
     </div>
-    <div class="diners-estalvi">
-      <div class="numero-diners-estalvi">
-        <%= @money_savings.to_i %>€ <span class="numero-diners-estalvi-petit">cada any <sup>*</sup></span>
-      </div>
-      <div class="text-diners-estalvi">
-        <p>Si porteu a terme les propostes de millora podreu estalviar <%= @money_savings.to_i %>€ cada any.</p>
-      </div>
-    </div>
-    <div class="print-comparacio-energia">
-      <div class="tip-consum consum-actual" style="position: absolute; top: 0px; right: 136px; text-align: right; border-right-style: solid; border-right-width: 2px; border-right-color: #333333; padding-right: 5px; height: 50px;">
-        <span>Consum actual</span><br/>
-        <span><%= @total_energy_consumption %> kWh/any</span>
-      </div>
-      <% #Posem el consum real a 480px de l'esquerra. La posició del consum de millores es busca a partir d'aquesta dada %>
-      <% posicio_consum_millores = @total_energy_consumption_improvements*480/@total_energy_consumption %>
-      <div class="tip-consum consum-millores" style="position: absolute; top: 70px; left: <%= posicio_consum_millores %>px; text-align: left; border-left-style: solid; border-left-width: 2px; border-left-color: #333333; padding-left: 5px; padding-top: 20px; height: 30px;">
-        <span>Consum aplicant propostes de millora</span><br/>
-        <span><%= @total_energy_consumption_improvements %> kWh/any</span>
-      </div>
-      <div class="print-barra-energia">
-        <%= image_tag('barra_energia.png', :alt => 'barra energia', :class => 'img_barra_energia') %>
-      </div>
-      <p class="print-llegenda"><sup>*</sup>El consum d'energia d'un edifici no es pot predir amb exactitud perquè depèn de molts factors variables com l'ús de l'edifici o el clima. Per aquesta raó les estimacions d'estalvi energètic d'aquest document són orientatives.</p>
-    </div>
-
   </div>
 
 
