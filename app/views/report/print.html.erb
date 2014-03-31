@@ -113,7 +113,7 @@
   <div class="pagebreak"></div>
   
   <div class="print-apartat"> 
-    <h4>Eficiència energètica dels elements constructius</h4>
+    <h4 class="print">Eficiència energètica dels elements constructius</h4>
     
     <div class="table">
       <table class="print-table">
@@ -219,7 +219,7 @@
   </div>
 
   <div class="print-apartat">
-    <h4>Valoració dels consums</h4>
+    <h4 class="print">Valoració dels consums</h4>
     <table class="print-table">
       <thead>
         <tr>
@@ -333,25 +333,25 @@
         </tr>
       </tbody>
     </table>
-    <p class="print-explicacio">
+    <p class="print-llegenda">
       Aquests valors corresponen al promig estimat per un any sobre els consums reals especificats a les factures dels diferents subministraments energètics de l'edifici.
     </p>
-    <p class="print-explicacio">
+    <p class="print-llegenda">
       <%= image_tag('font_icons/igual.png', width: "14", height: "14")  %> Consum semblant respecte al consum mitjà d'un edifici similar.
     </p>
-    <p class="print-explicacio">
+    <p class="print-llegenda">
       <%= image_tag('font_icons/fletxa-verda-avall.png', width: "14", height: "14")  %> Consum lleugerament inferior. | <%= image_tag('font_icons/fletxa-verda-avall.png', width: "14", height: "14")  %><%= image_tag('font_icons/fletxa-verda-avall.png', width: "14", height: "14")  %> Consum considerablement inferior.
     </p>
-    <p class="print-explicacio">
+    <p class="print-llegenda">
       <%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "14", height: "14")  %> Consum lleugerament superior. | <%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "14", height: "14")  %><%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "14", height: "14")  %> Consum considerablement superior.
     </p>
   </div>
 
   <div class="pagebreak">
-    <h3>Propostes de millora</h3>
+    <h3 class="print">Propostes de millora</h3>
   </div>
   <div>
-    <h4>Resum</h4>
+    <h4 class="print">Resum</h4>
     <div style="position: relative;">
       <table class="print-table">
         <thead>
@@ -415,10 +415,10 @@
 
   <% @improvements.each do |improvement| %>
     <div class="print-apartat contenidor-millores">
-      <h4><%= improvement.name %></h4>
+      <h4 class="print"><%= improvement.name %></h4>
       <div class="print-dades-proposta">
         
-        <h5>Cost d'execució</h5>
+        <h5 class="print">Cost d'execució</h5>
         <% improvement.cost.times do %>
           <%= image_tag('font_icons/euro.png', width: "14", height: "14")  %>
         <% end %>
@@ -436,7 +436,7 @@
         <p class="print-explicacio-dades"><%= cost %></p>
         <hr class="print-espaiador-dades">
 
-        <h5>Estalvi econòmic anual</h5>
+        <h5 class="print">Estalvi econòmic anual</h5>
         <% improvement.energy_savings.times do %>
           <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %>
         <% end %>
@@ -454,7 +454,7 @@
         <p class="print-explicacio-dades"><%= estalvi %></p>
         <hr class="print-espaiador-dades">
 
-        <h5>Amortització</h5>
+        <h5 class="print">Amortització</h5>
         <% improvement.roi.times do %>
           <%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %>
         <% end %>
@@ -472,7 +472,7 @@
         <p class="print-explicacio-dades"><%= roi %></p>
         <hr class="print-espaiador-dades">
 
-        <h5>Reducció emissions de CO<sub>2</sub></h5>
+        <h5 class="print">Reducció emissions de CO<sub>2</sub></h5>
         <% improvement.emissions_savings.times do %>
           <%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %>
         <% end %>
