@@ -29,6 +29,9 @@ class XprojectsController < ApplicationController
     if !@xproject.heating_percentage
       @report_warning.push("No heu indicat el percentatge de consum destinat a calefacció.")
     end
+    if !@xproject.heating2_percentage
+      @report_warning.push("No heu indicat el percentatge de consum del sistema secundari de calefacció. Si no n'hi ha poseu zero.")
+    end
     if !@xproject.cooling_percentage
       @report_warning.push("No heu indicat el percentatge de consum destinat a refrigeració.")
     end
@@ -43,9 +46,6 @@ class XprojectsController < ApplicationController
     end
     if !@xproject.heating_energy_source || @xproject.heating_energy_source == 0
       @report_warning.push("No heu indicat la font energètica de la calefacció.")
-    end
-    if !@xproject.cooling_energy_source || @xproject.cooling_energy_source == 0
-      @report_warning.push("No heu indicat la font energètica de la refrigeració.")
     end
     if !@xproject.hot_water_energy_source || @xproject.hot_water_energy_source == 0
       @report_warning.push("No heu indicat la font energètica de l'aigua calenta sanitària.")
@@ -499,6 +499,6 @@ a.(lp0
 
   private
     def xproject_params
-      params.require(:xproject).permit(:user_id, :expert_id, :name, :building_address, :building_zip_code, :building_town, :cadastre, :construction_period, :construction_year, :project_type, :area, :facade_improvements, :roof_improvements, :window_type, :window_tightness, :facade_definition, :facade_score, :roof_definition, :roof_score, :floor_definition, :floor_score, :windows_definition, :windows_score, :hot_water_type, :hot_water_age, :heating_age, :cooling_type, :cooling_age, :lighting_type, :lighting_power, :contracted_power, :hot_water_definition, :hot_water_score, :heating_definition, :heating_score, :cooling_definition, :cooling_score, :lighting_definition, :lighting_score, :appliances_definition, :appliances_score, :electricity_consumption, :electricity_price, :electricity_emissions, :electricity_consumption_improvements, :gas_consumption, :gas_price, :gas_emissions, :gas_consumption_improvements, :gasoil_consumption, :gasoil_price, :gasoil_emissions, :gasoil_consumption_improvements, :other_energy_sources, :energy_class_guess, :energy_class, :user_first_name, :user_surname1, :user_surname2, :user_id_document_type, :user_id_document_number, :user_telephone, :user_mobile_phone, :user_email, :user_address, :user_zip_code, :user_town, :global_emissions, :global_emissions_rating, :global_primary_energy, :global_primary_energy_rating, :total_energy_consumption, :total_energy_consumption_improvements, :heating_percentage, :heating_energy_source, :cooling_percentage, :cooling_energy_source, :hot_water_percentage, :hot_water_energy_source, :lighting_percentage, :appliances_percentage)
+      params.require(:xproject).permit(:user_id, :expert_id, :name, :building_address, :building_zip_code, :building_town, :cadastre, :construction_period, :construction_year, :project_type, :area, :facade_improvements, :roof_improvements, :window_type, :window_tightness, :facade_definition, :facade_score, :roof_definition, :roof_score, :floor_definition, :floor_score, :windows_definition, :windows_score, :hot_water_type, :hot_water_age, :heating_age, :cooling_type, :cooling_age, :lighting_type, :lighting_power, :contracted_power, :hot_water_definition, :hot_water_score, :heating_definition, :heating_score, :cooling_definition, :cooling_score, :lighting_definition, :lighting_score, :appliances_definition, :appliances_score, :electricity_consumption, :electricity_price, :electricity_emissions, :electricity_consumption_improvements, :gas_consumption, :gas_price, :gas_emissions, :gas_consumption_improvements, :gasoil_consumption, :gasoil_price, :gasoil_emissions, :gasoil_consumption_improvements, :other_energy_sources, :energy_class_guess, :energy_class, :user_first_name, :user_surname1, :user_surname2, :user_id_document_type, :user_id_document_number, :user_telephone, :user_mobile_phone, :user_email, :user_address, :user_zip_code, :user_town, :global_emissions, :global_emissions_rating, :global_primary_energy, :global_primary_energy_rating, :total_energy_consumption, :total_energy_consumption_improvements, :heating_percentage, :heating_energy_source, :heating2_percentage, :heating2_energy_source, :cooling_percentage, :cooling_energy_source, :hot_water_percentage, :hot_water_energy_source, :lighting_percentage, :appliances_percentage)
     end
 end

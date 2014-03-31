@@ -6,20 +6,33 @@ class ReportController < ApplicationController
     @improvements = @xproject.improvements
     @total_energy_consumption = @xproject.electricity_consumption + @xproject.gas_consumption + @xproject.gasoil_consumption
     @total_energy_consumption_improvements = @xproject.electricity_consumption_improvements + @xproject.gas_consumption_improvements + @xproject.gasoil_consumption_improvements
-    @consum_calefaccio = @total_energy_consumption * @xproject.heating_percentage / 100
+    
+    @percentage_savings = -(@total_energy_consumption_improvements * 100 / @total_energy_consumption)+100
+    @money_savings_electricity = (@xproject.electricity_consumption - @xproject.electricity_consumption_improvements) * @xproject.electricity_price
+    @money_savings_gas = (@xproject.gas_consumption - @xproject.gas_consumption_improvements) * @xproject.gas_price
+    @money_savings_gasoil = (@xproject.gasoil_consumption - @xproject.gasoil_consumption_improvements) * @xproject.gasoil_price
+    @money_savings = @money_savings_electricity + @money_savings_gas + @money_savings_gasoil
+
+    @total_heating_percentage = @xproject.heating_percentage + @xproject.heating2_percentage
+    @consum_calefaccio = @total_energy_consumption * @total_heating_percentage / 100
     @consum_refrigeracio = @total_energy_consumption * @xproject.cooling_percentage / 100
     @consum_acs = @total_energy_consumption * @xproject.hot_water_percentage / 100
     @consum_iluminacio = @total_energy_consumption * @xproject.lighting_percentage / 100
     @consum_electrodomestics = @total_energy_consumption * @xproject.appliances_percentage / 100
     
-    @indicador_emissions_calefaccio = emissions_calculator @xproject.heating_energy_source, @xproject.id
+    @indicador_emissions_calefaccio1 = emissions_calculator @xproject.heating_energy_source, @xproject.id
+    @indicador_emissions_calefaccio2 = emissions_calculator @xproject.heating2_energy_source, @xproject.id
     @indicador_costos_calefaccio = costos_calculator @xproject.heating_energy_source, @xproject.id
-    @emissions_calefaccio = @consum_calefaccio * @indicador_emissions_calefaccio
+    @consum_calefaccio1 = @total_energy_consumption * @xproject.heating_percentage / 100
+    @consum_calefaccio2 = @total_energy_consumption * @xproject.heating2_percentage / 100
+    @emissions_calefaccio1 = @consum_calefaccio1 * @indicador_emissions_calefaccio1
+    @emissions_calefaccio2 = @consum_calefaccio2 * @indicador_emissions_calefaccio2
+    @emissions_calefaccio = @emissions_calefaccio1 + @emissions_calefaccio2
     @cost_calefaccio = @consum_calefaccio * @indicador_costos_calefaccio
     @valoracio_calefaccio = valoracio_consum 'calefaccio', @consum_calefaccio, @xproject.id
     
-    @indicador_emissions_refrigeracio = emissions_calculator @xproject.cooling_energy_source, @xproject.id
-    @indicador_costos_refrigeracio = costos_calculator @xproject.cooling_energy_source, @xproject.id
+    @indicador_emissions_refrigeracio = emissions_calculator 1, @xproject.id
+    @indicador_costos_refrigeracio = costos_calculator 1, @xproject.id
     @emissions_refrigeracio = @consum_refrigeracio * @indicador_emissions_refrigeracio
     @cost_refrigeracio = @consum_refrigeracio * @indicador_costos_refrigeracio
     @valoracio_refrigeracio = valoracio_consum 'refrigeracio', @consum_refrigeracio, @xproject.id
@@ -30,14 +43,14 @@ class ReportController < ApplicationController
     @cost_acs = @consum_acs * @indicador_costos_acs
     @valoracio_acs = valoracio_consum 'acs', @consum_acs, @xproject.id
 
-    @indicador_emissions_iluminacio = emissions_calculator @xproject.hot_water_energy_source, @xproject.id
-    @indicador_costos_iluminacio = costos_calculator @xproject.hot_water_energy_source, @xproject.id
+    @indicador_emissions_iluminacio = emissions_calculator 1, @xproject.id
+    @indicador_costos_iluminacio = costos_calculator 1, @xproject.id
     @emissions_iluminacio = @consum_iluminacio * @indicador_emissions_iluminacio
     @cost_iluminacio = @consum_iluminacio * @indicador_costos_iluminacio
     @valoracio_iluminacio = valoracio_consum 'iluminacio', @consum_iluminacio, @xproject.id
 
-    @indicador_emissions_electrodomestics = emissions_calculator @xproject.hot_water_energy_source, @xproject.id
-    @indicador_costos_electrodomestics = costos_calculator @xproject.hot_water_energy_source, @xproject.id
+    @indicador_emissions_electrodomestics = emissions_calculator 1, @xproject.id
+    @indicador_costos_electrodomestics = costos_calculator 1, @xproject.id
     @emissions_electrodomestics = @consum_electrodomestics * @indicador_emissions_electrodomestics
     @cost_electrodomestics = @consum_electrodomestics * @indicador_costos_electrodomestics
     @valoracio_electrodomestics = valoracio_consum 'electrodomestics', @consum_electrodomestics, @xproject.id

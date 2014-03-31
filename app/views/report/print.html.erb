@@ -72,6 +72,22 @@
 
   <div class="print-apartat">
     <h4 class="print">Potencial d'estalvi aplicant millores</h4>
+    <div class="percentatge-estalvi">
+      <div class="numero-percentatge-estalvi">
+        <%= @percentage_savings.to_i %>% <span class="numero-percentatge-estalvi-petit">del consum <sup>*</sup></span>
+      </div>
+      <div class="text-percentatge-estalvi">
+        <p>Aplicant les propostes de millora que s'especifiquen en aquest document podríeu estalviar un <%= @percentage_savings.to_i %>% de l'energia que consumiu cada any.</p>
+      </div>
+    </div>
+    <div class="diners-estalvi">
+      <div class="numero-diners-estalvi">
+        <%= @money_savings.to_i %>€ <span class="numero-diners-estalvi-petit">cada any <sup>*</sup></span>
+      </div>
+      <div class="text-diners-estalvi">
+        <p>Si porteu a terme les propostes de millora podreu estalviar <%= @money_savings.to_i %>€ cada any.</p>
+      </div>
+    </div>
     <div class="print-comparacio-energia">
       <div class="tip-consum consum-actual" style="position: absolute; top: 0px; right: 136px; text-align: right; border-right-style: solid; border-right-width: 2px; border-right-color: #333333; padding-right: 5px; height: 50px;">
         <span>Consum actual</span><br/>
@@ -86,7 +102,9 @@
       <div class="print-barra-energia">
         <%= image_tag('barra_energia.png', :alt => 'barra energia', :class => 'img_barra_energia') %>
       </div>
+      <p><sup>*</sup>El consum d'energia d'un edifici no es pot predir amb exactitud perquè depèn de molts factors variables com l'ús de l'edifici o el clima. Per aquesta raó les estimacions d'estalvi energètic d'aquest document són orientatives.</p>
     </div>
+
   </div>
 
 
@@ -287,9 +305,9 @@
       <tbody>
         <tr>
           <td>Calefacció</td>
-          <td><%= @consum_calefaccio.to_i %></td>
-          <td><%= @emissions_calefaccio.to_i %></td>
-          <td><%= @cost_calefaccio.to_i %></td>
+          <td><%= @consum_calefaccio.to_i %> kWh</td>
+          <td><%= @emissions_calefaccio.to_i %> kg</td>
+          <td><%= @cost_calefaccio.to_i %> €</td>
           <td> 
             <% case @valoracio_calefaccio %>
               <% when -2 %>
@@ -307,9 +325,9 @@
         </tr>
         <tr>
           <td>Refrigeració</td>
-          <td><%= @consum_refrigeracio.to_i %></td>
-          <td><%= @emissions_refrigeracio.to_i %></td>
-          <td><%= @cost_refrigeracio.to_i %></td>
+          <td><%= @consum_refrigeracio.to_i %> kWh</td>
+          <td><%= @emissions_refrigeracio.to_i %> kg</td>
+          <td><%= @cost_refrigeracio.to_i %> €</td>
           <td> 
             <% case @valoracio_refrigeracio %>
               <% when -2 %>
@@ -327,9 +345,9 @@
         </tr>
         <tr>
           <td>ACS</td>
-          <td><%= @consum_acs.to_i %></td>
-          <td><%= @emissions_acs.to_i %></td>
-          <td><%= @cost_acs.to_i %></td>
+          <td><%= @consum_acs.to_i %> kWh</td>
+          <td><%= @emissions_acs.to_i %> kg</td>
+          <td><%= @cost_acs.to_i %> €</td>
           <td> 
             <% case @valoracio_acs %>
               <% when -2 %>
@@ -347,9 +365,9 @@
         </tr>
         <tr>
           <td>Il·luminació</td>
-          <td><%= @consum_iluminacio.to_i %></td>
-          <td><%= @emissions_iluminacio.to_i %></td>
-          <td><%= @cost_iluminacio.to_i %></td>
+          <td><%= @consum_iluminacio.to_i %> kWh</td>
+          <td><%= @emissions_iluminacio.to_i %> kg</td>
+          <td><%= @cost_iluminacio.to_i %> €</td>
           <td> 
             <% case @valoracio_iluminacio %>
               <% when -2 %>
@@ -367,9 +385,9 @@
         </tr>
         <tr>
           <td>Electrodomèstics</td>
-          <td><%= @consum_electrodomestics.to_i %></td>
-          <td><%= @emissions_electrodomestics.to_i %></td>
-          <td><%= @cost_electrodomestics.to_i %></td>
+          <td><%= @consum_electrodomestics.to_i %> kWh</td>
+          <td><%= @emissions_electrodomestics.to_i %> kg</td>
+          <td><%= @cost_electrodomestics.to_i %> €</td>
           <td> 
             <% case @valoracio_electrodomestics %>
               <% when -2 %>
@@ -449,7 +467,7 @@
       </table>
       <p class="print-llegenda">
         Cost de les propostes:<br/>
-        <%= image_tag('font_icons/euro.png', width: "10", height: "10")  %> Menys de 200 € | <%= image_tag('font_icons/euro.png', width: "10", height: "10")  %><%= image_tag('font_icons/euro.png', width: "10", height: "10")  %> Entre 200 € i 1.000 € | <%= image_tag('font_icons/euro.png', width: "10", height: "10")  %><%= image_tag('font_icons/euro.png', width: "10", height: "10")  %><%= image_tag('font_icons/euro.png', width: "10", height: "14")  %> Entre 1.000 i 5.000 € | <%= image_tag('font_icons/euro.png', width: "10", height: "10")  %><%= image_tag('font_icons/euro.png', width: "10", height: "10")  %><%= image_tag('font_icons/euro.png', width: "10", height: "10")  %><%= image_tag('font_icons/euro.png', width: "10", height: "10")  %> Més de 5.000 €
+        <%= image_tag('font_icons/euro.png', width: "10", height: "10")  %> Menys de 200 € | <%= image_tag('font_icons/euro.png', width: "10", height: "10")  %><%= image_tag('font_icons/euro.png', width: "10", height: "10")  %> Entre 200 € i 1.000 € | <%= image_tag('font_icons/euro.png', width: "10", height: "10")  %><%= image_tag('font_icons/euro.png', width: "10", height: "10")  %><%= image_tag('font_icons/euro.png', width: "10", height: "10")  %> Entre 1.000 i 5.000 € | <%= image_tag('font_icons/euro.png', width: "10", height: "10")  %><%= image_tag('font_icons/euro.png', width: "10", height: "10")  %><%= image_tag('font_icons/euro.png', width: "10", height: "10")  %><%= image_tag('font_icons/euro.png', width: "10", height: "10")  %> Més de 5.000 €
       </p>
       <p class="print-llegenda">
         Estalvi econòmic anual de les propostes:<br />
