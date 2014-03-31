@@ -77,7 +77,7 @@
         <%= @percentage_savings.to_i %>% <span class="numero-percentatge-estalvi-petit">del consum <sup>*</sup></span>
       </div>
       <div class="text-percentatge-estalvi">
-        <p>Aplicant les propostes de millora que s'especifiquen en aquest document podríeu estalviar un <%= @percentage_savings.to_i %>% de l'energia que consumiu cada any.</p>
+        <p>Aplicant les propostes de millora podríeu estalviar un <%= @percentage_savings.to_i %>% de l'energia que consumiu cada any.</p>
       </div>
     </div>
     <div class="diners-estalvi">
@@ -102,14 +102,14 @@
       <div class="print-barra-energia">
         <%= image_tag('barra_energia.png', :alt => 'barra energia', :class => 'img_barra_energia') %>
       </div>
-      <p><sup>*</sup>El consum d'energia d'un edifici no es pot predir amb exactitud perquè depèn de molts factors variables com l'ús de l'edifici o el clima. Per aquesta raó les estimacions d'estalvi energètic d'aquest document són orientatives.</p>
+      <p class="print-llegenda"><sup>*</sup>El consum d'energia d'un edifici no es pot predir amb exactitud perquè depèn de molts factors variables com l'ús de l'edifici o el clima. Per aquesta raó les estimacions d'estalvi energètic d'aquest document són orientatives.</p>
     </div>
 
   </div>
 
 
 
-  <div class="print-apartat container-info-tecnic">
+  <div class="container-info-tecnic">
     <div class="print-info-tecnic">
       <h5 class="print">Nom del tècnic:</h5>
       <p><%= @expert.expert_first_name + ' ' + @expert.expert_surname1 + ' ' + @expert.expert_surname2%></p>
