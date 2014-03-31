@@ -6,17 +6,31 @@
 	<meta name="author" content="Jordi Martí Muñoz">
 	<title>Test Energia</title>
 	<style>
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-weight: normal;
+  vertical-align: baseline;
+  background: transparent;
+}
+
 body.print-body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
 }
 
 h2.print-h2 {
-  font-size: 28px;
+  font-size: 22px;
   -webkit-margin-before: 0.7em;
   -webkit-margin-after: 1em;
   text-align: center;
 
+}
+
+p {
+  margin-bottom: 15px;
 }
 
 .print-container {
@@ -45,13 +59,21 @@ h2.print-h2 {
 .print-info-basica {
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
-	min-height: 100px;
+	min-height: 80px;
 	padding: 15px;
 	margin-right: 30px;
 }
 
+h4.print {
+  font-size: 18px;
+  font-weight: bold;
+  -webkit-margin-before: 0px;
+  -webkit-margin-after: 10px;
+}
+
 h5.print {
   font-size: 12px;
+  font-weight: bold;
 	-webkit-margin-before: 0px;
 	-webkit-margin-after: 5px;
 }
@@ -60,6 +82,11 @@ h5.print {
   float: left;
   width: 180px;
   margin-right: 20px;
+}
+
+.container-info-tecnic {
+  border-top: 1px solid #ccc;
+  height: 90px;
 }
 
 .print-info-tecnic {
@@ -104,6 +131,10 @@ h5.print {
   margin-right: 20px;
 }
 
+.valors-etiqueta {
+  margin-bottom: 15px;
+}
+
 .print-distribucio-consums {
   float: left;
   margin-right: 20px;
@@ -122,7 +153,7 @@ h5.print {
 
 .print-comparacio-energia {
   position: relative;
-  height: 150px;
+  height: 140px;
 }
 
 .print-distribucio-llegenda {

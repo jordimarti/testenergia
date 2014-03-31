@@ -52,10 +52,10 @@
   </div>
 
   <div class="print-apartat">
-    <h4>Qualificació energètica de l'habitatge</h4>
+    <h4 class="print">Qualificació energètica de l'habitatge</h4>
     <div class="print-etiqueta">
       <h5 class="print">Emissions de CO<sub>2</sub></h5>
-      <span><%= @xproject.global_emissions %> </span><span class="text-tips">kgCO<sub>2</sub>/m<sup>2</sup>any</span><br/>
+      <p class="valors-etiqueta"><%= @xproject.global_emissions %> kgCO<sub>2</sub>/m<sup>2</sup>any</p>
       <span class="text-tips">Més eficient</span><br/>
       <%= image_tag("etiqueta_" + @xproject.global_emissions_rating.downcase + ".jpg", width: "200", height: "139") %><br/>
       <span class="text-tips">Menys eficient</span>
@@ -63,7 +63,7 @@
 
     <div class="print-etiqueta">
       <h5 class="print">Demanda d'energia primària</h5>
-      <span><%= @xproject.global_primary_energy %> </span><span class="text-tips">kWh/m<sup>2</sup>any</span><br/>
+      <p class="valors-etiqueta"><%= @xproject.global_primary_energy %> kWh/m<sup>2</sup>any</p>
       <span class="text-tips">Més eficient</span><br/>
       <%= image_tag("etiqueta_" + @xproject.global_primary_energy_rating.downcase + ".jpg", width: "200", height: "139") %><br/>
       <span class="text-tips">Menys eficient</span>
@@ -71,7 +71,7 @@
   </div>
 
   <div class="print-apartat">
-    <h4>Potencial d'estalvi aplicant millores</h4>
+    <h4 class="print">Potencial d'estalvi aplicant millores</h4>
     <div class="print-comparacio-energia">
       <div class="tip-consum consum-actual" style="position: absolute; top: 0px; right: 136px; text-align: right; border-right-style: solid; border-right-width: 2px; border-right-color: #333333; padding-right: 5px; height: 50px;">
         <span>Consum actual</span><br/>
@@ -79,7 +79,7 @@
       </div>
       <% #Posem el consum real a 480px de l'esquerra. La posició del consum de millores es busca a partir d'aquesta dada %>
       <% posicio_consum_millores = @total_energy_consumption_improvements*480/@total_energy_consumption %>
-      <div class="tip-consum consum-millores" style="position: absolute; top: 70px; left: <%= posicio_consum_millores %>px; text-align: left; border-left-style: solid; border-left-width: 2px; border-left-color: #333333; padding-left: 5px; padding-top: 20px; height: 50px;">
+      <div class="tip-consum consum-millores" style="position: absolute; top: 70px; left: <%= posicio_consum_millores %>px; text-align: left; border-left-style: solid; border-left-width: 2px; border-left-color: #333333; padding-left: 5px; padding-top: 20px; height: 30px;">
         <span>Consum aplicant propostes de millora</span><br/>
         <span><%= @total_energy_consumption_improvements %> kWh/any</span>
       </div>
@@ -91,19 +91,18 @@
 
 
 
-  <div class="print-apartat">
-    <h4>Informació del tècnic</h4>
+  <div class="print-apartat container-info-tecnic">
     <div class="print-info-tecnic">
       <h5 class="print">Nom del tècnic:</h5>
-      <span><%= @expert.expert_first_name + ' ' + @expert.expert_surname1 + ' ' + @expert.expert_surname2%></span><br/>
+      <p><%= @expert.expert_first_name + ' ' + @expert.expert_surname1 + ' ' + @expert.expert_surname2%></p>
       <h5 class="print">Titulació:</h5>
-      <span><%= @expert.title %></span>
+      <p><%= @expert.title %></p>
     </div>
     <div class="print-info-tecnic2">
       <h5 class="print">Correu electrònic:</h5>
-      <span><%= @expert.email %></span>
+      <p><%= @expert.email %></p>
       <h5 class="print">Telèfon:</h5>
-      <span><%= @expert.expert_telephone %></span>
+      <p><%= @expert.expert_telephone %></p>
     </div>
     <div class="print-data-signatura">
       <h5 class="print">Data i signatura:</h5>
@@ -111,6 +110,7 @@
     </div>
   </div>
 
+  <div class="pagebreak"></div>
   
   <div class="print-apartat"> 
     <h4>Eficiència energètica dels elements constructius</h4>
