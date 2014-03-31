@@ -55,7 +55,7 @@
     <h4 class="print">Qualificació energètica de l'habitatge</h4>
     <div class="print-etiqueta">
       <h5 class="print">Emissions de CO<sub>2</sub></h5>
-      <p class="valors-etiqueta"><%= @xproject.global_emissions %> kgCO<sub>2</sub>/m<sup>2</sup>any</p>
+      <p class="valors-etiqueta"><%= @xproject.global_emissions.to_i %> kgCO<sub>2</sub>/m<sup>2</sup>any</p>
       <span class="text-tips">Més eficient</span><br/>
       <%= image_tag("etiqueta_" + @xproject.global_emissions_rating.downcase + ".jpg", width: "200", height: "139") %><br/>
       <span class="text-tips">Menys eficient</span>
@@ -63,7 +63,7 @@
 
     <div class="print-etiqueta">
       <h5 class="print">Demanda d'energia primària</h5>
-      <p class="valors-etiqueta"><%= @xproject.global_primary_energy %> kWh/m<sup>2</sup>any</p>
+      <p class="valors-etiqueta"><%= @xproject.global_primary_energy.to_i %> kWh/m<sup>2</sup>any</p>
       <span class="text-tips">Més eficient</span><br/>
       <%= image_tag("etiqueta_" + @xproject.global_primary_energy_rating.downcase + ".jpg", width: "200", height: "139") %><br/>
       <span class="text-tips">Menys eficient</span>
@@ -209,13 +209,67 @@
           
         </tbody>
       </table>
-      <p class="print-explicacio">
+      <p class="print-llegenda">
         La valoració que es fa de l'eficiència energètica de cada element és la global per aquell tipus d'element. Per exemple en el cas que hi hagi diferents tipus de façanes la valoració és del conjunt, no d'un tipus de façana en concret.
       </p>
-      <p class="print-explicacio">
-        <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %> Dolent | <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %><%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %><%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %> Acceptable | <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %><%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %><%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %><%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %><%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %> Molt bo
+      <p class="print-llegenda">
+        <%= image_tag('font_icons/estrella.png', width: "10", height: "10")  %> Dolent | <%= image_tag('font_icons/estrella.png', width: "10", height: "10")  %><%= image_tag('font_icons/estrella.png', width: "10", height: "10")  %><%= image_tag('font_icons/estrella.png', width: "10", height: "10")  %> Acceptable | <%= image_tag('font_icons/estrella.png', width: "10", height: "10")  %><%= image_tag('font_icons/estrella.png', width: "10", height: "10")  %><%= image_tag('font_icons/estrella.png', width: "10", height: "10")  %><%= image_tag('font_icons/estrella.png', width: "10", height: "10")  %><%= image_tag('font_icons/estrella.png', width: "10", height: "10")  %> Molt bo
       </p>
     </div>
+  </div>
+
+  <div class="print-apartat">
+    <h4 class="print">Distribució dels consums</h4>
+    <div class="print-distribucio-consums">
+      <script type="text/javascript">
+        google.load("visualization", "1", {packages:["corechart"]});
+        google.setOnLoadCallback(drawChart);
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ['Item', 'Percentatge'],
+            ['Calefacció', <%= @consum_calefaccio %>],
+            ['Refrigeració', <%= @consum_refrigeracio %>],
+            ['Aigua calenta sanitària', <%= @consum_acs %>],
+            ['Il·luminació', <%= @consum_iluminacio %>],
+            ['Electrodomèstics', <%= @consum_electrodomestics %>]
+          ]);
+
+          var options = {
+            legend: 'none',
+            colors:['#de3700','#0098c8', '#ff9a01', '#009802', '#2e63cf'],
+            chartArea:{left:0,top:0,width:"100%",height:"100%"}
+          };
+
+          var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+          chart.draw(data, options);
+        }
+      </script>
+      <div id="piechart" style="width: 300px; height: 200px;"></div>
+    </div>
+
+    <div class="print-distribucio-llegenda">
+      <div class="print-item-llegenda">
+        <div class="llegenda-calefaccio llegenda-container">
+          <%= image_tag('icon_calefaccio.png', :class => 'img_icon') %>
+          <span>Calefacció: <%= @consum_calefaccio.to_i %> kWh/any (<%= (@cost_calefaccio).to_i %>€)</span>
+        </div>
+        <div class="llegenda-refrigeracio llegenda-container">
+          <%= image_tag('icon_refrigeracio.png', :class => 'img_icon') %>
+          <span>Refrigeració: <%= @consum_refrigeracio.to_i %> kWh/any (<%= (@cost_refrigeracio).to_i %>€)</span>
+        </div>
+        <div class="llegenda-acs llegenda-container">
+          <%= image_tag('icon_acs.png', :class => 'img_icon') %>
+          <span>Aigua calenta sanitària: <%= @consum_acs.to_i %> kWh/any (<%= (@cost_acs).to_i %>€)</span>
+        </div>
+        <div class="llegenda-iluminacio llegenda-container">
+          <%= image_tag('icon_iluminacio.png', :class => 'img_icon') %>
+          <span>Il·luminació: <%= @consum_iluminacio.to_i %> kWh/any (<%= (@cost_iluminacio).to_i %>€)</span>
+        </div>
+        <div class="llegenda-electrodomestics llegenda-container">
+          <%= image_tag('icon_electrodomestics.png', :class => 'img_icon') %>
+          <span>Electrodomèstics: <%= @consum_electrodomestics.to_i %> kWh/any (<%= (@cost_electrodomestics).to_i %>€)</span>
+        </div>
+      </div>
   </div>
 
   <div class="print-apartat">
@@ -233,9 +287,9 @@
       <tbody>
         <tr>
           <td>Calefacció</td>
-          <td><%= @consum_calefaccio %></td>
-          <td><%= @emissions_calefaccio %></td>
-          <td><%= @cost_calefaccio %></td>
+          <td><%= @consum_calefaccio.to_i %></td>
+          <td><%= @emissions_calefaccio.to_i %></td>
+          <td><%= @cost_calefaccio.to_i %></td>
           <td> 
             <% case @valoracio_calefaccio %>
               <% when -2 %>
@@ -253,9 +307,9 @@
         </tr>
         <tr>
           <td>Refrigeració</td>
-          <td><%= @consum_refrigeracio %></td>
-          <td><%= @emissions_refrigeracio %></td>
-          <td><%= @cost_refrigeracio %></td>
+          <td><%= @consum_refrigeracio.to_i %></td>
+          <td><%= @emissions_refrigeracio.to_i %></td>
+          <td><%= @cost_refrigeracio.to_i %></td>
           <td> 
             <% case @valoracio_refrigeracio %>
               <% when -2 %>
@@ -273,9 +327,9 @@
         </tr>
         <tr>
           <td>ACS</td>
-          <td><%= @consum_acs %></td>
-          <td><%= @emissions_acs %></td>
-          <td><%= @cost_acs %></td>
+          <td><%= @consum_acs.to_i %></td>
+          <td><%= @emissions_acs.to_i %></td>
+          <td><%= @cost_acs.to_i %></td>
           <td> 
             <% case @valoracio_acs %>
               <% when -2 %>
@@ -293,9 +347,9 @@
         </tr>
         <tr>
           <td>Il·luminació</td>
-          <td><%= @consum_iluminacio %></td>
-          <td><%= @emissions_iluminacio %></td>
-          <td><%= @cost_iluminacio %></td>
+          <td><%= @consum_iluminacio.to_i %></td>
+          <td><%= @emissions_iluminacio.to_i %></td>
+          <td><%= @cost_iluminacio.to_i %></td>
           <td> 
             <% case @valoracio_iluminacio %>
               <% when -2 %>
@@ -313,9 +367,9 @@
         </tr>
         <tr>
           <td>Electrodomèstics</td>
-          <td><%= @consum_electrodomestics %></td>
-          <td><%= @emissions_electrodomestics %></td>
-          <td><%= @cost_electrodomestics %></td>
+          <td><%= @consum_electrodomestics.to_i %></td>
+          <td><%= @emissions_electrodomestics.to_i %></td>
+          <td><%= @cost_electrodomestics.to_i %></td>
           <td> 
             <% case @valoracio_electrodomestics %>
               <% when -2 %>
@@ -337,13 +391,13 @@
       Aquests valors corresponen al promig estimat per un any sobre els consums reals especificats a les factures dels diferents subministraments energètics de l'edifici.
     </p>
     <p class="print-llegenda">
-      <%= image_tag('font_icons/igual.png', width: "14", height: "14")  %> Consum semblant respecte al consum mitjà d'un edifici similar.
+      <%= image_tag('font_icons/igual.png', width: "10", height: "10")  %> Consum semblant respecte al consum mitjà d'un edifici similar.
     </p>
     <p class="print-llegenda">
-      <%= image_tag('font_icons/fletxa-verda-avall.png', width: "14", height: "14")  %> Consum lleugerament inferior. | <%= image_tag('font_icons/fletxa-verda-avall.png', width: "14", height: "14")  %><%= image_tag('font_icons/fletxa-verda-avall.png', width: "14", height: "14")  %> Consum considerablement inferior.
+      <%= image_tag('font_icons/fletxa-verda-avall.png', width: "10", height: "10")  %> Consum lleugerament inferior. | <%= image_tag('font_icons/fletxa-verda-avall.png', width: "10", height: "10")  %><%= image_tag('font_icons/fletxa-verda-avall.png', width: "10", height: "10")  %> Consum considerablement inferior.
     </p>
     <p class="print-llegenda">
-      <%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "14", height: "14")  %> Consum lleugerament superior. | <%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "14", height: "14")  %><%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "14", height: "14")  %> Consum considerablement superior.
+      <%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "10", height: "10")  %> Consum lleugerament superior. | <%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "10", height: "10")  %><%= image_tag('font_icons/fletxa-vermella-amunt.png', width: "10", height: "10")  %> Consum considerablement superior.
     </p>
   </div>
 
@@ -351,7 +405,7 @@
     <h3 class="print">Propostes de millora</h3>
   </div>
   <div>
-    <h4 class="print">Resum</h4>
+    <h4 class="print">Resum de les propostes</h4>
     <div style="position: relative;">
       <table class="print-table">
         <thead>
@@ -395,19 +449,19 @@
       </table>
       <p class="print-llegenda">
         Cost de les propostes:<br/>
-        <%= image_tag('font_icons/euro.png', width: "14", height: "14")  %> Menys de 200 € | <%= image_tag('font_icons/euro.png', width: "14", height: "14")  %><%= image_tag('font_icons/euro.png', width: "14", height: "14")  %> Entre 200 € i 1.000 € | <%= image_tag('font_icons/euro.png', width: "14", height: "14")  %><%= image_tag('font_icons/euro.png', width: "14", height: "14")  %><%= image_tag('font_icons/euro.png', width: "14", height: "14")  %> Entre 1.000 i 5.000 € | <%= image_tag('font_icons/euro.png', width: "14", height: "14")  %><%= image_tag('font_icons/euro.png', width: "14", height: "14")  %><%= image_tag('font_icons/euro.png', width: "14", height: "14")  %><%= image_tag('font_icons/euro.png', width: "14", height: "14")  %> Més de 5.000 €
+        <%= image_tag('font_icons/euro.png', width: "10", height: "10")  %> Menys de 200 € | <%= image_tag('font_icons/euro.png', width: "10", height: "10")  %><%= image_tag('font_icons/euro.png', width: "10", height: "10")  %> Entre 200 € i 1.000 € | <%= image_tag('font_icons/euro.png', width: "10", height: "10")  %><%= image_tag('font_icons/euro.png', width: "10", height: "10")  %><%= image_tag('font_icons/euro.png', width: "10", height: "14")  %> Entre 1.000 i 5.000 € | <%= image_tag('font_icons/euro.png', width: "10", height: "10")  %><%= image_tag('font_icons/euro.png', width: "10", height: "10")  %><%= image_tag('font_icons/euro.png', width: "10", height: "10")  %><%= image_tag('font_icons/euro.png', width: "10", height: "10")  %> Més de 5.000 €
       </p>
       <p class="print-llegenda">
         Estalvi econòmic anual de les propostes:<br />
-        <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %> Menys de 100 € | <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %><%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %> Entre 100 € i 200 € | <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %><%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %><%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %> Entre 200 i 300 € | <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %><%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %><%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %><%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %> Més de 300 €
+        <%= image_tag('font_icons/estrella.png', width: "10", height: "10")  %> Menys de 100 € | <%= image_tag('font_icons/estrella.png', width: "10", height: "10")  %><%= image_tag('font_icons/estrella.png', width: "10", height: "10")  %> Entre 100 € i 200 € | <%= image_tag('font_icons/estrella.png', width: "10", height: "10")  %><%= image_tag('font_icons/estrella.png', width: "10", height: "10")  %><%= image_tag('font_icons/estrella.png', width: "10", height: "10")  %> Entre 200 i 300 € | <%= image_tag('font_icons/estrella.png', width: "10", height: "10")  %><%= image_tag('font_icons/estrella.png', width: "10", height: "10")  %><%= image_tag('font_icons/estrella.png', width: "10", height: "10")  %><%= image_tag('font_icons/estrella.png', width: "10", height: "10")  %> Més de 300 €
       </p>
       <p class="print-llegenda">
         Temps d'amortització de les propostes:<br />
-        <%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %> Menys de 5 anys | <%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %><%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %> De 5 a 10 anys | <%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %><%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %><%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %> De 10 a 15 anys | <%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %><%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %><%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %><%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %> Més de 15 anys
+        <%= image_tag('font_icons/rellotge.png', width: "10", height: "10")  %> Menys de 5 anys | <%= image_tag('font_icons/rellotge.png', width: "10", height: "10")  %><%= image_tag('font_icons/rellotge.png', width: "10", height: "10")  %> De 5 a 10 anys | <%= image_tag('font_icons/rellotge.png', width: "10", height: "10")  %><%= image_tag('font_icons/rellotge.png', width: "10", height: "10")  %><%= image_tag('font_icons/rellotge.png', width: "10", height: "10")  %> De 10 a 15 anys | <%= image_tag('font_icons/rellotge.png', width: "10", height: "10")  %><%= image_tag('font_icons/rellotge.png', width: "10", height: "10")  %><%= image_tag('font_icons/rellotge.png', width: "10", height: "10")  %><%= image_tag('font_icons/rellotge.png', width: "10", height: "10")  %> Més de 15 anys
       </p>
       <p class="print-llegenda">
         Reducció de les emissions de CO<sub>2</sub><br />
-        <%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %> Menys del 10% | <%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %><%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %> Entre el 10% i el 30% | <%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %><%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %><%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %> Entre el 30% i el 60% | <%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %><%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %><%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %><%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %> Més del 60%
+        <%= image_tag('font_icons/fulla.png', width: "10", height: "10")  %> Menys del 10% | <%= image_tag('font_icons/fulla.png', width: "10", height: "10")  %><%= image_tag('font_icons/fulla.png', width: "10", height: "10")  %> Entre el 10% i el 30% | <%= image_tag('font_icons/fulla.png', width: "10", height: "10")  %><%= image_tag('font_icons/fulla.png', width: "10", height: "10")  %><%= image_tag('font_icons/fulla.png', width: "10", height: "10")  %> Entre el 30% i el 60% | <%= image_tag('font_icons/fulla.png', width: "10", height: "10")  %><%= image_tag('font_icons/fulla.png', width: "10", height: "10")  %><%= image_tag('font_icons/fulla.png', width: "10", height: "10")  %><%= image_tag('font_icons/fulla.png', width: "10", height: "10")  %> Més del 60%
       </p>
     </div>
   </div>
