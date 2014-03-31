@@ -45,7 +45,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="<%= @active_inici %>"><%= link_to("Inici", {:controller => '/home', :action => 'index'}) %></li>
           <li class="<%= @active_servei %>"><%= link_to("Servei", {:controller => '/servei', :action => 'index'}) %></li>
-          <li class="<%= @active_joc %>"><%= link_to("Joc", {:controller => '/casajuga', :action => 'index', target: "_blank"}, target: "_blank") %></li>
+          <li class="<%= @active_joc %>"><%= link_to("Joc", {:controller => '/casajuga', :action => 'index'}, target: "_blank") %></li>
           <li class="<%= @active_autotest %>"><%= link_to("AutoTest", {:controller => '/autotest', :action => 'index'}) %></li>
           <li class="dropdown <%= @active_expert %>">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Experts <b class="caret"></b></a>
