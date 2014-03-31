@@ -418,77 +418,81 @@
       <h4 class="print"><%= improvement.name %></h4>
       <div class="print-dades-proposta">
         
-        <h5 class="print">Cost d'execució</h5>
-        <% improvement.cost.times do %>
-          <%= image_tag('font_icons/euro.png', width: "14", height: "14")  %>
-        <% end %>
-        <br/>
-        <% case improvement.cost
-          when 1
-            cost = "Menys de 200 €"
-          when 2
-            cost = "Entre 200 € i 1.000 €"
-          when 3
-            cost = "Entre 1.000 i 5.000 €"
-          when 4
-            cost = "Més de 5.000 €"
-        end %>
-        <p class="print-explicacio-dades"><%= cost %></p>
-        <hr class="print-espaiador-dades">
+        <div class="container-element-lateral">
+          <h5 class="print">Cost d'execució</h5>
+          <% improvement.cost.times do %>
+            <%= image_tag('font_icons/euro.png', width: "14", height: "14")  %>
+          <% end %>
+          <br/>
+          <% case improvement.cost
+            when 1
+              cost = "Menys de 200 €"
+            when 2
+              cost = "Entre 200 € i 1.000 €"
+            when 3
+              cost = "Entre 1.000 i 5.000 €"
+            when 4
+              cost = "Més de 5.000 €"
+          end %>
+          <p class="dades-laterals"><%= cost %></p>
+        </div>
+        
+        <div class="container-element-lateral">
+          <h5 class="print">Estalvi econòmic anual</h5>
+          <% improvement.energy_savings.times do %>
+            <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %>
+          <% end %>
+          <br/>
+          <% case improvement.energy_savings
+            when 1
+              estalvi = "Menys de 100 €"
+            when 2
+              estalvi = "Entre 100 € i 200 €"
+            when 3
+              estalvi = "Entre 200 i 300 €"
+            when 4
+              estalvi = "Més de 300 €"
+          end %>
+          <p class="dades-laterals"><%= estalvi %></p>
+        </div>
 
-        <h5 class="print">Estalvi econòmic anual</h5>
-        <% improvement.energy_savings.times do %>
-          <%= image_tag('font_icons/estrella.png', width: "14", height: "14")  %>
-        <% end %>
-        <br/>
-        <% case improvement.energy_savings
-          when 1
-            estalvi = "Menys de 100 €"
-          when 2
-            estalvi = "Entre 100 € i 200 €"
-          when 3
-            estalvi = "Entre 200 i 300 €"
-          when 4
-            estalvi = "Més de 300 €"
-        end %>
-        <p class="print-explicacio-dades"><%= estalvi %></p>
-        <hr class="print-espaiador-dades">
+        <div class="container-element-lateral">
+          <h5 class="print">Amortització</h5>
+          <% improvement.roi.times do %>
+            <%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %>
+          <% end %>
+          <br/>
+          <% case improvement.roi
+            when 1
+              roi = "Menys de 5 anys"
+            when 2
+              roi = "De 5 a 10 anys"
+            when 3
+              roi = "De 10 a 15 anys"
+            when 4
+              roi = "Més de 15 anys"
+          end %>
+          <p class="dades-laterals"><%= roi %></p>
+        </div>
 
-        <h5 class="print">Amortització</h5>
-        <% improvement.roi.times do %>
-          <%= image_tag('font_icons/rellotge.png', width: "14", height: "14")  %>
-        <% end %>
-        <br/>
-        <% case improvement.roi
-          when 1
-            roi = "Menys de 5 anys"
-          when 2
-            roi = "De 5 a 10 anys"
-          when 3
-            roi = "De 10 a 15 anys"
-          when 4
-            roi = "Més de 15 anys"
-        end %>
-        <p class="print-explicacio-dades"><%= roi %></p>
-        <hr class="print-espaiador-dades">
-
-        <h5 class="print">Reducció emissions de CO<sub>2</sub></h5>
-        <% improvement.emissions_savings.times do %>
-          <%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %>
-        <% end %>
-        <br/>
-        <% case improvement.emissions_savings
-          when 1
-            roi = "Menys del 10%"
-          when 2
-            roi = "Del 10% al 30%"
-          when 3
-            roi = "Del 30% al 60%"
-          when 4
-            roi = "Més del 60%"
-        end %>
-        <p class="print-explicacio-dades"><%= roi %></p>
-        <hr class="print-espaiador-dades">
+        <div class="container-element-lateral">
+          <h5 class="print">Reducció emissions de CO<sub>2</sub></h5>
+          <% improvement.emissions_savings.times do %>
+            <%= image_tag('font_icons/fulla.png', width: "14", height: "14")  %>
+          <% end %>
+          <br/>
+          <% case improvement.emissions_savings
+            when 1
+              roi = "Menys del 10%"
+            when 2
+              roi = "Del 10% al 30%"
+            when 3
+              roi = "Del 30% al 60%"
+            when 4
+              roi = "Més del 60%"
+          end %>
+          <p class="dades-laterals"><%= roi %></p>
+        </div>
       </div>
       <p class="print-explicacio-proposta"><%= improvement.description %></p>
 
