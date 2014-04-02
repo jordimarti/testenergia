@@ -1,30 +1,30 @@
 Testenergia::Application.routes.draw do
   
-  get "admin/index"
-  get "admin/show"
-  get "admin/edit"
-  get "esdevenir_expert/index"
-  get '/casajuga', :to => redirect('/casajuga.html')
-  get "report/print"
-  get "default_improvements/index"
-  get "contacte/index"
-  get "joc/index"
-  get "servei/index"
-  get "improvements/index"
-  get "improvements/show"
-  get "improvements/new"
-  get "improvements/edit"
-  get "improvements/delete"
-  get "xprojects/create_from_project"
-  get "xprojects/show"
-  get "xprojects/new"
-  get "xprojects/edit"
-  get "xprojects/delete"
-  get "projects/index"
-  get "projects/show"
-  get "projects/new"
-  get "projects/edit"
-  get "projects/delete"
+  #get "admin/index"
+  #get "admin/show"
+  #get "admin/edit"
+  #get "esdevenir_expert/index"
+  #get 'casajuga/index', :to => redirect('/casajuga.html')
+  #get "report/print"
+  #get "default_improvements/index"
+  #get "contacte/index"
+  #get "joc/index"
+  #get "servei/index"
+  #get "improvements/index"
+  #get "improvements/show"
+  #get "improvements/new"
+  #get "improvements/edit"
+  #get "improvements/delete"
+  #get "xprojects/create_from_project"
+  #get "xprojects/show"
+  #get "xprojects/new"
+  #get "xprojects/edit"
+  #get "xprojects/delete"
+  #get "projects/index"
+  #get "projects/show"
+  #get "projects/new"
+  #get "projects/edit"
+  #get "projects/delete"
   devise_for :admins
   devise_for :experts
   devise_for :users
@@ -34,6 +34,7 @@ Testenergia::Application.routes.draw do
   root "home#index"
 
   match ':controller(/:action(/:id))', :via => [:get, :post]
+  get '/casajuga/', :to => redirect('/casa_juga.html')
 
 
   # The priority is based upon order of creation: first created -> highest priority.
