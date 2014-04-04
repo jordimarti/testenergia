@@ -2,18 +2,335 @@
 <html lang="ca">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Test Energia">
   <meta name="author" content="Jordi Martí Muñoz">
-
   <title>Test Energia</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <style>
+
+@page { 
+  margin: 0; 
+}
+
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-weight: normal;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body.print-body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+}
+
+h2.print-h2 {
+  font-size: 22px;
+  -webkit-margin-before: 0.7em;
+  -webkit-margin-after: 1em;
+  text-align: center;
+
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+.print-container {
+  margin-left: 80px;
+  margin-top: 40px;
+  width: 700px;
+}
+
+.print-menu {
+  margin-bottom: 40px;
+}
+
+.print-logo {
+  float: left;
+}
+
+.print-top-info {
+  text-align: right;
+  margin-right: 30px;
+}
+
+.print-titol {
+  clear: both;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.print-info-basica {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  min-height: 80px;
+  padding: 15px;
+  margin-right: 30px;
+}
+
+h3.print {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 22px;
+}
+
+h4.print {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+h5.print {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.print-propietari {
+  float: left;
+  width: 180px;
+  margin-right: 20px;
+}
+
+.container-info-tecnic {
+  border-top: 1px solid #ccc;
+  height: 90px;
+  padding-top: 15px;
+  margin-right: 30px;
+}
+
+.print-info-tecnic {
+  float: left;
+  width: 180px;
+  margin-right: 20px;
+}
+
+.print-info-tecnic2 {
+  float: left;
+  width: 180px;
+  margin-right: 20px;
+}
+
+.print-data-signatura {
+  float: left;
+  width: 180px;
+  margin-right: 30px;
+}
+
+.print-adreca {
+  float: left;
+  width: 180px;
+  margin-right: 20px;
+}
+
+.print-caracteristiques {
+  float: left;
+  width: 180px;
+  margin-right: 30px;
+}
+
+.percentatge-estalvi {
+  width: 300px;
+  float: left;
+  margin-right: 10px;
+  padding-right: 15px;
+}
+
+.numero-percentatge-estalvi {
+  font-size: 36px;
+  font-weight: bold;
+  color: #2B972E;
+}
+
+.numero-percentatge-estalvi-petit {
+  font-size: 16px;
+}
+
+.text-percentatge-estalvi {
+
+}
+
+.diners-estalvi {
+  width: 300px;
+  float: left;
+}
+
+.numero-diners-estalvi {
+  font-size: 36px;
+  font-weight: bold;
+  color: #2B972E;
+}
+
+.numero-diners-estalvi-petit {
+  font-size: 16px;
+}
+
+.text-diners-estalvi {
+  
+}
+
+.print-apartat {
+  clear: both;
+  padding-top: 30px;
+  page-break-inside: avoid;
+}
+
+.print-etiqueta {
+  width: 300px;
+  float: left;
+  margin-right: 20px;
+}
+
+.valors-etiqueta {
+  margin-bottom: 15px;
+}
+
+.container-estalvi-millores {
+  margin-right: 30px;
+}
+
+.print-distribucio-consums {
+  float: left;
+  margin-right: 20px;
+}
+
+.print-comparacio {
+  float: left;
+  margin-right: 30px;
+}
+
+.img_barra_energia {
+  width: 616px;
+  height: 40px;
+  margin-top: 40px;
+}
+
+.print-comparacio-energia {
+  clear: both;
+  position: relative;
+  height: 170px;
+}
+
+.print-barra-energia {
+  height: 125px;
+}
+
+.print-distribucio-llegenda {
+  float: left;
+  padding-top: 30px;
+}
+
+.img_icon {
+  width: 12px;
+  height: 12px;
+}
+
+.llegenda-container {
+  margin-bottom: 12px;
+}
+
+.print-table > thead > tr > th {
+  border: 1px solid #999;
+  padding: 4px;
+  background-color: #2B972E;
+  color: white;
+}
+
+th.print-table-header {
+  font-weight: bold;
+}
+
+.print-table > tbody > tr > td {
+  border: 1px solid #999;
+  padding: 4px;
+}
+
+.print-table {
+  border: 1px solid #999;
+  width: 676px;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+
+p.print-llegenda {
+  margin-top: 6px;
+  margin-bottom: 0px;
+  font-size: 10px;
+  line-height: 14px;
+}
+
+.pagebreak { 
+  page-break-before: always; 
+}
+
+.contenidor-millores {
+  padding-top: 50px;
+}
+
+.print-dades-proposta {
+  float: left;
+  width: 200px;
+}
+
+p.print-explicacio-proposta {
+  margin-left: 220px;
+  padding-top: 10px;
+  width: 394px;
+  font-size: 14px;
+  line-height: 18px;
+  white-space: pre-line;
+}
+
+p.print-explicacio-dades {
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 0px;
+}
+
+hr.print-espaiador-dades {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.link-button {
+  padding: 10px;
+  background-color: #0E91A1;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+}
+
+.link-button:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.negative {
+  color: #E41E25;
+}
+
+.positive {
+  color: #2F9746;
+}
+
+.container-element-lateral {
+  border-bottom: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+p.dades-laterals {
+  margin-bottom: 5px;
+}
+  </style>
+  
 </head>
 <body class="print-body">
-	<div class="container print-container">
-		<%= yield %>
-	</div>
+  <div class="container print-container">
+    <%= yield %>
+  </div>
 </body>
 </html>
