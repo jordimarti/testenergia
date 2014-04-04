@@ -1,5 +1,8 @@
 Testenergia::Application.routes.draw do
   
+  get "expert/show_personal_data"
+  get "expert/edit_personal_data"
+  get "expert/update_personal_data"
   #get "admin/index"
   #get "admin/show"
   #get "admin/edit"

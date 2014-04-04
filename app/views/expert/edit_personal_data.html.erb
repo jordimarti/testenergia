@@ -1,0 +1,80 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<%= link_to :action => 'show_personal_data'  do %>
+	      <div class="btn button-page-menu"><span class="glyphicon glyphicon-arrow-left"> </span> Tornar</div>
+	    <% end %>
+			<h2>Edició de dades personals</h2>
+		</div>
+	</div>
+<%= form_for(:expert, :url => {:action => 'update_personal_data', :id => @expert.id}) do |f| %>
+	<div class="row">
+		
+		<div class="col-md-6">
+			
+			<%= f.error_messages %>
+
+      <div class="form-group"><%= f.label :expert_first_name, "Nom" %>
+      	<%= f.text_field :expert_first_name, :autofocus => true, :class => 'form-control' %>
+    	</div>
+
+    	<div class="form-group"><%= f.label :expert_surname1, "Primer cognom" %>
+      	<%= f.text_field :expert_surname1, :class => 'form-control' %>
+    	</div>
+
+    	<div class="form-group"><%= f.label :expert_surname2, "Segon cognom" %>
+      	<%= f.text_field :expert_surname2, :class => 'form-control' %>
+    	</div>
+
+    	<div class="form-group"><%= f.label :expert_id_document_type, "Tipus de document d'identitat" %>
+        <%= f.select(:expert_id_document_type, [['DNI', 0], ['NIE', 1], ['Passaport', 2], ['NIF', 3]], {}, {:class => 'form-control'}) %>
+      </div>
+
+      <div class="form-group"><%= f.label :expert_id_document_number, "Número de document d'identitat" %>
+        <%= f.text_field :expert_id_document_number, :class => 'form-control' %>
+      </div>
+
+      <div class="form-group"><%= f.label :expert_telephone, "Número de telèfon fix" %>
+        <%= f.text_field :expert_telephone, :class => 'form-control' %>
+      </div>
+
+      <div class="form-group"><%= f.label :expert_mobile_phone, "Número de mòbil" %>
+        <%= f.text_field :expert_mobile_phone, :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="col-md-6">      
+      <div class="form-group"><%= f.label :expert_address, "Adreça" %>
+        <%= f.text_field :expert_address, :class => 'form-control' %>
+      </div>
+       
+      <div class="form-group"><%= f.label :expert_zip_code, "Codi postal" %>
+        <%= f.text_field :expert_zip_code, :class => 'form-control' %>
+      </div>  
+
+      <div class="form-group"><%= f.label :expert_town, "Municipi" %>
+        <%= f.text_field :expert_town, :class => 'form-control' %>
+      </div>
+
+      <div class="form-group"><%= f.label :expert_province, "Província" %>
+        <%= f.text_field :expert_province, :class => 'form-control' %>
+      </div>   
+
+      <div class="form-group"><%= f.label :title, "Títol" %>
+        <%= f.text_field :title, :class => 'form-control' %>
+      </div>  
+
+      <div class="form-group"><%= f.label :referee_number, "Número de col·legiat" %>
+        <%= f.text_field :referee_number, :class => 'form-control' %>
+      </div>    
+
+      
+    </div>
+	 </div>
+  <div class="row">
+    <div class="col-md-6">
+    	<div><%= f.submit "Guardar les dades", :class => "btn button-new" %></div>
+    </div>
+  </div>
+<% end %>
+		
+</div>

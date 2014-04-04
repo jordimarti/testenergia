@@ -1,0 +1,38 @@
+<div class="container">
+<div class="row">
+	<div class="col-md-12">
+		<h2>Dades personals</h2>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12  principal-content">
+		<div class="row">
+			<div class="col-md-6">
+				<p><span class="file-label">Nom:</span> <%= @expert.expert_first_name %> <%= @expert.expert_surname1 %> <%= @expert.expert_surname2 %></p>
+				
+				<p><span class="file-label">DNI:</span> <%= @expert.expert_id_document_number %></p>
+
+				<p><span class="file-label">Telèfon fix:</span> <%= @expert.expert_telephone %></p>
+
+				<p><span class="file-label">Telèfon mòbil:</span> <%= @expert.expert_mobile_phone %></p>
+
+				<p><span class="file-label">Telèfon fix:</span> <%= @expert.expert_telephone %></p>
+
+				<p><span class="file-label">Correu electrònic:</span> <%= @expert.email %></p>
+
+			</div>
+			<div class="col-md-6">
+				<p><span class="file-label">Adreça:</span> <%= @expert.expert_address %></p>
+				<p><span class="file-label">Codi postal:</span> <%= @expert.expert_zip_code %></p>
+				<p><span class="file-label">Municipi:</span> <%= @expert.expert_town %></p>
+				<p><span class="file-label">Província:</span> <%= @expert.expert_province %></p>
+				<p><span class="file-label">Títol:</span> <%= @expert.title %></p>
+				<p><span class="file-label">Número de col·legiat/da:</span> <%= @expert.referee_number %></p>
+			</div>
+		</div>
+		
+  	<%= link_to("Editar les dades personals", {:controller => 'expert', :action => 'edit_personal_data'}, :class => 'btn button-new') %>
+	</div>
+</div>
+</div>
