@@ -68,6 +68,15 @@ class XprojectsController < ApplicationController
     if !@xproject.gasoil_price
       @report_warning.push("No heu indicat el preu del gasoil.")
     end
+    if !@xproject.electricity_consumption_improvements
+      @report_warning.push("No heu indicat l'estimació de consum d'electricitat quan s'hagin executat les propostes de millora.")
+    end
+    if !@xproject.gas_consumption_improvements
+      @report_warning.push("No heu indicat l'estimació de consum de gas quan s'hagin executat les propostes de millora.")
+    end
+    if !@xproject.gasoil_consumption_improvements
+      @report_warning.push("No heu indicat l'estimació de consum de gasoil quan s'hagin executat les propostes de millora.")
+    end
     if @improvements.length == 0
       @report_warning.push("No heu fet cap proposta de millora.")
     end
