@@ -1,27 +1,4 @@
-<div class="container">
-<div class="row">
-  <div class="col-md-4 side-content">
-    <%= link_to :action => 'index' do %>
-			<div class="btn button-page-menu"><span class="glyphicon glyphicon-arrow-left"> </span> Tornar a la llista d'AutoTests</div>
-		<% end %>
-	</div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-		<h2 class="page-title">Informe AutoTest Energia</h2>
-	</div>
-</div>
-<div class="row">
-  <div class="col-md-4 side-content">
-    <p>Aquest informe no és un document legal i no té cap validesa per al compliment del Real Decret 235/2013 sobre certificació energètica d'edificis.</p>
-    <p>La qualificació energètica que apareix en aquest informe és orientativa, així com també ho són les recomanacions de millora. No es tenen en compte tots els factors que condicionen el comportament energètic d'un edifici i per tant és possible que els resultats no siguin acurats.</p>
-    <p>Recordeu que si voleu un informe més detallat i complet, juntament amb una certificació energètica vàlida a efectes legals, podeu contractar un Test Energia.</p>
-    <%= link_to :action => 'infotest', :id => @project.id do %>
-			<div class="btn button-page-menu"> </span> Sol·licitar Test Energia</div> 
-		<% end %>
-    </div>
-  <div class="col-md-8 principal-content">
-		<h3><%= @project.name %></h3>
+		<h3 class="titol-informe"><%= @project.name %></h3>
 		<h4>Qualificació energètica</h4>
 		<% if !@simulation %>
 			<p>Heu introduït massa poca informació com per poder determinar la qualificació energètica del vostre habitatge. Si us plau introduïu més informació.</p>
@@ -91,16 +68,3 @@
 			<% end %>
 
 		<% end %>
-
-		<%= link_to :action => 'edit', :id => @project.id do %>
-			<div class="btn button-new"><span class="glyphicon glyphicon-pencil"> </span> Editar dades</div>
-		<% end %>
-
-		<%= link_to :action => 'print', :id => @project.id do %>
-			<div class="btn button-new"><span class="glyphicon glyphicon-print"> </span> Versió per imprimir</div>
-		<% end %>
-		
-		
-	</div>
-</div>
-</div>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Test Energia">
+  <meta name="author" content="Jordi Martí Muñoz">
+
+  <title>Test Energia</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+
+ 
+</head>
+<body>
+   <style>
+    body {
+      margin: 10mm 20mm 20mm 20mm;
+    }
+
+    .row {
+      margin-bottom: 30px;
+    }
+
+    .capcalera {
+      text-align: right;
+      margin-top: 40px;
+      margin-right: 60px;
+    }
+
+    .titol-informe {
+      text-align: center;
+    }
+
+    .footer-text > p{
+      font-size: 12px;
+      line-height: 15px;
+      margin-bottom: 10px;
+    }
+  </style>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <%= image_tag('logo_test_energia_petit.svg', :alt => 'logo', :class => 'img-responsive') %>
+      </div>
+      <div class="col-md-8">
+        <h3 class="capcalera">www.testenergia.cat</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-10">
+        <%= yield %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-10 footer-text">
+        <p>Aquest informe no és un document legal i no té cap validesa per al compliment del Real Decret 235/2013 sobre certificació energètica d'edificis. La qualificació energètica que apareix en aquest informe és orientativa, així com també ho són les recomanacions de millora. No es tenen en compte tots els factors que condicionen el comportament energètic d'un edifici i per tant és possible que els resultats no siguin acurats.</p>
+        <p>Recordeu que si voleu un informe més detallat i complet, juntament amb una certificació energètica vàlida a efectes legals, podeu contractar un Test Energia a wwww.testenergia.cat o trucant al 93 393 37 40.</p>
+      </div>
+  </div>
+
+</body>
+</html>
